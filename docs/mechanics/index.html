@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechanics - Examples</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mechanics: Sample Examples</h1>
+
+  <h2>1. Kinematic Equation</h2>
+  <p>For motion under constant acceleration:</p>
+  <div class="equation">
+    v = u + at
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>v</strong> = final velocity</li>
+    <li><strong>u</strong> = initial velocity</li>
+    <li><strong>a</strong> = acceleration</li>
+    <li><strong>t</strong> = time</li>
+  </ul>
+
+  <h2>2. Newton's Second Law</h2>
+  <p>The net force acting on a particle is:</p>
+  <div class="equation">
+    F = ma
+  </div>
+
+  <h2>3. Work Done by a Force</h2>
+  <p>The work done by a force <em>F</em> over a displacement <em>d</em> is:</p>
+  <div class="equation">
+    W = \vec{F} \cdot \vec{d} = Fd \cos(\theta)
+  </div>
+
+  <h2>4. Vector Example in Python</h2>
+  <pre><code>import numpy as np
+
+A = np.array([2, 3, 1])
+B = np.array([1, -1, 4])
+
+# Vector dot product
+dot = np.dot(A, B)
+print("A · B =", dot)
+
+# Cross product
+cross = np.cross(A, B)
+print("A x B =", cross)</code></pre>
+
+  <footer>
+    <p><a href="index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
