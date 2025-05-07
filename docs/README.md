@@ -1,3 +1,4 @@
+```
 physics_project/
 ├── mechanics/
 │   ├── module_1_vector_algebra/
@@ -97,3 +98,7 @@ physics_project/
 ├── README.md  # Description of the project, instructions for use
 ├── requirements.txt  # List of Python libraries like NumPy, SciPy, SymPy
 └── [Optional] website/  # For making an interactive, web-based platform
+
+
+
+```
