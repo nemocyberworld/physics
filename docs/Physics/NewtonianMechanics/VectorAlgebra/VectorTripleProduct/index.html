@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Vector Triple Product</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Vector Triple Product</h1>
+
+  <h2>1. Definition</h2>
+  <p>The vector triple product is an operation involving three vectors in 3D space. The expression for the vector triple product is:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times \vec{C}) $$
+  </div>
+  <p>This means that we take the cross product of vector \(\vec{A}\) with the cross product of vectors \(\vec{B}\) and \(\vec{C}\).</p>
+
+  <h2>2. Vector Triple Product Identity</h2>
+  <p>The vector triple product identity is a formula used to simplify expressions involving the vector triple product:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times \vec{C}) = (\vec{A} \cdot \vec{C})\vec{B} - (\vec{A} \cdot \vec{B})\vec{C} $$
+  </div>
+  <p>This identity is helpful because it allows us to rewrite the vector triple product as a combination of dot products and simpler cross products.</p>
+
+  <h2>3. Geometric Interpretation</h2>
+  <p>In geometrical terms, the cross product \(\vec{B} \times \vec{C}\) results in a vector that is perpendicular to both \(\vec{B}\) and \(\vec{C}\). When we cross this result with \(\vec{A}\), the result is a vector that lies in the plane formed by \(\vec{A}\) and \(\vec{B}\), and its magnitude is proportional to the area of the parallelogram formed by these vectors.</p>
+
+  <h2>4. Example 1: Simplifying a Vector Triple Product</h2>
+  <p>Given the following vectors:</p>
+  <div class="equation">
+    $$ \vec{A} = 2\hat{i} + 3\hat{j} + \hat{k} $$
+  </div>
+  <div class="equation">
+    $$ \vec{B} = \hat{i} - 2\hat{j} + 4\hat{k} $$
+  </div>
+  <div class="equation">
+    $$ \vec{C} = 3\hat{i} + \hat{j} - 5\hat{k} $$
+  </div>
+  <p>Let's compute \(\vec{A} \times (\vec{B} \times \vec{C})\) using the identity.</p>
+  <p>First, calculate the dot products:</p>
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{C} = (2)(3) + (3)(1) + (1)(-5) = 4 $$
+  </div>
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{B} = (2)(1) + (3)(-2) + (1)(4) = 0 $$
+  </div>
+  <p>Now, using the identity:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times \vec{C}) = (4)\vec{B} - (0)\vec{C} = 4\vec{B} $$
+  </div>
+  <p>Multiply vector \(\vec{B}\) by 4:</p>
+  <div class="equation">
+    $$ 4\vec{B} = 4(\hat{i} - 2\hat{j} + 4\hat{k}) = 4\hat{i} - 8\hat{j} + 16\hat{k} $$
+  </div>
+  <p>Thus, the simplified result is:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times \vec{C}) = 4\hat{i} - 8\hat{j} + 16\hat{k} $$
+  </div>
+
+  <h2>5. Example 2: Visualizing the Vector Triple Product</h2>
+  <p>Now, let’s visualize vectors in 2D space. Consider the following vectors:</p>
+  <div class="equation">
+    $$ \vec{A} = 3\hat{i} + 2\hat{j} $$
+  </div>
+  <div class="equation">
+    $$ \vec{B} = \hat{i} + \hat{j} $$
+  </div>
+  <div class="equation">
+    $$ \vec{C} = 2\hat{i} - \hat{j} $$
+  </div>
+  <p>We will compute the cross product \(\vec{B} \times \vec{C}\) and then find the vector triple product \(\vec{A} \times (\vec{B} \times \vec{C})\).</p>
+  <p>First, compute the cross product \(\vec{B} \times \vec{C}\):</p>
+  <div class="equation">
+    $$ \vec{B} \times \vec{C} = \left| \begin{matrix} \hat{i} & \hat{j} & \hat{k} \\ 1 & 1 & 0 \\ 2 & -1 & 0 \end{matrix} \right| = -3\hat{k} $$
+  </div>
+  <p>Now, compute \(\vec{A} \times (-3\hat{k})\):</p>
+  <div class="equation">
+    $$ \vec{A} \times (-3\hat{k}) = (-3)(3\hat{i} + 2\hat{j}) \times \hat{k} = 6\hat{i} - 9\hat{j} $$
+  </div>
+  <p>Thus, the vector triple product is:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times \vec{C}) = 6\hat{i} - 9\hat{j} $$
+  </div>
+
+  <h2>6. Application: Simplifying Complex Expressions</h2>
+  <p>We can apply the vector triple product identity to simplify complex vector expressions. For instance, consider:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times (\vec{C} \times \vec{D})) $$
+  </div>
+  <p>Using the identity:</p>
+  <div class="equation">
+    $$ \vec{A} \times (\vec{B} \times (\vec{C} \times \vec{D})) = (\vec{A} \cdot \vec{D})\vec{B} - (\vec{A} \cdot \vec{B})\vec{C} \times \vec{D} $$
+  </div>
+  <p>This simplification eliminates the need to compute the triple cross product directly.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
