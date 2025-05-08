@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scalar (Dot) Product - Physics</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Scalar (Dot) Product</h1>
+
+  <h2>1. What is the Scalar (Dot) Product?</h2>
+  <p>The scalar product, also known as the dot product, is an algebraic operation that takes two equal-length vectors and returns a single number (a scalar). It reflects the extent to which two vectors point in the same direction.</p>
+
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{B} = |\vec{A}||\vec{B}|\cos\theta $$
+  </div>
+
+  <p>Here:</p>
+  <ul>
+    <li>\( \vec{A}, \vec{B} \): Vectors</li>
+    <li>\( |\vec{A}|, |\vec{B}| \): Magnitudes (lengths) of the vectors</li>
+    <li>\( \theta \): Angle between the vectors (in radians)</li>
+  </ul>
+
+  <h2>2. Properties of the Dot Product</h2>
+  <ul>
+    <li><strong>Commutative:</strong> \( \vec{A} \cdot \vec{B} = \vec{B} \cdot \vec{A} \)</li>
+    <li><strong>Distributive:</strong> \( \vec{A} \cdot (\vec{B} + \vec{C}) = \vec{A} \cdot \vec{B} + \vec{A} \cdot \vec{C} \)</li>
+    <li><strong>Scalar Result:</strong> The result is a single real number, not a vector.</li>
+  </ul>
+
+  <h2>3. Dot Product in Component Form</h2>
+  <p>If vectors are expressed as components:</p>
+
+  <div class="equation">
+    $$ \vec{A} = A_x \hat{i} + A_y \hat{j} + A_z \hat{k} $$
+    $$ \vec{B} = B_x \hat{i} + B_y \hat{j} + B_z \hat{k} $$
+  </div>
+
+  <p>Then the dot product is:</p>
+
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{B} = A_xB_x + A_yB_y + A_zB_z $$
+  </div>
+
+  <h2>4. Geometric Meaning</h2>
+  <p>The dot product measures how much of one vector goes in the direction of another. It’s especially useful when discussing projections and work in physics.</p>
+
+  <h2>5. Applications</h2>
+  <ul>
+    <li><strong>Work done by a force:</strong> \( W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos\theta \)</li>
+    <li><strong>Projection of vector \( \vec{A} \) onto \( \vec{B} \):</strong>
+      <div class="equation">
+        $$ \text{proj}_{\vec{B}} \vec{A} = \frac{\vec{A} \cdot \vec{B}}{|\vec{B}|} $$
+      </div>
+    </li>
+    <li><strong>Testing for orthogonality:</strong> If \( \vec{A} \cdot \vec{B} = 0 \), then \( \vec{A} \) and \( \vec{B} \) are perpendicular.</li>
+  </ul>
+
+  <h2>6. Example 1: Simple Dot Product</h2>
+  <p>Let \( \vec{A} = 2\hat{i} + 3\hat{j} \), and \( \vec{B} = 4\hat{i} + \hat{j} \).</p>
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{B} = 2 \cdot 4 + 3 \cdot 1 = 8 + 3 = 11 $$
+  </div>
+
+  <h2>7. Example 2: Perpendicular Vectors</h2>
+  <p>If \( \vec{A} = \hat{i} \), \( \vec{B} = \hat{j} \), then:</p>
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{B} = 1 \cdot 0 + 0 \cdot 1 = 0 $$
+  </div>
+  <p>So the vectors are orthogonal (perpendicular).</p>
+
+  <h2>8. Python Example 1: Compute Dot Product</h2>
+  <pre><code>import numpy as np
+
+A = np.array([2, 3])
+B = np.array([4, 1])
+
+dot_product = np.dot(A, B)
+print("Dot Product:", dot_product)
+</code></pre>
+
+  <h2>9. Python Example 2: Angle Between Vectors</h2>
+  <pre><code>
+        import numpy as np
+        import matplotlib.pyplot as plt
+        
+        # Function to plot vectors
+        def plot_vectors(A, B, ax, label_A="A", label_B="B"):
+            ax.quiver(0, 0, A[0], A[1], angles='xy', scale_units='xy', scale=1, color='r', label=label_A)
+            ax.quiver(0, 0, B[0], B[1], angles='xy', scale_units='xy', scale=1, color='b', label=label_B)
+            ax.set_xlim(-5, 5)
+            ax.set_ylim(-5, 5)
+            ax.set_aspect('equal')
+            ax.grid(True)
+            ax.axhline(0, color='black',linewidth=1)
+            ax.axvline(0, color='black',linewidth=1)
+            ax.legend()
+        
+        # Function to calculate and display dot product and angle
+        def compute_and_display_dot_product(A, B):
+            dot_product = np.dot(A, B)
+            magnitude_A = np.linalg.norm(A)
+            magnitude_B = np.linalg.norm(B)
+            cos_theta = dot_product / (magnitude_A * magnitude_B)
+            angle_rad = np.arccos(cos_theta)
+            angle_deg = np.degrees(angle_rad)
+        
+            print(f"Dot Product of A and B: {dot_product}")
+            print(f"Angle between A and B: {angle_deg:.2f} degrees")
+        
+            return dot_product, angle_deg
+        
+        # Example 1: Simple Dot Product
+        A1 = np.array([2, 3])
+        B1 = np.array([4, 1])
+        
+        fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+        
+        # Plot vectors A1 and B1
+        plot_vectors(A1, B1, ax[0], label_A="A1", label_B="B1")
+        ax[0].set_title("Example 1: Vectors A1 and B1")
+        
+        # Compute and display the dot product
+        compute_and_display_dot_product(A1, B1)
+        
+        # Example 2: Perpendicular Vectors
+        A2 = np.array([1, 0])
+        B2 = np.array([0, 1])
+        
+        # Plot vectors A2 and B2
+        plot_vectors(A2, B2, ax[1], label_A="A2", label_B="B2")
+        ax[1].set_title("Example 2: Perpendicular Vectors A2 and B2")
+        
+        # Compute and display the dot product
+        compute_and_display_dot_product(A2, B2)
+        
+        plt.tight_layout()
+        plt.show()
+        
+        # Example 3: Angle Between Two Vectors
+        A3 = np.array([3, 4])
+        B3 = np.array([4, -3])
+        
+        # Compute and display dot product and angle
+        dot_product_3, angle_3 = compute_and_display_dot_product(A3, B3)
+        
+        # Visualize the vectors
+        fig, ax = plt.subplots(figsize=(6, 6))
+        plot_vectors(A3, B3, ax, label_A="A3", label_B="B3")
+        ax.set_title(f"Example 3: Angle Between Vectors A3 and B3\nAngle = {angle_3:.2f} degrees")
+        plt.show()
+        
+        # Example 4: Dot Product and Work Done by a Force
+        A4 = np.array([5, 0])  # Force vector (along x-axis)
+        B4 = np.array([2, 3])  # Displacement vector (in any direction)
+        
+        # Compute and display dot product (Work done)
+        work_done, _ = compute_and_display_dot_product(A4, B4)
+        print(f"\nWork Done by the Force: {work_done:.2f} Joules")        
+</code></pre>
+
+  <h2>10. Visual Insight</h2>
+  <p>Imagine two arrows on a plane. The more aligned they are, the bigger the dot product. If they point in exactly the same direction, the dot product is maximum. If they are perpendicular, the dot product is zero.</p>
+
+  <h2>11. Common Misunderstandings</h2>
+  <ul>
+    <li>Confusing dot product with cross product: The dot product gives a scalar, while the cross product gives a vector.</li>
+    <li>Assuming the angle is always in degrees: Use radians unless otherwise stated.</li>
+    <li>Forgetting to normalize vectors when calculating projections.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
