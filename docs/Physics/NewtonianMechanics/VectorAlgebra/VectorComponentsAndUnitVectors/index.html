@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Components and Unit Vectors</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vector Components and Unit Vectors</h1>
+
+  <h2>1. Components of a Vector in Cartesian Coordinates</h2>
+  <p>A vector \(\vec{A}\) in 3D space can be written in terms of its components along the \(x\), \(y\), and \(z\)-axes:</p>
+  <div class="equation">
+    $$ \vec{A} = A_x \hat{i} + A_y \hat{j} + A_z \hat{k} $$
+  </div>
+  <p>Here, \(A_x\), \(A_y\), and \(A_z\) are the components of the vector along the \(x\), \(y\), and \(z\)-axes, and \(\hat{i}\), \(\hat{j}\), and \(\hat{k}\) are unit vectors along the respective axes.</p>
+
+  <h2>2. Finding the Magnitude of a Vector</h2>
+  <p>The magnitude of a vector \(\vec{A} = A_x \hat{i} + A_y \hat{j} + A_z \hat{k}\) is given by:</p>
+  <div class="equation">
+    $$ |\vec{A}| = \sqrt{A_x^2 + A_y^2 + A_z^2} $$
+  </div>
+  <p>This formula gives the length of the vector in 3D space.</p>
+  
+  <h3>Example:</h3>
+  <p>If \(\vec{A} = 3 \hat{i} + 4 \hat{j} + 5 \hat{k}\), then:</p>
+  <div class="equation">
+    $$ |\vec{A}| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} \approx 7.07 $$
+  </div>
+
+  <h2>3. Direction Cosines and Direction Ratios</h2>
+  <p>The direction cosines of a vector \(\vec{A} = A_x \hat{i} + A_y \hat{j} + A_z \hat{k}\) are the cosines of the angles between the vector and the coordinate axes. They are given by:</p>
+  <div class="equation">
+    $$ \cos(\alpha) = \frac{A_x}{|\vec{A}|}, \quad \cos(\beta) = \frac{A_y}{|\vec{A}|}, \quad \cos(\gamma) = \frac{A_z}{|\vec{A}|} $$
+  </div>
+  <p>Where \(\alpha\), \(\beta\), and \(\gamma\) are the angles that the vector makes with the \(x\)-axis, \(y\)-axis, and \(z\)-axis, respectively.</p>
+
+  <h3>Example:</h3>
+  <p>If \(\vec{A} = 3 \hat{i} + 4 \hat{j} + 5 \hat{k}\), then:</p>
+  <div class="equation">
+    $$ \cos(\alpha) = \frac{3}{7.07} \approx 0.424, \quad \cos(\beta) = \frac{4}{7.07} \approx 0.566, \quad \cos(\gamma) = \frac{5}{7.07} \approx 0.707 $$
+  </div>
+  <p>The direction cosines of \(\vec{A}\) are approximately 0.424, 0.566, and 0.707.</p>
+
+  <h2>4. Angle Between Two Vectors</h2>
+  <p>The angle \(\theta\) between two vectors \(\vec{A}\) and \(\vec{B}\) can be found using the dot product formula:</p>
+  <div class="equation">
+    $$ \cos(\theta) = \frac{\vec{A} \cdot \vec{B}}{|\vec{A}| |\vec{B}|} $$
+  </div>
+  <p>Where \(\vec{A} \cdot \vec{B}\) is the dot product of the two vectors and \( |\vec{A}| \) and \( |\vec{B}| \) are their magnitudes.</p>
+
+  <h3>Example:</h3>
+  <p>Let \(\vec{A} = 3 \hat{i} + 4 \hat{j} + 5 \hat{k}\) and \(\vec{B} = 1 \hat{i} + 2 \hat{j} + 3 \hat{k}\). To find the angle between them:</p>
+  <div class="equation">
+    $$ \vec{A} \cdot \vec{B} = (3)(1) + (4)(2) + (5)(3) = 26 $$
+  </div>
+  <p>Then, calculate the magnitudes:</p>
+  <div class="equation">
+    $$ |\vec{A}| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{50} \approx 7.07, \quad |\vec{B}| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{14} \approx 3.74 $$
+  </div>
+  <p>Now, calculate the cosine of the angle:</p>
+  <div class="equation">
+    $$ \cos(\theta) = \frac{26}{7.07 \times 3.74} \approx 0.989 $$
+  </div>
+  <p>Finally, the angle is:</p>
+  <div class="equation">
+    $$ \theta = \cos^{-1}(0.989) \approx 8.1^\circ $$
+  </div>
+  <p>The angle between vectors \(\vec{A}\) and \(\vec{B}\) is approximately \(8.1^\circ\).</p>
+  <p>
+    <h2>Animation</h2>
+    <pre>
+    <code>    import numpy as np
+        import matplotlib.pyplot as plt
+        from matplotlib.animation import FuncAnimation
+        
+        # Define vectors
+        A = np.array([3, 4, 5])  # Vector A
+        B = np.array([1, 2, 3])  # Vector B
+        
+        # Function to compute magnitude of a vector
+        def magnitude(vector):
+            return np.linalg.norm(vector)
+        
+        # Function to compute the angle between two vectors
+        def angle_between_vectors(A, B):
+            dot_product = np.dot(A, B)
+            mag_A = magnitude(A)
+            mag_B = magnitude(B)
+            cos_theta = dot_product / (mag_A * mag_B)
+            theta = np.arccos(cos_theta)
+            return np.degrees(theta)
+        
+        # Setup the figure and axis for the animation
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        
+        # Setting the limits for the plot
+        ax.set_xlim([0, 6])
+        ax.set_ylim([0, 6])
+        ax.set_zlim([0, 6])
+        
+        # Adding labels
+        ax.set_xlabel('X axis')
+        ax.set_ylabel('Y axis')
+        ax.set_zlabel('Z axis')
+        
+        # Create the quiver plot (arrows for vectors)
+        quiver_A = ax.quiver(0, 0, 0, A[0], A[1], A[2], color='b', label="Vector A (3i + 4j + 5k)", linewidth=2)
+        quiver_B = ax.quiver(0, 0, 0, B[0], B[1], B[2], color='r', label="Vector B (i + 2j + 3k)", linewidth=2)
+        
+        # Function to draw the dotted lines representing vector components
+        def draw_dotted_line(start, end, color):
+            ax.plot([start[0], end[0]], [start[1], end[1]], [start[2], end[2]], color=color, linestyle=':', linewidth=2)
+        
+        # Add text annotations for the components of the vectors
+        text_A = ax.text(3.5, 0, 0, f"A = {A}", color='blue')
+        text_B = ax.text(0, 2.5, 0, f"B = {B}", color='red')
+        
+        # Create the figure title and labels for magnitude and angle
+        title = ax.set_title(f"Angle between A and B: {angle_between_vectors(A, B):.2f}°", fontsize=12)
+        
+        # Update function for animation
+        def update(frame):
+            # Animate Vector A and Vector B
+            ax.cla()  # Clear the axis
+            ax.set_xlim([0, 6])
+            ax.set_ylim([0, 6])
+            ax.set_zlim([0, 6])
+        
+            # Re-add the vectors and components at each frame
+            ax.quiver(0, 0, 0, A[0], A[1], A[2], color='b', label="Vector A", linewidth=2)
+            ax.quiver(0, 0, 0, B[0], B[1], B[2], color='r', label="Vector B", linewidth=2)
+        
+            # Draw the dotted lines for the components of the vectors
+            draw_dotted_line([0, 0, 0], [A[0], 0, 0], 'blue')  # X-component of A
+            draw_dotted_line([A[0], 0, 0], [A[0], A[1], 0], 'blue')  # Y-component of A
+            draw_dotted_line([A[0], A[1], 0], [A[0], A[1], A[2]], 'blue')  # Z-component of A
+        
+            draw_dotted_line([0, 0, 0], [B[0], 0, 0], 'red')  # X-component of B
+            draw_dotted_line([B[0], 0, 0], [B[0], B[1], 0], 'red')  # Y-component of B
+            draw_dotted_line([B[0], B[1], 0], [B[0], B[1], B[2]], 'red')  # Z-component of B
+        
+            # Re-add the text labels
+            ax.text(3.5, 0, 0, f"A = {A}", color='blue')
+            ax.text(0, 2.5, 0, f"B = {B}", color='red')
+        
+            # Update the title with the new angle between vectors
+            title.set_text(f"Angle between A and B: {angle_between_vectors(A, B):.2f}°")
+            
+        # Create the animation
+        ani = FuncAnimation(fig, update, frames=np.linspace(0, 2 * np.pi, 60), interval=100)
+        
+        # Show the plot
+        plt.show()
+        </code>
+    </pre>
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
