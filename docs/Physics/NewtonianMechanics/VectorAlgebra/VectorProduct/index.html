@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Cross Product - Physics Examples</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Vector (Cross) Product</h1>
+
+  <h2>1. Definition</h2>
+  <p>The <strong>vector (or cross) product</strong> of two vectors \( \vec{A} \) and \( \vec{B} \) is another vector \( \vec{C} = \vec{A} \times \vec{B} \) that is perpendicular to both \( \vec{A} \) and \( \vec{B} \). The magnitude of \( \vec{C} \) is given by:</p>
+  <div class="equation">
+    $$
+    \vec{A} \times \vec{B} = |\vec{A}||\vec{B}|\sin\theta\, \hat{n}
+    $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( |\vec{A}| \) and \( |\vec{B}| \) are the magnitudes of the vectors</li>
+    <li>\( \theta \) is the angle between \( \vec{A} \) and \( \vec{B} \)</li>
+    <li>\( \hat{n} \) is a unit vector perpendicular to both \( \vec{A} \) and \( \vec{B} \) (right-hand rule)</li>
+  </ul>
+
+  <h2>2. Right-Hand Rule</h2>
+  <p>To determine the direction of the vector product, point your right-hand fingers along \( \vec{A} \), curl them toward \( \vec{B} \), and your thumb points in the direction of \( \vec{A} \times \vec{B} \).</p>
+
+  <h2>3. Properties</h2>
+  <ul>
+    <li><strong>Anticommutative:</strong> \( \vec{A} \times \vec{B} = - (\vec{B} \times \vec{A}) \)</li>
+    <li><strong>Distributive:</strong> \( \vec{A} \times (\vec{B} + \vec{C}) = \vec{A} \times \vec{B} + \vec{A} \times \vec{C} \)</li>
+    <li><strong>Not associative:</strong> \( \vec{A} \times (\vec{B} \times \vec{C}) \neq (\vec{A} \times \vec{B}) \times \vec{C} \)</li>
+    <li><strong>Zero result if vectors are parallel:</strong> \( \vec{A} \times \vec{B} = 0 \) if \( \theta = 0^\circ \text{ or } 180^\circ \)</li>
+  </ul>
+
+  <h2>4. Geometrical Interpretation</h2>
+  <p>The magnitude of the cross product equals the area of the parallelogram formed by \( \vec{A} \) and \( \vec{B} \):</p>
+  <div class="equation">
+    $$
+    \text{Area} = |\vec{A} \times \vec{B}| = |\vec{A}||\vec{B}|\sin\theta
+    $$
+  </div>
+
+  <h2>5. Applications</h2>
+
+  <h3>5.1 Torque</h3>
+  <p>Torque is the cross product of position vector \( \vec{r} \) and force vector \( \vec{F} \):</p>
+  <div class="equation">
+    $$
+    \vec{\tau} = \vec{r} \times \vec{F}
+    $$
+  </div>
+  <p>This gives the tendency of a force to cause rotation about a point.</p>
+
+  <h3>5.2 Angular Momentum</h3>
+  <p>Angular momentum is given by the cross product of position \( \vec{r} \) and linear momentum \( \vec{p} \):</p>
+  <div class="equation">
+    $$
+    \vec{L} = \vec{r} \times \vec{p}
+    $$
+  </div>
+
+  <h3>5.3 Area of a Parallelogram</h3>
+  <p>If two vectors represent adjacent sides of a parallelogram, the area is the magnitude of their cross product.</p>
+
+  <h2>6. Example Calculations</h2>
+
+  <h3>6.1 Cross Product in Component Form</h3>
+  <p>Given:</p>
+  <div class="equation">
+    $$
+    \vec{A} = 2\hat{i} + 3\hat{j} + \hat{k}, \quad \vec{B} = \hat{i} - \hat{j} + 4\hat{k}
+    $$
+  </div>
+  <p>Then:</p>
+  <div class="equation">
+    $$
+    \vec{A} \times \vec{B} =
+    \begin{vmatrix}
+      \hat{i} & \hat{j} & \hat{k} \\
+      2 & 3 & 1 \\
+      1 & -1 & 4
+    \end{vmatrix}
+    = (3\cdot4 - 1\cdot(-1))\hat{i} - (2\cdot4 - 1\cdot1)\hat{j} + (2\cdot(-1) - 3\cdot1)\hat{k} \\
+    = (12 + 1)\hat{i} - (8 - 1)\hat{j} + (-2 - 3)\hat{k} \\
+    = 13\hat{i} - 7\hat{j} - 5\hat{k}
+    $$
+  </div>
+
+  <h3>6.2 Area Example</h3>
+  <p>Let \( \vec{A} = 3\hat{i} + 2\hat{j} \), \( \vec{B} = \hat{i} + 4\hat{j} \). Then:</p>
+  <pre><code># Area of parallelogram formed by A and B
+import numpy as np
+
+A = np.array([3, 2, 0])
+B = np.array([1, 4, 0])
+C = np.cross(A, B)
+area = np.linalg.norm(C)
+print("Area =", area)</code></pre>
+  <p>This will output: <code>Area = 10.0</code></p>
+
+  <h3>6.3 Torque Example</h3>
+  <pre><code># Torque from r and F
+r = np.array([2, 1, 0])
+F = np.array([0, 3, 5])
+tau = np.cross(r, F)
+print("Torque =", tau)</code></pre>
+  <p>Output: <code>Torque = [ 5  -10   6]</code></p>
+  <p>
+    <h3>Animation</h3>
+    <pre>
+        <code>
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.animation import FuncAnimation
+from matplotlib import rcParams
+
+# Improve appearance
+rcParams['axes.titlesize'] = 14
+rcParams['axes.labelsize'] = 12
+
+# Setup figure and 3D axis
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+
+# Vector A (fixed)
+A = np.array([2, 0, 0])
+origin = np.array([0, 0, 0])
+
+# Pre-initialize text objects (top-left and top-right)
+angle_text = fig.text(0.02, 0.92, '', fontsize=12, color='blue')  # top-left
+magnitude_text = fig.text(0.75, 0.92, '', fontsize=12, color='red')  # top-right
+
+def update(frame):
+    ax.cla()
+
+    # Axis settings
+    ax.set_xlim([-3, 3])
+    ax.set_ylim([-3, 3])
+    ax.set_zlim([-3, 3])
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title('Vector Cross Product Visualization')
+
+    # Update rotating vector B
+    theta = np.radians(frame)
+    B = np.array([np.cos(theta), np.sin(theta), np.sin(theta / 2)])
+    C = np.cross(A, B)
+
+    # Compute angle in degrees
+    dot = np.dot(A, B)
+    angle_rad = np.arccos(np.clip(dot / (np.linalg.norm(A) * np.linalg.norm(B)), -1.0, 1.0))
+    angle_deg = np.degrees(angle_rad)
+    magnitude = np.linalg.norm(C)
+
+    # Plot vectors
+    ax.quiver(*origin, *A, color='blue', label='Vector A', arrow_length_ratio=0.1)
+    ax.quiver(*origin, *B, color='green', label='Vector B', arrow_length_ratio=0.1)
+    ax.quiver(*origin, *C, color='red', label='A × B', arrow_length_ratio=0.1)
+
+    # Update separate text boxes
+    angle_text.set_text(f"θ ≈ {angle_deg:.1f}°")
+    magnitude_text.set_text(f"|A × B| ≈ {magnitude:.2f}")
+
+    ax.legend(loc='upper left')
+
+# Create animation
+ani = FuncAnimation(fig, update, frames=np.arange(0, 360, 2), interval=100)
+
+plt.tight_layout()
+plt.show()
+
+        </code>
+    </pre>
+  </p>
+
+  <footer>
+    <p><a href="../../index.html">&larr; Back to Home</a></p>
+  </footer>
+</body>
+</html>
