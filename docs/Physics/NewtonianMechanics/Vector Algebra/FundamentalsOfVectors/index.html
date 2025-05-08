@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentals of Vectors - Physics Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Fundamentals of Vectors</h1>
+
+  <h2>1. Scalars vs Vectors</h2>
+  <p>
+    In physics, quantities are broadly classified into two categories:
+  </p>
+  <ul>
+    <li><strong>Scalars</strong> - Quantities that have only magnitude (size). Examples: Mass, Temperature, Time, Speed.</li>
+    <li><strong>Vectors</strong> - Quantities that have both magnitude and direction. Examples: Displacement, Velocity, Force.</li>
+  </ul>
+  <p><strong>Example:</strong> 5 kg (scalar), 5 m North (vector)</p>
+
+  <h2>2. Geometric Representation of Vectors</h2>
+  <p>
+    Vectors are usually represented as arrows. The length of the arrow represents the magnitude, and the direction of the arrow represents the direction of the vector.
+  </p>
+  <p>For example, an arrow 5 cm long pointing east may represent a velocity of 5 m/s towards the east.</p>
+  <div class="equation">
+    \[ \vec{A} = 5 \text{ m/s (East)} \]
+  </div>
+
+  <h2>3. Notation and Conventions</h2>
+  <p>
+    Vectors are often denoted with an arrow over the symbol (\( \vec{A} \)), boldface ( <strong>A</strong> ), or both in textbooks.
+  </p>
+  <ul>
+    <li>\( \vec{A} \) denotes vector A</li>
+    <li>|\( \vec{A} \)| or simply A denotes the magnitude of vector A</li>
+    <li>Vectors follow head-to-tail addition</li>
+  </ul>
+
+  <h2>4. Types of Vectors</h2>
+
+  <h3>a. Zero Vector</h3>
+  <p>
+    A vector with zero magnitude and no direction. Denoted as \( \vec{0} \).
+  </p>
+  <div class="equation">
+    \[ \vec{0} = 0\hat{i} + 0\hat{j} + 0\hat{k} \]
+  </div>
+
+  <h3>b. Unit Vector</h3>
+  <p>
+    A vector with a magnitude of one unit. Used to specify direction.
+  </p>
+  <div class="equation">
+    \[ \hat{a} = \frac{\vec{A}}{|\vec{A}|} \]
+  </div>
+  <p>Standard unit vectors:</p>
+  <ul>
+    <li>\( \hat{i} \) along x-axis</li>
+    <li>\( \hat{j} \) along y-axis</li>
+    <li>\( \hat{k} \) along z-axis</li>
+  </ul>
+
+  <h3>c. Position Vector</h3>
+  <p>
+    A vector that represents the position of a point in space relative to an origin.
+  </p>
+  <div class="equation">
+    \[ \vec{r} = x\hat{i} + y\hat{j} + z\hat{k} \]
+  </div>
+
+  <h3>d. Equal and Negative Vectors</h3>
+  <ul>
+    <li><strong>Equal Vectors:</strong> Two vectors are equal if they have the same magnitude and direction.</li>
+    <li><strong>Negative Vectors:</strong> A vector with the same magnitude but opposite direction.</li>
+  </ul>
+  <div class="equation">
+    \[ \vec{A} = -\vec{B} \Rightarrow \text{Same magnitude, opposite direction} \]
+  </div>
+
+  <h3>e. Collinear and Coplanar Vectors</h3>
+  <ul>
+    <li><strong>Collinear Vectors:</strong> Vectors lying along the same line or parallel lines.</li>
+    <li><strong>Coplanar Vectors:</strong> Vectors lying in the same plane.</li>
+  </ul>
+  <p>
+    Example: Two forces acting on an object in the same direction are collinear; three velocity vectors acting in the x-y plane are coplanar.
+  </p>
+
+  <h3>f. Reciprocal Vectors</h3>
+  <p>
+    If two non-zero vectors \( \vec{A} \) and \( \vec{B} \) are such that:
+  </p>
+  <div class="equation">
+    \[ \vec{A} \cdot \vec{B} = 1 \]
+  </div>
+  <p>Then \( \vec{B} \) is called the reciprocal vector of \( \vec{A} \).</p>
+
+  <h2>5. Python Examples</h2>
+  <pre><code># Representing and analyzing vectors using NumPy, with colors and explanations
+    import numpy as np
+    from colorama import Fore, Style, init
+    
+    init(autoreset=True)  # Automatically reset color after each print
+    
+    print(Fore.CYAN + "=== Vector Fundamentals with NumPy ===\n")
+    
+    # 1. Zero Vector
+    print(Fore.YELLOW + "1. Zero Vector:")
+    print("A zero vector has no magnitude or direction. It is the additive identity for vectors.")
+    zero_vector = np.array([0, 0, 0])
+    print("   Vector:", Fore.GREEN + str(zero_vector))
+    print("   Magnitude:", Fore.MAGENTA + str(np.linalg.norm(zero_vector)) + "\n")
+    
+    # 2. Unit Vectors
+    print(Fore.YELLOW + "2. Unit Vectors:")
+    print("Unit vectors have magnitude 1 and indicate direction along coordinate axes.")
+    unit_x = np.array([1, 0, 0])
+    unit_y = np.array([0, 1, 0])
+    unit_z = np.array([0, 0, 1])
+    print("   X-axis:", Fore.BLUE + str(unit_x))
+    print("   Y-axis:", Fore.BLUE + str(unit_y))
+    print("   Z-axis:", Fore.BLUE + str(unit_z) + "\n")
+    
+    # 3. Position Vector
+    print(Fore.YELLOW + "3. Position Vector:")
+    print("A position vector locates a point in space relative to the origin.")
+    position_vector = np.array([3, 4, 0])
+    magnitude_pos = np.linalg.norm(position_vector)
+    print("   Vector:", Fore.GREEN + str(position_vector))
+    print("   Magnitude (length):", Fore.MAGENTA + str(round(magnitude_pos, 2)))  # Expected 5.0 (3-4-5 triangle)
+    direction_cosines = np.round(position_vector / magnitude_pos, 2)
+    print("   Direction cosines:", Fore.CYAN + str(direction_cosines) + "\n")
+    
+    # 4. Reciprocal Vectors
+    print(Fore.YELLOW + "4. Reciprocal Vectors:")
+    print("Two vectors A and B are reciprocal if their dot product is 1: A · B = 1")
+    A = np.array([2, 0, 0])
+    B = np.array([0.5, 0, 0])
+    dot_AB = np.dot(A, B)
+    print("   Vector A:", Fore.GREEN + str(A))
+    print("   Vector B:", Fore.GREEN + str(B))
+    print("   A · B =", Fore.MAGENTA + str(dot_AB))
+    
+    if np.isclose(dot_AB, 1.0):
+        print(Fore.GREEN + "   ✅ A and B are reciprocal vectors.\n")
+    else:
+        print(Fore.RED + "   ❌ A and B are not reciprocal.\n")
+    </code></pre>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
