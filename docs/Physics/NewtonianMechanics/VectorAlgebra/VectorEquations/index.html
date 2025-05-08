@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Equations - Examples</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Vector Equations</h1>
+
+  <h2>1. Vector Equation of a Line</h2>
+  <p>The vector equation of a line in space can be expressed in the form:</p>
+  <div class="equation">
+    $$ \mathbf{r} = \mathbf{a} + t\mathbf{b} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>r</strong> is the position vector of any point on the line.</li>
+    <li><strong>a</strong> is the position vector of a known point on the line.</li>
+    <li><strong>b</strong> is a direction vector along the line.</li>
+    <li><strong>t</strong> is a scalar parameter that can vary to describe all points on the line.</li>
+  </ul>
+  <p>For example, if we know that point A has coordinates (1, 2, 3) and the direction vector of the line is <strong>b = (4, 5, 6)</strong>, the vector equation of the line passing through A is:</p>
+  <div class="equation">
+    $$ \mathbf{r}(t) = (1, 2, 3) + t(4, 5, 6) $$
+  </div>
+  <p>As t changes, we get different points along the line.</p>
+
+  <h2>2. Vector Equation of a Plane</h2>
+  <p>The vector equation of a plane can be written as:</p>
+  <div class="equation">
+    $$ \mathbf{r} = \mathbf{a} + s\mathbf{b} + t\mathbf{c} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>r</strong> is the position vector of any point on the plane.</li>
+    <li><strong>a</strong> is the position vector of a known point on the plane.</li>
+    <li><strong>b</strong> and <strong>c</strong> are two non-parallel vectors lying on the plane.</li>
+    <li><strong>s</strong> and <strong>t</strong> are scalar parameters that can vary to describe all points on the plane.</li>
+  </ul>
+  <p>For example, if point A has coordinates (1, 2, 3), vector <strong>b = (4, 0, 0)</strong>, and vector <strong>c = (0, 3, 0)</strong>, the vector equation of the plane becomes:</p>
+  <div class="equation">
+    $$ \mathbf{r}(s, t) = (1, 2, 3) + s(4, 0, 0) + t(0, 3, 0) $$
+  </div>
+  <p>This equation describes all points on the plane passing through point A.</p>
+
+  <h2>3. Shortest Distance Between Two Lines</h2>
+  <p>The shortest distance between two skew lines (lines that do not intersect and are not parallel) can be calculated using the formula:</p>
+  <div class="equation">
+    $$ d = \frac{|\mathbf{(r_2 - r_1)} \cdot (\mathbf{b_1} \times \mathbf{b_2})|}{|\mathbf{b_1} \times \mathbf{b_2}|} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>r1</strong> and <strong>r2</strong> are position vectors of points on lines 1 and 2 respectively.</li>
+    <li><strong>b1</strong> and <strong>b2</strong> are direction vectors of lines 1 and 2.</li>
+    <li><strong>&#8226;</strong> <strong>&#8226;</strong> represents the dot product, and <strong>&#8226;</strong> <strong>&#8226;</strong> represents the cross product.</li>
+  </ul>
+  <p>For example, consider the lines with position vectors:</p>
+  <ul>
+    <li><strong>r1 = (1, 1, 1)</strong> and direction vector <strong>b1 = (1, 0, 0)</strong>.</li>
+    <li><strong>r2 = (0, 2, 1)</strong> and direction vector <strong>b2 = (0, 1, 0)</strong>.</li>
+  </ul>
+  <p>Using the formula, we can compute the shortest distance between these two skew lines.</p>
+
+  <h2>4. Coplanarity of Vectors</h2>
+  <p>Vectors are said to be coplanar if they lie on the same plane. The condition for coplanarity of three vectors <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> is:</p>
+  <div class="equation">
+    $$ \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) = 0 $$
+  </div>
+  <p>If the scalar triple product equals zero, the vectors are coplanar. Otherwise, they are not coplanar.</p>
+  <p>For example, consider the vectors:</p>
+  <ul>
+    <li><strong>a = (1, 2, 3)</strong>, <strong>b = (4, 5, 6)</strong>, and <strong>c = (7, 8, 9)</strong>.</li>
+  </ul>
+  <p>To check if these vectors are coplanar, we compute the scalar triple product:</p>
+  <div class="equation">
+    $$ \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) = (1, 2, 3) \cdot ((4, 5, 6) \times (7, 8, 9)) $$
+  </div>
+  <p>If the result is zero, the vectors are coplanar. Otherwise, they are not.</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li>Vector equations are essential in physics, particularly in mechanics and electromagnetism, where the motion of particles and fields can be described using vectors.</li>
+    <li>In engineering, the concept of vector equations helps in structural analysis, especially when working with forces acting on objects in space.</li>
+    <li>In computer graphics, vectors are used to represent objects, light, and motion in 3D space.</li>
+  </ul>
+
+  <h2>5. Python Example</h2>
+  <pre><code>import numpy as np
+
+# Defining the vectors
+r1 = np.array([1, 1, 1])
+b1 = np.array([1, 0, 0])
+r2 = np.array([0, 2, 1])
+b2 = np.array([0, 1, 0])
+
+# Calculating the shortest distance between two skew lines
+cross_product = np.cross(b1, b2)
+numerator = np.abs(np.dot(r2 - r1, cross_product))
+denominator = np.linalg.norm(cross_product)
+distance = numerator / denominator
+print("Shortest distance:", distance)</code></pre>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
