@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Vector Applications</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Applications of Vectors in Physics</h1>
+
+  <h2>1. Position, Displacement, Velocity, and Acceleration Vectors</h2>
+  <p>In physics, motion is described using vectors. A vector is a quantity that has both magnitude and direction.</p>
+
+  <h3>Position Vector</h3>
+  <p>The position vector \( \vec{r} \) describes the location of an object relative to an origin.</p>
+  <div class="equation">
+    $$ \vec{r} = x \hat{i} + y \hat{j} + z \hat{k} $$
+  </div>
+
+  <h3>Displacement Vector</h3>
+  <p>Displacement is the change in position:</p>
+  <div class="equation">
+    $$ \Delta\vec{r} = \vec{r}_f - \vec{r}_i $$
+  </div>
+
+  <h3>Velocity Vector</h3>
+  <p>Velocity is the rate of change of position:</p>
+  <div class="equation">
+    $$ \vec{v} = \frac{d\vec{r}}{dt} $$
+  </div>
+
+  <h3>Acceleration Vector</h3>
+  <p>Acceleration is the rate of change of velocity:</p>
+  <div class="equation">
+    $$ \vec{a} = \frac{d\vec{v}}{dt} $$
+  </div>
+
+  <h3>Real World Example</h3>
+  <p>A car moves from point A to point B, 300 meters east and then 400 meters north. The displacement vector is:</p>
+  <p>\( \vec{d} = 300\hat{i} + 400\hat{j} \) meters</p>
+  <p>The magnitude is:</p>
+  <div class="equation">
+    $$ |\vec{d}| = \sqrt{300^2 + 400^2} = 500 \text{ meters} $$
+  </div>
+  <p>This is the direct distance from A to B, like the hypotenuse of a right triangle.</p>
+
+  <h2>2. Force, Momentum, and Angular Momentum</h2>
+  <h3>Force Vector</h3>
+  <p>Newton's Second Law gives the force:</p>
+  <div class="equation">
+    $$ \vec{F} = m \vec{a} $$
+  </div>
+
+  <h3>Momentum</h3>
+  <p>Momentum is the product of mass and velocity:</p>
+  <div class="equation">
+    $$ \vec{p} = m \vec{v} $$
+  </div>
+
+  <h3>Angular Momentum</h3>
+  <p>Angular momentum is:</p>
+  <div class="equation">
+    $$ \vec{L} = \vec{r} \times \vec{p} $$
+  </div>
+
+  <h3>Real World Example</h3>
+  <p>Imagine a soccer player kicks a 0.5 kg ball at 10 m/s. The momentum is:</p>
+  <p>\( \vec{p} = 0.5 \times 10 = 5 \ \text{kg·m/s} \)</p>
+  <p>If the ball is kicked from 2 meters from a point of rotation, angular momentum is:</p>
+  <div class="equation">
+    $$ L = r p \sin(\theta) = 2 \times 5 \times \sin(90^\circ) = 10 \ \text{kg·m}^2/\text{s} $$
+  </div>
+
+  <h2>3. Electric and Magnetic Field Vectors</h2>
+  <h3>Electric Field</h3>
+  <p>The electric field created by a point charge is:</p>
+  <div class="equation">
+    $$ \vec{E} = k_e \frac{q}{r^2} \hat{r} $$
+  </div>
+
+  <h3>Magnetic Field</h3>
+  <p>Magnetic field around a straight wire carrying current:</p>
+  <div class="equation">
+    $$ \vec{B} = \frac{\mu_0 I}{2\pi r} $$
+  </div>
+
+  <h3>Real World Example</h3>
+  <p>Suppose a charged balloon (1 µC) is 0.2 meters away from a point in space. The electric field is:</p>
+  <div class="equation">
+    $$ E = 9 \times 10^9 \times \frac{1 \times 10^{-6}}{0.2^2} = 225000 \ \text{N/C} $$
+  </div>
+  <p>This field would influence any nearby charged objects.</p>
+
+  <h2>4. Torque and Moment of Force</h2>
+  <h3>Torque</h3>
+  <p>Torque is the rotational equivalent of force:</p>
+  <div class="equation">
+    $$ \vec{\tau} = \vec{r} \times \vec{F} $$
+  </div>
+
+  <h3>Moment of Force</h3>
+  <p>This is another term for torque, often used in engineering:</p>
+  <div class="equation">
+    $$ M = F \cdot d \cdot \sin(\theta) $$
+  </div>
+
+  <h3>Real World Example</h3>
+  <p>You use a wrench to tighten a bolt. If you apply a 20 N force at the end of a 0.3 m wrench, perpendicular to it:</p>
+  <div class="equation">
+    $$ \tau = 0.3 \times 20 = 6 \ \text{N·m} $$
+  </div>
+  <p>This torque is what allows you to turn the bolt.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
