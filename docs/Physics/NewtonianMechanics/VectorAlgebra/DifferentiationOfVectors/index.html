@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Differentiation - Physics Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Vector Differentiation</h1>
+
+  <h2>1. Introduction to Vectors</h2>
+  <p>Vectors are quantities that have both magnitude and direction. Common examples in physics include velocity, acceleration, and force. Vector differentiation refers to the process of taking derivatives of vector-valued functions with respect to time or another variable.</p>
+
+  <h2>2. Why Vector Differentiation Matters</h2>
+  <p>In physics and engineering, many physical phenomena involve quantities that change over time and have direction. Understanding how these vectors change is crucial for analyzing motion, electromagnetic fields, fluid flow, and more.</p>
+
+  <h2>3. Basic Derivative Rules for Vectors</h2>
+  <p>The derivative of a vector function <span class="equation">$$ \vec{r}(t) $$</span> is given by differentiating each component:</p>
+  <div class="equation">
+    $$ \frac{d}{dt}\vec{r}(t) = \frac{d}{dt}(x(t)\hat{i} + y(t)\hat{j} + z(t)\hat{k}) = \dot{x}(t)\hat{i} + \dot{y}(t)\hat{j} + \dot{z}(t)\hat{k} $$
+  </div>
+
+  <h2>4. Vector Differentiation Laws</h2>
+  <ul>
+    <li><strong>Sum Rule:</strong> <span class="equation">$$ \frac{d}{dt}(\vec{A} + \vec{B}) = \frac{d\vec{A}}{dt} + \frac{d\vec{B}}{dt} $$</span></li>
+    <li><strong>Scalar Multiplication:</strong> <span class="equation">$$ \frac{d}{dt}(c\vec{A}) = \frac{dc}{dt}\vec{A} + c\frac{d\vec{A}}{dt} $$</span></li>
+    <li><strong>Dot Product Rule:</strong> <span class="equation">$$ \frac{d}{dt}(\vec{A} \cdot \vec{B}) = \frac{d\vec{A}}{dt} \cdot \vec{B} + \vec{A} \cdot \frac{d\vec{B}}{dt} $$</span></li>
+    <li><strong>Cross Product Rule:</strong> <span class="equation">$$ \frac{d}{dt}(\vec{A} \times \vec{B}) = \frac{d\vec{A}}{dt} \times \vec{B} + \vec{A} \times \frac{d\vec{B}}{dt} $$</span></li>
+  </ul>
+  <p>These rules are analogous to product rules in scalar calculus, extended to the behavior of vector operations.</p>
+
+  <h2>5. Real-World Example: Velocity and Acceleration</h2>
+  <p>If a particle moves along a path described by a position vector <span class="equation">$$ \vec{r}(t) $$</span>, then:</p>
+  <ul>
+    <li>Velocity: <span class="equation">$$ \vec{v}(t) = \frac{d\vec{r}(t)}{dt} $$</span></li>
+    <li>Acceleration: <span class="equation">$$ \vec{a}(t) = \frac{d\vec{v}(t)}{dt} $$</span></li>
+  </ul>
+
+  <h2>6. Example Calculation</h2>
+  <p>Suppose a particle's position is given by:</p>
+  <div class="equation">
+    $$ \vec{r}(t) = 3t^2\hat{i} + 2t\hat{j} + 5\hat{k} $$
+  </div>
+  <p>Then the velocity is:</p>
+  <div class="equation">
+    $$ \vec{v}(t) = \frac{d\vec{r}}{dt} = 6t\hat{i} + 2\hat{j} + 0\hat{k} $$
+  </div>
+  <p>And the acceleration is:</p>
+  <div class="equation">
+    $$ \vec{a}(t) = \frac{d\vec{v}}{dt} = 6\hat{i} $$
+  </div>
+
+  <h2>7. Application in Circular Motion</h2>
+  <p>In uniform circular motion, a particle moves with constant speed along a circle. Although the speed is constant, the direction changes, and so the velocity vector changes. Differentiating the position vector helps us compute the centripetal acceleration.</p>
+  <div class="equation">
+    $$ \vec{r}(t) = R \cos(\omega t)\hat{i} + R \sin(\omega t)\hat{j} $$
+  </div>
+  <div class="equation">
+    $$ \vec{v}(t) = -R\omega \sin(\omega t)\hat{i} + R\omega \cos(\omega t)\hat{j} $$
+  </div>
+  <div class="equation">
+    $$ \vec{a}(t) = -R\omega^2 \cos(\omega t)\hat{i} - R\omega^2 \sin(\omega t)\hat{j} $$
+  </div>
+
+  <h2>8. Practical Applications</h2>
+  <ul>
+    <li><strong>Robotics:</strong> Controlling the movement of robotic arms involves vector differentiation to determine acceleration and torque.</li>
+    <li><strong>Aerospace Engineering:</strong> Calculating flight trajectories, angular velocities, and accelerations of spacecraft.</li>
+    <li><strong>Computer Graphics:</strong> Simulating realistic motion paths for characters or objects using velocity and acceleration vectors.</li>
+    <li><strong>Medical Imaging:</strong> Tracking blood flow vectors in dynamic MRI scans.</li>
+    <li><strong>Sports Science:</strong> Analyzing motion of athletes to improve technique and prevent injury.</li>
+  </ul>
+
+  <h2>9. Python Example</h2>
+  <pre><code>import numpy as np
+
+# Define time
+t = 2.0  # seconds
+
+# Position vector r(t) = 3t^2 i + 2t j + 5 k
+x = 3 * t**2
+y = 2 * t
+z = 5
+
+# Velocity vector v(t) = 6t i + 2 j + 0 k
+vx = 6 * t
+vy = 2
+vz = 0
+
+# Acceleration vector a(t) = 6 i
+ax = 6
+ay = 0
+az = 0
+
+print("Position vector:", x, y, z)
+print("Velocity vector:", vx, vy, vz)
+print("Acceleration vector:", ax, ay, az)</code></pre>
+
+  <h2>10. Summary</h2>
+  <p>Vector differentiation is a fundamental concept in physics that helps describe how vector quantities like velocity and acceleration change over time. It's used across many disciplines including engineering, physics, and computer simulations. Understanding it provides powerful tools for analyzing motion and forces in the real world.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
