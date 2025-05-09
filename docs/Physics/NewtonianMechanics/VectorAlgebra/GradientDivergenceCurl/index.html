@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Gradient, Divergence and Curl</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Gradient, Divergence, and Curl</h1>
+
+  <h2>1. Introduction</h2>
+  <p>The concepts of <strong>gradient</strong>, <strong>divergence</strong>, and <strong>curl</strong> come from vector calculus and are foundational in physics and engineering. They help describe how fields like temperature, pressure, and electromagnetic fields vary in space.</p>
+
+  <h2>2. Gradient</h2>
+  <p>The gradient of a scalar field points in the direction of the steepest increase of that field and tells us how fast the field changes. It's denoted as:</p>
+  <div class="equation">
+    $$ \nabla f $$
+  </div>
+  <p>Where \( f \) is a scalar function.</p>
+
+  <h3>2.1 Real-world Example: Temperature Field</h3>
+  <p>Imagine a weather map where each point has a temperature value. The gradient of this temperature field will point in the direction where the temperature increases most rapidly.</p>
+  <p><strong>Application:</strong> In meteorology, gradients help predict wind direction and weather patterns.</p>
+
+  <h2>3. Divergence</h2>
+  <p>Divergence measures the net "outflow" of a vector field from a point. It is defined as:</p>
+  <div class="equation">
+    $$ \nabla \cdot \vec{F} $$
+  </div>
+  <p>If divergence is positive at a point, more is flowing out than in; if negative, more is flowing in.</p>
+
+  <h3>3.1 Real-world Example: Fluid Flow</h3>
+  <p>In a pipe system, if the divergence at a point is positive, fluid is exiting that region faster than it is entering. This can help identify leaks or sources.</p>
+  <p><strong>Application:</strong> Used extensively in fluid dynamics, HVAC design, and weather modeling.</p>
+
+  <h2>4. Curl</h2>
+  <p>Curl describes the rotation of a vector field around a point. It’s given by:</p>
+  <div class="equation">
+    $$ \nabla \times \vec{F} $$
+  </div>
+  <p>It indicates the tendency of particles to rotate about a point.</p>
+
+  <h3>4.1 Real-world Example: Water Vortex</h3>
+  <p>When water drains in a sink, it spins forming a vortex. The curl of the water’s velocity field is non-zero, indicating rotation.</p>
+  <p><strong>Application:</strong> Curl is vital in electromagnetism and weather systems like cyclones and hurricanes.</p>
+
+  <h2>5. Mathematical Forms</h2>
+  <p>For a scalar field \( f(x, y, z) \) and vector field \( \vec{F}(x, y, z) = (F_x, F_y, F_z) \):</p>
+
+  <h3>5.1 Gradient:</h3>
+  <div class="equation">
+    $$ \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right) $$
+  </div>
+
+  <h3>5.2 Divergence:</h3>
+  <div class="equation">
+    $$ \nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z} $$
+  </div>
+
+  <h3>5.3 Curl:</h3>
+  <div class="equation">
+    $$ \nabla \times \vec{F} = \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}, \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}, \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) $$
+  </div>
+
+  <h2>6. Python Example</h2>
+  <pre><code>import numpy as np
+np.set_printoptions(precision=2)
+
+# Define a scalar field f = x^2 + y^2 + z^2
+x, y, z = np.meshgrid(np.linspace(-2, 2, 5),
+                     np.linspace(-2, 2, 5),
+                     np.linspace(-2, 2, 5))
+f = x**2 + y**2 + z**2
+
+df_dx = 2*x
+df_dy = 2*y
+df_dz = 2*z
+
+# Gradient vector
+gradient = np.array([df_dx, df_dy, df_dz])
+print("Gradient shape:", gradient.shape)</code></pre>
+
+  <h2>7. Practical Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Analyzing stress and strain fields in materials.</li>
+    <li><strong>Electromagnetism:</strong> Maxwell's equations use divergence and curl.</li>
+    <li><strong>Meteorology:</strong> Curl helps model cyclones; divergence helps identify storm centers.</li>
+    <li><strong>Medical Imaging:</strong> MRI and CT scan data processing uses gradient and curl operations.</li>
+    <li><strong>Computer Graphics:</strong> Used in fluid simulations and texture synthesis.</li>
+  </ul>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Gradient: Direction and rate of steepest increase in a scalar field.</li>
+    <li>Divergence: Net outflow or inflow of a vector field at a point.</li>
+    <li>Curl: Rotation of a vector field around a point.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
