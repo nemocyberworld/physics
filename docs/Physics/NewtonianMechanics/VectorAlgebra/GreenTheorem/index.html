@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green's Theorem - Explained with Examples</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Green's Theorem - Explained with Examples</h1>
+
+  <h2>1. What is Green's Theorem?</h2>
+  <p>Green's Theorem is a fundamental result in vector calculus. It relates a line integral around a simple, closed curve <strong>C</strong> in the plane to a double integral over the region <strong>D</strong> enclosed by <strong>C</strong>.</p>
+
+  <div class="equation">
+    $$ \oint_C (P dx + Q dy) = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA $$
+  </div>
+
+  <p>Here, \( P(x, y) \) and \( Q(x, y) \) are functions with continuous partial derivatives in an open region that contains \( D \). The curve \( C \) must be positively oriented (counterclockwise).</p>
+
+  <h2>2. Intuition Behind Green's Theorem</h2>
+  <p>The theorem provides a bridge between a circulation (or flux) around a boundary and the behavior inside the region. It helps in converting difficult line integrals into easier double integrals and vice versa.</p>
+
+  <h2>3. Visual Representation</h2>
+  <p>Imagine a flat region like a pond (region D) and walking along the edge of the pond (curve C). Green's theorem connects the path around the edge with what happens inside the pond, like the amount of rotation of water (curl) or flow across the edge (divergence).</p>
+
+  <h2>4. Real World Applications</h2>
+  <ul>
+    <li><strong>Fluid Flow:</strong> Measuring circulation or rotation of fluid around a closed loop.</li>
+    <li><strong>Electromagnetism:</strong> Calculating electric and magnetic fields using theorems derived from Green's Theorem.</li>
+    <li><strong>Computer Graphics:</strong> Mesh processing and vector field visualization.</li>
+    <li><strong>Engineering:</strong> Analyzing stresses and strain in mechanical components.</li>
+    <li><strong>Meteorology:</strong> Studying air circulation and pressure systems.</li>
+  </ul>
+
+  <h2>5. Worked Example 1: Simple Line Integral</h2>
+  <p>Evaluate the line integral using Green’s Theorem:</p>
+  <div class="equation">
+    $$ \oint_C (x^2 - y^2)dx + 2xy\,dy $$
+  </div>
+  <p>where C is the boundary of the region inside the unit circle \( x^2 + y^2 = 1 \).</p>
+  <p><strong>Step 1:</strong> Identify \( P = x^2 - y^2 \), \( Q = 2xy \).</p>
+  <p><strong>Step 2:</strong> Compute the partial derivatives:</p>
+  <div class="equation">
+    $$ \frac{\partial Q}{\partial x} = 2y, \quad \frac{\partial P}{\partial y} = -2y $$
+  </div>
+  <p><strong>Step 3:</strong> Apply Green’s Theorem:</p>
+  <div class="equation">
+    $$ \iint_D (2y + 2y) dA = \iint_D 4y\, dA $$
+  </div>
+  <p><strong>Step 4:</strong> Since the region is symmetric about x-axis, \( \iint_D y\, dA = 0 \), so the result is:</p>
+  <div class="equation">
+    $$ \oint_C (x^2 - y^2)dx + 2xy\,dy = 0 $$
+  </div>
+
+  <h2>6. Worked Example 2: Area Computation</h2>
+  <p>Green's Theorem can also compute the area of a region using:</p>
+  <div class="equation">
+    $$ \text{Area} = \frac{1}{2} \oint_C (x\,dy - y\,dx) $$
+  </div>
+
+  <p>For the unit circle, parametrized as \( x = \cos t, y = \sin t \), with \( t \in [0, 2\pi] \):</p>
+  <div class="equation">
+    $$ \text{Area} = \frac{1}{2} \int_0^{2\pi} (\cos t \cdot \cos t + \sin t \cdot \sin t) dt = \frac{1}{2} \int_0^{2\pi} dt = \pi $$
+  </div>
+
+  <h2>7. Python Example</h2>
+  <pre><code>import sympy as sp
+
+x, y = sp.symbols('x y')
+P = x**2 - y**2
+Q = 2*x*y
+
+curl = sp.diff(Q, x) - sp.diff(P, y)
+print("Curl of the vector field:", curl)
+
+# Evaluate over unit disk
+from sympy.abc import r, theta
+jacobian = r
+expr = 4 * r * sp.sin(theta) * jacobian
+area = sp.integrate(sp.integrate(expr, (theta, 0, 2*sp.pi)), (r, 0, 1))
+print("Double integral result:", area)</code></pre>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Green's Theorem converts between a line integral and a double integral.</li>
+    <li>Useful in physics, engineering, and computer graphics.</li>
+    <li>Simplifies complex integrals and helps interpret vector fields.</li>
+  </ul>
+
+  <script></script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
