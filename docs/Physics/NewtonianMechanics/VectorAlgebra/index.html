@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
   <title>Physics Project</title>
   <style>
     body {
@@ -38,7 +41,7 @@
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Newtonian Mechanics</h1>
+  <h1 style="text-align: center;">Vector Algebra</h1>
   <nav style="text-align: center;">
     <a href="https://nemocyberworld.github.io/physics/Physics/">Physics</a>
     <a href="https://nemocyberworld.github.io/physics/Mathematics/">Mathematics</a>
@@ -46,26 +49,130 @@
     <a href="#https://nemocyberworld.github.io/physics/Research/">Research</a>
   </nav>
 
-  <section id="NewtonianMechanics">
-    <h2>Newtonian Mechanics</a></h2>
+  <section id="VectorAlgebra">
+    <h2>Vector Algebra</a></h2>
     <ul>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/">Vector Algebra</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/ConceptOfMeasurement">Concept of Measurement</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/ParticlesMotionInOneDimension">Particles Motion in one dimension</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/ParticlesMotionInTwoAndThreeDimensions">Particles Motion in Two and Three Dimensions</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/ForceAndMotion">Force and Motion</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/WorkEnergyAndPower">Work, Energy and Power</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/SystemOfParticles">System of Particles</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/CollisionsOfBodies">Collisions of Bodies</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/Rotational Kinematics">Rotational Kinematics</a></li>
-      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/RotationalDynamics">Rotational Dynamics</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/FundamentalsOfVectors">Fundamentals of Vectors</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/VectorAdditionAndSubtraction">Vector Addition and Subtraction</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/ScalarProduct/">Scalar (Dot) Product</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/VectorProduct/">Vector (Cross) Product</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/ScalarTripleProduct/">Scalar Triple Product</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/VectorTripleProduct/">Vector Triple Product</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/VectorComponentsAndUnitVectors">Vector Components and Unit Vectors</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/VectorEquations">Vector Equations</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/ApplicationsInPhysics">Applications in Physics</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/VectorIdentitiesAndSimplifications">Vector Identities and Simplifications</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/DifferentiationOfVectors">Vector differentiation</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/IntegrationOfVectors">Vector integration</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/OrthogonalAndOrthonormal">Orthogonal and Orthonormal Vectors</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/GradientDivergenceCurl">Gradient, Divergence and Curl</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/StokesTheorem">Stoke’s theorem</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/GreenTheorem">Green’s theorem</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/GaussDivergenceLaw">Gauss’s divergence theorem</a></li>
+      <li><a href="https://nemocyberworld.github.io/physics/Physics/NewtonianMechanics/VectorAlgebra/PolarSphericalCylindrical">Polar, Spherical and Cylindrical co-ordinates</a></li>
+
     </ul>
   </section>
+  <section>
+    <h1>Vector Algebra Course Summary</h1>
+
+    <h2>1. Fundamentals of Vectors</h2>
+    <p><strong>Vector:</strong> Quantity with both magnitude and direction.</p>
+    <p><strong>Zero Vector:</strong> \( \vec{0} \) has zero magnitude and no direction.</p>
+    <p><strong>Unit Vector:</strong> \( \hat{u} = \vec{A} / |\vec{A}| \)</p>
+    <p><strong>Collinear Vectors:</strong> Lie along the same or parallel lines.</p>
+    <p><strong>Coplanar Vectors:</strong> Lie in the same plane.</p>
+  
+    <h2>2. Vector Addition and Subtraction</h2>
+    <div class="equation">$$ \vec{A} + \vec{B} = \vec{B} + \vec{A} $$</div>
+    <div class="equation">$$ (\vec{A} + \vec{B}) + \vec{C} = \vec{A} + (\vec{B} + \vec{C}) $$</div>
+    <div class="equation">$$ \vec{A} + \vec{0} = \vec{A} $$</div>
+    <div class="equation">$$ \vec{A} + (-\vec{A}) = \vec{0} $$</div>
+    <div class="equation">$$ \vec{A} - \vec{B} = \vec{A} + (-\vec{B}) $$</div>
+  
+    <h2>3. Scalar (Dot) Product</h2>
+    <div class="equation">$$ \vec{A} \cdot \vec{B} = |\vec{A}||\vec{B}|\cos\theta $$</div>
+    <div class="equation">$$ \vec{A} \cdot \vec{B} = \vec{B} \cdot \vec{A} $$</div>
+    <div class="equation">$$ \vec{A} \cdot (\vec{B} + \vec{C}) = \vec{A} \cdot \vec{B} + \vec{A} \cdot \vec{C} $$</div>
+    <p>Orthogonal vectors: \( \vec{A} \cdot \vec{B} = 0 \)</p>
+  
+    <h2>4. Vector (Cross) Product</h2>
+    <div class="equation">$$ \vec{A} \times \vec{B} = |\vec{A}||\vec{B}|\sin\theta \hat{n} $$</div>
+    <div class="equation">$$ \vec{A} \times \vec{B} = -\vec{B} \times \vec{A} $$</div>
+    <div class="equation">$$ \vec{A} \times (\vec{B} + \vec{C}) = \vec{A} \times \vec{B} + \vec{A} \times \vec{C} $$</div>
+    <div class="equation">$$ \vec{A} \times \vec{A} = \vec{0} $$</div>
+  
+    <h2>5. Scalar Triple Product</h2>
+    <div class="equation">$$ \vec{A} \cdot (\vec{B} \times \vec{C}) $$</div>
+    <p>Equals volume of parallelepiped. Zero if coplanar.</p>
+  
+    <h2>6. Vector Triple Product</h2>
+    <div class="equation">$$ \vec{A} \times (\vec{B} \times \vec{C}) = (\vec{A} \cdot \vec{C})\vec{B} - (\vec{A} \cdot \vec{B})\vec{C} $$</div>
+  
+    <h2>7. Vector Components and Unit Vectors</h2>
+    <div class="equation">$$ \vec{A} = A_x\hat{i} + A_y\hat{j} + A_z\hat{k} $$</div>
+    <div class="equation">$$ \hat{A} = \vec{A}/|\vec{A}| $$</div>
+  
+    <h2>8. Vector Equations</h2>
+    <div class="equation">$$ \vec{r} = \vec{a} + t\vec{b} $$</div>
+    <div class="equation">$$ (\vec{r} - \vec{a}) \cdot \vec{n} = 0 $$</div>
+    <div class="equation">$$ |\vec{r} - \vec{a}| = R $$</div>
+  
+    <h2>9. Applications in Physics</h2>
+    <p><strong>Work:</strong> \( W = \vec{F} \cdot \vec{d} \)</p>
+    <p><strong>Torque:</strong> \( \vec{\tau} = \vec{r} \times \vec{F} \)</p>
+    <p><strong>Angular momentum:</strong> \( \vec{L} = \vec{r} \times \vec{p} \)</p>
+  
+    <h2>10. Vector Identities and Simplifications</h2>
+    <div class="equation">$$ \nabla \cdot (\vec{A} \times \vec{B}) = \vec{B} \cdot (\nabla \times \vec{A}) - \vec{A} \cdot (\nabla \times \vec{B}) $$</div>
+    <div class="equation">$$ \nabla \times (\nabla \phi) = 0 $$</div>
+    <div class="equation">$$ \nabla \cdot (\nabla \times \vec{A}) = 0 $$</div>
+    <div class="equation">$$ \nabla \times (\nabla \times \vec{A}) = \nabla(\nabla \cdot \vec{A}) - \nabla^2 \vec{A} $$</div>
+  
+    <h2>11. Vector Differentiation</h2>
+    <div class="equation">$$ \frac{d}{dt}(\vec{A} + \vec{B}) = \frac{d\vec{A}}{dt} + \frac{d\vec{B}}{dt} $$</div>
+    <div class="equation">$$ \frac{d}{dt}(a\vec{A}) = \frac{da}{dt} \vec{A} + a \frac{d\vec{A}}{dt} $$</div>
+    <div class="equation">$$ \frac{d}{dt}(\vec{A} \cdot \vec{B}) = \frac{d\vec{A}}{dt} \cdot \vec{B} + \vec{A} \cdot \frac{d\vec{B}}{dt} $$</div>
+    <div class="equation">$$ \frac{d}{dt}(\vec{A} \times \vec{B}) = \frac{d\vec{A}}{dt} \times \vec{B} + \vec{A} \times \frac{d\vec{B}}{dt} $$</div>
+  
+    <h2>12. Vector Integration</h2>
+    <p>\( \int (\vec{A} + \vec{B}) dt = \int \vec{A} dt + \int \vec{B} dt \)</p>
+    <p>Line integrals: \( \int_C \vec{F} \cdot d\vec{r} \)</p>
+    <p>Surface integrals: \( \int_S \vec{F} \cdot d\vec{S} \)</p>
+    <p>Volume integrals: \( \int_V \vec{F} dV \)</p>
+  
+    <h2>13. Orthogonal and Orthonormal Vectors</h2>
+    <p>Orthogonal: \( \vec{A} \cdot \vec{B} = 0 \)</p>
+    <p>Orthonormal: Orthogonal and unit length</p>
+    <p>Basis: \( \{\hat{i}, \hat{j}, \hat{k}\} \) standard orthonormal basis in 3D.</p>
+  
+    <h2>14. Gradient, Divergence, and Curl</h2>
+    <p><strong>Gradient:</strong> \( \nabla \phi \)</p>
+    <p><strong>Divergence:</strong> \( \nabla \cdot \vec{F} \)</p>
+    <p><strong>Curl:</strong> \( \nabla \times \vec{F} \)</p>
+  
+    <h2>15. Stokes’ Theorem</h2>
+    <div class="equation">$$ \int_S (\nabla \times \vec{F}) \cdot d\vec{S} = \oint_{\partial S} \vec{F} \cdot d\vec{r} $$</div>
+  
+    <h2>16. Green’s Theorem</h2>
+    <div class="equation">$$ \oint_C (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA $$</div>
+  
+    <h2>17. Gauss’s Divergence Theorem</h2>
+    <div class="equation">$$ \oint_S \vec{F} \cdot d\vec{S} = \iiint_V (\nabla \cdot \vec{F}) dV $$</div>
+  
+    <h2>18. Coordinate Systems</h2>
+    <h3>Polar Coordinates (2D)</h3>
+    <div class="equation">$$ x = r\cos\theta,\quad y = r\sin\theta $$</div>
+    <h3>Cylindrical Coordinates (3D)</h3>
+    <div class="equation">$$ x = r\cos\theta,\quad y = r\sin\theta,\quad z = z $$</div>
+    <h3>Spherical Coordinates (3D)</h3>
+    <div class="equation">$$ x = r\sin\theta\cos\phi,\quad y = r\sin\theta\sin\phi,\quad z = r\cos\theta $$</div>
+  </section>
   <footer>
-    <p style="text-align: center;">&copy; 2025 Physics Project by Saide Hossain</p>
+    <p>&copy; 2025 Physics Project by Saide Hossain</p>
   </footer>
-<footer>
-<p><a href="../index.html">&larr; Back to Home</a></p>
-</footer>
+  <footer>
+  <p><a href="../index.html">&larr; Back to Home</a></p>
+  </footer>
 </body>
 </html>
