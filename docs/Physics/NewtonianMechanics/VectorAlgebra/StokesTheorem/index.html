@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stoke's Theorem - Examples and Applications</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 500px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Stoke's Theorem</h1>
+
+  <h2>1. Introduction</h2>
+  <p>Stoke's Theorem is a fundamental theorem in vector calculus that connects the surface integral of the curl of a vector field over a surface to the line integral of the vector field over the boundary of the surface. It provides a powerful tool to convert complex surface integrals into simpler line integrals and vice versa.</p>
+
+  <h2>2. Stoke's Theorem Formula</h2>
+  <div class="equation">
+    $$ \oint_{\partial S} \vec{F} \cdot d\vec{r} = \iint_S (\nabla \times \vec{F}) \cdot d\vec{S} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>\( \vec{F} \)</strong> is a vector field</li>
+    <li><strong>\( \partial S \)</strong> is the boundary curve of the surface \( S \)</li>
+    <li><strong>\( d\vec{r} \)</strong> is a line element along the curve</li>
+    <li><strong>\( \nabla \times \vec{F} \)</strong> is the curl of \( \vec{F} \)</li>
+    <li><strong>\( d\vec{S} \)</strong> is the vector area element of the surface</li>
+  </ul>
+
+  <h2>3. Visual Understanding</h2>
+  <p>Imagine water flowing over a surface like a flat disk. The curl describes the tendency of the fluid to rotate. Stoke’s Theorem tells us that the total rotation within the surface area (via curl) is the same as the total circulation around the boundary.</p>
+
+  <h3>Interactive Visualization</h3>
+  <p>Below is a live 3D visualization of a vector field and its curl. Use your mouse to rotate and zoom:</p>
+  <iframe src="https://www.geogebra.org/material/iframe/id/wusfh2tq/width/800/height/500/border/888888/rc/false/ai/false" allowfullscreen></iframe>
+
+  <h2>4. Physical Intuition</h2>
+  <p>In fluid dynamics and electromagnetism, Stoke’s Theorem helps interpret circulation and rotation. It's closely related to concepts like torque and vorticity, and is crucial in understanding Maxwell's equations in physics.</p>
+
+  <h2>5. Simple Example</h2>
+  <p>Let \( \vec{F} = (y, -x, 0) \) and \( S \) be the flat disk in the xy-plane with radius 1.</p>
+
+  <h3>Line Integral</h3>
+  <div class="equation">
+    \[ \oint_C \vec{F} \cdot d\vec{r} = \int_0^{2\pi} (\sin t)(\cos t) - (\cos t)(-\sin t) dt = \int_0^{2\pi} 2\sin t \cos t \, dt = 0 \]
+  </div>
+
+  <h3>Surface Integral</h3>
+  <div class="equation">
+    \[ \nabla \times \vec{F} = (0, 0, -2) \]
+    \[ \iint_S (\nabla \times \vec{F}) \cdot d\vec{S} = -2 \cdot \pi \cdot 1^2 = -2\pi \]
+  </div>
+  <p>Mismatch? Check orientation! Direction must be consistent (normal to surface and curve orientation using the right-hand rule).</p>
+
+  <h2>6. Real World Applications</h2>
+  <ul>
+    <li><strong>Electromagnetism:</strong> Maxwell’s equations use Stoke’s Theorem to relate electric and magnetic fields over surfaces and their boundaries.</li>
+    <li><strong>Fluid Dynamics:</strong> Understanding the rotational behavior of fluid flow around an object or within a vortex.</li>
+    <li><strong>Aerodynamics:</strong> Calculating circulation around airfoils and wings to determine lift.</li>
+    <li><strong>Mechanical Engineering:</strong> Torque analysis and angular momentum in rotating bodies.</li>
+  </ul>
+
+  <h2>7. Python Example</h2>
+  <pre><code>import numpy as np
+from sympy.vector import CoordSys3D, curl
+from sympy.vector.vector import divergence
+from sympy.abc import x, y, z
+
+N = CoordSys3D('N')
+F = y*N.i - x*N.j
+curl_F = curl(F)
+print("Curl of F:", curl_F)  # Output: -2*k</code></pre>
+
+  <h2>8. Practice Problems</h2>
+  <ul>
+    <li>Use Stoke’s Theorem to evaluate \( \oint_C \vec{F} \cdot d\vec{r} \) for \( \vec{F} = (z, x, y) \) over a triangular surface in 3D.</li>
+    <li>Interpret the curl vector of \( \vec{F} = (-y, x, 0) \) geometrically.</li>
+    <li>Apply the theorem to magnetic flux through a loop in a uniform magnetic field.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
