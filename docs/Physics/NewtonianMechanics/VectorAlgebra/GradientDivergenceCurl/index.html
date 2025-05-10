@@ -52,6 +52,9 @@
   <p>Imagine a weather map where each point has a temperature value. The gradient of this temperature field will point in the direction where the temperature increases most rapidly.</p>
   <p><strong>Application:</strong> In meteorology, gradients help predict wind direction and weather patterns.</p>
 
+  <canvas id="canvas-gradient" width="400" height="300" style="border:1px solid #ccc; margin-bottom: 1rem;"></canvas>
+
+
   <h2>3. Divergence</h2>
   <p>Divergence measures the net "outflow" of a vector field from a point. It is defined as:</p>
   <div class="equation">
@@ -63,6 +66,9 @@
   <p>In a pipe system, if the divergence at a point is positive, fluid is exiting that region faster than it is entering. This can help identify leaks or sources.</p>
   <p><strong>Application:</strong> Used extensively in fluid dynamics, HVAC design, and weather modeling.</p>
 
+  <canvas id="canvas-divergence" width="400" height="300" style="border:1px solid #ccc; margin-bottom: 1rem;"></canvas>
+
+
   <h2>4. Curl</h2>
   <p>Curl describes the rotation of a vector field around a point. It’s given by:</p>
   <div class="equation">
@@ -73,6 +79,9 @@
   <h3>4.1 Real-world Example: Water Vortex</h3>
   <p>When water drains in a sink, it spins forming a vortex. The curl of the water’s velocity field is non-zero, indicating rotation.</p>
   <p><strong>Application:</strong> Curl is vital in electromagnetism and weather systems like cyclones and hurricanes.</p>
+
+  <canvas id="canvas-curl" width="400" height="300" style="border:1px solid #ccc; margin-bottom: 1rem;"></canvas>
+
 
   <h2>5. Mathematical Forms</h2>
   <p>For a scalar field \( f(x, y, z) \) and vector field \( \vec{F}(x, y, z) = (F_x, F_y, F_z) \):</p>
@@ -126,6 +135,78 @@ print("Gradient shape:", gradient.shape)</code></pre>
     <li>Curl: Rotation of a vector field around a point.</li>
   </ul>
 
+  <script>
+    function drawVectorField(canvasId, type) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+    
+      const centerX = w / 2;
+      const centerY = h / 2;
+      const gridSize = 40;
+    
+      function drawArrow(x, y, dx, dy, color) {
+        const len = Math.sqrt(dx * dx + dy * dy);
+        const norm = len === 0 ? 1 : len;
+        const arrowSize = 5;
+    
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + dx, y + dy);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    
+        // Arrowhead
+        const angle = Math.atan2(dy, dx);
+        ctx.beginPath();
+        ctx.moveTo(x + dx, y + dy);
+        ctx.lineTo(x + dx - arrowSize * Math.cos(angle - Math.PI / 6),
+                   y + dy - arrowSize * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(x + dx - arrowSize * Math.cos(angle + Math.PI / 6),
+                   y + dy - arrowSize * Math.sin(angle + Math.PI / 6));
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+    
+      for (let x = gridSize; x < w; x += gridSize) {
+        for (let y = gridSize; y < h; y += gridSize) {
+          let dx = 0, dy = 0;
+          let color = '#000';
+    
+          if (type === 'gradient') {
+            dx = (x - centerX) * 0.05;
+            dy = (y - centerY) * 0.05;
+            color = '#0077cc';
+          } else if (type === 'divergence') {
+            dx = (x - centerX) * 0.07;
+            dy = (y - centerY) * 0.07;
+            color = '#cc0000';
+          } else if (type === 'curl') {
+            dx = -(y - centerY) * 0.05;
+            dy = (x - centerX) * 0.05;
+            color = '#009933';
+          }
+    
+          drawArrow(x, y, dx, dy, color);
+        }
+      }
+    
+      ctx.font = '14px sans-serif';
+      ctx.fillStyle = '#333';
+      ctx.fillText(type.charAt(0).toUpperCase() + type.slice(1) + ' Field', 10, 20);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      drawVectorField('canvas-gradient', 'gradient');
+      drawVectorField('canvas-divergence', 'divergence');
+      drawVectorField('canvas-curl', 'curl');
+    });
+    </script>
+    
   <footer>
     <p><a href="../index.html">&#8592; Back to Home</a></p>
   </footer>
