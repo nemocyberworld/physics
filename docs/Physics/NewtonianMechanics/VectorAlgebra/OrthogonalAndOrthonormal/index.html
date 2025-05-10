@@ -123,6 +123,160 @@ plt.show()</code></pre>
     <li>Widely used in physics, graphics, robotics, and data analysis.</li>
   </ul>
 
+  <h2>11. Interactive Draggable Vectors</h2>
+
+<div style="margin-bottom: 1rem;">
+  <strong>Vector a:</strong>
+  x: <input type="number" id="ax" value="1" step="0.1" disabled>
+  y: <input type="number" id="ay" value="0" step="0.1" disabled>
+  &nbsp;&nbsp;<br>
+  <strong>Vector b:</strong>
+  x: <input type="number" id="bx" value="0" step="0.1" disabled>
+  y: <input type="number" id="by" value="1" step="0.1" disabled>
+</div>
+
+<canvas id="vectorCanvas" width="400" height="400" style="border:1px solid #ccc; background-color: #f9f9f9;"></canvas>
+
+<div id="output" style="margin-top: 1rem; font-family: monospace; background: #eef6fb; padding: 1rem; border-left: 4px solid #006699;"></div>
+
+<script>
+  const canvas = document.getElementById('vectorCanvas');
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width;
+  const height = canvas.height;
+  const originX = width / 2;
+  const originY = height / 2;
+  const scale = 80;
+
+  let a = { x: 1, y: 0 };
+  let b = { x: 0, y: 1 };
+  let isDragging = false;
+  let draggingVector = null;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  const axInput = document.getElementById("ax");
+  const ayInput = document.getElementById("ay");
+  const bxInput = document.getElementById("bx");
+  const byInput = document.getElementById("by");
+  const outputDiv = document.getElementById("output");
+
+  function drawAxes() {
+    ctx.strokeStyle = 'gray';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, originY);
+    ctx.lineTo(width, originY);
+    ctx.moveTo(originX, 0);
+    ctx.lineTo(originX, height);
+    ctx.stroke();
+  }
+
+  function drawVector(v, color, label) {
+    const endX = originX + v.x * scale;
+    const endY = originY - v.y * scale;
+
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(originX, originY);
+    ctx.lineTo(endX, endY);
+    ctx.stroke();
+
+    // Arrowhead
+    const headlen = 10;
+    const angle = Math.atan2(originY - endY, endX - originX);
+    ctx.beginPath();
+    ctx.moveTo(endX, endY);
+    ctx.lineTo(endX - headlen * Math.cos(angle - Math.PI / 6), endY + headlen * Math.sin(angle - Math.PI / 6));
+    ctx.lineTo(endX - headlen * Math.cos(angle + Math.PI / 6), endY + headlen * Math.sin(angle + Math.PI / 6));
+    ctx.lineTo(endX, endY);
+    ctx.fill();
+
+    ctx.font = "14px Arial";
+    ctx.fillText(label, endX + 5, endY - 5);
+  }
+
+  function dot(a, b) {
+    return a.x * b.x + a.y * b.y;
+  }
+
+  function norm(v) {
+    return Math.sqrt(v.x ** 2 + v.y ** 2);
+  }
+
+  function angleBetween(a, b) {
+    const cosTheta = dot(a, b) / (norm(a) * norm(b));
+    return Math.acos(Math.min(Math.max(cosTheta, -1), 1)) * 180 / Math.PI;
+  }
+
+  function update() {
+    // Update input fields
+    axInput.value = a.x;
+    ayInput.value = a.y;
+    bxInput.value = b.x;
+    byInput.value = b.y;
+
+    // Update the canvas
+    ctx.clearRect(0, 0, width, height);
+    drawAxes();
+    drawVector(a, 'blue', 'a');
+    drawVector(b, 'red', 'b');
+    drawVector({ x: a.x + b.x, y: a.y + b.y }, 'green', 'c');
+
+    // Update output
+    outputDiv.innerHTML = `
+      Dot(a, b): ${dot(a, b).toFixed(2)}<br>
+      ||a||: ${norm(a).toFixed(2)}  ||b||: ${norm(b).toFixed(2)}<br>
+      Angle between a and b: ${angleBetween(a, b).toFixed(2)}°
+    `;
+  }
+
+  // Mouse events for dragging vectors
+  canvas.addEventListener("mousedown", function(e) {
+    const mouseX = e.offsetX;
+    const mouseY = e.offsetY;
+
+    // Check if the mouse is near any vector's endpoint
+    if (Math.abs(mouseX - (originX + a.x * scale)) < 10 && Math.abs(mouseY - (originY - a.y * scale)) < 10) {
+      isDragging = true;
+      draggingVector = 'a';
+      offsetX = mouseX - (originX + a.x * scale);
+      offsetY = mouseY - (originY - a.y * scale);
+    } else if (Math.abs(mouseX - (originX + b.x * scale)) < 10 && Math.abs(mouseY - (originY - b.y * scale)) < 10) {
+      isDragging = true;
+      draggingVector = 'b';
+      offsetX = mouseX - (originX + b.x * scale);
+      offsetY = mouseY - (originY - b.y * scale);
+    }
+  });
+
+  canvas.addEventListener("mousemove", function(e) {
+    if (isDragging) {
+      const mouseX = e.offsetX;
+      const mouseY = e.offsetY;
+
+      if (draggingVector === 'a') {
+        a.x = (mouseX - offsetX - originX) / scale;
+        a.y = (originY - mouseY - offsetY) / scale;
+      } else if (draggingVector === 'b') {
+        b.x = (mouseX - offsetX - originX) / scale;
+        b.y = (originY - mouseY - offsetY) / scale;
+      }
+
+      update();
+    }
+  });
+
+  canvas.addEventListener("mouseup", function() {
+    isDragging = false;
+    draggingVector = null;
+  });
+
+  update(); // Initial render
+</script>
+
   <footer>
     <p><a href="../index.html">← Back to Home</a></p>
   </footer>
