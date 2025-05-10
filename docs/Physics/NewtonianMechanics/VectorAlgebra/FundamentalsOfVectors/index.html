@@ -177,6 +177,429 @@
     else:
         print(Fore.RED + "   ❌ A and B are not reciprocal.\n")
     </code></pre>
+
+    <h2>6. Interactive JavaScript Examples</h2>
+<p>Explore how vectors work with interactive visuals. Adjust vector components and see changes in real-time.</p>
+<canvas id="vectorCanvas" width="600" height="400" style="border:1px solid #ccc; background-color: #fdfdfd;"></canvas>
+
+<div style="margin-top: 1rem;">
+  <label for="vx">Vector X-component: </label>
+  <input type="range" id="vx" min="-10" max="10" value="4">
+  <span id="vxVal">4</span>
+  <br>
+  <label for="vy">Vector Y-component: </label>
+  <input type="range" id="vy" min="-10" max="10" value="3">
+  <span id="vyVal">3</span>
+</div>
+
+<script>
+  const canvas = document.getElementById("vectorCanvas");
+  const ctx = canvas.getContext("2d");
+
+  const vxSlider = document.getElementById("vx");
+  const vySlider = document.getElementById("vy");
+  const vxVal = document.getElementById("vxVal");
+  const vyVal = document.getElementById("vyVal");
+
+  function drawVector(vx, vy) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw axis
+    ctx.strokeStyle = "#bbb";
+    ctx.beginPath();
+    ctx.moveTo(300, 0);
+    ctx.lineTo(300, 400);
+    ctx.moveTo(0, 200);
+    ctx.lineTo(600, 200);
+    ctx.stroke();
+
+    // Draw vector
+    ctx.beginPath();
+    ctx.moveTo(300, 200); // Origin at center
+    ctx.lineTo(300 + vx * 20, 200 - vy * 20);
+    ctx.strokeStyle = "#003366";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Arrow head
+    ctx.beginPath();
+    ctx.arc(300 + vx * 20, 200 - vy * 20, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = "#ff6600";
+    ctx.fill();
+
+    // Magnitude and direction info
+    const magnitude = Math.sqrt(vx * vx + vy * vy).toFixed(2);
+    ctx.fillStyle = "#000";
+    ctx.font = "16px Arial";
+    ctx.fillText(`Magnitude: ${magnitude}`, 10, 20);
+    ctx.fillText(`Direction (θ): ${Math.atan2(vy, vx).toFixed(2)} rad`, 10, 40);
+  }
+
+  function update() {
+    const vx = parseInt(vxSlider.value);
+    const vy = parseInt(vySlider.value);
+    vxVal.textContent = vx;
+    vyVal.textContent = vy;
+    drawVector(vx, vy);
+  }
+
+  vxSlider.addEventListener("input", update);
+  vySlider.addEventListener("input", update);
+
+  update(); // Initial draw
+</script>
+
+<h2>7. Vector Addition (Head-to-Tail)</h2>
+<p>Adjust the components of vectors A and B. The resultant vector (A + B) is drawn in red.</p>
+
+<canvas id="addCanvas" width="600" height="400" style="border:1px solid #ccc; background-color: #fdfdfd;"></canvas>
+
+<div style="margin-top: 1rem;">
+  <label>Vector A (X, Y): </label>
+  <input type="range" id="ax" min="-10" max="10" value="4">
+  <span id="axVal">4</span>
+  <input type="range" id="ay" min="-10" max="10" value="2">
+  <span id="ayVal">2</span>
+  <br>
+  <label>Vector B (X, Y): </label>
+  <input type="range" id="bx" min="-10" max="10" value="1">
+  <span id="bxVal">1</span>
+  <input type="range" id="by" min="-10" max="10" value="4">
+  <span id="byVal">4</span>
+</div>
+
+<script>
+  const addCanvas = document.getElementById("addCanvas");
+  const ctx2 = addCanvas.getContext("2d");
+
+  const ax = document.getElementById("ax");
+  const ay = document.getElementById("ay");
+  const bx = document.getElementById("bx");
+  const by = document.getElementById("by");
+
+  const axVal = document.getElementById("axVal");
+  const ayVal = document.getElementById("ayVal");
+  const bxVal = document.getElementById("bxVal");
+  const byVal = document.getElementById("byVal");
+
+  function drawAddition(axComp, ayComp, bxComp, byComp) {
+    ctx2.clearRect(0, 0, addCanvas.width, addCanvas.height);
+
+    // Draw axes
+    ctx2.strokeStyle = "#ddd";
+    ctx2.beginPath();
+    ctx2.moveTo(300, 0);
+    ctx2.lineTo(300, 400);
+    ctx2.moveTo(0, 200);
+    ctx2.lineTo(600, 200);
+    ctx2.stroke();
+
+    // Vector A
+    ctx2.beginPath();
+    ctx2.moveTo(300, 200);
+    ctx2.lineTo(300 + axComp * 20, 200 - ayComp * 20);
+    ctx2.strokeStyle = "#0077cc";
+    ctx2.lineWidth = 2;
+    ctx2.stroke();
+
+    // Vector B (starting from tip of A)
+    ctx2.beginPath();
+    ctx2.moveTo(300 + axComp * 20, 200 - ayComp * 20);
+    ctx2.lineTo(300 + (axComp + bxComp) * 20, 200 - (ayComp + byComp) * 20);
+    ctx2.strokeStyle = "#33aa33";
+    ctx2.lineWidth = 2;
+    ctx2.stroke();
+
+    // Resultant Vector (from origin to end of B)
+    ctx2.beginPath();
+    ctx2.moveTo(300, 200);
+    ctx2.lineTo(300 + (axComp + bxComp) * 20, 200 - (ayComp + byComp) * 20);
+    ctx2.strokeStyle = "#cc0000";
+    ctx2.lineWidth = 3;
+    ctx2.setLineDash([5, 3]);
+    ctx2.stroke();
+    ctx2.setLineDash([]);
+
+    // Labels
+    const magnitude = Math.sqrt((axComp + bxComp) ** 2 + (ayComp + byComp) ** 2).toFixed(2);
+    ctx2.fillStyle = "#000";
+    ctx2.font = "14px Arial";
+    ctx2.fillText(`|A + B| = ${magnitude}`, 10, 20);
+  }
+
+  function updateAddition() {
+    const aX = parseInt(ax.value);
+    const aY = parseInt(ay.value);
+    const bX = parseInt(bx.value);
+    const bY = parseInt(by.value);
+
+    axVal.textContent = aX;
+    ayVal.textContent = aY;
+    bxVal.textContent = bX;
+    byVal.textContent = bY;
+
+    drawAddition(aX, aY, bX, bY);
+  }
+
+  ax.addEventListener("input", updateAddition);
+  ay.addEventListener("input", updateAddition);
+  bx.addEventListener("input", updateAddition);
+  by.addEventListener("input", updateAddition);
+
+  updateAddition(); // Initial draw
+</script>
+
+<h2>8. Unit Vector Decomposition</h2>
+<p>Change the vector and see how it is decomposed into x (\(\hat{i}\)) and y (\(\hat{j}\)) components.</p>
+
+<canvas id="decompCanvas" width="600" height="400" style="border:1px solid #ccc; background-color: #fdfdfd;"></canvas>
+
+<div style="margin-top: 1rem;">
+  <label for="ux">Vector X: </label>
+  <input type="range" id="ux" min="-10" max="10" value="6">
+  <span id="uxVal">6</span>
+  <br>
+  <label for="uy">Vector Y: </label>
+  <input type="range" id="uy" min="-10" max="10" value="4">
+  <span id="uyVal">4</span>
+</div>
+
+<script>
+  const decompCanvas = document.getElementById("decompCanvas");
+  const ctx3 = decompCanvas.getContext("2d");
+
+  const ux = document.getElementById("ux");
+  const uy = document.getElementById("uy");
+  const uxVal = document.getElementById("uxVal");
+  const uyVal = document.getElementById("uyVal");
+
+  function drawDecomposition(vx, vy) {
+    ctx3.clearRect(0, 0, decompCanvas.width, decompCanvas.height);
+
+    // Draw axes
+    ctx3.strokeStyle = "#ddd";
+    ctx3.beginPath();
+    ctx3.moveTo(300, 0);
+    ctx3.lineTo(300, 400);
+    ctx3.moveTo(0, 200);
+    ctx3.lineTo(600, 200);
+    ctx3.stroke();
+
+    // Draw i-component (x-direction)
+    ctx3.beginPath();
+    ctx3.moveTo(300, 200);
+    ctx3.lineTo(300 + vx * 20, 200);
+    ctx3.strokeStyle = "#0077cc";
+    ctx3.lineWidth = 2;
+    ctx3.stroke();
+
+    // Draw j-component (y-direction)
+    ctx3.beginPath();
+    ctx3.moveTo(300 + vx * 20, 200);
+    ctx3.lineTo(300 + vx * 20, 200 - vy * 20);
+    ctx3.strokeStyle = "#33aa33";
+    ctx3.lineWidth = 2;
+    ctx3.stroke();
+
+    // Draw resultant vector
+    ctx3.beginPath();
+    ctx3.moveTo(300, 200);
+    ctx3.lineTo(300 + vx * 20, 200 - vy * 20);
+    ctx3.strokeStyle = "#cc0000";
+    ctx3.lineWidth = 3;
+    ctx3.stroke();
+
+    // Label with vector equation
+    ctx3.fillStyle = "#000";
+    ctx3.font = "14px Arial";
+    const mag = Math.sqrt(vx * vx + vy * vy).toFixed(2);
+    ctx3.fillText(`Vector = ${vx}i + ${vy}j   |Magnitude| = ${mag}`, 10, 20);
+  }
+
+  function updateDecomposition() {
+    const vx = parseInt(ux.value);
+    const vy = parseInt(uy.value);
+    uxVal.textContent = vx;
+    uyVal.textContent = vy;
+
+    drawDecomposition(vx, vy);
+  }
+
+  ux.addEventListener("input", updateDecomposition);
+  uy.addEventListener("input", updateDecomposition);
+
+  updateDecomposition(); // Initial draw
+</script>
+
+<h2>9. Dot Product and Angle Between Vectors</h2>
+<p>Move the vectors to see how the dot product changes with angle.</p>
+
+<canvas id="dotCanvas" width="600" height="400" style="border:1px solid #ccc; background-color: #fdfdfd;"></canvas>
+
+<div style="margin-top: 1rem;">
+  <label>Vector A (X, Y): </label>
+  <input type="range" id="dax" min="-10" max="10" value="5">
+  <span id="daxVal">5</span>
+  <input type="range" id="day" min="-10" max="10" value="2">
+  <span id="dayVal">2</span>
+  <br>
+  <label>Vector B (X, Y): </label>
+  <input type="range" id="dbx" min="-10" max="10" value="2">
+  <span id="dbxVal">2</span>
+  <input type="range" id="dby" min="-10" max="10" value="4">
+  <span id="dbyVal">4</span>
+</div>
+
+<script>
+  const dotCanvas = document.getElementById("dotCanvas");
+  const ctx4 = dotCanvas.getContext("2d");
+
+  const dax = document.getElementById("dax");
+  const day = document.getElementById("day");
+  const dbx = document.getElementById("dbx");
+  const dby = document.getElementById("dby");
+
+  const daxVal = document.getElementById("daxVal");
+  const dayVal = document.getElementById("dayVal");
+  const dbxVal = document.getElementById("dbxVal");
+  const dbyVal = document.getElementById("dbyVal");
+
+  function drawDotProduct(ax, ay, bx, by) {
+    ctx4.clearRect(0, 0, dotCanvas.width, dotCanvas.height);
+
+    // Axes
+    ctx4.strokeStyle = "#ddd";
+    ctx4.beginPath();
+    ctx4.moveTo(300, 0);
+    ctx4.lineTo(300, 400);
+    ctx4.moveTo(0, 200);
+    ctx4.lineTo(600, 200);
+    ctx4.stroke();
+
+    // Draw Vector A
+    ctx4.beginPath();
+    ctx4.moveTo(300, 200);
+    ctx4.lineTo(300 + ax * 20, 200 - ay * 20);
+    ctx4.strokeStyle = "#0077cc";
+    ctx4.lineWidth = 2;
+    ctx4.stroke();
+
+    // Draw Vector B
+    ctx4.beginPath();
+    ctx4.moveTo(300, 200);
+    ctx4.lineTo(300 + bx * 20, 200 - by * 20);
+    ctx4.strokeStyle = "#33aa33";
+    ctx4.lineWidth = 2;
+    ctx4.stroke();
+
+    // Dot product calculation
+    const dot = ax * bx + ay * by;
+    const magA = Math.sqrt(ax * ax + ay * ay);
+    const magB = Math.sqrt(bx * bx + by * by);
+    let angleDeg = "Undefined";
+
+    if (magA > 0 && magB > 0) {
+      const cosTheta = dot / (magA * magB);
+      angleDeg = Math.acos(Math.max(-1, Math.min(1, cosTheta))) * (180 / Math.PI);
+      angleDeg = angleDeg.toFixed(2);
+    }
+
+    // Display values
+    ctx4.fillStyle = "#000";
+    ctx4.font = "14px Arial";
+    ctx4.fillText(`A · B = ${dot.toFixed(2)}`, 10, 20);
+    ctx4.fillText(`|A| = ${magA.toFixed(2)}, |B| = ${magB.toFixed(2)}, θ = ${angleDeg}°`, 10, 40);
+  }
+
+  function updateDot() {
+    const ax = parseInt(dax.value);
+    const ay = parseInt(day.value);
+    const bx = parseInt(dbx.value);
+    const by = parseInt(dby.value);
+
+    daxVal.textContent = ax;
+    dayVal.textContent = ay;
+    dbxVal.textContent = bx;
+    dbyVal.textContent = by;
+
+    drawDotProduct(ax, ay, bx, by);
+  }
+
+  dax.addEventListener("input", updateDot);
+  day.addEventListener("input", updateDot);
+  dbx.addEventListener("input", updateDot);
+  dby.addEventListener("input", updateDot);
+
+  updateDot(); // Initial draw
+</script>
+
+<h2>10. Vector Quiz: Check Your Understanding</h2>
+<div id="quiz-container" style="background:#f9f9f9; padding:1.5rem; border-radius:10px; border:1px solid #ccc; max-width:700px;">
+  <form id="vector-quiz">
+
+    <div class="question-block">
+      <p><strong>1.</strong> Which of the following is a <strong>unit vector</strong>?</p>
+      <label><input type="radio" name="q1" value="a"> \( \vec{A} = 3\hat{i} + 4\hat{j} \)</label><br>
+      <label><input type="radio" name="q1" value="b"> \( \vec{B} = \frac{1}{\sqrt{2}}\hat{i} + \frac{1}{\sqrt{2}}\hat{j} \)</label><br>
+      <label><input type="radio" name="q1" value="c"> \( \vec{C} = 0\hat{i} + 0\hat{j} \)</label><br>
+      <label><input type="radio" name="q1" value="d"> \( \vec{D} = 2\hat{i} \)</label>
+    </div><hr>
+
+    <div class="question-block">
+      <p><strong>2.</strong> Which quantity is a <strong>scalar</strong>?</p>
+      <label><input type="radio" name="q2" value="a"> Velocity</label><br>
+      <label><input type="radio" name="q2" value="b"> Acceleration</label><br>
+      <label><input type="radio" name="q2" value="c"> Force</label><br>
+      <label><input type="radio" name="q2" value="d"> Temperature</label>
+    </div><hr>
+
+    <div class="question-block">
+      <p><strong>3.</strong> If \( \vec{A} = -\vec{B} \), what is true about vectors A and B?</p>
+      <label><input type="radio" name="q3" value="a"> They are unit vectors</label><br>
+      <label><input type="radio" name="q3" value="b"> They have the same direction</label><br>
+      <label><input type="radio" name="q3" value="c"> They have opposite direction but equal magnitude</label><br>
+      <label><input type="radio" name="q3" value="d"> They are orthogonal</label>
+    </div><hr>
+
+    <div class="question-block">
+      <p><strong>4.</strong> Which of the following vectors is <strong>coplanar</strong> with \( \vec{A} = \hat{i} \), \( \vec{B} = \hat{j} \)?</p>
+      <label><input type="radio" name="q4" value="a"> \( \vec{C} = \hat{k} \)</label><br>
+      <label><input type="radio" name="q4" value="b"> \( \vec{C} = \hat{i} + \hat{j} \)</label><br>
+      <label><input type="radio" name="q4" value="c"> \( \vec{C} = \hat{i} + \hat{k} \)</label><br>
+      <label><input type="radio" name="q4" value="d"> \( \vec{C} = \hat{j} + \hat{k} \)</label>
+    </div><hr>
+
+    <button type="button" onclick="submitQuiz()" style="padding:0.5rem 1rem; background-color:#0077cc; color:#fff; border:none; border-radius:5px;">Submit Answers</button>
+  </form>
+
+  <div id="quiz-result" style="margin-top:1rem; font-weight:bold;"></div>
+</div>
+
+<script>
+  function submitQuiz() {
+    const answers = {
+      q1: "b",
+      q2: "d",
+      q3: "c",
+      q4: "b"
+    };
+
+    let score = 0;
+    let total = Object.keys(answers).length;
+
+    for (let q in answers) {
+      const selected = document.querySelector(`input[name="${q}"]:checked`);
+      if (selected && selected.value === answers[q]) {
+        score++;
+      }
+    }
+
+    const result = document.getElementById("quiz-result");
+    result.style.color = score === total ? "green" : "orange";
+    result.innerHTML = `You scored <strong>${score} / ${total}</strong> ${score === total ? '🎉 Great job!' : '👍 Keep practicing!'}`;
+  }
+</script>
+
   <footer>
     <p><a href="../index.html">&#8592; Back to Home</a></p>
   </footer>
