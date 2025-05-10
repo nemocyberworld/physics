@@ -7,6 +7,7 @@
   <script type="text/javascript" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.15.0/plotly.min.js"></script>
   <style>
     body {
       font-family: Georgia, serif;
@@ -33,6 +34,12 @@
       margin: 1rem 0;
       border-left: 3px solid #999;
     }
+    #sliders {
+      margin-top: 2rem;
+    }
+    .sliderContainer {
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -57,7 +64,6 @@
     <li><strong>Dot Product Rule:</strong> <span class="equation">$$ \frac{d}{dt}(\vec{A} \cdot \vec{B}) = \frac{d\vec{A}}{dt} \cdot \vec{B} + \vec{A} \cdot \frac{d\vec{B}}{dt} $$</span></li>
     <li><strong>Cross Product Rule:</strong> <span class="equation">$$ \frac{d}{dt}(\vec{A} \times \vec{B}) = \frac{d\vec{A}}{dt} \times \vec{B} + \vec{A} \times \frac{d\vec{B}}{dt} $$</span></li>
   </ul>
-  <p>These rules are analogous to product rules in scalar calculus, extended to the behavior of vector operations.</p>
 
   <h2>5. Real-World Example: Velocity and Acceleration</h2>
   <p>If a particle moves along a path described by a position vector <span class="equation">$$ \vec{r}(t) $$</span>, then:</p>
@@ -128,6 +134,128 @@ print("Acceleration vector:", ax, ay, az)</code></pre>
 
   <h2>10. Summary</h2>
   <p>Vector differentiation is a fundamental concept in physics that helps describe how vector quantities like velocity and acceleration change over time. It's used across many disciplines including engineering, physics, and computer simulations. Understanding it provides powerful tools for analyzing motion and forces in the real world.</p>
+
+  <h1>Interactive Vector Differentiation</h1>
+
+  <!-- Div for Plotly -->
+  <div id="plot"></div>
+
+  <!-- Slider controls -->
+  <div id="sliders">
+    <div class="sliderContainer">
+      <label for="sliderA">a (x coeff): </label>
+      <input type="range" id="sliderA" min="0" max="10" step="0.1" value="3">
+      <span id="valueA">3</span>
+    </div>
+    <div class="sliderContainer">
+      <label for="sliderB">b (y coeff): </label>
+      <input type="range" id="sliderB" min="0" max="10" step="0.1" value="2">
+      <span id="valueB">2</span>
+    </div>
+    <div class="sliderContainer">
+      <label for="sliderC">c (z constant): </label>
+      <input type="range" id="sliderC" min="0" max="10" step="0.1" value="5">
+      <span id="valueC">5</span>
+    </div>
+  </div>
+
+  <script>
+    // Create time array t from 0 to 5 with 200 points
+    const nPoints = 200;
+    const t = [];
+    const tStart = 0;
+    const tEnd = 5;
+    const dt = (tEnd - tStart) / (nPoints - 1);
+    for (let i = 0; i < nPoints; i++) {
+      t.push(tStart + i * dt);
+    }
+
+    // Compute vector functions
+    function computeVectors(a, b, c) {
+      const x = t.map(val => a * Math.pow(val, 2));
+      const y = t.map(val => b * val);
+      const z = t.map(() => c); // constant function
+
+      const vx = t.map(val => 2 * a * val);
+      const vy = t.map(() => b);
+      const vz = t.map(() => 0);
+
+      const ax = t.map(() => 2 * a);
+      const ay = t.map(() => 0);
+      const az = t.map(() => 0);
+
+      return { x, y, z, vx, vy, vz, ax, ay, az };
+    }
+
+    // Initial parameters
+    let a = 3, b = 2, c = 5;
+    let vectors = computeVectors(a, b, c);
+
+    // Create Plotly subplots: 3 rows (Position, Velocity, Acceleration)
+    const data = [
+      // Position traces (blue: x, green: y, red: z)
+      { x: t, y: vectors.x, type: 'scatter', mode: 'lines', name: 'x(t) = at²', line: { color: 'blue' } },
+      { x: t, y: vectors.y, type: 'scatter', mode: 'lines', name: 'y(t) = bt', line: { color: 'green' } },
+      { x: t, y: vectors.z, type: 'scatter', mode: 'lines', name: 'z(t) = c', line: { color: 'red' } },
+      
+      // Velocity traces
+      { x: t, y: vectors.vx, type: 'scatter', mode: 'lines', name: 'v<sub>x</sub>(t) = 2at', line: { color: 'blue' }, yaxis: 'y2' },
+      { x: t, y: vectors.vy, type: 'scatter', mode: 'lines', name: 'v<sub>y</sub>(t) = b', line: { color: 'green' }, yaxis: 'y2' },
+      { x: t, y: vectors.vz, type: 'scatter', mode: 'lines', name: 'v<sub>z</sub>(t) = 0', line: { color: 'red' }, yaxis: 'y2' },
+      
+      // Acceleration traces
+      { x: t, y: vectors.ax, type: 'scatter', mode: 'lines', name: 'a<sub>x</sub>(t) = 2a', line: { color: 'blue' }, yaxis: 'y3' },
+      { x: t, y: vectors.ay, type: 'scatter', mode: 'lines', name: 'a<sub>y</sub>(t) = 0', line: { color: 'green' }, yaxis: 'y3' },
+      { x: t, y: vectors.az, type: 'scatter', mode: 'lines', name: 'a<sub>z</sub>(t) = 0', line: { color: 'red' }, yaxis: 'y3' },
+    ];
+
+    // Layout with subplots (3 rows, shared x-axis)
+    const layout = {
+      grid: { rows: 3, columns: 1, pattern: 'independent', roworder: 'top to bottom' },
+      yaxis: { title: 'Position', anchor: 'x', domain: [0.66, 1] },
+      yaxis2: { title: 'Velocity', anchor: 'x', domain: [0.33, 0.65] },
+      yaxis3: { title: 'Acceleration', anchor: 'x', domain: [0, 0.30] },
+      xaxis: { title: 'Time (s)' },
+      legend: { orientation: 'h', x: 0, y: 1.08 },
+      margin: { t: 50, b: 50 }
+    };
+
+    // Create the plot
+    Plotly.newPlot('plot', data, layout);
+
+    // Update function triggered by slider change
+    function updatePlot() {
+      a = parseFloat(document.getElementById('sliderA').value);
+      b = parseFloat(document.getElementById('sliderB').value);
+      c = parseFloat(document.getElementById('sliderC').value);
+
+      // Update the displayed slider values
+      document.getElementById('valueA').innerText = a;
+      document.getElementById('valueB').innerText = b;
+      document.getElementById('valueC').innerText = c;
+
+      // Recalculate vectors
+      vectors = computeVectors(a, b, c);
+
+      // Create update object: order of traces must match the original data array
+      const update = {
+        // Position traces
+        y: [vectors.x, vectors.y, vectors.z,
+            // Velocity traces
+            vectors.vx, vectors.vy, vectors.vz,
+            // Acceleration traces
+            vectors.ax, vectors.ay, vectors.az]
+      };
+
+      // Restyle the plot with new data
+      Plotly.restyle('plot', update);
+    }
+
+    // Attach updatePlot to slider input events
+    document.getElementById('sliderA').addEventListener('input', updatePlot);
+    document.getElementById('sliderB').addEventListener('input', updatePlot);
+    document.getElementById('sliderC').addEventListener('input', updatePlot);
+  </script>
 
   <footer>
     <p><a href="../index.html">&#8592; Back to Home</a></p>
