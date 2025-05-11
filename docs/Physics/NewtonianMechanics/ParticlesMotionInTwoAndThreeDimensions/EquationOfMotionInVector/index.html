@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equation of Motion Using Vector</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <style>
+      body {
+        font-family: Georgia, serif;
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+        background-color: #fcfcfc;
+        color: #333;
+      }
+      h1, h2 {
+        color: #003366;
+      }
+      pre {
+        background-color: #f0f0f0;
+        padding: 1rem;
+        border-left: 5px solid #003366;
+        overflow-x: auto;
+      }
+      .equation {
+        font-family: 'Courier New', monospace;
+        background: #f9f9f9;
+        display: block;
+        padding: 0.5rem;
+        margin: 1rem 0;
+        border-left: 3px solid #999;
+      }
+      .controls {
+        margin: 20px 0;
+      }
+      button {
+        margin-top: 10px;
+        margin-right: 5px;
+        padding: 5px 10px;
+        background-color: #003366;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Equation of Motion Using Vector</h1>
+
+  <h2>1. Introduction</h2>
+  <p>Vectors are essential tools in physics that help us describe quantities having both magnitude and direction. When it comes to motion, vectors allow us to describe velocity, acceleration, and displacement in a more complete and accurate way.</p>
+
+  <h2>2. What Are Vectors?</h2>
+  <p>A vector is a quantity that has both <strong>magnitude</strong> (size) and <strong>direction</strong>. Common vector quantities include:</p>
+  <ul>
+    <li>Displacement</li>
+    <li>Velocity</li>
+    <li>Acceleration</li>
+    <li>Force</li>
+  </ul>
+
+  <p>For example, if a car moves 60 km east, that's a vector. It tells you how far (60 km) and in which direction (east).</p>
+
+  <h2>3. The Three Equations of Motion (Vector Form)</h2>
+  <p>Let’s look at the three equations of motion using vector notation. Assuming constant acceleration:</p>
+
+  <h3>First Equation:</h3>
+  <p>Relates velocity, acceleration, and time:</p>
+  <div class="equation">
+    $$ \vec{v} = \vec{u} + \vec{a}t $$
+  </div>
+  <p><strong>Where:</strong><br>
+    \( \vec{v} \): final velocity<br>
+    \( \vec{u} \): initial velocity<br>
+    \( \vec{a} \): acceleration<br>
+    \( t \): time</p>
+
+  <h3>Second Equation:</h3>
+  <p>Relates displacement, velocity, and time:</p>
+  <div class="equation">
+    $$ \vec{s} = \vec{u}t + \frac{1}{2}\vec{a}t^2 $$
+  </div>
+
+  <h3>Third Equation:</h3>
+  <p>Relates velocity, acceleration, and displacement:</p>
+  <div class="equation">
+    $$ \vec{v}^2 = \vec{u}^2 + 2\vec{a} \cdot \vec{s} $$
+  </div>
+
+  <h2>4. Vector Components</h2>
+  <p>In 2D or 3D motion, vectors are broken into components along the x, y, and sometimes z axes. For example:</p>
+  <div class="equation">
+    $$ \vec{v} = v_x \hat{i} + v_y \hat{j} $$
+  </div>
+  <p>This allows easier calculations using trigonometry and algebra.</p>
+
+  <h2>5. Real-World Examples</h2>
+  <h3>A. Car on a Road</h3>
+  <p>A car accelerating along a curved road can be analyzed using vectors. If the car starts at 0 m/s and accelerates at 2 m/s² for 5 seconds, we use:</p>
+  <div class="equation">
+    $$ \vec{v} = 0 + 2 \cdot 5 = 10 \text{ m/s in direction of road} $$
+  </div>
+
+  <h3>B. Airplane Navigation</h3>
+  <p>Planes often use vector mathematics to account for wind. If an airplane travels north at 200 km/h and wind blows east at 50 km/h, the resultant velocity is a vector:</p>
+  <div class="equation">
+    $$ \vec{v}_{\text{resultant}} = \sqrt{200^2 + 50^2} = 206.15 \text{ km/h} $$
+  </div>
+
+  <h3>C. Sports</h3>
+  <p>When a football is kicked at an angle, its motion can be split into horizontal and vertical components. These can be analyzed with vectors to find maximum height and range.</p>
+
+  <h2>6. Practical Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Predicting motion of projectiles and machines</li>
+    <li><strong>Robotics:</strong> Calculating movement paths using vector equations</li>
+    <li><strong>Navigation:</strong> Aircraft and ships use vectors to adjust for wind and current</li>
+    <li><strong>Animation:</strong> Motion in game physics and visual effects depends on vectors</li>
+  </ul>
+
+  <h2>7. Fun Fact!</h2>
+  <p>NASA uses vector equations of motion to simulate spacecraft paths and landing sequences. Every planetary mission relies on these calculations!</p>
+
+  <h2>8. Visualizing Motion</h2>
+  <p>Imagine a ball being thrown. Its velocity vector changes direction due to gravity. The motion path (called a trajectory) is a parabola, which we can analyze using vectors.</p>
+
+  <h2>9. Tips for Beginners</h2>
+  <ul>
+    <li>Always draw a diagram with vector arrows.</li>
+    <li>Break vectors into components if motion is not in a straight line.</li>
+    <li>Use Pythagoras and trigonometry to work with components.</li>
+    <li>Keep units consistent (m/s, km/h, etc).</li>
+  </ul>
+<p>
+  <h1>Physics Topic: Equation of Motion Using Vector</h1>
+
+  <!-- Lesson content omitted for brevity -->
+
+  <h2>10. Interactive Simulation</h2>
+  <div class="controls">
+    <label>Initial Speed (m/s): <input id="speed" type="range" min="1" max="20" value="10"> <span id="speedVal">10</span></label><br>
+    <label>Angle (°): <input id="angle" type="range" min="10" max="80" value="45"> <span id="angleVal">45</span></label><br>
+    <button onclick="pauseResume()" id="pauseBtn">Pause</button>
+    <button onclick="resetSimulation()">Reset</button>
+  </div>
+  <canvas id="motionCanvas" width="700" height="400" style="border:2px solid #003366; margin-top: 20px;"></canvas>
+
+  <script>
+    const canvas = document.getElementById("motionCanvas");
+    const ctx = canvas.getContext("2d");
+    const speedSlider = document.getElementById("speed");
+    const angleSlider = document.getElementById("angle");
+    const speedVal = document.getElementById("speedVal");
+    const angleVal = document.getElementById("angleVal");
+    const pauseBtn = document.getElementById("pauseBtn");
+
+    let velocity, position, angleDeg;
+    let isPaused = false;
+    let animationId;
+
+    function setup() {
+      const speed = parseFloat(speedSlider.value);
+      angleDeg = parseFloat(angleSlider.value);
+      const angleRad = angleDeg * Math.PI / 180;
+
+      velocity = {
+        x: speed * Math.cos(angleRad),
+        y: -speed * Math.sin(angleRad)
+      };
+
+      position = { x: 50, y: 350 };
+    }
+
+    function drawGrid() {
+      ctx.strokeStyle = "#eee";
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= canvas.width; x += 50) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= canvas.height; y += 50) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+      ctx.strokeStyle = "#999";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(0, 350);
+      ctx.lineTo(canvas.width, 350);
+      ctx.stroke();
+    }
+
+    function drawVector(x, y, vx, vy, color, label) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + vx * 10, y + vy * 10);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(x + vx * 10, y + vy * 10, 3, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+
+      ctx.fillStyle = color;
+      ctx.font = "14px Arial";
+      ctx.fillText(label, x + vx * 10 + 5, y + vy * 10);
+    }
+
+    const gravity = { x: 0, y: 0.1 };
+
+    function animate() {
+      if (isPaused) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawGrid();
+
+      ctx.beginPath();
+      ctx.arc(position.x, position.y, 5, 0, Math.PI * 2);
+      ctx.fillStyle = "#FF5733";
+      ctx.fill();
+
+      drawVector(position.x, position.y, velocity.x, velocity.y, "#0074D9", "Velocity");
+      drawVector(position.x, position.y, gravity.x * 100, gravity.y * 100, "#2ECC40", "Acceleration");
+
+      velocity.x += gravity.x;
+      velocity.y += gravity.y;
+      position.x += velocity.x;
+      position.y += velocity.y;
+
+      if (position.y >= 350) {
+        position.y = 350;
+        velocity.y = -velocity.y * 0.7;
+      }
+
+      animationId = requestAnimationFrame(animate);
+    }
+
+    function pauseResume() {
+      isPaused = !isPaused;
+      pauseBtn.textContent = isPaused ? "Resume" : "Pause";
+      if (!isPaused) animate();
+      else cancelAnimationFrame(animationId);
+    }
+
+    function resetSimulation() {
+      cancelAnimationFrame(animationId);
+      setup();
+      isPaused = false;
+      pauseBtn.textContent = "Pause";
+      animate();
+    }
+
+    speedSlider.oninput = () => {
+      speedVal.textContent = speedSlider.value;
+      setup();
+    };
+
+    angleSlider.oninput = () => {
+      angleVal.textContent = angleSlider.value;
+      setup();
+    };
+
+    setup();
+    animate();
+  </script>
+</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
