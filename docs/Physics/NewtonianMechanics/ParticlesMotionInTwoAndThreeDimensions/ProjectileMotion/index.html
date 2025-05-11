@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Projectile Motion</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <style>
+        body {
+          font-family: Georgia, serif;
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+          background-color: #fcfcfc;
+          color: #333;
+        }
+        h1, h2 {
+          color: #003366;
+        }
+        pre {
+          background-color: #f0f0f0;
+          padding: 1rem;
+          border-left: 5px solid #003366;
+          overflow-x: auto;
+        }
+        .equation {
+          font-family: 'Courier New', monospace;
+          background: #f9f9f9;
+          display: block;
+          padding: 0.5rem;
+          margin: 1rem 0;
+          border-left: 3px solid #999;
+        }
+        canvas {
+          border: 1px solid #ccc;
+          margin-bottom: 1rem;
+        }
+        #controls {
+          margin-bottom: 1rem;
+        }
+        label {
+          margin-right: 1rem;
+        }
+        button {
+          margin-right: 0.5rem;
+        }
+      </style>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Projectile Motion and Equations</h1>
+
+  <h2>1. Introduction</h2>
+  <p>
+    Projectile motion is a form of motion experienced by an object or particle that is thrown near the Earth's surface and moves along a curved path under the action of gravity only (assuming air resistance is negligible). The path that the object follows is called its <strong>trajectory</strong>, and it typically has the shape of a parabola.
+  </p>
+
+  <h2>2. Key Concepts</h2>
+  <ul>
+    <li><strong>Initial velocity (u)</strong>: The speed at which the projectile is launched.</li>
+    <li><strong>Angle of projection (θ)</strong>: The angle between the initial velocity and the horizontal axis.</li>
+    <li><strong>Acceleration due to gravity (g)</strong>: A constant value of \(9.8 \ \text{m/s}^2\) directed downward.</li>
+    <li><strong>Time of flight</strong>: Total time the projectile remains in the air.</li>
+    <li><strong>Maximum height</strong>: The highest point reached by the projectile.</li>
+    <li><strong>Horizontal range</strong>: The total horizontal distance traveled by the projectile.</li>
+  </ul>
+
+  <h2>3. Comprehensive Projectile Motion Equations</h2>
+  <p>Here's a comprehensive list of <strong>projectile motion equations</strong>, categorized based on horizontal and vertical components. These equations assume motion under constant acceleration due to gravity (usually \( g = 9.8 \, \text{m/s}^2 \)) and neglect air resistance.</p>
+
+  <h3>🧭 1. Initial velocity components</h3>
+  <div class="equation">
+    $$ v_{0x} = v_0 \cos\theta $$
+  </div>
+  <div class="equation">
+   $$ v_{0y} = v_0 \sin\theta $$
+  </div>
+
+  <h3>📏 2. Position equations (at time \( t \))</h3>
+  <div class="equation">
+    $$ x(t) = v_{0x} t = v_0 \cos\theta \cdot t $$
+  </div>
+  <div class="equation">
+    $$ y(t) = v_{0y} t - \frac{1}{2}gt^2 = v_0 \sin\theta \cdot t - \frac{1}{2}gt^2 $$
+  </div>
+
+  <h3>🧮 3. Velocity equations</h3>
+  <div class="equation">
+   $$  v_x = v_{0x} = v_0 \cos\theta $$
+  </div>
+  <div class="equation">
+   $$  v_y = v_{0y} - gt = v_0 \sin\theta - gt $$
+  </div>
+  <div class="equation">
+    $$ v = \sqrt{v_x^2 + v_y^2} $$
+  </div>
+  <div class="equation">
+   $$ \tan\phi = \frac{v_y}{v_x} $$
+  </div>
+
+  <h3>⏱️ 4. Time of flight (total time in air)</h3>
+  <div class="equation">
+   $$ T = \frac{2v_0 \sin\theta}{g} $$
+  </div>
+
+  <h3>🔝 5. Maximum height</h3>
+  <div class="equation">
+   $$ H = \frac{(v_0 \sin\theta)^2}{2g} $$
+  </div>
+
+  <h3>📐 6. Horizontal range (total horizontal distance)</h3>
+  <div class="equation">
+   $$ R = \frac{v_0^2 \sin(2\theta)}{g} $$
+  </div>
+
+  <h2>4. Real World Examples</h2>
+  <h3>Throwing a Ball</h3>
+  <p>When you throw a ball at an angle, it follows a parabolic trajectory. The distance it travels and how high it goes depend on the angle and speed of your throw.</p>
+
+  <h3>Sports</h3>
+  <p>In basketball, the perfect arc for a shot involves understanding projectile motion. Similarly, soccer players often bend their kicks to make the ball follow a curved trajectory toward the goal.</p>
+
+  <h3>Fireworks</h3>
+  <p>Fireworks are launched into the air at specific angles and speeds. Their paths follow projectile motion before they explode in the sky.</p>
+
+  <h3>Engineering</h3>
+  <p>Engineers designing roller coasters, ski jumps, or even military projectiles use principles of projectile motion for accurate and safe results.</p>
+
+  <h2>5. Practical Applications</h2>
+  <ul>
+    <li><strong>Military and defense:</strong> Calculating the trajectory of missiles and artillery shells.</li>
+    <li><strong>Aerospace:</strong> Designing flight paths for space missions or satellites.</li>
+    <li><strong>Sports science:</strong> Optimizing athlete performance in long jump, javelin, and high jump.</li>
+    <li><strong>Entertainment:</strong> In video games and animations, projectile motion is simulated for realism.</li>
+  </ul>
+
+  <h2>6. Worked Example</h2>
+  <p><strong>Problem:</strong> A ball is thrown with an initial velocity of 20 m/s at an angle of 30° with the horizontal. Find the time of flight, maximum height, and horizontal range.</p>
+
+  <p><strong>Solution:</strong></p>
+  <p>Given: \( u = 20 \ \text{m/s}, \theta = 30^\circ, g = 9.8 \ \text{m/s}^2 \)</p>
+
+  <p>Time of flight:</p>
+  <div class="equation">
+    $$ T = \frac{2 \cdot 20 \cdot \sin30^\circ}{9.8} = \frac{20}{9.8} \approx 2.04 \ \text{s} $$
+  </div>
+
+  <p>Maximum height:</p>
+  <div class="equation">
+   $$ H = \frac{(20)^2 \cdot \sin^2 30^\circ}{2 \cdot 9.8} = \frac{400 \cdot 0.25}{19.6} \approx 5.10 \ \text{m} $$
+  </div>
+
+  <p>Horizontal range:</p>
+  <div class="equation">
+   $$ R = \frac{(20)^2 \cdot \sin60^\circ}{9.8} \approx \frac{400 \cdot 0.866}{9.8} \approx 35.34 \ \text{m} $$
+  </div>
+
+  <h2>7. Fun Fact!</h2>
+  <p>The famous "Angry Birds" game relies entirely on projectile motion! Every bird follows a parabolic path, and the game mechanics are based on adjusting the launch angle and speed to hit targets.</p>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Projectile motion involves horizontal and vertical motion happening simultaneously.</li>
+    <li>Neglecting air resistance, the trajectory is always a parabola.</li>
+    <li>The motion can be predicted using equations involving trigonometric functions.</li>
+    <li>Understanding this helps in real life, sports, engineering, entertainment, and science.</li>
+  </ul>
+
+  <h1>Physics Topic: Projectile Motion and Equations</h1>
+  <!-- ... previous lesson content remains unchanged ... -->
+
+  <h1>Physics Topic: Projectile Motion and Equations</h1>
+  <!-- ... previous lesson content remains unchanged ... -->
+
+  <h1>Physics Topic: Projectile Motion and Equations</h1>
+  <!-- ... previous lesson content remains unchanged ... -->
+
+  <h2>🎯 Interactive Projectile Motion Simulator</h2>
+  <div id="controls">
+    <label>Initial Speed (m/s): <input type="number" id="speedInput" value="30" /></label>
+    <label>Angle (°): <input type="number" id="angleInput" value="45" /></label><br><br>
+    <button onclick="startSimulation()">Launch</button>
+    <button onclick="pauseSimulation()">Pause</button>
+    <button onclick="resumeSimulation()">Resume</button>
+    <button onclick="resetSimulation()">Reset</button>
+  </div>
+  <canvas id="projectileCanvas" width="800" height="400"></canvas>
+  <p><strong>Time:</strong> <span id="timeDisplay">0</span> s |
+  <strong>Height:</strong> <span id="heightDisplay">0</span> m |
+  <strong>Distance:</strong> <span id="rangeDisplay">0</span> m</p>
+
+  <script>
+    const canvas = document.getElementById("projectileCanvas");
+    const ctx = canvas.getContext("2d");
+    const scale = 5; // pixels per meter
+    const g = 9.8;
+    let interval;
+    let path = [];
+    let t = 0;
+    let vx = 0;
+    let vy = 0;
+    let running = false;
+    let angleRad = 0;
+
+    function drawGrid() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "#ddd";
+      ctx.lineWidth = 1;
+
+      for (let x = 0; x <= canvas.width; x += scale * 5) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+
+      for (let y = 0; y <= canvas.height; y += scale * 5) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+    }
+
+    function updateFrame() {
+      const x = vx * t;
+      const y = vy * t - 0.5 * g * t * t;
+
+      if (y < 0) {
+        clearInterval(interval);
+        running = false;
+        return;
+      }
+
+      drawGrid();
+
+      // Draw stored path
+      path.push({ x, y });
+      ctx.beginPath();
+      for (let i = 0; i < path.length; i++) {
+        const px = path[i].x * scale;
+        const py = canvas.height - path[i].y * scale;
+        ctx.lineTo(px, py);
+      }
+      ctx.strokeStyle = "#99ccff";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Draw current projectile
+      ctx.beginPath();
+      ctx.arc(x * scale, canvas.height - y * scale, 6, 0, 2 * Math.PI);
+      ctx.fillStyle = "#e60000";
+      ctx.fill();
+
+      // Velocity vector
+      const vxPixel = vx * 0.5;
+      const vyPixel = (vy - g * t) * 0.5;
+      ctx.beginPath();
+      ctx.moveTo(x * scale, canvas.height - y * scale);
+      ctx.lineTo((x + vxPixel) * scale, canvas.height - (y + vyPixel) * scale);
+      ctx.strokeStyle = "green";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.fillText("Velocity", (x + vxPixel) * scale + 5, canvas.height - (y + vyPixel) * scale);
+
+      // Horizontal component
+      ctx.beginPath();
+      ctx.moveTo(x * scale, canvas.height - y * scale);
+      ctx.lineTo((x + vxPixel) * scale, canvas.height - y * scale);
+      ctx.strokeStyle = "#ff9900";
+      ctx.stroke();
+      ctx.fillText("vₓ", (x + vxPixel) * scale + 5, canvas.height - y * scale);
+
+      // Vertical component
+      ctx.beginPath();
+      ctx.moveTo(x * scale, canvas.height - y * scale);
+      ctx.lineTo(x * scale, canvas.height - (y + vyPixel) * scale);
+      ctx.strokeStyle = "#9900cc";
+      ctx.stroke();
+      ctx.fillText("vᵧ", x * scale + 5, canvas.height - (y + vyPixel) * scale);
+
+      // Gravity vector
+      ctx.beginPath();
+      ctx.moveTo(x * scale, canvas.height - y * scale);
+      ctx.lineTo(x * scale, canvas.height - y * scale + 20);
+      ctx.strokeStyle = "#000";
+      ctx.stroke();
+      ctx.fillText("g", x * scale + 5, canvas.height - y * scale + 25);
+
+      document.getElementById("timeDisplay").textContent = t.toFixed(2);
+      document.getElementById("heightDisplay").textContent = y.toFixed(2);
+      document.getElementById("rangeDisplay").textContent = x.toFixed(2);
+
+      t += 0.05;
+    }
+
+    function startSimulation() {
+      clearInterval(interval);
+      drawGrid();
+      path = [];
+      t = 0;
+      running = true;
+
+      const initialSpeed = parseFloat(document.getElementById("speedInput").value);
+      const angleDeg = parseFloat(document.getElementById("angleInput").value);
+      angleRad = angleDeg * Math.PI / 180;
+      vx = initialSpeed * Math.cos(angleRad);
+      vy = initialSpeed * Math.sin(angleRad);
+
+      interval = setInterval(updateFrame, 30);
+    }
+
+    function pauseSimulation() {
+      if (running) {
+        clearInterval(interval);
+        running = false;
+      }
+    }
+
+    function resumeSimulation() {
+      if (!running) {
+        interval = setInterval(updateFrame, 30);
+        running = true;
+      }
+    }
+
+    function resetSimulation() {
+      clearInterval(interval);
+      drawGrid();
+      t = 0;
+      path = [];
+      running = false;
+      document.getElementById("timeDisplay").textContent = "0";
+      document.getElementById("heightDisplay").textContent = "0";
+      document.getElementById("rangeDisplay").textContent = "0";
+    }
+
+    drawGrid();
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
