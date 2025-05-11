@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Position, Displacement, Average Velocity, and Average Speed</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .control-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Position, Displacement, Average Velocity, and Average Speed</h1>
+
+  <h2>1. Position and Displacement</h2>
+  <p>In physics, the concept of position refers to the location of an object in space at any given time. The position is usually described in terms of coordinates relative to some reference point, often the origin (0, 0).</p>
+  
+  <p><b>Displacement</b> is the change in the position of an object. It’s a vector quantity, meaning it has both magnitude and direction. Displacement is different from distance because it considers the shortest path between the starting and ending points, regardless of the actual path traveled.</p>
+  
+  <h3>Real-World Example</h3>
+  <p>Imagine you walk in a straight line from your house to a friend's house. If you walk 100 meters north and then 100 meters back to your house, your total distance traveled is 200 meters. However, your displacement is 0 meters because you ended up exactly where you started.</p>
+  
+  <h3>Fun Fact</h3>
+  <p>The shortest path between two points is always a straight line. This is why displacement is the straight-line distance between your starting and ending points, while distance can be much longer if you take a winding or curved path!</p>
+
+  <div class="equation">
+    $$ \text{Displacement} = \text{Final Position} - \text{Initial Position} $$
+  </div>
+
+  <h2>2. Average Velocity</h2>
+  <p>Average velocity is defined as the total displacement divided by the total time it takes to travel that displacement. Like displacement, velocity is a vector quantity, meaning it includes both speed and direction.</p>
+  
+  <h3>Formula for Average Velocity</h3>
+  <p>The formula for average velocity is:</p>
+  
+  <div class="equation">
+    $$ \text{Average Velocity} = \frac{\text{Displacement}}{\text{Time}} $$
+  </div>
+  
+  <h3>Real-World Example</h3>
+  <p>Let's say you are traveling to a nearby city 60 kilometers away. You drive there in 1 hour and return in 2 hours. Your total displacement is 0 kilometers because you returned to your starting point. Despite traveling 120 kilometers in total, your average velocity is 0 km/h!</p>
+
+  <h3>Practical Application</h3>
+  <p>Average velocity is essential in navigation and transportation planning. If you're in a car, train, or plane, knowing your average velocity helps determine travel times between different destinations. It’s also helpful in understanding the efficiency of your journey over time.</p>
+
+  <h2>3. Average Speed</h2>
+  <p>Unlike average velocity, average speed is a scalar quantity, meaning it only has magnitude (no direction). Average speed is defined as the total distance traveled divided by the total time taken.</p>
+  
+  <h3>Formula for Average Speed</h3>
+  <p>The formula for average speed is:</p>
+  
+  <div class="equation">
+    $$ \text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}} $$
+  </div>
+  
+  <h3>Real-World Example</h3>
+  <p>Suppose you drive from your house to a park 30 kilometers away, and then you drive back. You take 1 hour to get there and 1 hour to return. Your total distance traveled is 60 kilometers, and your total time is 2 hours. So, your average speed is:</p>
+
+  <div class="equation">
+    $$ \text{Average Speed} = \frac{60 \, \text{km}}{2 \, \text{hours}} = 30 \, \text{km/h} $$
+  </div>
+  
+  <h3>Practical Application</h3>
+  <p>Average speed is crucial for calculating travel time when you’re planning a trip or scheduling deliveries. It helps you estimate how long it will take to get from point A to point B, no matter the route you take.</p>
+
+  <h2>4. Key Differences Between Average Velocity and Average Speed</h2>
+  <p>While both average velocity and average speed measure the rate of motion, they differ in the following ways:</p>
+  
+  <ul>
+    <li><b>Average Velocity</b> considers direction and displacement. It can be zero even if the total distance traveled is non-zero.</li>
+    <li><b>Average Speed</b> does not consider direction and only looks at the total distance covered. It is always non-zero unless no motion occurs.</li>
+  </ul>
+
+  <h2>5. Real-World Applications</h2>
+  <p>These concepts are vital in various real-world scenarios:</p>
+  
+  <ul>
+    <li><b>GPS Systems:</b> GPS systems in cars use average velocity and speed to estimate arrival times and guide drivers to their destinations efficiently.</li>
+    <li><b>Sports:</b> In sports like running or cycling, understanding average speed and velocity helps athletes improve their performance and track their progress over time.</li>
+    <li><b>Aerodynamics:</b> Engineers use these concepts to design vehicles like cars and airplanes to minimize drag and maximize efficiency.</li>
+  </ul>
+
+  <h2>6. Fun Fact</h2>
+  <p>Did you know that astronauts travel at an average speed of over 28,000 kilometers per hour when orbiting Earth? That’s 23 times faster than the speed of sound! Despite this incredible speed, the astronauts’ displacement (relative to Earth) might be close to zero if they’re simply orbiting the planet without moving toward or away from it.</p>
+
+  <h2>Projectile and Car Motion</h2>
+  <canvas id="motionChart" width="700" height="720" style="display: block; margin: auto;"></canvas>
+
+  <div class="control-buttons">
+    <button id="startButton">Start</button>
+    <button id="pauseButton">Pause</button>
+    <button id="resetButton">Reset</button>
+  </div>
+  
+  <script>
+    // Constants
+    const velocityX = 12.49;         // Horizontal velocity (m/s)
+    const initialVelocityY = 9.8;    // Vertical velocity (m/s)
+    const gravity = 9.8;             // Gravity (m/s^2)
+    const timeInterval = 0.1;        // Time step (s)
+    const totalTime = 2.0;           // Total time (s), ensures projectile stays within 10 meters
+    const carVelocity = 4;           // Car velocity (m/s)
+  
+    const timeSteps = [];
+    const carData = [];
+    const projectileData = [];
+  
+    // Calculate car and projectile motion data
+    for (let t = 0; t <= totalTime + 0.001; t += timeInterval) {
+      timeSteps.push(t);
+      const carPos = carVelocity * t;
+      const projY = initialVelocityY * t - 0.5 * gravity * t * t;
+      carData.push({ x: t, y: carPos });
+      projectileData.push({ x: t, y: projY });
+    }
+  
+    // Frame tracking variables
+    let carMarker = { x: 0, y: 0 };
+    let projectileMarker = { x: 0, y: 0 };
+    let currentTime = 0;
+    let animationFrame = 0;
+    let animationInterval = null;
+  
+    const ctx = document.getElementById('motionChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'Car Motion (Straight Line)',
+            data: [],
+            borderColor: 'blue',
+            borderWidth: 2,
+            fill: false,
+          },
+          {
+            label: 'Projectile Motion (Curved Path)',
+            data: [],
+            borderColor: 'red',
+            borderWidth: 2,
+            fill: false,
+          },
+          {
+            label: 'Car Position',
+            type: 'scatter',
+            data: [carMarker],
+            pointBackgroundColor: 'blue',
+            pointRadius: 6,
+            showLine: false
+          },
+          {
+            label: 'Projectile Position',
+            type: 'scatter',
+            data: [projectileMarker],
+            pointBackgroundColor: 'red',
+            pointRadius: 6,
+            showLine: false
+          }
+        ]
+      },
+      options: {
+        animation: false,
+        responsive: true,
+        scales: {
+          x: {
+            type: 'linear',
+            title: {
+              display: true,
+              text: 'Time (s)'
+            },
+            min: 0,
+            max: totalTime + 0.5
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Position (m)'
+            },
+            min: 0,
+            max: 10
+          }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Position, Displacement, Average Velocity, and Average Speed'
+          },
+          liveAnnotation: {
+            position: () => ({
+              time: currentTime,
+              carY: carMarker.y,
+              projY: projectileMarker.y
+            })
+          }
+        }
+      },
+      plugins: [{
+        id: 'liveAnnotation',
+        beforeDraw: (chart, args, options) => {
+          const { ctx, chartArea } = chart;
+          const pos = options.position();
+          ctx.save();
+          ctx.fillStyle = 'black';
+          ctx.font = '16px Arial';
+          ctx.fillText(`Time: ${pos.time.toFixed(1)}s`, chartArea.left + 10, chartArea.top + 20);
+          ctx.fillText(`Car Position: ${pos.carY.toFixed(2)} m`, chartArea.left + 10, chartArea.top + 40);
+          ctx.fillText(`Projectile Height: ${pos.projY.toFixed(2)} m`, chartArea.left + 10, chartArea.top + 60);
+          ctx.restore();
+        }
+      }]
+    });
+  
+    // Start animation function
+    const startAnimation = () => {
+      if (animationInterval) return;  // Prevent multiple intervals
+      animationInterval = setInterval(() => {
+        if (animationFrame >= timeSteps.length) {
+          clearInterval(animationInterval);
+          animationInterval = null;
+          return;
+        }
+  
+        chart.data.datasets[0].data.push(carData[animationFrame]);
+        chart.data.datasets[1].data.push(projectileData[animationFrame]);
+  
+        carMarker.x = timeSteps[animationFrame];
+        carMarker.y = carData[animationFrame].y;
+        projectileMarker.x = timeSteps[animationFrame];
+        projectileMarker.y = projectileData[animationFrame].y;
+        currentTime = timeSteps[animationFrame];
+  
+        chart.data.datasets[2].data = [carMarker];
+        chart.data.datasets[3].data = [projectileMarker];
+  
+        chart.update();
+        animationFrame++;
+      }, 100);
+    };
+  
+    // Pause animation function
+    const pauseAnimation = () => {
+      clearInterval(animationInterval);
+      animationInterval = null;
+    };
+  
+    // Reset animation function
+    const resetAnimation = () => {
+      clearInterval(animationInterval);
+      animationInterval = null;
+      animationFrame = 0;
+      chart.data.datasets[0].data = [];
+      chart.data.datasets[1].data = [];
+      chart.data.datasets[2].data = [carMarker];
+      chart.data.datasets[3].data = [projectileMarker];
+      chart.update();
+    };
+  
+    // Button event listeners
+    document.getElementById('startButton').addEventListener('click', startAnimation);
+    document.getElementById('pauseButton').addEventListener('click', pauseAnimation);
+    document.getElementById('resetButton').addEventListener('click', resetAnimation);
+  </script>
+  
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
