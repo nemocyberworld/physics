@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Mass, Force, and Weight</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <style>
+        body {
+          font-family: Georgia, serif;
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+          background-color: #fcfcfc;
+          color: #333;
+        }
+        h1, h2 {
+          color: #003366;
+        }
+        .equation {
+          font-family: 'Courier New', monospace;
+          background: #f9f9f9;
+          display: block;
+          padding: 0.5rem;
+          margin: 1rem 0;
+          border-left: 3px solid #999;
+        }
+        .sim-section {
+          background-color: #eef;
+          padding: 1rem;
+          margin: 1.5rem 0;
+          border-left: 5px solid #003366;
+        }
+        label, input, select {
+          display: block;
+          margin: 0.5rem 0;
+        }
+        .box {
+          width: 40px;
+          height: 40px;
+          background-color: teal;
+          position: absolute;
+        }
+        #fallZone {
+          height: 200px;
+          border: 1px solid #999;
+          margin-top: 1rem;
+          position: relative;
+          background: #f9f9f9;
+        }
+      </style>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Concept of Mass, Force, and Weight</h1>
+
+  <h2>1. What is Mass?</h2>
+  <p>
+    <strong>Mass</strong> is a measure of the amount of matter in an object. It is a scalar quantity and does not change with location. The SI unit of mass is the <strong>kilogram (kg)</strong>.
+  </p>
+
+  <p><strong>Key properties of mass:</strong></p>
+  <ul>
+    <li>Mass is always constant for a given object (unless matter is added or removed).</li>
+    <li>It is not affected by gravity or other forces.</li>
+    <li>It determines the amount of inertia an object has (its resistance to change in motion).</li>
+  </ul>
+
+  <h3>Real-World Examples of Mass:</h3>
+  <ul>
+    <li>A bag of rice weighs 5 kg. That means it has 5 kg of mass, regardless of whether it's on Earth, the Moon, or floating in space.</li>
+    <li>Your body mass remains the same, even if your weight changes at different altitudes or planets.</li>
+  </ul>
+
+  <h3>Fun Fact:</h3>
+  <p>
+    An astronaut's mass stays the same in space, but their weight becomes almost zero in microgravity!
+  </p>
+
+  <h2>2. What is Force?</h2>
+  <p>
+    A <strong>force</strong> is a push or a pull acting upon an object due to interaction with another object. It is a <strong>vector quantity</strong>, which means it has both magnitude and direction.
+  </p>
+
+  <p><strong>The SI unit of force is the newton (N)</strong>, where:</p>
+  <div class="equation">
+    $$ 1 \, \text{N} = 1 \, \text{kg} \cdot \text{m/s}^2 $$
+  </div>
+
+  <p>
+    The most famous equation involving force is Newton’s Second Law of Motion:
+  </p>
+
+  <div class="equation">
+    $$ F = ma $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( F \) = Force in newtons (N)</li>
+    <li>\( m \) = Mass in kilograms (kg)</li>
+    <li>\( a \) = Acceleration in meters per second squared (m/s²)</li>
+  </ul>
+
+  <h3>Real-World Examples of Force:</h3>
+  <ul>
+    <li>When you kick a football, your foot applies force to change the ball’s motion.</li>
+    <li>When you push a shopping cart, you exert force to accelerate it.</li>
+    <li>Gravity is a force that pulls objects toward Earth.</li>
+  </ul>
+
+  <h3>Practical Application:</h3>
+  <p>
+    Engineers calculate the forces acting on bridges and buildings to ensure they can withstand strong winds and earthquakes.
+  </p>
+
+  <h2>3. What is Weight?</h2>
+  <p>
+    <strong>Weight</strong> is the force with which gravity pulls an object toward the center of a planet. Unlike mass, weight depends on gravity, so it varies from planet to planet.
+  </p>
+
+  <div class="equation">
+    $$ W = mg $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( W \) = Weight (in newtons)</li>
+    <li>\( m \) = Mass (in kilograms)</li>
+    <li>\( g \) = Acceleration due to gravity (on Earth, \( g \approx 9.8 \, \text{m/s}^2 \))</li>
+  </ul>
+
+  <h3>Real-World Examples of Weight:</h3>
+  <ul>
+    <li>A 70 kg person on Earth has a weight of: \( 70 \times 9.8 = 686 \, \text{N} \)</li>
+    <li>The same person on the Moon (where \( g \approx 1.6 \, \text{m/s}^2 \)) would weigh: \( 70 \times 1.6 = 112 \, \text{N} \)</li>
+  </ul>
+
+  <h3>Fun Fact:</h3>
+  <p>
+    A scale measures your weight (the force you exert on the ground), but it calculates and displays your mass based on Earth's gravity!
+  </p>
+
+  <h2>4. Comparison Table</h2>
+  <pre>
+| Property   | Mass                      | Weight                     |
+|------------|---------------------------|----------------------------|
+| Definition | Amount of matter          | Force due to gravity       |
+| Type       | Scalar                    | Vector                     |
+| Unit       | Kilogram (kg)             | Newton (N)                 |
+| Formula    | —                         | \( W = mg \)               |
+| Varies?    | No, constant everywhere   | Yes, depends on gravity    |
+| Measured by| Balance                   | Spring scale               |
+  </pre>
+
+  <h2>5. Interactive Thought Experiment</h2>
+  <p>
+    Imagine you're on a spaceship far from any planet. You bring a 10 kg dumbbell with you.
+  </p>
+  <ul>
+    <li><strong>What’s its mass?</strong> — Still 10 kg, because mass doesn't change with location.</li>
+    <li><strong>What’s its weight?</strong> — Close to zero, because there's little to no gravity in deep space.</li>
+    <li><strong>Can you move it easily?</strong> — Not as easily as you think! Even without weight, it still has inertia due to its mass, so you'll need to apply force to accelerate it.</li>
+  </ul>
+
+  <h2>6. Application in Daily Life</h2>
+  <ul>
+    <li><strong>Fitness:</strong> We lift weights to build muscle. The “weight” is actually the gravitational force acting on the mass of the equipment.</li>
+    <li><strong>Transport:</strong> Vehicle performance is affected by mass. Heavier vehicles require more force to accelerate.</li>
+    <li><strong>Aerospace:</strong> Rockets must carry fuel considering both the mass and gravitational forces acting on them.</li>
+    <li><strong>Sports:</strong> Athletes use their body mass and apply forces strategically — a sprinter uses their legs to push off the blocks with great force.</li>
+  </ul>
+
+  <h2>7. Summary</h2>
+  <p>
+    Understanding the concepts of mass, force, and weight is fundamental in physics. Mass is the quantity of matter, force is the interaction that causes motion, and weight is the force due to gravity. These concepts help explain motion, balance, energy, and many daily activities.
+  </p>
+  <h2>8. Try It Yourself: Mass vs. Weight Calculator</h2>
+  <div class="sim-section">
+    <label for="massInput">Enter mass (kg):</label>
+    <input type="number" id="massInput" value="70">
+    
+    <label for="planetSelect">Choose location:</label>
+    <select id="planetSelect">
+      <option value="9.8">Earth (9.8 m/s²)</option>
+      <option value="1.6">Moon (1.6 m/s²)</option>
+      <option value="3.7">Mars (3.7 m/s²)</option>
+      <option value="24.8">Jupiter (24.8 m/s²)</option>
+    </select>
+    
+    <button onclick="calculateWeight()">Calculate Weight</button>
+    <p><strong>Weight:</strong> <span id="weightResult">–</span> N</p>
+  </div>
+
+  <h2>9. Force Calculator (\( F = ma \))</h2>
+  <div class="sim-section">
+    <label for="forceMass">Mass (kg):</label>
+    <input type="number" id="forceMass" value="10">
+    
+    <label for="forceAccel">Acceleration (m/s²):</label>
+    <input type="number" id="forceAccel" value="5">
+    
+    <button onclick="calculateForce()">Calculate Force</button>
+    <p><strong>Force:</strong> <span id="forceResult">–</span> N</p>
+  </div>
+
+  <h2>10. Animation: Free Fall in Vacuum</h2>
+  <p>Both objects fall at the same rate due to gravity!</p>
+  <div id="fallZone">
+    <div id="box1" class="box" style="left: 100px;"></div>
+    <div id="box2" class="box" style="left: 200px; background-color: darkorange;"></div>
+  </div>
+  <button onclick="startFall()">Start Fall</button>
+
+  <script>
+    function calculateWeight() {
+      const mass = parseFloat(document.getElementById('massInput').value);
+      const gravity = parseFloat(document.getElementById('planetSelect').value);
+      const weight = mass * gravity;
+      document.getElementById('weightResult').textContent = weight.toFixed(2);
+    }
+
+    function calculateForce() {
+      const mass = parseFloat(document.getElementById('forceMass').value);
+      const accel = parseFloat(document.getElementById('forceAccel').value);
+      const force = mass * accel;
+      document.getElementById('forceResult').textContent = force.toFixed(2);
+    }
+
+    function startFall() {
+      let box1 = document.getElementById('box1');
+      let box2 = document.getElementById('box2');
+      let pos = 0;
+      clearInterval(window.fallInterval);
+      window.fallInterval = setInterval(() => {
+        if (pos >= 160) {
+          clearInterval(window.fallInterval);
+        } else {
+          pos += 2;
+          box1.style.top = pos + 'px';
+          box2.style.top = pos + 'px';
+        }
+      }, 20);
+    }
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
