@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Drag Force and Terminal Speed</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <style>
+        body {
+          font-family: Georgia, serif;
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+          background-color: #fcfcfc;
+          color: #333;
+        }
+        h1, h2 {
+          color: #003366;
+        }
+        pre {
+          background-color: #f0f0f0;
+          padding: 1rem;
+          border-left: 5px solid #003366;
+          overflow-x: auto;
+        }
+        .equation {
+          font-family: 'Courier New', monospace;
+          background: #f9f9f9;
+          display: block;
+          padding: 0.5rem;
+          margin: 1rem 0;
+          border-left: 3px solid #999;
+        }
+        canvas {
+          background: #d0eaff;
+          display: block;
+          margin: 2rem auto;
+          border: 2px solid #003366;
+        }
+        .controls {
+          margin: 1rem auto;
+          max-width: 700px;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .controls label {
+          display: flex;
+          justify-content: space-between;
+        }
+      </style>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    canvas {
+      background: #eef6ff;
+      display: block;
+      margin: 2rem auto;
+      border: 2px solid #003366;
+    }
+    .controls {
+      margin: 1rem auto;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .controls label {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Drag Force and Terminal Speed</h1>
+
+  <h2>1. What is Drag Force?</h2>
+  <p>When an object moves through a fluid (like air or water), it experiences a resistance called <strong>drag force</strong>. This force acts opposite to the object's motion and increases with speed.</p>
+
+
+  <h2>2. Mathematical Expression of Drag Force</h2>
+  <p>The drag force can be modeled as:</p>
+  <div class="equation">
+    $$ F_d = \frac{1}{2} C_d \rho A v^2 $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>\( F_d \)</strong> is the drag force (in Newtons)</li>
+    <li><strong>\( C_d \)</strong> is the drag coefficient (depends on the shape of the object)</li>
+    <li><strong>\( \rho \)</strong> is the fluid density (e.g., air or water)</li>
+    <li><strong>\( A \)</strong> is the cross-sectional area of the object</li>
+    <li><strong>\( v \)</strong> is the velocity of the object</li>
+  </ul>
+
+  <h2>3. Terminal Speed Explained</h2>
+  <p><strong>Terminal speed</strong> (or terminal velocity) is the constant speed an object reaches when the drag force equals the force of gravity, so there is no net acceleration.</p>
+  <div class="equation">
+    $$ F_d = mg $$
+  </div>
+
+  <h2>4. Real-World Examples</h2>
+  <h3>Skydiving</h3>
+  <p>When a skydiver jumps from a plane, they accelerate due to gravity until air resistance (drag) balances their weight. At that point, they fall at a constant terminal speed — around 53 m/s (about 190 km/h) in a belly-down position.</p>
+
+  <h3>Raindrops</h3>
+  <p>Raindrops don’t hit the ground like bullets because they reach a terminal speed. A typical raindrop falls at about 9 m/s thanks to air drag.</p>
+
+  <h3>Parachutes</h3>
+  <p>Parachutes dramatically increase the cross-sectional area \( A \), which increases drag, thus reducing terminal speed to safe levels for landing.</p>
+
+  <h3>Car Design</h3>
+  <p>Engineers design cars with a low drag coefficient \( C_d \) to minimize drag force and improve fuel efficiency and speed.</p>
+
+  <h3>Swimming</h3>
+  <p>Competitive swimmers wear streamlined suits to reduce drag, allowing them to move faster through water.</p>
+
+  <h2>5. Practical Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Designing vehicles, aircraft, and sports equipment with low drag for better performance.</li>
+    <li><strong>Sports:</strong> Enhancing athlete speed and efficiency by reducing resistance (e.g., cycling helmets, swimsuits).</li>
+    <li><strong>Environmental Science:</strong> Modeling wind and water resistance on trees, buildings, and ecosystems.</li>
+    <li><strong>Aerospace:</strong> Calculating safe reentry speeds and parachute deployment in space missions.</li>
+  </ul>
+
+  <h2>6. Factors Affecting Drag Force</h2>
+  <ul>
+    <li><strong>Speed:</strong> Drag increases with the square of speed.</li>
+    <li><strong>Shape:</strong> More streamlined shapes reduce \( C_d \).</li>
+    <li><strong>Surface Area:</strong> Larger areas increase drag.</li>
+    <li><strong>Fluid Density:</strong> Higher density fluids (like water) exert more drag.</li>
+  </ul>
+
+  <h2>7. Fun Fact!</h2>
+  <p>Did you know that a skydiver can increase or decrease their terminal speed just by changing body position? Curling into a ball makes you fall faster; spreading out increases drag and slows you down.</p>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Drag force opposes motion through a fluid and grows with speed.</li>
+    <li>Terminal speed occurs when drag balances weight.</li>
+    <li>Many fields use this knowledge to improve safety, speed, and efficiency.</li>
+  </ul>
+
+  <h2>Visualizing drag force:</h2>
+  <p>When an object moves through a fluid (like air or water), it experiences a resistance called <strong>drag force</strong>. This force acts opposite to the object's motion and increases with speed.</p>
+
+  <canvas id="dragCanvas" width="700" height="300"></canvas>
+
+  <div class="controls">
+    <label>Mass: <input type="range" id="massSlider" min="0.5" max="10" step="0.1" value="1"> <span id="massVal">1</span> kg</label>
+    <label>Drag Coefficient: <input type="range" id="dragSlider" min="0.05" max="1.0" step="0.05" value="0.2"> <span id="dragVal">0.2</span></label>
+    <label>Area: <input type="range" id="areaSlider" min="0.1" max="1.5" step="0.1" value="0.3"> <span id="areaVal">0.3</span> m²</label>
+    <label>Fluid: 
+      <select id="fluidSelect">
+        <option value="1.2">Air</option>
+        <option value="1000">Water</option>
+        <option value="850">Oil</option>
+      </select>
+    </label>
+    <button onclick="startSimulation()">Restart Simulation</button>
+  </div>
+
+  <h2>Mathematical Expression of Drag Force</h2>
+  <p>The drag force can be modeled as:</p>
+  <div class="equation">
+    $$ F_d = \frac{1}{2} C_d \rho A v^2 $$
+  </div>
+
+  <h2>Terminal Speed</h2>
+  <p><strong>Terminal speed</strong> occurs when drag force balances gravitational force, so the net force becomes zero and acceleration stops.</p>
+  <div class="equation">
+    $$ mg = \frac{1}{2} C_d \rho A v_t^2 $$
+  </div>
+
+  <script>
+    const canvas = document.getElementById('dragCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let y = 0;
+    let speed = 0;
+    let gravity = 9.8;
+    let dt = 0.1;
+
+    let mass, dragCoeff, area, density;
+
+    function drawObject(y) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'tomato';
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, y, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.fillStyle = '#003366';
+      ctx.font = '16px Georgia';
+      ctx.fillText(`Speed: ${speed.toFixed(2)} m/s`, 20, 30);
+      ctx.fillText(`Fluid density: ${density} kg/m³`, 20, 50);
+    }
+
+    function updatePosition() {
+      const drag = 0.5 * dragCoeff * density * area * speed * speed;
+      const weight = mass * gravity;
+      const netForce = weight - drag;
+      const acceleration = netForce / mass;
+      speed += acceleration * dt;
+      y += speed * dt * 20;
+
+      drawObject(y);
+
+      if (y < canvas.height - 30) {
+        requestAnimationFrame(updatePosition);
+      } else {
+        ctx.fillStyle = 'green';
+        ctx.font = '20px Georgia';
+        ctx.fillText('Terminal speed reached!', 20, canvas.height - 20);
+      }
+    }
+
+    function startSimulation() {
+      y = 0;
+      speed = 0;
+      mass = parseFloat(document.getElementById('massSlider').value);
+      dragCoeff = parseFloat(document.getElementById('dragSlider').value);
+      area = parseFloat(document.getElementById('areaSlider').value);
+      density = parseFloat(document.getElementById('fluidSelect').value);
+
+      document.getElementById('massVal').innerText = mass;
+      document.getElementById('dragVal').innerText = dragCoeff;
+      document.getElementById('areaVal').innerText = area;
+
+      drawObject(y);
+      requestAnimationFrame(updatePosition);
+    }
+
+    document.getElementById('massSlider').addEventListener('input', e => {
+      document.getElementById('massVal').innerText = e.target.value;
+    });
+    document.getElementById('dragSlider').addEventListener('input', e => {
+      document.getElementById('dragVal').innerText = e.target.value;
+    });
+    document.getElementById('areaSlider').addEventListener('input', e => {
+      document.getElementById('areaVal').innerText = e.target.value;
+    });
+
+    drawObject(y);
+    requestAnimationFrame(updatePosition);
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
