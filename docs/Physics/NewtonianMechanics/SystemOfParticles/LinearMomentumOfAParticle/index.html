@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Momentum of a Particle - Physics Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+    <style>
+        canvas {
+          background-color: #fff;
+          border: 2px solid #000;
+        }
+        .controls {
+          margin-top: 20px;
+        }
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          margin: 5px;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+  <h1>Physics Topic: Linear Momentum of a Particle</h1>
+
+  <h2>Introduction to Linear Momentum</h2>
+  <p>Linear momentum is a key concept in physics that describes the motion of a particle or an object. It is the product of the particle's mass and its velocity. Mathematically, linear momentum \(\mathbf{p}\) is given by:</p>
+  <div class="equation">
+    $$ \mathbf{p} = m \cdot \mathbf{v} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>\(\mathbf{p}\)</strong> is the linear momentum of the particle.</li>
+    <li><strong>m</strong> is the mass of the particle.</li>
+    <li><strong>\(\mathbf{v}\)</strong> is the velocity of the particle.</li>
+  </ul>
+
+  <h2>Key Concept: Conservation of Linear Momentum</h2>
+  <p>The law of conservation of linear momentum states that if no external forces act on a system of particles, the total momentum of the system remains constant. This is one of the most important principles in physics and is used in various applications, such as collisions and explosions.</p>
+  <p>Mathematically, for a system of particles:</p>
+  <div class="equation">
+    $$ \sum \mathbf{p}_{\text{initial}} = \sum \mathbf{p}_{\text{final}} $$
+  </div>
+
+  <h2>Real World Example: A Moving Car</h2>
+  <p>Imagine a car moving along a road. The car's linear momentum can be calculated by multiplying its mass and its velocity. If the car speeds up or slows down, its momentum changes. The faster the car moves, the greater its momentum.</p>
+  <p>For instance, a car with a mass of 1000 kg moving at a speed of 20 m/s has a momentum of:</p>
+  <div class="equation">
+    $$ \mathbf{p} = 1000 \, \text{kg} \cdot 20 \, \text{m/s} = 20,000 \, \text{kg} \cdot \text{m/s} $$
+  </div>
+
+  <h2>Real World Example: Collisions and Momentum</h2>
+  <p>In car crashes, the momentum before and after the collision is used to understand the forces involved. If two cars collide, the total momentum before the collision is equal to the total momentum after the collision (assuming no external forces like friction). This is crucial for understanding accident dynamics and for designing safer cars.</p>
+  <p>In an elastic collision, where kinetic energy is also conserved, the momenta of the individual cars will change, but the total momentum remains the same:</p>
+  <div class="equation">
+    $$ m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>m<sub>1</sub></strong> and <strong>m<sub>2</sub></strong> are the masses of the two cars.</li>
+    <li><strong>v<sub>1i</sub></strong> and <strong>v<sub>2i</sub></strong> are the initial velocities of the cars.</li>
+    <li><strong>v<sub>1f</sub></strong> and <strong>v<sub>2f</sub></strong> are the final velocities of the cars after the collision.</li>
+  </ul>
+
+  <h2>Practical Application: Sports</h2>
+  <p>In sports, players use the concept of linear momentum to optimize their performance. For example, in football (soccer), a player kicks a ball. The ball's momentum changes depending on the force of the kick. A stronger kick results in greater momentum, making the ball travel faster and further.</p>
+  <p>Another example is in pool (billiards). When the cue ball strikes the other balls, the momentum transfers between the balls, which is what causes them to move. Understanding momentum helps players strategize their shots and control the game.</p>
+
+  <h2>Fun Fact!</h2>
+  <p>Did you know that linear momentum is one of the reasons rockets work? When rockets expel gas from their engines, the gas gains a lot of momentum in the opposite direction, and this propels the rocket forward. This principle is known as the "rocket equation" and it helps scientists and engineers design efficient space travel systems!</p>
+
+  <h2>Example Calculation: Rocket Launch</h2>
+  <p>Let’s consider a rocket with a mass of 500,000 kg that expels gas at a speed of 3000 m/s. If the rocket expels gas at a rate of 1000 kg/s, the momentum of the expelled gas is:</p>
+  <div class="equation">
+    $$ \mathbf{p} = 1000 \, \text{kg/s} \cdot 3000 \, \text{m/s} = 3,000,000 \, \text{kg} \cdot \text{m/s} $$
+  </div>
+  <p>This momentum is what helps push the rocket upwards as it escapes Earth's atmosphere!</p>
+
+  <h2>Conclusion: The Importance of Linear Momentum</h2>
+  <p>In conclusion, linear momentum is a fundamental concept in physics that helps explain and predict the motion of particles and objects. It has a wide range of applications, from understanding vehicle collisions to designing spacecraft. By mastering linear momentum, you can better understand the world around you and even make advancements in technology and engineering.</p>
+  <h2>Let's see linear momentum in action</h2>
+  <canvas id="momentumCanvas" width="800" height="400"></canvas>
+
+  <div class="controls">
+    <button id="startButton">Start</button>
+    <button id="pauseButton" disabled>Pause</button>
+    <button id="resetButton">Reset</button>
+  </div>
+
+  <script>
+    // Get the canvas context
+    const canvas = document.getElementById('momentumCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Initial parameters for objects (representing particles)
+    let particle1 = {
+      x: 100,
+      y: 300,
+      radius: 20,
+      color: 'blue',
+      mass: 5,
+      vx: 3,
+      vy: 0
+    };
+
+    let particle2 = {
+      x: 600,
+      y: 300,
+      radius: 20,
+      color: 'red',
+      mass: 5,
+      vx: -3,
+      vy: 0
+    };
+
+    // Animation state
+    let animationFrameId;
+    let isAnimating = false;
+
+    // Draw the particles
+    function drawParticle(particle) {
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = particle.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    // Draw velocity arrows for particles
+    function drawVelocityArrow(particle) {
+      ctx.beginPath();
+      ctx.moveTo(particle.x, particle.y);
+      ctx.lineTo(particle.x + particle.vx * 10, particle.y + particle.vy * 10); // Scaled arrow
+      ctx.strokeStyle = particle.color;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.closePath();
+    }
+
+    // Update the position of the particles
+    function updatePosition() {
+      particle1.x += particle1.vx;
+      particle1.y += particle1.vy;
+
+      particle2.x += particle2.vx;
+      particle2.y += particle2.vy;
+    }
+
+    // Detect collision and handle momentum transfer
+    function checkCollision() {
+      const dx = particle2.x - particle1.x;
+      const dy = particle2.y - particle1.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < particle1.radius + particle2.radius) {
+        // Simple elastic collision between two objects (perfectly elastic)
+        const m1 = particle1.mass;
+        const m2 = particle2.mass;
+        const v1x = particle1.vx;
+        const v2x = particle2.vx;
+
+        // Apply the formula for elastic collision along the x-axis (1D case)
+        particle1.vx = ((m1 - m2) * v1x + 2 * m2 * v2x) / (m1 + m2);
+        particle2.vx = ((m2 - m1) * v2x + 2 * m1 * v1x) / (m1 + m2);
+
+        // Change colors on collision to visualize momentum transfer
+        particle1.color = 'green';
+        particle2.color = 'yellow';
+      }
+    }
+
+    // Calculate the momentum of each particle
+    function calculateMomentum(particle) {
+      return particle.mass * particle.vx;
+    }
+
+    // Draw explanation text on canvas
+    function drawExplanation() {
+      ctx.font = '20px Arial';
+      ctx.fillStyle = '#000';
+      ctx.fillText('Elastic Collision: Conservation of Momentum', 250, 50);
+      ctx.fillText('Initial Velocities: Particle 1 (Blue) => ' + particle1.vx.toFixed(2) + ' m/s', 250, 80);
+      ctx.fillText('Particle 2 (Red) => ' + particle2.vx.toFixed(2) + ' m/s', 250, 110);
+
+      // Initial and Final Momentum
+      const initialMomentum1 = calculateMomentum(particle1);
+      const initialMomentum2 = calculateMomentum(particle2);
+      const finalMomentum1 = calculateMomentum(particle1);
+      const finalMomentum2 = calculateMomentum(particle2);
+
+      ctx.fillText('Initial Momentum: ', 250, 140);
+      ctx.fillText('Particle 1: ' + initialMomentum1.toFixed(2) + ' kg·m/s', 250, 170);
+      ctx.fillText('Particle 2: ' + initialMomentum2.toFixed(2) + ' kg·m/s', 250, 200);
+
+      ctx.fillText('Final Momentum: ', 250, 230);
+      ctx.fillText('Particle 1: ' + finalMomentum1.toFixed(2) + ' kg·m/s', 250, 260);
+      ctx.fillText('Particle 2: ' + finalMomentum2.toFixed(2) + ' kg·m/s', 250, 290);
+    }
+
+    // Start the animation
+    function startAnimation() {
+      if (!isAnimating) {
+        isAnimating = true;
+        document.getElementById('startButton').disabled = true;
+        document.getElementById('pauseButton').disabled = false;
+        animate(); // Start animation loop
+      }
+    }
+
+    // Pause the animation
+    function pauseAnimation() {
+      cancelAnimationFrame(animationFrameId);
+      isAnimating = false;
+      document.getElementById('pauseButton').textContent = 'Resume';
+    }
+
+    // Resume the animation
+    function resumeAnimation() {
+      isAnimating = true;
+      document.getElementById('pauseButton').textContent = 'Pause';
+      animate(); // Resume animation loop
+    }
+
+    // Reset the particles and the animation
+    function resetAnimation() {
+      cancelAnimationFrame(animationFrameId);
+      isAnimating = false;
+
+      particle1 = {
+        x: 100,
+        y: 300,
+        radius: 20,
+        color: 'blue',
+        mass: 5,
+        vx: 3,
+        vy: 0
+      };
+
+      particle2 = {
+        x: 600,
+        y: 300,
+        radius: 20,
+        color: 'red',
+        mass: 5,
+        vx: -3,
+        vy: 0
+      };
+
+      document.getElementById('startButton').disabled = false;
+      document.getElementById('pauseButton').disabled = true;
+      document.getElementById('pauseButton').textContent = 'Pause';
+      draw(); // Redraw the initial state
+    }
+
+    // Main animation loop
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+      // Draw particles, arrows, and explanation text
+      drawParticle(particle1);
+      drawParticle(particle2);
+      drawVelocityArrow(particle1);
+      drawVelocityArrow(particle2);
+      drawExplanation();
+
+      // Update positions
+      updatePosition();
+
+      // Check for collision and handle momentum transfer
+      checkCollision();
+
+      // Continuously request the next frame
+      animationFrameId = requestAnimationFrame(animate);
+    }
+
+    // Initialize the drawing
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+      drawParticle(particle1);
+      drawParticle(particle2);
+      drawVelocityArrow(particle1);
+      drawVelocityArrow(particle2);
+      drawExplanation();
+    }
+
+    // Button event listeners
+    document.getElementById('startButton').addEventListener('click', startAnimation);
+    document.getElementById('pauseButton').addEventListener('click', () => {
+      if (isAnimating) {
+        pauseAnimation();
+      } else {
+        resumeAnimation();
+      }
+    });
+    document.getElementById('resetButton').addEventListener('click', resetAnimation);
+
+    // Initial setup
+    draw(); // Draw the initial state
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
