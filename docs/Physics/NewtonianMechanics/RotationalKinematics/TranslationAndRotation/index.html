@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translational and Rotational Motion - Collisions of Bodies</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter: Collisions of Bodies</h1>
+  <h2>Topic: Translational and Rotational Motion</h2>
+
+  <h3>Introduction</h3>
+  <p>Motion is a fundamental concept in physics, and it comes in many forms. In this lesson, we will focus on two important types of motion—<strong>Translational</strong> and <strong>Rotational</strong>. These motions are critical to understanding how objects behave during collisions, which is the broader focus of this chapter.</p>
+
+  <h3>1. Translational Motion</h3>
+  <p>Translational motion occurs when an object moves along a path in a straight line or curve without rotating. Every point on the object moves the same distance in the same time.</p>
+
+  <h4>1.1 Key Concepts:</h4>
+  <ul>
+    <li><strong>Displacement (x)</strong>: Change in position</li>
+    <li><strong>Velocity (v)</strong>: Rate of change of displacement</li>
+    <li><strong>Acceleration (a)</strong>: Rate of change of velocity</li>
+  </ul>
+
+  <div class="equation">
+    $$ F = ma $$
+  </div>
+  <p>This is Newton’s Second Law, applicable to translational motion.</p>
+
+  <h4>1.2 Real-World Examples:</h4>
+  <ul>
+    <li>A car moving along a highway</li>
+    <li>A ball thrown in a straight line</li>
+    <li>Elevators going up or down</li>
+  </ul>
+
+  <h3>2. Rotational Motion</h3>
+  <p>Rotational motion occurs when an object rotates about an axis. Unlike translational motion, different parts of the object cover different distances depending on their distance from the axis of rotation.</p>
+
+  <h4>2.1 Key Concepts:</h4>
+  <ul>
+    <li><strong>Angular Displacement (\( \theta \))</strong>: Angle through which an object rotates</li>
+    <li><strong>Angular Velocity (\( \omega \))</strong>: Rate of change of angular displacement</li>
+    <li><strong>Angular Acceleration (\( \alpha \))</strong>: Rate of change of angular velocity</li>
+  </ul>
+
+  <div class="equation">
+    $$ \tau = I\alpha $$
+  </div>
+  <p>This is the rotational equivalent of Newton's Second Law, where \( \tau \) is torque and \( I \) is moment of inertia.</p>
+
+  <h4>2.2 Real-World Examples:</h4>
+  <ul>
+    <li>Wheels of a moving car</li>
+    <li>Ceiling fans</li>
+    <li>Spinning top</li>
+  </ul>
+
+  <h3>3. Combination of Translational and Rotational Motion</h3>
+  <p>Most real-world objects exhibit both translational and rotational motion simultaneously. For example, when a bicycle wheel rolls forward, it translates along the road and also rotates about its axle.</p>
+
+  <div class="equation">
+    $$ v = \omega r $$
+  </div>
+  <p>This equation links linear velocity \( v \) and angular velocity \( \omega \) with radius \( r \).</p>
+
+  <h3>4. Collisions Involving Rotational Motion</h3>
+  <p>During collisions, especially in sports or vehicle accidents, both translational and rotational motions play crucial roles in determining the outcome.</p>
+
+  <h4>4.1 Practical Applications:</h4>
+  <ul>
+    <li><strong>Car Crashes</strong>: Engineers design crumple zones considering rotational inertia to reduce impact damage.</li>
+    <li><strong>Sports</strong>: In billiards, players use spin (rotation) and direction (translation) to control the ball’s path after collision.</li>
+    <li><strong>Robotics</strong>: Robots use wheels or joints that combine both motions to move efficiently.</li>
+  </ul>
+
+  <h3>5. Conservation Laws</h3>
+  <p>Understanding these motions is vital when applying conservation laws during collisions:</p>
+  <ul>
+    <li><strong>Conservation of Linear Momentum:</strong> Applies to translational motion</li>
+    <li><strong>Conservation of Angular Momentum:</strong> Applies to rotational motion</li>
+  </ul>
+
+  <div class="equation">
+    $$ m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2' $$
+  </div>
+  <div class="equation">
+    $$ I_1 \omega_1 + I_2 \omega_2 = I_1 \omega_1' + I_2 \omega_2' $$
+  </div>
+
+  <h3>6. Fun Fact!</h3>
+  <p>Did you know that a figure skater can control their spinning speed by simply changing the position of their arms? When they pull their arms in, their moment of inertia decreases, and they spin faster! This is conservation of angular momentum in action.</p>
+
+  <h3>7. Practice Problem</h3>
+  <p>A solid disk of mass 2 kg and radius 0.5 m rolls without slipping at 4 m/s. What is its total kinetic energy?</p>
+  <div class="equation">
+    \( KE = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 \)
+  </div>
+  <div class="equation">
+    $$
+     I = \frac{1}{2}mr^2, \quad \omega = \frac{v}{r}
+
+    $$
+  </div>
+  <p>Substitute the values to find the total kinetic energy!</p>
+  <canvas id="motionCanvas" width="720" height="400" style="border:1px solid #ccc;"></canvas>
+  <script>
+  const canvas = document.getElementById("motionCanvas");
+  const ctx = canvas.getContext("2d");
+  
+  let time = 0;
+  
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    time += 0.05;
+  
+    // Translational Motion - Ball Moving Left to Right
+    let ballX = 50 + (time * 50 % 700);
+    ctx.beginPath();
+    ctx.arc(ballX, 100, 20, 0, Math.PI * 2);
+    ctx.fillStyle = "skyblue";
+    ctx.fill();
+    ctx.font = "16px Georgia";
+    ctx.fillStyle = "#333";
+    ctx.fillText("Translational", ballX - 35, 90);
+  
+    // Rotational Motion - Spinning Wheel
+    let centerX = 150;
+    let centerY = 300;
+    let radius = 40;
+    let angle = time * 2;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = "#f57c00";
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(centerX + radius * Math.cos(angle), centerY + radius * Math.sin(angle));
+    ctx.stroke();
+    ctx.fillStyle = "#333";
+    ctx.fillText("Rotational", centerX - 30, centerY - 50);
+  
+    // Combined Motion - Rolling Wheel
+    let rollX = 100 + (time * 40 % 700);
+    let rollY = 250;
+    ctx.beginPath();
+    ctx.arc(rollX, rollY, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = "#388e3c";
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(rollX, rollY);
+    ctx.lineTo(rollX + radius * Math.cos(angle), rollY + radius * Math.sin(angle));
+    ctx.stroke();
+    ctx.fillStyle = "#333";
+    ctx.fillText("Combined", rollX - 30, rollY + 60);
+  
+    requestAnimationFrame(draw);
+  }
+  
+  draw();
+  </script>
+  
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
