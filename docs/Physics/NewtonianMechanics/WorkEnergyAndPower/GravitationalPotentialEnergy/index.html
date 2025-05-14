@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Gravitational Potential Energy</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Gravitational Potential Energy</h1>
+
+  <h2>Introduction</h2>
+  <p>Gravitational potential energy (GPE) is a type of potential energy associated with the position of an object in a gravitational field. It is the energy stored in an object as a result of its vertical position or height. The higher an object is elevated, the greater its gravitational potential energy.</p>
+
+  <h2>Gravitational Potential Energy Formula</h2>
+  <p>The formula for gravitational potential energy is:</p>
+  <div class="equation">
+    $$ U = mgh $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>U</strong> is the gravitational potential energy (in joules, J)</li>
+    <li><strong>m</strong> is the mass of the object (in kilograms, kg)</li>
+    <li><strong>g</strong> is the acceleration due to gravity (\(9.8\,\text{m/s}^2\) on Earth)</li>
+    <li><strong>h</strong> is the height above the reference point (in meters, m)</li>
+  </ul>
+
+  <h2>Understanding the Concept</h2>
+  <p>Gravitational potential energy increases with height. Imagine lifting a book from the floor and placing it on a shelf. Work is done against gravity to elevate the book, and this work is stored as gravitational potential energy. If the book falls, this energy is converted into kinetic energy.</p>
+
+  <h2>Real World Examples</h2>
+  <h3>1. Water in a Dam</h3>
+  <p>Water stored at a height in a dam has high gravitational potential energy. When released, the water flows downward, converting this energy into kinetic energy and then into electricity using turbines.</p>
+
+  <h3>2. Roller Coasters</h3>
+  <p>At the highest point of a roller coaster, the cars have maximum gravitational potential energy. As they descend, this energy transforms into kinetic energy, making the ride fast and thrilling.</p>
+
+  <h3>3. Lifting Weights</h3>
+  <p>When you lift a dumbbell, you do work against gravity and increase its gravitational potential energy. Holding it at a height keeps that energy stored until it's released.</p>
+
+  <h3>4. Clocks with Weights</h3>
+  <p>Some old clocks are powered by descending weights. As the weights drop, gravitational potential energy is converted into mechanical energy to keep time.</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Hydropower:</strong> Utilizing the potential energy of elevated water to generate electricity.</li>
+    <li><strong>Construction Cranes:</strong> Raising heavy materials stores potential energy; accidental drops release this energy rapidly.</li>
+    <li><strong>Elevators:</strong> Energy calculations are essential for ensuring elevators use energy efficiently and safely.</li>
+    <li><strong>Space Missions:</strong> Calculating the gravitational potential energy needed to lift rockets out of Earth's gravity well.</li>
+  </ul>
+
+  <h2>Gravitational Potential Energy vs. Kinetic Energy</h2>
+  <p>Energy can convert from one form to another. When an object falls, its gravitational potential energy is transformed into kinetic energy.</p>
+  <div class="equation">
+    $$ \text{GPE lost} = \text{KE gained} $$
+  </div>
+
+  <h2>Fun Fact</h2>
+  <p>The Hoover Dam holds enough water to generate over 4 billion kilowatt-hours of electricity a year, thanks to the gravitational potential energy of the stored water!</p>
+
+  <h2>Quick Exercise</h2>
+  <p><strong>Q:</strong> A 2 kg object is lifted to a height of 5 meters. What is its gravitational potential energy?</p>
+  <div class="equation">
+    $$ U = mgh = 2 \times 9.8 \times 5 = 98\,J $$
+  </div>
+  <p><strong>A:</strong> The gravitational potential energy is 98 joules.</p>
+
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>Gravitational potential energy depends on mass, gravity, and height.</li>
+    <li>It increases with elevation and is converted to kinetic energy when an object falls.</li>
+    <li>Used in many practical applications like hydroelectric power, elevators, and more.</li>
+  </ul>
+
+  <script>
+    window.onload = function () {
+  const canvas = document.createElement('canvas');
+  document.body.insertBefore(canvas, document.body.firstChild);
+  canvas.width = 900;
+  canvas.height = 300;
+  const ctx = canvas.getContext('2d');
+
+  let time = 0;
+  let ballY = 80;
+  let velocity = 0;
+  const gravity = 0.01;
+
+  function drawFallingBall(xOffset) {
+    // Reset when it hits the ground
+    if (ballY + 20 >= 200) {
+      ballY = 80;
+      velocity = 0;
+    }
+
+    velocity += gravity;
+    ballY += velocity;
+
+    // Ground
+    ctx.fillStyle = '#ccc';
+    ctx.fillRect(xOffset + 0, 220, 150, 5);
+
+    // Ball
+    ctx.fillStyle = '#003366';
+    ctx.beginPath();
+    ctx.arc(xOffset + 75, ballY, 20, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Label
+    ctx.fillStyle = '#333';
+    ctx.fillText('Falling Ball', xOffset + 35, 250);
+  }
+
+  function drawDamWater(xOffset) {
+    const baseY = 70;
+
+    // Dam body
+    ctx.fillStyle = '#777';
+    ctx.fillRect(xOffset + 40, baseY, 60, 150);
+
+    // Water stored
+    ctx.fillStyle = '#1e90ff';
+    ctx.fillRect(xOffset + 40, baseY + 30, 60, 120);
+
+    // Flowing stream
+    const flowHeight = (time * 5) % 120;
+    ctx.fillStyle = '#00bfff';
+    ctx.fillRect(xOffset + 100, baseY + flowHeight + 30, 10, 30);
+
+    // Ground
+    ctx.fillStyle = '#ccc';
+    ctx.fillRect(xOffset + 20, baseY + 160, 120, 5);
+
+    // Label
+    ctx.fillStyle = '#333';
+    ctx.fillText('Dam Water', xOffset + 30, 250);
+  }
+
+  function drawRollerCoaster(xOffset) {
+    const baseY = 180;
+    const pathLength = 160;
+    const radius = 15;
+
+    const pos = (time * 60) % pathLength;
+    const x = xOffset + pos;
+    const y = baseY - 50 * Math.sin((pos / pathLength) * Math.PI); // hill path
+
+    // Track
+    ctx.strokeStyle = '#999';
+    ctx.beginPath();
+    for (let i = 0; i <= pathLength; i++) {
+      let px = xOffset + i;
+      let py = baseY - 50 * Math.sin((i / pathLength) * Math.PI);
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+
+    // Cart
+    ctx.fillStyle = '#ff4500';
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Label
+    ctx.fillStyle = '#333';
+    ctx.fillText('Roller Coaster', xOffset + 30, 250);
+  }
+
+  function drawScene() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '16px Georgia';
+
+    drawFallingBall(50);       // Left
+    drawDamWater(320);         // Center
+    drawRollerCoaster(600);    // Right
+
+    time += 0.02;
+    requestAnimationFrame(drawScene);
+  }
+
+  drawScene();
+};
+
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
