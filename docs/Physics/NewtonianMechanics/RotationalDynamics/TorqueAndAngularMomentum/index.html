@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torque and Angular Momentum - Collisions of Bodies</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Torque, Angular Momentum, and their Relation in Collisions of Bodies</h1>
+
+  <h2>Introduction</h2>
+  <p>In the study of physics, collisions of bodies are a common phenomenon that can be understood more thoroughly by considering not just the linear motion, but also the rotational aspects. Two key concepts that help in describing the rotational motion of objects during collisions are <strong>torque</strong> and <strong>angular momentum</strong>. In this lesson, we will explore these concepts, their mathematical formulations, their relation to one another, and how they apply to real-world collisions.</p>
+
+  <h2>1. What is Torque?</h2>
+  <p>Torque (\( \tau \)) is a measure of the rotational force that causes an object to rotate about an axis. It is similar to force in linear motion, but it applies to rotational motion. The torque acting on an object depends on three factors:</p>
+  <ul>
+    <li><strong>Force:</strong> The magnitude of the applied force.</li>
+    <li><strong>Lever Arm:</strong> The perpendicular distance from the axis of rotation to the point where the force is applied.</li>
+    <li><strong>Angle:</strong> The angle between the force and the lever arm.</li>
+  </ul>
+  <p>Mathematically, torque is given by the equation:</p>
+  <div class="equation">
+    $$ \tau = r F \sin(\theta) $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li> \( \tau \) is the torque.</li>
+    <li> \( r \) is the lever arm (distance from the axis of rotation).</li>
+    <li> \( F \) is the applied force.</li>
+    <li> \( \theta \) is the angle between the force vector and the lever arm.</li>
+  </ul>
+
+  <h3>Real-World Example: Opening a Door</h3>
+  <p>Imagine trying to open a door. The force you apply at the handle creates a torque that causes the door to rotate. The farther you apply the force from the hinges (the axis of rotation), the easier it is to open the door. This is why we typically push doors near the handle rather than near the hinges.</p>
+
+  <h2>2. What is Angular Momentum?</h2>
+  <p>Angular momentum (\( L \)) is a measure of the rotational motion of an object. It describes how much motion an object has in rotation and depends on both the object's moment of inertia and its angular velocity. The moment of inertia is a measure of an object's resistance to rotational motion, while angular velocity is the rate at which the object rotates.</p>
+  <p>The angular momentum of a point mass can be expressed as:</p>
+  <div class="equation">
+    $$ L = r m v \sin(\theta) $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li> \( L \) is the angular momentum.</li>
+    <li> \( r \) is the distance from the axis of rotation.</li>
+    <li> \( m \) is the mass of the object.</li>
+    <li> \( v \) is the velocity of the object.</li>
+    <li> \( \theta \) is the angle between the velocity vector and the position vector.</li>
+  </ul>
+
+  <h3>Real-World Example: Spinning Ice Skater</h3>
+  <p>When an ice skater pulls in their arms while spinning, they decrease their moment of inertia. As a result, to conserve angular momentum, their angular velocity increases, and they spin faster. This phenomenon is a direct result of the conservation of angular momentum during rotational motion.</p>
+
+  <h2>3. The Relation Between Torque and Angular Momentum</h2>
+  <p>Torque and angular momentum are closely related. The rate of change of angular momentum is equal to the torque acting on an object:</p>
+  <div class="equation">
+    $$ \tau = \frac{dL}{dt} $$
+  </div>
+  <p>This equation tells us that if a torque is applied to an object, its angular momentum will change over time. The greater the torque, the faster the angular momentum changes.</p>
+
+  <h3>Example: Rotating Disc in a Collision</h3>
+  <p>In a collision, such as a ball bouncing off a rotating disc, the angular momentum of the disc can change due to the torque exerted by the ball. If the ball hits the edge of the disc at an angle, it applies a torque, causing the disc to rotate faster or slower, depending on the direction of the hit.</p>
+
+  <h2>4. Conservation of Angular Momentum</h2>
+  <p>Just as linear momentum is conserved in isolated systems, angular momentum is conserved in the absence of external torques. This is known as the conservation of angular momentum, which is a fundamental principle in rotational dynamics.</p>
+  <p>For an isolated system where no external torque is acting, the total angular momentum before and after a collision remains constant:</p>
+  <div class="equation">
+    $$ L_{initial} = L_{final} $$
+  </div>
+  <p>This principle is particularly useful in analyzing collisions, such as in the case of a spinning wheel or planetesimal bodies in space.</p>
+
+  <h3>Real-World Example: The Collisions of Planets and Moons</h3>
+  <p>In space, when celestial bodies like planets or moons collide, their angular momentum is conserved. For example, when two asteroids collide, the resulting rotation of the combined mass follows the conservation of angular momentum. This helps astronomers predict the new rotation rates of celestial bodies after such events.</p>
+
+  <h2>5. Practical Applications of Torque and Angular Momentum</h2>
+  <p>Understanding torque and angular momentum is crucial in many fields, such as engineering, astronomy, and sports:</p>
+  <ul>
+    <li><strong>Aerospace Engineering:</strong> When designing rockets and spacecraft, engineers must account for torque and angular momentum to ensure proper control during launch, flight, and landing.</li>
+    <li><strong>Sports:</strong> In activities like gymnastics or diving, athletes manipulate their angular momentum to perform spins and twists, often by adjusting their body position.</li>
+    <li><strong>Vehicle Dynamics:</strong> In cars, torque is important for rotational motion in wheels, and the concept of angular momentum is crucial for understanding stability during high-speed turns.</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>Did you know that in the 1960s, NASA scientists used the principles of angular momentum and torque to calculate how astronauts would rotate in space? Without gravity, astronauts had to use torque to control their spinning motion when they would inadvertently start rotating while adjusting their position in the spacecraft.</p>
+
+  <h2>Conclusion</h2>
+  <p>Torque and angular momentum are fundamental concepts in the study of rotational motion. By understanding how they are related, we can analyze complex phenomena such as collisions and rotational dynamics in a wide variety of real-world scenarios. From opening a door to launching rockets into space, the principles of torque and angular momentum shape the world around us.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
