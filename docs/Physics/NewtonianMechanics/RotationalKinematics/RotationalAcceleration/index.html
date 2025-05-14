@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotation with Constant Angular Acceleration</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rotation with Constant Angular Acceleration</h1>
+
+  <h2>Introduction</h2>
+  <p>In the study of rotational motion, angular acceleration is a key concept that parallels linear acceleration. When the angular acceleration is constant, it leads to a predictable and structured form of rotational motion. This lesson delves into the topic of <strong>Rotation with Constant Angular Acceleration</strong> within the broader chapter of "Collisions of Bodies" to give you a deeper understanding of how rotating bodies behave under uniform angular acceleration.</p>
+
+  <h2>Key Concepts</h2>
+  <ul>
+    <li><strong>Angular Displacement (\(\theta\))</strong>: The angle through which an object rotates.</li>
+    <li><strong>Angular Velocity (\(\omega\))</strong>: The rate of change of angular displacement.</li>
+    <li><strong>Angular Acceleration (\(\alpha\))</strong>: The rate of change of angular velocity.</li>
+  </ul>
+
+  <h2>Equations of Rotational Motion</h2>
+  <p>These equations are analogous to the equations of linear motion, but adapted for rotation:</p>
+
+  <div class="equation">
+    \( \omega = \omega_0 + \alpha t \)
+  </div>
+
+  <div class="equation">
+    \( \theta = \omega_0 t + \frac{1}{2} \alpha t^2 \)
+  </div>
+
+  <div class="equation">
+    \( \omega^2 = \omega_0^2 + 2\alpha \theta \)
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li>\(\omega\) = final angular velocity</li>
+    <li>\(\omega_0\) = initial angular velocity</li>
+    <li>\(\alpha\) = angular acceleration</li>
+    <li>\(t\) = time</li>
+    <li>\(\theta\) = angular displacement</li>
+  </ul>
+
+  <h2>Real-World Examples</h2>
+  <h3>1. Car Wheels During Acceleration</h3>
+  <p>When a car accelerates, the wheels rotate faster over time. The rotation of each wheel has an angular acceleration, especially when moving from rest. Engineers use the principles of constant angular acceleration to design braking systems and calculate stopping distances.</p>
+
+  <h3>2. Ceiling Fans</h3>
+  <p>When you switch on a ceiling fan, it doesn’t instantly reach full speed. It gradually speeds up — this change is due to angular acceleration. If the acceleration is constant, we can use the above equations to determine how long it takes to reach a particular speed.</p>
+
+  <h3>3. Hard Drives and CD/DVD Drives</h3>
+  <p>These devices spin at thousands of revolutions per minute (RPM). When starting up, they increase their angular velocity with a near-constant angular acceleration to reach their operating speeds.</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Mechanical Engineering</strong>: Designing gears, rotors, turbines, and wheels that need predictable rotational behavior.</li>
+    <li><strong>Robotics</strong>: Calculating motor torque and speed to ensure precise control of robotic joints.</li>
+    <li><strong>Aerospace</strong>: Modeling gyroscopic motion in satellites and missiles.</li>
+    <li><strong>Sports</strong>: Understanding the spin of balls in cricket, baseball, or soccer for better technique and training.</li>
+  </ul>
+
+  <h2>Fun Fact</h2>
+  <p>Did you know that the International Space Station (ISS) uses gyroscopes that rely on principles of rotational motion to maintain its orientation without using fuel? These control moment gyroscopes help the ISS "steer" in space!</p>
+
+  <h2>How It Connects to Collisions of Bodies</h2>
+  <p>When two rotating bodies collide, such as gears interlocking or wheels brushing against each other, the principles of rotational kinematics play a vital role in analyzing the outcome. Understanding angular momentum (\(L = I\omega\)) and torque (\(\tau = I\alpha\)) helps predict post-collision rotational velocities.</p>
+
+  <h2>Worked Example</h2>
+  <p><strong>Problem:</strong> A flywheel starts from rest and undergoes a constant angular acceleration of \(4 \ \text{rad/s}^2\). What is its angular velocity after 5 seconds? How much angle has it rotated through?</p>
+
+  <p><strong>Solution:</strong></p>
+  <div class="equation">
+    \( \omega = \omega_0 + \alpha t = 0 + 4 \times 5 = 20 \ \text{rad/s} \)
+  </div>
+
+  <div class="equation">
+    \( \theta = \omega_0 t + \frac{1}{2} \alpha t^2 = 0 + \frac{1}{2} \times 4 \times 25 = 50 \ \text{rad} \)
+  </div>
+
+  <p><strong>Answer:</strong> Angular velocity is 20 rad/s and it has rotated through 50 radians.</p>
+
+  <h2>Recap</h2>
+  <ul>
+    <li>Rotation with constant angular acceleration follows predictable equations, similar to linear motion.</li>
+    <li>It is widely applicable in technology, machinery, and nature.</li>
+    <li>Analyzing such motion is crucial in understanding rotational collisions and energy conservation.</li>
+  </ul>
+  <canvas id="rotationCanvas" width="800" height="400"></canvas>
+  <script>
+const canvas = document.getElementById("rotationCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = 800;
+canvas.height = 400;
+
+let angle = 0;
+let angularVelocity = 0;
+let angularAcceleration = 0.01; // constant angular acceleration
+
+// For moment of inertia effect
+let inertiaBodies = [
+  { radius: 20, color: "red", distance: 50 },
+  { radius: 20, color: "blue", distance: 100 },
+  { radius: 20, color: "green", distance: 150 },
+];
+
+function drawRotatingArm() {
+  const centerX = canvas.width / 4;
+  const centerY = canvas.height / 2;
+
+  ctx.save();
+  ctx.translate(centerX, centerY);
+  ctx.rotate(angle);
+
+  // Rotating arm
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(100, 0);
+  ctx.strokeStyle = "#003366";
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  // Torque force (represented by arrow)
+  ctx.beginPath();
+  ctx.moveTo(100, 0);
+  ctx.lineTo(120, -10);
+  ctx.lineTo(120, 10);
+  ctx.closePath();
+  ctx.fillStyle = "orange";
+  ctx.fill();
+
+  ctx.restore();
+
+  // Label
+  ctx.fillStyle = "#003366";
+  ctx.fillText("Torque causing rotation", centerX - 60, centerY + 80);
+}
+
+function drawVelocityChange() {
+  const centerX = canvas.width * 3 / 4;
+  const centerY = canvas.height / 2;
+
+  ctx.save();
+  ctx.translate(centerX, centerY);
+  ctx.rotate(angle);
+
+  // Disk
+  ctx.beginPath();
+  ctx.arc(0, 0, 40, 0, Math.PI * 2);
+  ctx.fillStyle = "#87CEEB";
+  ctx.fill();
+
+  // Angular velocity arrow
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(60, 0);
+  ctx.strokeStyle = "#FF6347";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.restore();
+
+  ctx.fillStyle = "#003366";
+  ctx.fillText("Increasing angular velocity", centerX - 70, centerY + 80);
+}
+
+function drawMomentOfInertia() {
+  const centerX = canvas.width / 2;
+  const centerY = canvas.height;
+
+  ctx.fillStyle = "#003366";
+  ctx.fillText("Moment of Inertia: farther mass = slower acceleration", centerX - 140, centerY - 10);
+
+  inertiaBodies.forEach((body, index) => {
+    const theta = angle * (1 / (index + 1));
+    const x = centerX + Math.cos(theta) * body.distance;
+    const y = centerY - 50 - Math.sin(theta) * body.distance;
+
+    ctx.beginPath();
+    ctx.arc(x, y, body.radius, 0, Math.PI * 2);
+    ctx.fillStyle = body.color;
+    ctx.fill();
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawRotatingArm();
+  drawVelocityChange();
+  drawMomentOfInertia();
+
+  angularVelocity += angularAcceleration;
+  angle += angularVelocity;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
