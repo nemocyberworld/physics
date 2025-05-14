@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elastic and Inelastic Collisions in One Dimension</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Elastic and Inelastic Collisions in One Dimension</h1>
+
+  <h2>Introduction</h2>
+  <p>Collisions are events where two or more bodies come into contact with each other for a brief time and exert forces on each other. In physics, studying collisions helps us understand how momentum and energy are transferred during interactions.</p>
+
+  <h2>Types of Collisions</h2>
+  <h3>1. Elastic Collision</h3>
+  <p>In an elastic collision, both <strong>momentum</strong> and <strong>kinetic energy</strong> are conserved.</p>
+  <p><strong>Examples:</strong></p>
+  <ul>
+    <li>Collisions between gas molecules</li>
+    <li>Collision between two steel balls</li>
+    <li>Newton’s cradle (a toy that demonstrates momentum conservation)</li>
+  </ul>
+
+  <h3>2. Inelastic Collision</h3>
+  <p>In an inelastic collision, <strong>momentum is conserved</strong>, but <strong>kinetic energy is not</strong>. Some of the kinetic energy is converted into other forms of energy like heat, sound, or deformation energy.</p>
+  <p><strong>Perfectly inelastic collision</strong> is a special case where the two bodies stick together after the collision.</p>
+  <p><strong>Examples:</strong></p>
+  <ul>
+    <li>Car crashes</li>
+    <li>Clay balls sticking together</li>
+    <li>Football player tackles</li>
+  </ul>
+
+  <h2>Conservation Laws</h2>
+  <h3>1. Conservation of Momentum</h3>
+  <p>In both types of collisions, the total momentum before and after collision remains the same.</p>
+  <div class="equation">
+    $$ m_1u_1 + m_2u_2 = m_1v_1 + m_2v_2 $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( m_1, m_2 \) are the masses</li>
+    <li>\( u_1, u_2 \) are the initial velocities</li>
+    <li>\( v_1, v_2 \) are the final velocities</li>
+  </ul>
+
+  <h3>2. Conservation of Kinetic Energy (Elastic only)</h3>
+  <div class="equation">
+    $$ \frac{1}{2}m_1u_1^2 + \frac{1}{2}m_2u_2^2 = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 $$
+  </div>
+
+  <h2>Real-World Examples</h2>
+  <h3>Elastic:</h3>
+  <ul>
+    <li>Billiard balls colliding</li>
+    <li>Atomic and subatomic particle collisions in accelerators</li>
+    <li>Ice skaters gliding into each other on a frictionless surface</li>
+  </ul>
+  
+  <h3>Inelastic:</h3>
+  <ul>
+    <li>Train cars coupling together</li>
+    <li>A meteor impacting Earth</li>
+    <li>Boxers punching each other (body absorbs impact)</li>
+  </ul>
+
+  <h2>Example Problem: Elastic Collision</h2>
+  <p><strong>Problem:</strong> Two carts on a frictionless track collide elastically. Cart A has mass 2 kg and moves at 3 m/s. Cart B has mass 1 kg and is at rest. Find their velocities after the collision.</p>
+  
+  <p><strong>Solution:</strong></p>
+  <div class="equation">
+    \( m_1 = 2 \text{ kg}, \quad u_1 = 3 \text{ m/s} \)
+    <br>
+    \( m_2 = 1 \text{ kg}, \quad u_2 = 0 \)
+  </div>
+  <p>Using the formulas for elastic collisions:</p>
+  <div class="equation">
+    \( v_1 = \frac{(m_1 - m_2)u_1 + 2m_2u_2}{m_1 + m_2} = \frac{(2 - 1) \cdot 3 + 0}{3} = 1 \text{ m/s} \)
+    <br>
+    \( v_2 = \frac{(m_2 - m_1)u_2 + 2m_1u_1}{m_1 + m_2} = \frac{0 + 2 \cdot 2 \cdot 3}{3} = 4 \text{ m/s} \)
+  </div>
+  <p><strong>Answer:</strong> Cart A moves at 1 m/s, Cart B at 4 m/s after collision.</p>
+
+  <h2>Example Problem: Perfectly Inelastic Collision</h2>
+  <p><strong>Problem:</strong> Two blocks stick together after colliding. Block A (2 kg) is moving at 4 m/s and block B (3 kg) is at rest. Find their final velocity after collision.</p>
+
+  <p><strong>Solution:</strong></p>
+  <div class="equation">
+    \( v = \frac{m_1u_1 + m_2u_2}{m_1 + m_2} = \frac{2 \cdot 4 + 3 \cdot 0}{5} = \frac{8}{5} = 1.6 \text{ m/s} \)
+  </div>
+  <p><strong>Answer:</strong> They move together at 1.6 m/s after the collision.</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Car safety:</strong> Engineers use inelastic collision principles to design crumple zones that absorb energy.</li>
+    <li><strong>Sports:</strong> Analysis of ball-bat collisions in baseball or tackles in football.</li>
+    <li><strong>Space science:</strong> Spacecraft docking uses principles of inelastic collisions.</li>
+    <li><strong>Particle physics:</strong> Colliders like the LHC use elastic/inelastic concepts to study fundamental particles.</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>The term "elastic" comes from elasticity in materials. Even when steel balls collide, they may sound like they're bouncing perfectly, but there's always a tiny energy loss in the form of sound or heat!</p>
+  <section>
+  <canvas id="collisionCanvas"></canvas>
+<br>
+<button id="startElastic">Start Elastic Collision</button>
+<button id="startInelastic">Start Inelastic Collision</button>
+
+<script>
+    const canvas = document.getElementById('collisionCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = 800;
+canvas.height = 200;
+
+let time = 0;
+let animationId;
+
+// Object class
+class Block {
+  constructor(x, mass, velocity, color) {
+    this.x = x;
+    this.y = 100;
+    this.mass = mass;
+    this.v = velocity;
+    this.width = 40 + mass * 5;
+    this.height = 40;
+    this.color = color;
+  }
+
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y - this.height / 2, this.width, this.height);
+  }
+
+  update() {
+    this.x += this.v;
+  }
+}
+
+// Reset for new animation
+function clear() {
+  cancelAnimationFrame(animationId);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  time = 0;
+}
+
+// Elastic collision demo
+function startElasticCollision() {
+  clear();
+
+  const A = new Block(100, 2, 1.5, 'red');
+  const B = new Block(400, 1, -0.5, 'blue');
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    A.draw();
+    B.draw();
+
+    if (A.x + A.width >= B.x) {
+      // Elastic collision formulas
+      const v1 = ((A.mass - B.mass) / (A.mass + B.mass)) * A.v + (2 * B.mass / (A.mass + B.mass)) * B.v;
+      const v2 = ((B.mass - A.mass) / (A.mass + B.mass)) * B.v + (2 * A.mass / (A.mass + B.mass)) * A.v;
+      A.v = v1;
+      B.v = v2;
+    }
+
+    A.update();
+    B.update();
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+// Inelastic collision demo
+function startInelasticCollision() {
+  clear();
+
+  const A = new Block(100, 2, 2, 'green');
+  const B = new Block(400, 3, 0, 'purple');
+
+  let stuck = false;
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    A.draw();
+    B.draw();
+
+    if (!stuck && A.x + A.width >= B.x) {
+      // Perfectly inelastic: stick together
+      const finalV = (A.mass * A.v + B.mass * B.v) / (A.mass + B.mass);
+      A.v = B.v = finalV;
+      stuck = true;
+    }
+
+    A.update();
+    B.update();
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+// Add basic UI
+document.getElementById('startElastic').addEventListener('click', startElasticCollision);
+document.getElementById('startInelastic').addEventListener('click', startInelasticCollision);
+
+</script>
+</section>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
