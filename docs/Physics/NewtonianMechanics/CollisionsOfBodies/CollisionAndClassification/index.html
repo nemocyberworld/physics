@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collisions and its Classification - Physics Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <style>
+        canvas {
+          border: 1px solid #ccc;
+          display: block;
+          margin: 1rem auto;
+        }
+        #controls {
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+        button, select {
+          font-size: 16px;
+          margin: 0 0.5rem;
+          padding: 0.5rem 1rem;
+        }
+      </style>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Collisions and its Classification</h1>
+
+  <h2>Introduction to Collisions</h2>
+  <p>In physics, a <strong>collision</strong> refers to an event where two or more objects come into contact with each other, usually with a significant force, over a short period of time. Collisions happen in many everyday situations: when two cars crash, a tennis ball hits a racket, or a raindrop hits a window. Understanding how objects interact during these events helps us describe the motion and forces involved.</p>
+
+  <h2>Types of Collisions</h2>
+  <p>There are three main types of collisions based on how the kinetic energy and momentum are conserved:</p>
+
+  <h3>1. Elastic Collisions</h3>
+  <p>An elastic collision is a type of collision where both <strong>momentum</strong> and <strong>kinetic energy</strong> are conserved. This means that after the collision, the objects involved will bounce off each other without any energy loss.</p>
+  
+  <p>Real-world example: A perfectly elastic collision can be approximated when two pool balls collide. They bounce off each other without losing speed or energy (though in reality, some energy is lost due to friction and sound).</p>
+  
+  <div class="equation">
+    $$ m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2' \quad \text{(momentum conservation)} $$
+  </div>
+  
+  <p>Fun Fact: In an ideal world, if we had "perfectly" elastic collisions, you could imagine two balls bouncing off each other forever without losing energy!</p>
+  
+  <h3>2. Inelastic Collisions</h3>
+  <p>In an inelastic collision, momentum is conserved, but <strong>kinetic energy is not</strong>. Some of the energy is transformed into other forms like heat, sound, or deformation of the objects involved.</p>
+  
+  <p>Real-world example: When a car crashes into a wall, it crumples, and the kinetic energy is transformed into sound energy, heat, and energy used in deforming the vehicle. The car doesn't bounce back; instead, it slows down and stops.</p>
+  
+  <div class="equation">
+    $$ m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2' + \Delta E \quad \text{(energy is lost as heat, deformation, etc.)} $$
+  </div>
+  
+  <p>Fun Fact: When two football players collide, some of their kinetic energy is used to deform their bodies (e.g., muscles stretching), and some is released as sound and heat. The collision is inelastic because they don't bounce off each other.</p>
+  
+  <h3>3. Perfectly Inelastic Collisions</h3>
+  <p>A perfectly inelastic collision is a special case where the two objects stick together after the collision. In this case, the maximum amount of kinetic energy is lost because the objects move as one after the impact.</p>
+  
+  <p>Real-world example: If two cars crash head-on and become entangled, they are involved in a perfectly inelastic collision. They move together as one mass after the crash.</p>
+  
+  <div class="equation">
+    $$ m_1v_1 + m_2v_2 = (m_1 + m_2)v' \quad \text{(maximum kinetic energy lost)} $$
+  </div>
+  
+  <p>Fun Fact: The impact force in perfectly inelastic collisions is often much more damaging, which is why safety features like airbags are critical in modern cars!</p>
+
+  <h2>Conservation Laws in Collisions</h2>
+  
+  <h3>1. Conservation of Momentum</h3>
+  <p>In all types of collisions, the total momentum of the system (before and after the collision) is conserved, provided no external forces act on the system. Momentum is a product of an object's mass and velocity, and it is a vector quantity.</p>
+  
+  <p>Mathematically, for two objects:</p>
+  
+  <div class="equation">
+    $$ m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2' $$
+  </div>
+  
+  <p>Example: A moving truck colliding with a stationary car will transfer some of its momentum to the car. If the car was initially at rest, its final velocity would depend on the momentum transferred from the truck.</p>
+
+  <h3>2. Conservation of Kinetic Energy</h3>
+  <p>Only elastic collisions conserve kinetic energy. In inelastic and perfectly inelastic collisions, some of the kinetic energy is converted to other forms of energy. This principle helps engineers design crash-resistant vehicles, as it allows them to calculate how much energy is lost in a crash.</p>
+
+  <h2>Real-World Applications of Collisions</h2>
+  <h3>1. Car Crash Safety</h3>
+  <p>Understanding collisions and their classification helps engineers design safer vehicles. For instance, modern cars have crumple zones that are designed to absorb kinetic energy during a collision, converting it into deformation, and reducing the impact force felt by the occupants. This is a practical application of the principles of inelastic collisions.</p>
+  
+  <h3>2. Sports</h3>
+  <p>In sports like soccer, tennis, or football, players experience various types of collisions. Understanding the physics of these collisions helps athletes improve their performance and also helps in designing equipment. For example, the sweet spot on a tennis racket is engineered for the most efficient transfer of energy in an elastic collision with the ball.</p>
+
+  <h3>3. Spacecraft Landings</h3>
+  <p>When spacecraft land, they undergo controlled collisions with the surface (e.g., moon landers). The design of landing gear incorporates inelastic collisions to absorb the impact and ensure the safety of the crew and sensitive equipment on board.</p>
+
+  <h2>Conclusion</h2>
+  <p>Collisions are a vital part of physics and have numerous practical applications. Whether it's a car crash, sports, or space exploration, the principles of momentum and energy conservation play a crucial role. By understanding the different types of collisions and the forces at play, we can design safer environments, improve technology, and gain deeper insights into how objects interact in the physical world.</p>
+
+  <h1 style="text-align:center; font-family:Georgia;">Collision Types Simulation</h1>
+  <div id="controls">
+    <button onclick="startSimulation()">▶️ Start</button>
+    <button onclick="pauseSimulation()">⏸️ Pause</button>
+    <button onclick="resetSimulation()">🔄 Reset</button>
+    <label for="collisionType">Type:</label>
+    <select id="collisionType" onchange="changeCollisionType()">
+      <option value="elastic">Elastic</option>
+      <option value="inelastic">Inelastic</option>
+      <option value="perfectlyInelastic">Perfectly Inelastic</option>
+    </select>
+  </div>
+  <canvas id="collisionCanvas" width="720" height="250"></canvas>
+
+  <script>
+    const canvas = document.getElementById("collisionCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let animationId = null;
+    let running = false;
+    let hasCollided = false;
+    let collisionType = "elastic";
+
+    class Ball {
+      constructor(x, v, mass, color, label) {
+        this.x = x;
+        this.y = 150;
+        this.v = v;
+        this.mass = mass;
+        this.radius = 25;
+        this.color = color;
+        this.label = label;
+      }
+
+      draw() {
+        // Ball
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.stroke();
+
+        // Velocity arrow
+        const arrowLength = this.v * 20;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + arrowLength, this.y);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Arrowhead
+        ctx.beginPath();
+        const dir = Math.sign(arrowLength);
+        ctx.moveTo(this.x + arrowLength, this.y);
+        ctx.lineTo(this.x + arrowLength - dir * 8, this.y - 5);
+        ctx.lineTo(this.x + arrowLength - dir * 8, this.y + 5);
+        ctx.closePath();
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        // Label & velocity
+        ctx.font = "14px Georgia";
+        ctx.fillStyle = "black";
+        ctx.fillText(`${this.label}`, this.x - 15, this.y - 35);
+        ctx.fillText(`v = ${this.v.toFixed(2)} m/s`, this.x - 30, this.y + 45);
+      }
+
+      update() {
+        this.x += this.v;
+      }
+    }
+
+    let ball1, ball2;
+
+    function setupBalls() {
+      ball1 = new Ball(200, 2, 2, "red", "Ball A");
+      ball2 = new Ball(600, -1.5, 1, "blue", "Ball B");
+      hasCollided = false;
+    }
+
+    function isColliding(b1, b2) {
+      return Math.abs(b1.x - b2.x) <= b1.radius + b2.radius;
+    }
+
+    function resolveCollision(type, b1, b2) {
+      const m1 = b1.mass;
+      const m2 = b2.mass;
+      const u1 = b1.v;
+      const u2 = b2.v;
+
+      if (type === "elastic") {
+        b1.v = ((m1 - m2) / (m1 + m2)) * u1 + ((2 * m2) / (m1 + m2)) * u2;
+        b2.v = ((2 * m1) / (m1 + m2)) * u1 + ((m2 - m1) / (m1 + m2)) * u2;
+      } else if (type === "inelastic") {
+        let v1 = ((m1 - m2) / (m1 + m2)) * u1 + ((2 * m2) / (m1 + m2)) * u2;
+        let v2 = ((2 * m1) / (m1 + m2)) * u1 + ((m2 - m1) / (m1 + m2)) * u2;
+        b1.v = v1 * 0.6; // lose some KE
+        b2.v = v2 * 0.6;
+      } else if (type === "perfectlyInelastic") {
+        let vf = (m1 * u1 + m2 * u2) / (m1 + m2);
+        b1.v = b2.v = vf;
+        b2.x = b1.x + b1.radius + b2.radius; // align after sticking
+      }
+    }
+
+    function drawScene() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#333";
+      ctx.font = "18px Georgia";
+      ctx.fillText("Collision Type: " + collisionType.toUpperCase(), 10, 25);
+      ball1.draw();
+      ball2.draw();
+    }
+
+    function animate() {
+      drawScene();
+
+      if (!hasCollided && isColliding(ball1, ball2)) {
+        resolveCollision(collisionType, ball1, ball2);
+        hasCollided = true;
+      }
+
+      ball1.update();
+      ball2.update();
+
+      animationId = requestAnimationFrame(animate);
+    }
+
+    function startSimulation() {
+      if (!running) {
+        running = true;
+        animate();
+      }
+    }
+
+    function pauseSimulation() {
+      running = false;
+      cancelAnimationFrame(animationId);
+    }
+
+    function resetSimulation() {
+      pauseSimulation();
+      setupBalls();
+      drawScene();
+    }
+
+    function changeCollisionType() {
+      collisionType = document.getElementById("collisionType").value;
+      resetSimulation();
+    }
+
+    // Initial setup
+    setupBalls();
+    drawScene();
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
