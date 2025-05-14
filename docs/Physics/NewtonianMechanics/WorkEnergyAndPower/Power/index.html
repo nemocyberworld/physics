@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Power</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Power</h1>
+
+
+  <p><strong>Power</strong> is a fundamental concept in physics that describes how quickly work is done or energy is transferred. It's crucial in understanding machines, engines, and even our own bodies!</p>
+
+  <h2>Definition of Power</h2>
+  <p>Power is defined as the rate at which work is done or energy is transferred over time.</p>
+  <div class="equation">
+    $$ P = \frac{W}{t} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>P</strong> = Power (in Watts)</li>
+    <li><strong>W</strong> = Work done or Energy transferred (in Joules)</li>
+    <li><strong>t</strong> = Time taken (in seconds)</li>
+  </ul>
+
+  <h2>Unit of Power</h2>
+  <p>The SI unit of power is the <strong>Watt (W)</strong>.</p>
+  <p><strong>1 Watt</strong> = 1 Joule/second</p>
+  <p>Other common units:</p>
+  <ul>
+    <li><strong>Kilowatt (kW)</strong> = 1000 W</li>
+    <li><strong>Horsepower (hp)</strong> ≈ 746 W</li>
+  </ul>
+
+  <h2>Real-World Examples</h2>
+  <h3>1. Light Bulb</h3>
+  <p>A 60W light bulb uses 60 joules of energy per second.</p>
+
+  <h3>2. Human Body</h3>
+  <p>An average person uses about 100 watts of power when resting. That’s like powering a light bulb just by existing!</p>
+
+  <h3>3. Electric Kettle</h3>
+  <p>A typical kettle uses about 2000W (2kW) of power to boil water quickly.</p>
+
+  <h3>4. Cars</h3>
+  <p>Car engines are often rated in horsepower. A car with 150 hp can produce about 112 kW of power.</p>
+
+  <h2>Power in Terms of Force and Velocity</h2>
+  <p>If an object is moving with a velocity <em>v</em> while a constant force <em>F</em> is applied, power can also be calculated as:</p>
+  <div class="equation">
+    $$ P = F \cdot v $$
+  </div>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Designing engines, turbines, and electric motors.</li>
+    <li><strong>Home Appliances:</strong> Calculating electricity usage and energy bills.</li>
+    <li><strong>Sports:</strong> Evaluating athlete performance (e.g., cyclists often measure power output).</li>
+    <li><strong>Health:</strong> Calorimetry uses power output to measure metabolic rates.</li>
+  </ul>
+
+  <h2>Fun Fact</h2>
+  <p>The term "horsepower" was invented by James Watt to market his steam engines. He wanted to show how many horses his engine could replace!</p>
+
+  <h2>Example Problems</h2>
+  <h3>Example 1: Power of a Weightlifter</h3>
+  <p>A weightlifter lifts a 200 N weight to a height of 2 m in 2 seconds. What is the power output?</p>
+  <div class="equation">
+   $$ Work done = Force × Distance = 200 × 2 = 400 J <br>
+    Power = \frac{400}{2} = 200 \text{ W}
+
+    $$
+  </div>
+
+  <h3>Example 2: Energy Consumption of an Appliance</h3>
+  <p>If a heater has a power rating of 1500 W and it runs for 3 hours, how much energy does it consume?</p>
+  <div class="equation">
+   $$ Energy = Power × Time = 1500 × 3 × 3600 = 16,200,000 J = 4.5 kWh
+
+   $$
+  </div>
+
+  <h3>Example 3: Car Engine Power</h3>
+  <p>A car engine applies a force of 3000 N and moves at a velocity of 20 m/s. What is the power output?</p>
+  <div class="equation">
+   $$ P = F × v = 3000 × 20 = 60,000 W = 60 kW $$
+  </div>
+  <canvas id="forceCanvas" width="800" height="400" style="border:1px solid #ccc; margin-top: 2rem;"></canvas>
+  <script>
+    const canvas = document.getElementById("forceCanvas");
+    const ctx = canvas.getContext("2d");
+  
+    let x = 50;
+    let dx = 2;
+  
+    function drawBox(x, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, 180, 60, 60);
+      ctx.strokeRect(x, 180, 60, 60);
+    }
+  
+    function drawArrow(fromX, fromY, toX, toY, color, label) {
+      const headlen = 10;
+      const angle = Math.atan2(toY - fromY, toX - fromX);
+      ctx.beginPath();
+      ctx.moveTo(fromX, fromY);
+      ctx.lineTo(toX, toY);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+  
+      ctx.beginPath();
+      ctx.moveTo(toX, toY);
+      ctx.lineTo(toX - headlen * Math.cos(angle - Math.PI / 6), toY - headlen * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(toX - headlen * Math.cos(angle + Math.PI / 6), toY - headlen * Math.sin(angle + Math.PI / 6));
+      ctx.lineTo(toX, toY);
+      ctx.fillStyle = color;
+      ctx.fill();
+  
+      ctx.fillStyle = color;
+      ctx.font = "14px Arial";
+      ctx.fillText(label, toX + 5, toY - 5);
+    }
+  
+    function drawScene() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Box
+      drawBox(x, "#888");
+  
+      // Applied force (to the right)
+      drawArrow(x + 30, 210, x + 90, 210, "#00BFFF", "Applied Force");
+  
+      // Friction (to the left)
+      drawArrow(x + 30, 230, x - 30, 230, "#FF6347", "Friction");
+  
+      // Gravitational force (down)
+      drawArrow(x + 30, 240, x + 30, 300, "#228B22", "Gravity");
+  
+      // Tension (up) - like pulling with rope
+      drawArrow(x + 30, 180, x + 30, 120, "#FFA500", "Tension");
+  
+      x += dx;
+      if (x > canvas.width - 90 || x < 10) dx = -dx;
+  
+      requestAnimationFrame(drawScene);
+    }
+  
+    drawScene();
+  </script>
+  
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
