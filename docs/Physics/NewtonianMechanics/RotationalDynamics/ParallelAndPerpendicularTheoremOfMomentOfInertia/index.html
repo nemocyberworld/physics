@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallel and Perpendicular Axes Theorems of Moment of Inertia</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    ul {
+      list-style-type: square;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Parallel and Perpendicular Axes Theorems of Moment of Inertia</h1>
+
+  <h2>Introduction</h2>
+  <p>In rotational motion, the <strong>moment of inertia (I)</strong> is a measure of how much an object resists rotational acceleration. It plays a critical role in understanding how objects rotate in different scenarios, including collisions. The moment of inertia depends on both the shape of the object and the axis about which it is rotating. In this lesson, we will explore two important theorems that help us calculate the moment of inertia when the axis of rotation changes: the <strong>Parallel Axis Theorem</strong> and the <strong>Perpendicular Axis Theorem</strong>.</p>
+
+  <h2>1. Parallel Axis Theorem</h2>
+  <p>The Parallel Axis Theorem is used to calculate the moment of inertia of a body about any axis parallel to an axis through its center of mass. If we know the moment of inertia \( I_{\text{cm}} \) about the center of mass and the distance \( d \) between the center of mass and the new axis, the Parallel Axis Theorem states that:</p>
+
+  <div class="equation">
+    $$ I = I_{\text{cm}} + Md^2 $$
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li><strong>I</strong> is the moment of inertia about the new axis.</li>
+    <li><strong>\( I_{\text{cm}} \)</strong> is the moment of inertia about the center of mass.</li>
+    <li><strong>M</strong> is the mass of the object.</li>
+    <li><strong>d</strong> is the distance between the center of mass and the new axis of rotation.</li>
+  </ul>
+
+  <h3>Real-World Example</h3>
+  <p>Consider a solid disk rotating about an axis that is parallel to its central axis but offset by a distance from the center. The Parallel Axis Theorem allows us to calculate the new moment of inertia by knowing the moment of inertia of the disk about its center of mass and the offset distance.</p>
+
+  <h3>Practical Application</h3>
+  <p>One practical use of this theorem is in designing flywheels in machines. Flywheels store rotational energy, and their efficiency depends on how far the mass is distributed from the axis of rotation. By using the Parallel Axis Theorem, engineers can accurately determine the energy storage capacity and the flywheel's response to rotational forces.</p>
+
+  <h2>2. Perpendicular Axis Theorem</h2>
+  <p>The Perpendicular Axis Theorem is applicable to planar objects (those with no thickness, like flat disks) that lie in a single plane. It relates the moment of inertia about an axis perpendicular to the plane (the z-axis) to the moments of inertia about two mutually perpendicular axes (x and y) lying in the plane:</p>
+
+  <div class="equation">
+    $$ I_z = I_x + I_y $$
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li><strong>I_z</strong> is the moment of inertia about the perpendicular axis.</li>
+    <li><strong>I_x</strong> and <strong>I_y</strong> are the moments of inertia about the two axes lying in the plane of the object.</li>
+  </ul>
+
+  <h3>Real-World Example</h3>
+  <p>Imagine a flat, circular plate rotating about an axis that is perpendicular to the plate. If we know the moments of inertia about two axes in the plane of the plate, the Perpendicular Axis Theorem allows us to easily find the moment of inertia about the perpendicular axis, simplifying the calculations for rotational motion.</p>
+
+  <h3>Practical Application</h3>
+  <p>This theorem is often used in analyzing the rotational dynamics of planar objects, like discs and wheels. For example, in designing a rotating fan or a wheel on a car, engineers use the Perpendicular Axis Theorem to simplify their calculations for rotational motion and optimize their designs for energy efficiency and performance.</p>
+
+  <h2>Fun Fact</h2>
+  <p>Did you know that moments of inertia were first introduced in the 19th century by physicist <strong>Jean-Bernard-Léon Foucault</strong> to describe the motion of objects like pendulums? Foucault's famous pendulum demonstrated the Earth's rotation, and understanding rotational motion and inertia was key to interpreting the results!</p>
+
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>The Parallel Axis Theorem helps us find the moment of inertia about any axis parallel to an object's center of mass.</li>
+    <li>The Perpendicular Axis Theorem applies to planar objects and relates the moment of inertia about an axis perpendicular to the plane to the moments of inertia about two axes in the plane.</li>
+    <li>Both theorems simplify complex rotational motion problems and have practical applications in engineering, machinery, and design.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
