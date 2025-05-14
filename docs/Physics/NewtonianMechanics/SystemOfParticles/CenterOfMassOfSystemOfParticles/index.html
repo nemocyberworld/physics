@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center of Mass of Systems of Particles</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+    <style>
+        canvas {
+          display: block;
+          background-color: #f0f0f0;
+        }
+        .force-label {
+          position: relative;
+          top: 30px;
+          left: 10px;
+          font-size: 18px;
+          font-family: Arial, sans-serif;
+        }
+      </style>
+</head>
+<body>
+  <h1>Physics Topic: Center of Mass of Systems of Particles</h1>
+
+  <h2>Introduction</h2>
+  <p>The concept of <strong>center of mass</strong> is fundamental in understanding how objects move, balance, and respond to forces. When dealing with a system made up of many particles, the behavior of the entire system can often be understood by analyzing the motion of a single point — the center of mass.</p>
+
+  <h2>What is the Center of Mass?</h2>
+  <p>The <strong>center of mass (COM)</strong> of a system of particles is the average position of all the mass in the system, weighted by mass. It’s the point where the mass of the system could be considered to be concentrated for the purposes of motion.</p>
+
+  <h2>Mathematical Definition</h2>
+  <p>For a system of particles with masses \( m_1, m_2, \ldots, m_n \) located at positions \( \vec{r}_1, \vec{r}_2, \ldots, \vec{r}_n \), the position vector of the center of mass \( \vec{R} \) is given by:</p>
+  <div class="equation">
+    $$ \vec{R} = \frac{1}{M} \sum_{i=1}^{n} m_i \vec{r}_i $$
+    <br>
+    where \( M = \sum_{i=1}^{n} m_i \) is the total mass.
+  </div>
+
+  <h2>Special Case: Two-Particle System</h2>
+  <p>For two particles of masses \( m_1 \) and \( m_2 \) located at positions \( x_1 \) and \( x_2 \) along a line:</p>
+  <div class="equation">
+    $$ x_{cm} = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} $$
+  </div>
+
+  <h2>Real World Examples</h2>
+  <ul>
+    <li><strong>Seesaw Balance:</strong> Two kids of different weights can balance on a seesaw if they sit at different distances from the fulcrum. The center of mass determines this balance point.</li>
+    <li><strong>Diving:</strong> When a diver jumps, their rotation is around the center of mass. Tucking changes the mass distribution and affects rotation speed.</li>
+    <li><strong>Space Missions:</strong> The trajectory of a satellite or space station depends on the center of mass. Rockets are designed to thrust through this point to avoid tumbling.</li>
+  </ul>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Vehicles and structures are designed to have a low and stable center of mass to prevent tipping.</li>
+    <li><strong>Sports:</strong> Athletes improve performance by understanding and manipulating their center of mass (e.g., high jump, gymnastics).</li>
+    <li><strong>Robotics:</strong> Robots are stabilized by positioning components to keep the center of mass within the base area.</li>
+    <li><strong>Animation:</strong> Animators use center of mass to make movements of characters realistic and physically plausible.</li>
+  </ul>
+
+  <h2>Center of Mass vs. Center of Gravity</h2>
+  <p>In a uniform gravitational field, center of mass and center of gravity coincide. But in non-uniform fields (e.g., near a massive planet), they may differ slightly.</p>
+
+  <h2>Motion of the Center of Mass</h2>
+  <p>The center of mass of a system of particles obeys Newton’s second law. If no external force acts, the center of mass moves with constant velocity.</p>
+  <div class="equation">
+    $$ M \vec{a}_{cm} = \sum \vec{F}_{ext} $$
+  </div>
+
+  <h2>Fun Fact!</h2>
+  <p>Did you know? When you throw a wrench or a hammer in space, it spins in a funny way — but the center of mass follows a straight path! Astronauts even use this principle when tossing tools between each other.</p>
+
+  <h2>Visualizing the Concept</h2>
+  <p>Try this: Balance a ruler on your finger. The point where it balances is its center of mass. If you attach a small weight at one end, the balance point shifts — that's the center of mass moving due to mass redistribution!</p>
+
+  <h2>Worked Example</h2>
+  <p><strong>Problem:</strong> Two particles of masses 2 kg and 3 kg are placed at positions x = 0 m and x = 4 m respectively. Find the center of mass.</p>
+  <div class="equation">
+    $$ x_{cm} = \frac{2 \times 0 + 3 \times 4}{2 + 3} = \frac{12}{5} = 2.4 \text{ m} $$
+  </div>
+  <p><strong>Interpretation:</strong> The center of mass lies closer to the heavier mass, as expected.</p>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Center of mass is a weighted average position of mass in a system.</li>
+    <li>It's crucial in analyzing motion, stability, and balance.</li>
+    <li>It simplifies the study of complex systems into a single-point model.</li>
+    <li>Applications span engineering, space, sports, robotics, and more.</li>
+  </ul>
+  <div class="force-label">Forces in Action</div>
+  <canvas id="forceCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById("forceCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas size to window size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Object parameters
+    const object = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      width: 50,
+      height: 50,
+      color: 'blue',
+      mass: 10,
+      velocity: { x: 0, y: 0 }
+    };
+
+    // Force parameters
+    const gravitationalForce = { x: 0, y: 0.5 }; // Gravitational pull (constant for simplicity)
+    const normalForce = { x: 0, y: -gravitationalForce.y * object.mass }; // Normal force (equal in magnitude, opposite in direction)
+    const appliedForce = { x: 5, y: 0 }; // Increased applied force for faster movement
+
+    // Animation parameters
+    let frameRate = 60;
+    let lastTime = 0;
+
+    // Update the object's position based on forces
+    function updateObject(dt) {
+      // Apply forces to velocity (Newton's 2nd Law: F = ma, hence a = F/m)
+      object.velocity.x += (appliedForce.x / object.mass) * dt;
+      object.velocity.y += (gravitationalForce.y / object.mass) * dt;
+
+      // Update position based on velocity
+      object.x += object.velocity.x * dt;
+      object.y += object.velocity.y * dt;
+      
+      // Prevent going off-screen horizontally (bounce off walls)
+      if (object.x < 0 || object.x + object.width > canvas.width) object.velocity.x *= -0.8;
+      if (object.y + object.height > canvas.height) { // Check if object hits the floor
+        object.velocity.y *= -0.8; // Simulate bounce on the floor
+        object.y = canvas.height - object.height;
+      }
+    }
+
+    // Draw the object and forces
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the object
+      ctx.fillStyle = object.color;
+      ctx.fillRect(object.x, object.y, object.width, object.height);
+
+      // Draw forces as arrows (scaled for visibility)
+      drawForceArrow(object.x + object.width / 2, object.y + object.height, gravitationalForce, 'red', 'Gravitational Force');
+      drawForceArrow(object.x + object.width / 2, object.y, normalForce, 'green', 'Normal Force');
+      drawForceArrow(object.x + object.width / 2, object.y + object.height / 2, appliedForce, 'blue', 'Applied Force');
+    }
+
+    // Draw a force as an arrow
+    function drawForceArrow(x, y, force, color, label) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + force.x * 50, y + force.y * 50); // Scale the arrow for visibility
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Add label
+      ctx.font = "16px Arial";
+      ctx.fillStyle = color;
+      ctx.fillText(label, x + force.x * 50 + 10, y + force.y * 50);
+    }
+
+    // Animation loop
+    function animate(time) {
+      const dt = (time - lastTime) / 1000; // Calculate the time difference in seconds
+      lastTime = time;
+
+      updateObject(dt);
+      draw();
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start the animation
+    requestAnimationFrame(animate);
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
