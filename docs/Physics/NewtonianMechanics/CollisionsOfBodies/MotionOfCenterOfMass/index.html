@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motions of the Center of Mass of Colliding Bodies</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <style>
+
+        canvas {
+          border: 2px solid #003366;
+          background-color: #e0f7fa;
+          margin-top: 20px;
+        }
+        button {
+          margin: 10px;
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          background-color: #007acc;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #005a99;
+        }
+      </style>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Motions of the Center of Mass of Colliding Bodies</h1>
+
+  <h2>Introduction</h2>
+  <p>In the study of collisions, one important concept is the motion of the center of mass (COM) of colliding bodies. Understanding this concept helps explain how the system of bodies behaves during a collision. The center of mass represents the average position of all the mass in a system. During a collision, the motion of the COM follows the principles of conservation of momentum.</p>
+
+  <h2>Center of Mass and Momentum</h2>
+  <p>The center of mass of a system of particles is the point at which the mass of the system can be considered to be concentrated for the purpose of analyzing its motion. In an isolated system (no external forces), the center of mass moves with a constant velocity, even if the objects within the system are colliding with each other. This is because the total momentum of the system is conserved.</p>
+
+  <h3>Mathematical Formula for the Center of Mass</h3>
+  <p>The position of the center of mass for a system of particles is given by the equation:</p>
+  <div class="equation">
+    $$ \vec{R}_{CM} = \frac{1}{M} \sum_{i=1}^{N} m_i \vec{r}_i $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li> \( \vec{R}_{CM} \) is the position of the center of mass</li>
+    <li> \( M \) is the total mass of the system</li>
+    <li> \( m_i \) is the mass of each individual particle</li>
+    <li> \( \vec{r}_i \) is the position vector of each particle</li>
+  </ul>
+
+  <h2>Conservation of Momentum in Collisions</h2>
+  <p>During a collision, the total momentum of a system is conserved. This means that the total momentum before the collision is equal to the total momentum after the collision, provided no external forces act on the system.</p>
+  <p>For a system of two colliding bodies, the conservation of momentum is expressed as:</p>
+  <div class="equation">
+    $$ m_1 \vec{v}_1 + m_2 \vec{v}_2 = m_1 \vec{v}_1' + m_2 \vec{v}_2' $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li> \( m_1, m_2 \) are the masses of the two bodies</li>
+    <li> \( \vec{v}_1, \vec{v}_2 \) are the velocities of the bodies before the collision</li>
+    <li> \( \vec{v}_1', \vec{v}_2' \) are the velocities of the bodies after the collision</li>
+  </ul>
+
+  <h3>Example: Two Cars Colliding</h3>
+  <p>Imagine two cars of different masses moving toward each other on a road. Car 1, with a mass of 1000 kg, is moving at 20 m/s, and Car 2, with a mass of 1500 kg, is moving at 15 m/s in the opposite direction. After the collision, both cars move in a different direction, and their velocities change. By applying the conservation of momentum, we can find the velocities of the cars after the collision.</p>
+
+  <h2>Practical Applications of Center of Mass in Collisions</h2>
+  <p>The motion of the center of mass in collisions has several practical applications:</p>
+
+  <h3>1. Car Crash Safety Design</h3>
+  <p>Understanding the motion of the center of mass helps automotive engineers design vehicles with better safety features. In a car crash, engineers aim to control the deceleration of the car, ensuring that the forces acting on the passengers are minimized. This is achieved by strategically designing crumple zones, which absorb energy and reduce the force experienced by the passengers during a collision.</p>
+
+  <h3>2. Sports: Billiards and Pool</h3>
+  <p>In sports like billiards or pool, understanding how the balls collide and how the center of mass moves after the collision is crucial. For example, after the cue ball strikes a stationary ball, the resulting motion of the balls follows the principles of conservation of momentum, and their center of mass continues to move along a straight line unless acted upon by an external force (e.g., friction). This is why players must consider the trajectory of the center of mass when aiming for the next shot.</p>
+
+  <h3>3. Space Exploration</h3>
+  <p>In space, understanding the motion of the center of mass is vital during spacecraft docking or when dealing with collisions between space debris and satellites. The conservation of momentum in these cases dictates the motion of the objects involved, and engineers must predict and manage the resulting velocities to avoid catastrophic impacts.</p>
+
+  <h2>Real-World Example: Football Collision</h2>
+  <p>In American football, when a player tackles another, both players’ centers of mass play a significant role in determining the outcome of the collision. If a heavier player tackles a lighter one, the center of mass of the two players combined will shift toward the heavier player. However, a well-timed tackle by the lighter player, using proper technique, can ensure that the forces from the collision are distributed in a way that maximizes the lighter player’s chances of making the tackle.</p>
+
+  <h2>Fun Fact</h2>
+  <p>Did you know that the concept of the center of mass is so fundamental that it’s used in everything from the flight of airplanes to understanding how your body moves when you jump? In fact, gymnasts use their center of mass to perform flips and spins in the air! The lower the center of mass, the more stable you are, which is why gymnasts crouch before they spring into the air!</p>
+<section>
+    <h1>Motion of Center of Mass with Collision</h1>
+
+    <div>
+      <button onclick="startAnimation()">Start</button>
+      <button onclick="togglePause()">
+        <span id="pauseText">Pause</span>
+      </button>
+      <button onclick="resetAnimation()">Reset</button>
+    </div>
+  
+    <canvas id="collisionCanvas" width="800" height="400"></canvas>
+  
+    <script>
+      const canvas = document.getElementById("collisionCanvas");
+      const ctx = canvas.getContext("2d");
+  
+      const initialState = {
+        ball1: { x: 200, y: 200, radius: 30, color: "blue", dx: 2, dy: 0, mass: 1 },
+        ball2: { x: 600, y: 200, radius: 30, color: "red", dx: -2, dy: 0, mass: 2 }
+      };
+  
+      let ball1 = JSON.parse(JSON.stringify(initialState.ball1));
+      let ball2 = JSON.parse(JSON.stringify(initialState.ball2));
+      let animationId;
+      let isRunning = false;
+      let isPaused = false;
+  
+      function drawArrow(x, y, dx, dy, color = "purple") {
+        const len = 30;
+        const angle = Math.atan2(dy, dx);
+  
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + len * Math.cos(angle), y + len * Math.sin(angle));
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+  
+        // Arrowhead
+        ctx.beginPath();
+        ctx.moveTo(x + len * Math.cos(angle), y + len * Math.sin(angle));
+        ctx.lineTo(
+          x + len * Math.cos(angle) - 5 * Math.cos(angle - Math.PI / 6),
+          y + len * Math.sin(angle) - 5 * Math.sin(angle - Math.PI / 6)
+        );
+        ctx.lineTo(
+          x + len * Math.cos(angle) - 5 * Math.cos(angle + Math.PI / 6),
+          y + len * Math.sin(angle) - 5 * Math.sin(angle + Math.PI / 6)
+        );
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+  
+      function detectCollision() {
+        const dist = Math.hypot(ball1.x - ball2.x, ball1.y - ball2.y);
+        return dist < ball1.radius + ball2.radius;
+      }
+  
+      function applyCollisionForce() {
+        if (detectCollision()) {
+          const v1 = ball1.dx;
+          const v2 = ball2.dx;
+          const m1 = ball1.mass;
+          const m2 = ball2.mass;
+  
+          const newV1 = ((m1 - m2) / (m1 + m2)) * v1 + (2 * m2 / (m1 + m2)) * v2;
+          const newV2 = ((m2 - m1) / (m1 + m2)) * v2 + (2 * m1 / (m1 + m2)) * v1;
+  
+          ball1.dx = newV1;
+          ball2.dx = newV2;
+  
+          ball1.color = "orange";
+          ball2.color = "orange";
+        }
+      }
+  
+      function drawScene() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+        // Ball 1
+        ctx.beginPath();
+        ctx.arc(ball1.x, ball1.y, ball1.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball1.color;
+        ctx.fill();
+        ctx.closePath();
+  
+        // Ball 2
+        ctx.beginPath();
+        ctx.arc(ball2.x, ball2.y, ball2.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball2.color;
+        ctx.fill();
+        ctx.closePath();
+  
+        // Center of Mass as green dot inside each ball
+        ctx.beginPath();
+        ctx.arc(ball1.x, ball1.y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
+  
+        ctx.beginPath();
+        ctx.arc(ball2.x, ball2.y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
+  
+        // Draw velocity arrows
+        drawArrow(ball1.x, ball1.y, ball1.dx, ball1.dy);
+        drawArrow(ball2.x, ball2.y, ball2.dx, ball2.dy);
+      }
+  
+      function updatePositions() {
+        ball1.x += ball1.dx;
+        ball2.x += ball2.dx;
+      }
+  
+      function animate() {
+        if (!isPaused) {
+          drawScene();
+          applyCollisionForce();
+          updatePositions();
+  
+          if (!detectCollision()) {
+            ball1.color = "blue";
+            ball2.color = "red";
+          }
+        }
+        animationId = requestAnimationFrame(animate);
+      }
+  
+      function startAnimation() {
+        if (!isRunning) {
+          isRunning = true;
+          isPaused = false;
+          animate();
+        }
+      }
+  
+      function togglePause() {
+        if (!isRunning) return;
+        isPaused = !isPaused;
+        document.getElementById("pauseText").innerText = isPaused ? "Resume" : "Pause";
+      }
+  
+      function resetAnimation() {
+        cancelAnimationFrame(animationId);
+        ball1 = JSON.parse(JSON.stringify(initialState.ball1));
+        ball2 = JSON.parse(JSON.stringify(initialState.ball2));
+        isRunning = false;
+        isPaused = false;
+        document.getElementById("pauseText").innerText = "Pause";
+        drawScene();
+      }
+  
+      // Draw initial state
+      drawScene();
+    </script>
+</section>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
