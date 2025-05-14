@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hooke's Law - Work, Energy and Power</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    canvas {
+      border: 2px solid #003366;
+      background-color: #eef6ff;
+      display: block;
+      margin: 2rem auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hooke's Law</h1>
+
+  <h2>Visual Animation: Spring and Force</h2>
+  <canvas id="springCanvas" width="600" height="200"></canvas>
+
+  <script>
+    const canvas = document.getElementById('springCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let baseX = 100;
+    let baseY = 100;
+    let springLength = 100;
+    let k = 0.5; // Spring constant
+    let weight = 0;
+    let animationId;
+
+    function drawSpring(stretch) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw fixed wall
+      ctx.fillStyle = '#444';
+      ctx.fillRect(baseX - 10, baseY - 30, 10, 60);
+
+      // Draw spring (zigzag)
+      ctx.strokeStyle = '#0077cc';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      let zigZagCount = 8;
+      let segmentLength = (springLength + stretch) / zigZagCount;
+      ctx.moveTo(baseX, baseY);
+
+      for (let i = 0; i < zigZagCount; i++) {
+        let x = baseX + segmentLength * (i + 1);
+        let y = baseY + (i % 2 === 0 ? -15 : 15);
+        ctx.lineTo(x, y);
+      }
+
+      ctx.stroke();
+
+      // Draw mass block
+      ctx.fillStyle = '#cc0000';
+      ctx.fillRect(baseX + segmentLength * zigZagCount, baseY - 20, 40, 40);
+
+      // Label force
+      ctx.fillStyle = '#000';
+      ctx.font = '16px Georgia';
+      ctx.fillText('Force: ' + (k * stretch).toFixed(2) + ' N', baseX + 150, baseY + 50);
+    }
+
+    function animate() {
+      weight += 0.5;
+      let stretch = weight * k;
+      drawSpring(stretch);
+
+      if (stretch < 150) {
+        animationId = requestAnimationFrame(animate);
+      } else {
+        cancelAnimationFrame(animationId);
+      }
+    }
+
+    drawSpring(0);
+    setTimeout(() => animate(), 1000);
+  </script>
+
+  <h2>Introduction</h2>
+  <p>Hooke's Law is a fundamental principle in physics that connects force and deformation in elastic materials. Named after the 17th-century physicist Robert Hooke, this law is essential for understanding the behavior of springs and elastic bodies in the realm of mechanics and energy transformation.</p>
+
+  <h2>Statement of Hooke’s Law</h2>
+  <p>Hooke's Law states that the force required to compress or extend a spring is directly proportional to the displacement of the spring from its equilibrium position, as long as the elastic limit is not exceeded.</p>
+  <div class="equation">
+    $$ F = -kx $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>F</strong> = Force applied (in Newtons, N)</li>
+    <li><strong>k</strong> = Spring constant or stiffness (N/m)</li>
+    <li><strong>x</strong> = Displacement from the equilibrium position (in meters, m)</li>
+  </ul>
+
+  <h2>Understanding the Equation</h2>
+  <p>The negative sign indicates that the direction of the restoring force is opposite to the direction of displacement. The spring constant <em>k</em> represents the stiffness of the spring—a larger <em>k</em> means a stiffer spring.</p>
+
+  <h2>Real-World Examples</h2>
+  <h3>1. Car Suspensions</h3>
+  <p>Car suspension systems use springs and shock absorbers to manage the impact of road irregularities. Hooke’s Law helps engineers determine how much a spring will compress under the weight of the vehicle and passengers.</p>
+
+  <h3>2. Mattresses and Cushions</h3>
+  <p>Spring mattresses and seat cushions use elastic materials. Hooke’s Law allows manufacturers to choose materials that compress and return to shape comfortably.</p>
+
+  <h3>3. Mechanical Watches</h3>
+  <p>Traditional watches use coiled springs (mainsprings) that operate on Hooke’s Law to store and release energy gradually.</p>
+
+  <h3>4. Weighing Scales</h3>
+  <p>Spring balances measure weight by the extension of a spring. The weight of the object causes a force that stretches the spring, and the extension is used to determine the mass.</p>
+
+  <h2>Work Done in Stretching a Spring</h2>
+  <p>Work is done when a spring is stretched or compressed. This work is stored as <strong>elastic potential energy</strong>.</p>
+  <div class="equation">
+    $$ W = \frac{1}{2}kx^2 $$
+  </div>
+  <p>This formula shows the energy stored in the spring. It's quadratic in nature, meaning that doubling the displacement quadruples the energy stored.</p>
+
+  <h2>Energy Transformation</h2>
+  <p>When you compress a spring, your muscles do work against the spring force. This energy is stored and can be released later. For example, in a toy car launcher, energy stored in the spring is transformed into kinetic energy of motion.</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Bridge design, vibration dampers, mechanical actuators.</li>
+    <li><strong>Medical:</strong> Orthodontic devices (braces), prosthetics using elastic materials.</li>
+    <li><strong>Everyday tools:</strong> Clothes pins, click pens, door closers.</li>
+  </ul>
+
+  <h2>Limitations of Hooke’s Law</h2>
+  <p>Hooke’s Law only applies within the <strong>elastic limit</strong> of the material. Beyond this point, the material will deform permanently and will no longer obey the law.</p>
+
+  <h2>Fun Fact!</h2>
+  <p>Robert Hooke encoded his discovery in an anagram: “ceiiinosssttuv.” When deciphered, it reads “Ut tensio, sic vis,” which means “As the extension, so the force.” He kept it secret until he was ready to publish!</p>
+
+  <h2>Experiment You Can Try</h2>
+  <p><strong>Materials:</strong> A spring, a ruler, a set of small weights, a stand.</p>
+  <p><strong>Steps:</strong></p>
+  <ol>
+    <li>Hang the spring vertically and measure its original length.</li>
+    <li>Hang weights on the spring one by one and measure how much it stretches.</li>
+    <li>Plot a graph of force (weight) vs. displacement. If it forms a straight line, it obeys Hooke's Law!</li>
+  </ol>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
