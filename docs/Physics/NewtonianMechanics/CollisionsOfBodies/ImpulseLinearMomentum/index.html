@@ -121,7 +121,161 @@
     <li>Momentum is conserved in all collisions.</li>
     <li>Understanding these concepts helps in designing safer vehicles, improving athletic performance, and understanding physical interactions.</li>
   </ul>
+  <section>
+  <h2>Let's see a collision</h2>
+  <canvas id="physicsCanvas" width="720" height="400" style="border:1px solid #ccc; margin-top: 2rem;"></canvas>
 
+  <div style="margin-top: 1rem;">
+    <button onclick="startSimulation()">Start</button>
+    <button onclick="togglePauseResume()" id="pauseResumeBtn">Pause</button>
+    <button onclick="resetSimulation()">Reset</button>
+  </div>
+  
+  <script>
+    const canvas = document.getElementById("physicsCanvas");
+    const ctx = canvas.getContext("2d");
+  
+    let initialState = {
+      ball1: {
+        x: 100,
+        y: 200,
+        radius: 20,
+        color: "#0077cc",
+        velocity: 2,
+        mass: 2
+      },
+      ball2: {
+        x: 600,
+        y: 200,
+        radius: 20,
+        color: "#cc0000",
+        velocity: -2,
+        mass: 2
+      }
+    };
+  
+    let ball1, ball2;
+    let animationId = null;
+    let isPaused = false;
+    let isStarted = false;
+  
+    function cloneBall(ball) {
+      return { ...ball };
+    }
+  
+    function drawBall(ball) {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = ball.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+  
+    function drawArrow(x1, y1, x2, y2, color) {
+      const headLength = 10;
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const angle = Math.atan2(dy, dx);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.lineTo(
+        x2 - headLength * Math.cos(angle - Math.PI / 6),
+        y2 - headLength * Math.sin(angle - Math.PI / 6)
+      );
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(
+        x2 - headLength * Math.cos(angle + Math.PI / 6),
+        y2 - headLength * Math.sin(angle + Math.PI / 6)
+      );
+      ctx.stroke();
+    }
+  
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+      // Move the balls
+      ball1.x += ball1.velocity;
+      ball2.x += ball2.velocity;
+  
+      // Check for collision
+      if (Math.abs(ball1.x - ball2.x) < ball1.radius + ball2.radius) {
+        const v1 = ball1.velocity;
+        const v2 = ball2.velocity;
+  
+        ball1.velocity = ((ball1.mass - ball2.mass) * v1 + 2 * ball2.mass * v2) / (ball1.mass + ball2.mass);
+        ball2.velocity = ((ball2.mass - ball1.mass) * v2 + 2 * ball1.mass * v1) / (ball1.mass + ball2.mass);
+      }
+  
+      drawBall(ball1);
+      drawBall(ball2);
+  
+      // Draw momentum arrows
+      drawArrow(ball1.x, ball1.y, ball1.x + ball1.velocity * 20, ball1.y, "#00cc44");
+      drawArrow(ball2.x, ball2.y, ball2.x + ball2.velocity * 20, ball2.y, "#ff9900");
+  
+      ctx.font = "14px Georgia";
+      ctx.fillStyle = "#333";
+      ctx.fillText("Ball 1 Momentum", ball1.x - 30, ball1.y - 30);
+      ctx.fillText("Ball 2 Momentum", ball2.x - 30, ball2.y - 30);
+  
+      if (!isPaused) {
+        animationId = requestAnimationFrame(update);
+      }
+    }
+  
+    function startSimulation() {
+      if (isStarted) return;
+      isStarted = true;
+      isPaused = false;
+      document.getElementById("pauseResumeBtn").innerText = "Pause";
+  
+      // Initialize from initial state
+      ball1 = cloneBall(initialState.ball1);
+      ball2 = cloneBall(initialState.ball2);
+      update();
+    }
+  
+    function togglePauseResume() {
+      if (!isStarted) return;
+  
+      isPaused = !isPaused;
+      const btn = document.getElementById("pauseResumeBtn");
+      btn.innerText = isPaused ? "Resume" : "Pause";
+  
+      if (!isPaused) {
+        update();
+      } else {
+        cancelAnimationFrame(animationId);
+      }
+    }
+  
+    function resetSimulation() {
+      isStarted = false;
+      isPaused = false;
+      cancelAnimationFrame(animationId);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+      ball1 = cloneBall(initialState.ball1);
+      ball2 = cloneBall(initialState.ball2);
+  
+      // Draw initial state
+      drawBall(ball1);
+      drawBall(ball2);
+      drawArrow(ball1.x, ball1.y, ball1.x + ball1.velocity * 20, ball1.y, "#00cc44");
+      drawArrow(ball2.x, ball2.y, ball2.x + ball2.velocity * 20, ball2.y, "#ff9900");
+      ctx.font = "14px Georgia";
+      ctx.fillStyle = "#333";
+      ctx.fillText("Ball 1 Momentum", ball1.x - 30, ball1.y - 30);
+      ctx.fillText("Ball 2 Momentum", ball2.x - 30, ball2.y - 30);
+    }
+  
+    // Draw the initial state immediately
+    resetSimulation();
+  </script>
+  </section>
   <footer>
     <p><a href="../index.html">&#8592; Back to Home</a></p>
   </footer>
