@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work-Energy Theorem - Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    canvas {
+      background: #eef6ff;
+      border: 1px solid #ccc;
+      display: block;
+      margin: 1rem 0;
+    }
+    .controls {
+      margin: 1rem 0;
+    }
+    .controls button {
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      font-size: 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Work, Energy and Power - The Work-Energy Theorem</h1>
+
+  <h2>Introduction</h2>
+  <p>The <strong>Work-Energy Theorem</strong> is one of the most important principles in physics. It relates the concepts of force, work, and energy in a very elegant and practical way. In simple terms, it tells us that:</p>
+  <div class="equation">
+    $$ \text{Work done by the net force on an object} = \text{Change in kinetic energy of the object} $$
+  </div>
+
+  <h2>Mathematical Formulation</h2>
+  <p>The Work-Energy Theorem can be mathematically expressed as:</p>
+  <div class="equation">
+    $$ W = \Delta K.E. = K.E._{final} - K.E._{initial} $$
+  </div>
+
+  <h2>Visual Demonstration</h2>
+  <p>The following animation shows an object accelerating as force is applied, illustrating how work done results in increased kinetic energy.</p>
+  <canvas id="forceCanvas" width="700" height="150"></canvas>
+  <div class="controls">
+    <button onclick="startAnimation()">Start</button>
+    <button onclick="togglePause()">Pause/Resume</button>
+    <button onclick="resetAnimation()">Reset</button>
+  </div>
+
+  <h2>Real-World Examples</h2>
+  <h3>1. Braking a Car</h3>
+  <p>When you press the brakes of a car, the brakes apply a force opposite to the motion, doing negative work. This reduces the car’s kinetic energy and brings it to a stop. The work-energy theorem explains how the kinetic energy is reduced to zero by the work done by the brakes.</p>
+
+  <h3>2. Roller Coaster</h3>
+  <p>As a roller coaster descends, gravitational force does positive work on it, increasing its kinetic energy. When it climbs, the kinetic energy is converted back to potential energy. The net work done by all forces (like friction and gravity) changes the coaster’s kinetic energy.</p>
+
+  <h3>3. Sports</h3>
+  <p>In baseball, when a batter hits a ball, the bat exerts a force over a distance during contact. The work done by the bat results in the change in the ball’s kinetic energy.</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Vehicle Design:</strong> Engineers use the work-energy principle in crash safety analysis. Crumple zones in cars do work in stopping the car gradually to reduce injury.</li>
+    <li><strong>Elevators:</strong> Motors must do work against gravity to lift the elevator, converting electrical energy into mechanical energy.</li>
+    <li><strong>Amusement Rides:</strong> Predicting motion paths, safety constraints, and energy losses.</li>
+    <li><strong>Engineering:</strong> Calculating how much energy is required to operate machinery or how much energy is lost due to friction.</li>
+  </ul>
+
+  <h2>Important Notes</h2>
+  <ul>
+    <li>Only the <strong>net work</strong> (i.e., work done by the net force) affects the change in kinetic energy.</li>
+    <li>If no net work is done, the kinetic energy remains constant.</li>
+    <li>Work done by friction usually results in a decrease in kinetic energy and is converted to heat.</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>NASA scientists use the work-energy theorem when launching spacecraft! They calculate the work needed to reach escape velocity—where kinetic energy must be enough to overcome Earth’s gravity.</p>
+
+  <h2>Another Example Equation</h2>
+  <p>Kinetic Energy of an object:</p>
+  <div class="equation">
+    $$ K.E. = \frac{1}{2}mv^2 $$
+  </div>
+
+  <h2>Related Equation - Newton's Second Law</h2>
+  <p>In deriving the Work-Energy theorem from Newton's second law:</p>
+  <div class="equation">
+    $$ F = ma $$
+  </div>
+  <p>Multiplying both sides by distance under constant acceleration:</p>
+  <div class="equation">
+    $$ F \cdot d = ma \cdot d $$
+  </div>
+  <p>Using kinematic relations, this becomes the basis for the work-energy theorem.</p>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>The work-energy theorem connects the concept of force and motion to energy.</li>
+    <li>It simplifies many physics problems by using energy rather than forces.</li>
+    <li>It has wide applications in mechanics, engineering, sports, and transportation.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('forceCanvas');
+    const ctx = canvas.getContext('2d');
+    let x = 50;
+    let speed = 0;
+    let acceleration = 0.05;
+    let running = false;
+    let paused = false;
+    let animationFrame;
+
+    function drawScene() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.moveTo(0, 100);
+      ctx.lineTo(canvas.width, 100);
+      ctx.strokeStyle = '#666';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = '#ff6666';
+      ctx.fillRect(x, 75, 30, 30);
+
+      ctx.beginPath();
+      ctx.moveTo(x + 15, 70);
+      ctx.lineTo(x + 35, 70);
+      ctx.lineTo(x + 30, 65);
+      ctx.moveTo(x + 35, 70);
+      ctx.lineTo(x + 30, 75);
+      ctx.strokeStyle = '#007acc';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      ctx.fillStyle = '#000';
+      ctx.fillText("Force →", x + 40, 65);
+      ctx.fillText("Kinetic Energy Increases", 10, 20);
+
+      if (!paused) {
+        speed += acceleration;
+        x += speed;
+        if (x > canvas.width) x = -30;
+      }
+
+      if (running) {
+        animationFrame = requestAnimationFrame(drawScene);
+      }
+    }
+
+    function startAnimation() {
+      if (!running) {
+        running = true;
+        paused = false;
+        drawScene();
+      }
+    }
+
+    function togglePause() {
+      paused = !paused;
+    }
+
+    function resetAnimation() {
+      cancelAnimationFrame(animationFrame);
+      x = 50;
+      speed = 0;
+      running = false;
+      paused = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
