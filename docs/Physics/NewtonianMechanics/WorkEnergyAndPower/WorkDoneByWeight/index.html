@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Work Done by Weight</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Work Done by Weight</h1>
+
+  <h2>1. Introduction</h2>
+  <p>In physics, the concept of <strong>work done by weight</strong> is fundamental when dealing with gravity-related problems. This topic falls under the broader chapter of <em>Work, Energy, and Power</em>. Here, we explore how gravity does work when objects are moved vertically or fall freely.</p>
+
+  <h2>2. What is Weight?</h2>
+  <p>Weight is the force exerted by gravity on a body. It is given by:</p>
+  <div class="equation">
+    $$ W = mg $$
+  </div>
+  <p>where:</p>
+  <ul>
+    <li><strong>W</strong> is the weight of the object (in newtons, N)</li>
+    <li><strong>m</strong> is the mass (in kilograms, kg)</li>
+    <li><strong>g</strong> is the acceleration due to gravity (approximately \( 9.8\,m/s^2 \) on Earth)</li>
+  </ul>
+
+  <h2>3. Definition of Work</h2>
+  <p>Work is said to be done when a force causes displacement in the direction of the force. Mathematically, it is given by:</p>
+  <div class="equation">
+    $$ W = F \cdot d \cdot \cos(\theta) $$
+  </div>
+  <p>where:</p>
+  <ul>
+    <li><strong>W</strong> is the work done (in joules, J)</li>
+    <li><strong>F</strong> is the force applied</li>
+    <li><strong>d</strong> is the displacement</li>
+    <li><strong>\theta</strong> is the angle between force and displacement</li>
+  </ul>
+
+  <h2>4. Work Done by Weight</h2>
+  <p>When an object moves vertically under the influence of gravity, the weight does work. The work done by weight is:</p>
+  <div class="equation">
+    $$ W = mg \cdot h $$
+  </div>
+  <p>where <strong>h</strong> is the height (positive if the object moves downward, negative if upward).</p>
+
+  <h2>5. Real-World Examples</h2>
+  <ul>
+    <li><strong>Falling Apple:</strong> When an apple falls from a tree, gravity does work by increasing the apple’s kinetic energy.</li>
+    <li><strong>Lifting a Box:</strong> When you lift a box upward, you work against the weight, and the weight does negative work.</li>
+    <li><strong>Roller Coasters:</strong> As the car descends, gravity does work, increasing the speed of the car.</li>
+    <li><strong>Skydiving:</strong> Gravity does work on the skydiver, converting potential energy to kinetic energy.</li>
+  </ul>
+
+  <h2>6. Practical Applications</h2>
+  <ul>
+    <li><strong>Construction:</strong> Engineers calculate work done by weight when designing cranes and lifts.</li>
+    <li><strong>Hydropower:</strong> Gravity does work on falling water to rotate turbines and generate electricity.</li>
+    <li><strong>Transportation:</strong> In vehicles, work done by weight affects downhill acceleration and energy conservation.</li>
+    <li><strong>Elevators:</strong> The motor must do work equal to the work done by weight to raise passengers.</li>
+  </ul>
+
+  <h2>7. Energy Perspective</h2>
+  <p>When weight does work, potential energy is converted to kinetic energy. If an object of mass <strong>m</strong> falls a height <strong>h</strong>:</p>
+  <div class="equation">
+    $$ \text{Potential Energy Lost} = \text{Kinetic Energy Gained} = mgh $$
+  </div>
+  <p>This is an application of the <strong>Work-Energy Theorem</strong>.</p>
+
+  <h2>8. Fun Fact!</h2>
+  <p>The Eiffel Tower is 330 meters tall. If you dropped a bowling ball (mass 6 kg) from the top, the work done by gravity would be:</p>
+  <div class="equation">
+    $$ W = 6 \cdot 9.8 \cdot 330 = 19,404\,J $$
+  </div>
+  <p>That’s enough energy to light a 60W bulb for over 5 minutes!</p>
+
+  <h2>9. Key Points to Remember</h2>
+  <ul>
+    <li>Weight is a force: \( W = mg \)</li>
+    <li>Work by weight: \( W = mgh \)</li>
+    <li>Work is positive when moving downward, negative when moving upward</li>
+    <li>Gravity does work by converting potential energy to kinetic energy</li>
+    <li>Work done by weight is foundational in machines, transport, and natural processes</li>
+  </ul>
+
+  <h2>10. Final Example Problem</h2>
+  <p><strong>Problem:</strong> A 10 kg suitcase is lifted to a height of 2 meters. Calculate the work done by weight.</p>
+  <p><strong>Solution:</strong></p>
+  <div class="equation">
+    $$ W = mg \cdot h = 10 \cdot 9.8 \cdot (-2) = -196\,J $$
+  </div>
+  <p>The negative sign shows that work done by weight is against the direction of motion.</p>
+  <p>
+  <canvas id="forceCanvas" width="800" height="500" style="border:1px solid #ccc; display: block; margin-bottom: 10px;"></canvas>
+
+<!-- Control Buttons -->
+<div style="text-align: center;">
+  <button onclick="startAnimation()">Start</button>
+  <button onclick="togglePauseResume()">Pause / Resume</button>
+  <button onclick="resetAnimation()">Reset</button>
+</div>
+
+<script>
+  const canvas = document.getElementById('forceCanvas');
+  const ctx = canvas.getContext('2d');
+
+  let fallY = 50;
+  let liftY = 250;
+  let coasterX = 0;
+
+  let animationId;
+  let isPaused = false;
+  let isStarted = false;
+
+  function drawFallingObject() {
+    ctx.fillStyle = '#E0F7FA';
+    ctx.fillRect(0, 0, canvas.width, 150);
+    ctx.fillStyle = '#000';
+    ctx.fillText("Falling Object (Positive Work by Weight)", 10, 20);
+
+    ctx.beginPath();
+    ctx.arc(100, fallY, 20, 0, Math.PI * 2);
+    ctx.fillStyle = '#FF5722';
+    ctx.fill();
+
+    if (!isPaused) {
+      fallY += 2;
+      if (fallY > 130) fallY = 50;
+    }
+  }
+
+  function drawLiftingObject() {
+    ctx.fillStyle = '#E8F5E9';
+    ctx.fillRect(0, 160, canvas.width, 150);
+    ctx.fillStyle = '#000';
+    ctx.fillText("Lifting Object (Negative Work by Weight)", 10, 180);
+
+    ctx.beginPath();
+    ctx.rect(300, liftY, 40, 40);
+    ctx.fillStyle = '#4CAF50';
+    ctx.fill();
+
+    if (!isPaused) {
+      liftY -= 2;
+      if (liftY < 180) liftY = 250;
+    }
+  }
+
+  function drawRollerCoaster() {
+    ctx.fillStyle = '#FFF3E0';
+    ctx.fillRect(0, 320, canvas.width, 180);
+    ctx.fillStyle = '#000';
+    ctx.fillText("Roller Coaster (Work converts to Kinetic Energy)", 10, 340);
+
+    ctx.beginPath();
+    ctx.moveTo(0, 400);
+    ctx.quadraticCurveTo(400, 300, 800, 400);
+    ctx.strokeStyle = '#8D6E63';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    const t = coasterX / 800;
+    const y = 400 - 100 * Math.sin(Math.PI * t);
+
+    ctx.beginPath();
+    ctx.arc(coasterX, y, 15, 0, Math.PI * 2);
+    ctx.fillStyle = '#2196F3';
+    ctx.fill();
+
+    if (!isPaused) {
+      coasterX += 2;
+      if (coasterX > 800) coasterX = 0;
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '16px Georgia';
+
+    drawFallingObject();
+    drawLiftingObject();
+    drawRollerCoaster();
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  // Control functions
+  function startAnimation() {
+    if (!isStarted) {
+      isStarted = true;
+      isPaused = false;
+      animate();
+    }
+  }
+
+  function togglePauseResume() {
+    if (!isStarted) return;
+    isPaused = !isPaused;
+  }
+
+  function resetAnimation() {
+    cancelAnimationFrame(animationId);
+    fallY = 50;
+    liftY = 250;
+    coasterX = 0;
+    isPaused = false;
+    isStarted = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+</script>
+
+  </p>
+  
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>
