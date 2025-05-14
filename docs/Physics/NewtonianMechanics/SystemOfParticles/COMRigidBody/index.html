@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center of Mass of Rigid Bodies - System of Particles</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Center of Mass of Rigid Bodies</h1>
+
+  <h2>Introduction</h2>
+  <p>The center of mass (COM) of a rigid body is a crucial concept in physics, particularly in the study of the "System of Particles." It is defined as the point where the entire mass of a system can be considered to be concentrated for the purpose of analyzing motion. This point plays a vital role in simplifying complex motion, such as the motion of a system of particles or a rigid body, to that of a single point.
+
+  <h2>Understanding the Center of Mass</h2>
+  <p>For any object or system of particles, the center of mass can be calculated as the weighted average position of all the mass elements that make up the body. If you had to balance an object on a pin, the spot where it would perfectly balance would be its center of mass. 
+
+  <h3>The Formula</h3>
+  The center of mass of a system of particles can be found using the formula:
+  <div class="equation">
+    $$ \vec{R}_{\text{cm}} = \frac{1}{M} \sum_{i=1}^{N} m_i \vec{r}_i $$
+  </div>
+  where:
+  <ul>
+    <li> \( M \) is the total mass of the system,</li>
+    <li> \( m_i \) is the mass of the \(i\)-th particle,</li>
+    <li> \( \vec{r}_i \) is the position vector of the \(i\)-th particle.</li>
+  </ul>
+  This equation gives the position of the center of mass in terms of the position and mass of each particle in the system. For continuous bodies, this becomes an integral.
+
+  <h2>Real-World Examples of Center of Mass</h2>
+
+  <h3>Example 1: A Uniform Rod</h3>
+  Consider a uniform rod of length \(L\) and mass \(M\). Since the rod is uniform, the mass is evenly distributed along its length, and the center of mass is located at the midpoint of the rod.
+
+  <div class="equation">
+    $$ \text{COM position} = \frac{L}{2} $$
+  </div>
+
+  This means that if you try to balance the rod on a pin, the center of mass will lie exactly at its center.
+
+  <h3>Example 2: Irregular Shape - L-shaped Object</h3>
+  Suppose you have an L-shaped object made of two straight rods of different masses. To find the center of mass, you treat each rod as a separate particle and calculate the weighted average of their positions. The center of mass will not be at the geometric center of the object but will be closer to the heavier part.
+
+  <div class="equation">
+    $$ \vec{R}_{\text{cm}} = \frac{m_1 \vec{r}_1 + m_2 \vec{r}_2}{m_1 + m_2} $$
+  </div>
+
+  <h3>Example 3: The Human Body</h3>
+  In biomechanics, understanding the center of mass of the human body is important for activities such as running, jumping, or even standing still. The center of mass of a human body is located just above the hips, and its position changes depending on the posture and body movements.
+
+  <h2>Practical Applications</h2>
+  
+  <h3>1. Stability of Objects</h3>
+  The stability of an object is determined by the position of its center of mass relative to its base of support. For example, a tall, narrow object, like a pencil, will fall easily because its center of mass is high and not above the base of support. However, a wide, low object, like a table, will remain stable because its center of mass is lower and more firmly supported by the surface.
+
+  <h3>2. Vehicle Design and Safety</h3>
+  In car design, the center of mass plays a crucial role in vehicle handling and safety. Lowering the center of mass of a car reduces the likelihood of rollover accidents. Sports cars are designed to have their center of mass closer to the ground, enhancing their cornering ability.
+
+  <h3>3. Spacecraft and Satellites</h3>
+  In space, understanding the center of mass is crucial for controlling the orientation and movement of spacecraft. For example, the position of the center of mass of a satellite is used to determine how the satellite rotates and to ensure its stability while in orbit.
+
+  <h2>Fun Fact</h2>
+  Did you know that the center of mass of a person can change depending on what they're holding? For example, when you carry a heavy backpack, your center of mass shifts toward the backpack, which is why you may feel less stable. Similarly, acrobats use this knowledge to control their body movements during performances like somersaults!
+
+  <h2>Conclusion</h2>
+  The concept of the center of mass is essential in physics and engineering for analyzing the motion of rigid bodies and particle systems. From balancing objects to designing safe and efficient vehicles, understanding the center of mass helps us make better decisions in real-life applications.
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Object 1: Rectangle
+      const rectangle = {
+          x: 200, y: 300, width: 200, height: 100, mass: 5, color: "orange"
+      };
+
+      // Object 2: Triangle
+      const triangle = {
+          x: 250, y: 250, base: 100, height: 120, mass: 5, color: "cyan"
+      };
+
+      // Composite object (two rectangles)
+      const object1 = {
+          x: 800, y: 200, width: 100, height: 100, mass: 5, color: "green"
+      };
+      const object2 = {
+          x: 950, y: 200, width: 100, height: 100, mass: 10, color: "blue"
+      };
+
+      // Function to calculate the center of mass for a single object
+      function getCenterOfMassForRect(obj) {
+          return { x: obj.x + obj.width / 2, y: obj.y + obj.height / 2 };
+      }
+
+      // Function to calculate the center of mass for composite objects
+      function getCompositeCenterOfMass(obj1, obj2) {
+          const x_com = (obj1.x * obj1.mass + obj2.x * obj2.mass) / (obj1.mass + obj2.mass);
+          const y_com = (obj1.y * obj1.mass + obj2.y * obj2.mass) / (obj1.mass + obj2.mass);
+          return { x: x_com, y: y_com };
+      }
+
+      // Draw center of mass for a rigid body
+      function drawCenterOfMass(x, y) {
+          ctx.beginPath();
+          ctx.arc(x, y, 10, 0, 2 * Math.PI);
+          ctx.fillStyle = "red";
+          ctx.fill();
+      }
+
+      // Draw the rectangle
+      function drawRectangle(rect) {
+          ctx.fillStyle = rect.color;
+          ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+      }
+
+      // Draw the triangle
+      function drawTriangle(tri) {
+          ctx.fillStyle = tri.color;
+          ctx.beginPath();
+          ctx.moveTo(tri.x, tri.y);
+          ctx.lineTo(tri.x + tri.base / 2, tri.y - tri.height);
+          ctx.lineTo(tri.x + tri.base, tri.y);
+          ctx.closePath();
+          ctx.fill();
+      }
+
+      // Animate and update the objects
+      function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Draw individual shapes
+          drawRectangle(rectangle);
+          drawTriangle(triangle);
+
+          // Calculate and draw the center of mass for rectangle and triangle
+          const centerOfMassRect = getCenterOfMassForRect(rectangle);
+          const centerOfMassTri = {
+              x: triangle.x + triangle.base / 2,
+              y: triangle.y - triangle.height / 3
+          };
+
+          drawCenterOfMass(centerOfMassRect.x, centerOfMassRect.y);
+          drawCenterOfMass(centerOfMassTri.x, centerOfMassTri.y);
+
+          // Draw composite object
+          drawRectangle(object1);
+          drawRectangle(object2);
+
+          // Calculate and draw the composite center of mass
+          const centerOfMassComposite = getCompositeCenterOfMass(object1, object2);
+          drawCenterOfMass(centerOfMassComposite.x, centerOfMassComposite.y);
+
+          // Animate the motion of the objects (to show shifting COM)
+          object1.x += 1;
+          object2.x += 1;
+
+          requestAnimationFrame(animate);
+      }
+
+      animate();
+  </script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
