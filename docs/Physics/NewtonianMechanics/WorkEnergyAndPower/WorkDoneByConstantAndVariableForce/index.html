@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Work Done by Constant and Variable Forces</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+    <style>
+        body {
+          font-family: Georgia, serif;
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+          background-color: #fcfcfc;
+          color: #333;
+        }
+        h1, h2 {
+          color: #003366;
+        }
+        pre {
+          background-color: #f0f0f0;
+          padding: 1rem;
+          border-left: 5px solid #003366;
+          overflow-x: auto;
+        }
+        .equation {
+          font-family: 'Courier New', monospace;
+          background: #f9f9f9;
+          display: block;
+          padding: 0.5rem;
+          margin: 1rem 0;
+          border-left: 3px solid #999;
+        }
+        canvas {
+          display: block;
+          margin: 2rem auto;
+          border: 1px solid #ccc;
+          background: #e0f7fa;
+        }
+      </style>
+</head>
+<body>
+  <h1>Physics Topic: Work Done by Constant and Variable Forces</h1>
+
+  <h2>1. Introduction to Work</h2>
+  <p>In physics, <strong>work</strong> is done when a force is applied to an object and the object moves in the direction of the applied force. It is a scalar quantity and has the unit of joules (J) in the SI system.</p>
+
+  <div class="equation">
+    $$ \text{Work} = \text{Force} \times \text{Displacement} \times \cos(\theta) $$
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li>Force is in newtons (N)</li>
+    <li>Displacement is in meters (m)</li>
+    <li>\(\theta\) is the angle between force and displacement</li>
+  </ul>
+
+  <h2>2. Work Done by a Constant Force</h2>
+  <p>When a constant force is applied in a specific direction, and the object moves a certain distance, the work done is straightforward to calculate.</p>
+
+  <div class="equation">
+    $$ W = F \cdot d \cdot \cos(\theta) $$
+  </div>
+
+  <h3>Real-world Example</h3>
+  <p>If you push a shopping cart with a force of 50 N over a distance of 10 meters in the same direction, the work done is:</p>
+  <div class="equation">
+    $$ W = 50 \times 10 \times \cos(0^\circ) = 500 \text{ J} $$
+  </div>
+
+  <h3>Practical Applications</h3>
+  <ul>
+    <li>Moving furniture across a room</li>
+    <li>Pulling a sled on snow</li>
+    <li>Using a wrench to turn a bolt</li>
+  </ul>
+
+  <h2>3. Work Done by a Variable Force</h2>
+  <p>When the force changes over the distance, we cannot use a simple multiplication. Instead, we integrate the force over the path of motion.</p>
+
+  <div class="equation">
+    $$ W = \int_{x_i}^{x_f} F(x) \, dx $$
+  </div>
+
+  <h3>Real-world Example</h3>
+  <p>Imagine stretching a spring. The force required increases linearly with distance:</p>
+  <div class="equation">
+    $$ F(x) = kx $$
+  </div>
+  <p>Then the work done in stretching it from 0 to x is:</p>
+  <div class="equation">
+    $$ W = \int_0^x kx \, dx = \frac{1}{2} k x^2 $$
+  </div>
+
+  <h3>Applications of Variable Force Work</h3>
+  <ul>
+    <li>Stretching or compressing springs (Hooke's Law)</li>
+    <li>Rocket propulsion (force varies as fuel burns)</li>
+    <li>Gravitational potential energy changes with altitude in non-uniform fields</li>
+  </ul>
+
+  <h2>4. Important Notes and Insights</h2>
+  <ul>
+    <li>If \( \theta = 90^\circ \), then \( \cos(\theta) = 0 \), and no work is done (e.g., carrying a bag horizontally while walking)</li>
+    <li>Work can be positive (force and displacement in same direction), negative (opposite directions), or zero</li>
+  </ul>
+
+  <h2>5. Fun Fact</h2>
+  <p>Did you know that holding a heavy bag without moving it might feel tiring, but in physics, you’re doing <em>no work</em>? Since there’s no displacement, no work is technically done!</p>
+
+  <h2>6. Graphical Interpretation</h2>
+  <p>When force varies, the area under the Force vs. Displacement graph gives the total work done. For constant force, it’s a rectangle; for variable, it could be a triangle or other shapes, integrated accordingly.</p>
+
+  <h2>7. Summary Table</h2>
+  <table border="1" cellspacing="0" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Type of Force</th>
+        <th>Work Formula</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Constant</td>
+        <td>\( W = F \cdot d \cdot \cos(\theta) \)</td>
+        <td>Pushing a box</td>
+      </tr>
+      <tr>
+        <td>Variable</td>
+        <td>\( W = \int F(x) \, dx \)</td>
+        <td>Stretching a spring</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>8. Animated Examples</h2>
+
+  <h3>Constant Force - Pushing a Box</h3>
+  <canvas id="constantForceCanvas" width="600" height="150"></canvas>
+
+  <h3>Variable Force - Stretching a Spring</h3>
+  <canvas id="variableForceCanvas" width="600" height="150"></canvas>
+
+  <script>
+    // CONSTANT FORCE ANIMATION
+    const canvas1 = document.getElementById('constantForceCanvas');
+    const ctx1 = canvas1.getContext('2d');
+    let boxX = 10;
+
+    function drawConstantForce() {
+      ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+
+      // Ground
+      ctx1.fillStyle = '#a7ffeb';
+      ctx1.fillRect(0, 100, 600, 50);
+
+      // Box
+      ctx1.fillStyle = '#ff7043';
+      ctx1.fillRect(boxX, 70, 50, 30);
+
+      // Force arrow
+      ctx1.beginPath();
+      ctx1.moveTo(boxX + 60, 85);
+      ctx1.lineTo(boxX + 100, 85);
+      ctx1.lineTo(boxX + 95, 80);
+      ctx1.moveTo(boxX + 100, 85);
+      ctx1.lineTo(boxX + 95, 90);
+      ctx1.strokeStyle = '#0277bd';
+      ctx1.lineWidth = 3;
+      ctx1.stroke();
+
+      boxX += 1;
+      if (boxX > canvas1.width) boxX = -60;
+
+      requestAnimationFrame(drawConstantForce);
+    }
+    drawConstantForce();
+
+    // VARIABLE FORCE ANIMATION
+    const canvas2 = document.getElementById('variableForceCanvas');
+    const ctx2 = canvas2.getContext('2d');
+    let springX = 100;
+    let maxStretch = 200;
+    let stretchDir = 1;
+
+    function drawSpringForce() {
+      ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+      // Wall
+      ctx2.fillStyle = '#455a64';
+      ctx2.fillRect(0, 50, 20, 50);
+
+      // Spring
+      ctx2.strokeStyle = '#43a047';
+      ctx2.lineWidth = 3;
+      ctx2.beginPath();
+      ctx2.moveTo(20, 75);
+      for (let i = 0; i < 10; i++) {
+        let x = 20 + (springX - 20) / 10 * i;
+        let y = 75 + (i % 2 === 0 ? 10 : -10);
+        ctx2.lineTo(x, y);
+      }
+      ctx2.lineTo(springX, 75);
+      ctx2.stroke();
+
+      // Mass
+      ctx2.fillStyle = '#ab47bc';
+      ctx2.fillRect(springX, 60, 30, 30);
+
+      // Arrow indicating increasing force
+      ctx2.beginPath();
+      ctx2.moveTo(springX + 40, 75);
+      ctx2.lineTo(springX + 70, 75);
+      ctx2.lineTo(springX + 65, 70);
+      ctx2.moveTo(springX + 70, 75);
+      ctx2.lineTo(springX + 65, 80);
+      ctx2.strokeStyle = '#d32f2f';
+      ctx2.stroke();
+
+      springX += stretchDir * 0.8;
+      if (springX > maxStretch || springX < 100) stretchDir *= -1;
+
+      requestAnimationFrame(drawSpringForce);
+    }
+    drawSpringForce();
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
