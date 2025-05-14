@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Kinetic and Potential Energy</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    canvas {
+      background-color: #e0f7fa;
+      border: 2px solid #00796b;
+      display: block;
+      margin: 20px 0;
+    }
+    .controls {
+      margin-bottom: 1.5rem;
+    }
+    .controls button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kinetic and Potential Energy</h1>
+
+  <h2>Introduction</h2>
+  <p>Energy is the capacity to do work. In physics, two fundamental forms of mechanical energy are <strong>Kinetic Energy</strong> and <strong>Potential Energy</strong>. Together, they explain how objects move and interact under the influence of forces.</p>
+
+  <h2>1. Kinetic Energy</h2>
+  <p><strong>Kinetic Energy (KE)</strong> is the energy possessed by a body due to its motion. It depends on the mass and velocity of the object.</p>
+
+  <h3>Mathematical Expression</h3>
+  <div class="equation">
+    $$ KE = \frac{1}{2}mv^2 $$
+  </div>
+
+  <div class="controls">
+    <button onclick="startKinetic()">Start Kinetic</button>
+    <button onclick="toggleKinetic()">Pause/Resume</button>
+    <button onclick="resetKinetic()">Reset</button>
+  </div>
+  <canvas id="kineticCanvas" width="500" height="100"></canvas>
+
+  <h2>2. Potential Energy</h2>
+  <p><strong>Potential Energy (PE)</strong> is stored energy possessed by an object due to its position or configuration. The most common form is <strong>gravitational potential energy</strong>.</p>
+
+  <h3>Mathematical Expression</h3>
+  <div class="equation">
+    $$ PE = mgh $$
+  </div>
+
+  <div class="controls">
+    <button onclick="startPotential()">Start Potential</button>
+    <button onclick="togglePotential()">Pause/Resume</button>
+    <button onclick="resetPotential()">Reset</button>
+  </div>
+  <canvas id="potentialCanvas" width="200" height="300"></canvas>
+
+  <h2>3. Energy Transformation</h2>
+  <p>Energy can be converted from one form to another, typically between kinetic and potential energy.</p>
+
+  <h2>4. Conservation of Mechanical Energy</h2>
+  <p>In an ideal system without friction or air resistance, the total mechanical energy (kinetic + potential) remains constant.</p>
+  <div class="equation">
+    $$ E_{total} = KE + PE = \text{constant} $$
+  </div>
+
+  <h2>Fun Fact!</h2>
+  <p>If you could convert the kinetic energy of a running cheetah (about 100 km/h) into electricity, it would power a 60-watt light bulb for around 5 minutes!</p>
+
+  <h2>5. Summary</h2>
+  <ul>
+    <li><strong>Kinetic Energy</strong> is the energy of motion, and depends on mass and velocity.</li>
+    <li><strong>Potential Energy</strong> is stored energy due to position or shape.</li>
+    <li>Both types are essential in understanding how forces do work and how machines operate.</li>
+    <li>These concepts are key to energy conservation and many modern technologies.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Kinetic Energy Variables
+    const kineticCanvas = document.getElementById('kineticCanvas');
+    const kCtx = kineticCanvas.getContext('2d');
+    let kx = 0;
+    let kineticRunning = false;
+    let kineticPaused = false;
+
+    function drawKinetic() {
+      if (!kineticRunning || kineticPaused) return;
+      kCtx.clearRect(0, 0, kineticCanvas.width, kineticCanvas.height);
+      kCtx.beginPath();
+      kCtx.arc(kx, 50, 20, 0, Math.PI * 2);
+      kCtx.fillStyle = '#ff5722';
+      kCtx.fill();
+      kCtx.closePath();
+      kx += 2;
+      if (kx > kineticCanvas.width) kx = 0;
+      requestAnimationFrame(drawKinetic);
+    }
+
+    function startKinetic() {
+      if (!kineticRunning) {
+        kineticRunning = true;
+        kineticPaused = false;
+        drawKinetic();
+      }
+    }
+
+    function toggleKinetic() {
+      kineticPaused = !kineticPaused;
+      if (!kineticPaused) drawKinetic();
+    }
+
+    function resetKinetic() {
+      kineticRunning = false;
+      kineticPaused = false;
+      kx = 0;
+      kCtx.clearRect(0, 0, kineticCanvas.width, kineticCanvas.height);
+    }
+
+    // Potential Energy Variables
+    const potentialCanvas = document.getElementById('potentialCanvas');
+    const pCtx = potentialCanvas.getContext('2d');
+    let py = 0;
+    let vy = 0;
+    let gravity = 0.5;
+    let broken = false;
+    let potentialRunning = false;
+    let potentialPaused = false;
+
+    function drawPotential() {
+      requestAnimationFrame(drawPotential);
+      pCtx.clearRect(0, 0, potentialCanvas.width, potentialCanvas.height);
+
+      // Draw ground/platform
+      pCtx.fillStyle = broken ? '#8b0000' : '#004d40';
+      pCtx.fillRect(0, potentialCanvas.height - 20, potentialCanvas.width, 20);
+
+      if (!potentialRunning || potentialPaused || broken) {
+        if (broken) {
+          pCtx.fillStyle = 'black';
+          pCtx.font = 'bold 16px Georgia';
+          pCtx.fillText('Smash! Energy released!', 25, potentialCanvas.height / 2);
+        }
+        return;
+      }
+
+      // Draw falling ball
+      pCtx.beginPath();
+      pCtx.arc(100, py, 20, 0, Math.PI * 2);
+      pCtx.fillStyle = '#3f51b5';
+      pCtx.fill();
+      pCtx.closePath();
+
+      // Update position and speed
+      vy += gravity;
+      py += vy;
+
+      if (py + 20 >= potentialCanvas.height - 20) {
+        py = potentialCanvas.height - 40;
+        vy = 0;
+        broken = true;
+      }
+    }
+
+    drawPotential(); // Ensure animation loop starts
+
+    function startPotential() {
+      if (!potentialRunning) {
+        potentialRunning = true;
+        potentialPaused = false;
+      }
+    }
+
+    function togglePotential() {
+      potentialPaused = !potentialPaused;
+    }
+
+    function resetPotential() {
+      potentialRunning = false;
+      potentialPaused = false;
+      py = 0;
+      vy = 0;
+      broken = false;
+      pCtx.clearRect(0, 0, potentialCanvas.width, potentialCanvas.height);
+    }
+  </script>
+</body>
+</html>
