@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Topic - Workstation and Server</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .fun-fact {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffa000;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .interactive {
+      background-color: #e3f2fd;
+      border-left: 5px solid #0288d1;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Network Topic: Workstation and Server</h1>
+
+  <p>In any network environment, two key types of devices that play crucial roles are <strong>Workstations</strong> and <strong>Servers</strong>. Understanding their functions, differences, and how they work together helps in grasping the basics of modern computer networking.</p>
+
+  <h2>1. What is a Workstation?</h2>
+  <p>A <strong>workstation</strong> is a high-performance computer that is used by an individual, typically for technical or scientific tasks. In a network, workstations are the end-user computers that access the resources provided by servers.</p>
+
+  <h3>Key Features of Workstations:</h3>
+  <ul>
+    <li>Designed for individual users</li>
+    <li>Connected to a network to access shared resources</li>
+    <li>Can be desktops, laptops, or even mobile devices</li>
+    <li>Run client software to interact with servers</li>
+  </ul>
+
+  <h3>Real World Example:</h3>
+  <p>In a graphic design firm, designers use workstations with powerful GPUs to render images and access files from a centralized server.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The term "workstation" originally referred to terminals connected to powerful minicomputers in the 1970s!
+  </div>
+
+  <h2>2. What is a Server?</h2>
+  <p>A <strong>server</strong> is a computer system that provides data, resources, services, or programs to other computers, known as clients, over a network.</p>
+
+  <h3>Key Features of Servers:</h3>
+  <ul>
+    <li>Always on and running to provide uninterrupted services</li>
+    <li>Higher processing power, memory, and storage</li>
+    <li>Runs specialized server operating systems</li>
+    <li>Examples: File servers, Web servers, Mail servers, Database servers</li>
+  </ul>
+
+  <h3>Real World Example:</h3>
+  <p>A web hosting company uses servers to store websites and serve them to users all over the world.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Google's servers process over 8 billion searches every day—an incredible amount of traffic handled seamlessly by powerful server systems.
+  </div>
+
+  <h2>3. Interactive Comparison</h2>
+  <div class="interactive">
+    <p><strong>Click the button to reveal key differences between a workstation and a server.</strong></p>
+    <button onclick="toggleComparison()">Show/Hide Comparison</button>
+    <div id="comparison" class="hidden">
+      <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Workstation</th>
+            <th>Server</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Purpose</td>
+            <td>User tasks (design, documents, etc.)</td>
+            <td>Provides services/data to clients</td>
+          </tr>
+          <tr>
+            <td>Availability</td>
+            <td>Used during work hours</td>
+            <td>Runs 24/7</td>
+          </tr>
+          <tr>
+            <td>OS Type</td>
+            <td>Client OS (e.g., Windows 11)</td>
+            <td>Server OS (e.g., Windows Server, Linux)</td>
+          </tr>
+          <tr>
+            <td>Performance</td>
+            <td>Good for individual use</td>
+            <td>Optimized for multi-user environment</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function toggleComparison() {
+      const comp = document.getElementById("comparison");
+      comp.classList.toggle("hidden");
+    }
+  </script>
+
+  <h2>4. How They Work Together</h2>
+  <p>Workstations (clients) request resources, files, and services from servers. This client-server model is the foundation of most modern networks.</p>
+  <ul>
+    <li>Workstation requests a file → Server provides it</li>
+    <li>Workstation sends an email → Mail server handles it</li>
+    <li>Workstation logs into a website → Web server serves the site</li>
+  </ul>
+
+  <h2>5. Practical Applications</h2>
+  <ul>
+    <li><strong>Offices:</strong> Employees use workstations to access shared databases on a server</li>
+    <li><strong>Schools:</strong> Computer labs use a central server to manage student accounts</li>
+    <li><strong>Gaming:</strong> Multiplayer online games use powerful servers to host matches</li>
+  </ul>
+
+  <h2>6. Summary</h2>
+  <p>A <strong>workstation</strong> is your personal computer in the network, while a <strong>server</strong> is the powerhouse that manages and delivers data. Understanding both is key to understanding how modern digital systems operate.</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

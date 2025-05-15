@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Topic - Optical Fiber in Communication</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffa000;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .interactive {
+      background-color: #e3f2fd;
+      border-left: 5px solid #0288d1;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Network Topic: Optical Fiber in Communication</h1>
+
+  <p>Optical fiber has revolutionized communication networks by allowing ultra-fast, reliable, and long-distance data transmission. Let’s dive deep into how optical fiber works and why it’s used worldwide.</p>
+
+  <h2>1. What is Optical Fiber?</h2>
+  <p><strong>Optical fiber</strong> is a thin, flexible strand of glass or plastic that transmits data as pulses of light. It consists of a core, cladding, and protective jacket. Data is transmitted using light signals instead of electrical signals.</p>
+
+  <h3>Core Components:</h3>
+  <ul>
+    <li><strong>Core:</strong> The inner glass strand through which light travels.</li>
+    <li><strong>Cladding:</strong> Reflects light back into the core to minimize signal loss.</li>
+    <li><strong>Jacket:</strong> Protects the fiber from physical damage.</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> A single strand of optical fiber is thinner than a human hair but can carry terabits of data per second!
+  </div>
+
+  <h2>2. How It Works</h2>
+  <p>Light signals (usually lasers or LEDs) are sent through the fiber core. These signals reflect internally due to the difference in refractive index between the core and cladding—a principle called <strong>Total Internal Reflection</strong>.</p>
+
+  <h3>Advantages:</h3>
+  <ul>
+    <li>High bandwidth and speed</li>
+    <li>Less signal loss over long distances</li>
+    <li>Immune to electromagnetic interference</li>
+    <li>More secure than copper cables</li>
+  </ul>
+
+  <h2>3. Interactive Animation</h2>
+  <div class="interactive">
+    <p><strong>Click the button to simulate a light pulse traveling through an optical fiber!</strong></p>
+    <button onclick="simulatePulse()">Send Light Pulse</button>
+    <pre id="fiber-output">Awaiting signal...</pre>
+  </div>
+
+  <script>
+    function simulatePulse() {
+      const output = document.getElementById("fiber-output");
+      let path = "";
+      for (let i = 0; i < 20; i++) {
+        path += i % 2 === 0 ? "/" : "\\";
+      }
+      output.textContent = "Light Pulse Path:\n" + path;
+    }
+  </script>
+
+  <h2>4. Real World Applications</h2>
+  <ul>
+    <li><strong>Internet Backbone:</strong> Optical fiber connects continents through undersea cables.</li>
+    <li><strong>Telecommunications:</strong> Enables high-speed phone and video services.</li>
+    <li><strong>Medical:</strong> Used in endoscopy to transmit light inside the human body.</li>
+    <li><strong>Military:</strong> Secure and interference-free communication lines.</li>
+  </ul>
+
+  <h2>5. Comparison with Copper Cables</h2>
+  <div class="interactive">
+    <p><strong>Click to view comparison between optical fiber and copper cables.</strong></p>
+    <button onclick="toggleComparison()">Show/Hide Comparison</button>
+    <div id="comparison" class="hidden">
+      <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Optical Fiber</th>
+            <th>Copper Cable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bandwidth</td>
+            <td>Very High</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <td>Signal Loss</td>
+            <td>Low</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>Security</td>
+            <td>High (difficult to tap)</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>Higher initial cost</td>
+            <td>Lower initial cost</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function toggleComparison() {
+      const comp = document.getElementById("comparison");
+      comp.classList.toggle("hidden");
+    }
+  </script>
+
+  <h2>6. Conclusion</h2>
+  <p>Optical fiber is the backbone of modern communication networks. It enables fast, secure, and long-distance data transmission—powering the internet, smart cities, and emerging technologies like 5G.</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Concepts of LAN and WAN</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .fun-fact {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffa000;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .interactive {
+      background-color: #e3f2fd;
+      border-left: 5px solid #0288d1;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Network Topic: Basic Concepts of LAN and WAN</h1>
+
+  <p>In the digital age, networks form the backbone of how we communicate and share information. Two fundamental types of networks are <strong>LAN (Local Area Network)</strong> and <strong>WAN (Wide Area Network)</strong>. Let's explore these in depth.</p>
+
+  <h2>1. What is LAN?</h2>
+  <p>LAN stands for <strong>Local Area Network</strong>. It is a network that connects computers and other devices within a limited area such as a home, school, office building, or campus.</p>
+
+  <h3>Key Features of LAN:</h3>
+  <ul>
+    <li>Covers a small geographical area</li>
+    <li>High data transfer rates</li>
+    <li>Usually privately owned</li>
+    <li>Devices can be connected using Ethernet cables or Wi-Fi</li>
+  </ul>
+
+  <h3>Real World Example:</h3>
+  <p>In a school, all computers in the computer lab are connected through a LAN, allowing file sharing and centralized printer access.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The first LAN was developed in the 1970s by Xerox Corporation, and was called Ethernet!
+  </div>
+
+  <h2>2. What is WAN?</h2>
+  <p>WAN stands for <strong>Wide Area Network</strong>. It connects multiple LANs across cities, countries, or even continents. The most popular example of a WAN is the Internet.</p>
+
+  <h3>Key Features of WAN:</h3>
+  <ul>
+    <li>Covers large geographical areas</li>
+    <li>Relatively slower speeds compared to LAN</li>
+    <li>Can be public or private</li>
+    <li>Often involves leased telecommunication lines</li>
+  </ul>
+
+  <h3>Real World Example:</h3>
+  <p>A multinational company has offices in New York, London, and Tokyo. The WAN allows all employees to securely share data and collaborate in real time.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The Internet is the largest WAN in the world, connecting over 5 billion users globally.
+  </div>
+
+  <h2>3. Interactive Quiz: LAN vs WAN</h2>
+  <div class="interactive">
+    <p><strong>Which of the following is a characteristic of a LAN?</strong></p>
+    <button onclick="checkAnswer('a')">A. Covers a large geographical area</button><br>
+    <button onclick="checkAnswer('b')">B. Usually found in homes or schools</button><br>
+    <button onclick="checkAnswer('c')">C. Uses satellites to connect networks</button>
+    <p id="quizResult"></p>
+  </div>
+
+  <script>
+    function checkAnswer(option) {
+      const result = document.getElementById("quizResult");
+      if (option === 'b') {
+        result.textContent = "Correct! LANs are commonly used in homes and schools.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Oops! That's not right. Try again.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+  <h2>4. Differences Between LAN and WAN</h2>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>LAN</th>
+        <th>WAN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Area Covered</td>
+        <td>Small</td>
+        <td>Large</td>
+      </tr>
+      <tr>
+        <td>Speed</td>
+        <td>High</td>
+        <td>Lower (comparatively)</td>
+      </tr>
+      <tr>
+        <td>Ownership</td>
+        <td>Usually private</td>
+        <td>Can be private or public</td>
+      </tr>
+      <tr>
+        <td>Setup Cost</td>
+        <td>Low</td>
+        <td>High</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Applications of LAN and WAN</h2>
+  <ul>
+    <li><strong>LAN:</strong> Office networking, file sharing, gaming cafes</li>
+    <li><strong>WAN:</strong> Global communications, cloud storage, banking systems</li>
+  </ul>
+
+  <h2>6. Summary</h2>
+  <p>Both LAN and WAN are essential to modern computing. LANs provide fast, local connectivity while WANs enable long-distance communication. Understanding both helps us appreciate how our devices stay connected in a globalized world.</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

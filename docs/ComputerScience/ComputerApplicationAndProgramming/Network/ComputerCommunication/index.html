@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Communication - A Beginner's Guide</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .fun-fact {
+      background-color: #e0f7fa;
+      border-left: 5px solid #00796b;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Computer Communication: Understanding Networks</h1>
+
+  <p>Welcome to the world of <strong>Computer Communication</strong>—an essential domain of modern computing where devices exchange data and information across different environments. This lesson will guide you through the fundamentals of how computers talk to each other, with many examples, fun facts, and interactive elements to help solidify your understanding.</p>
+
+  <h2>1. What is Computer Communication?</h2>
+  <p>Computer communication refers to the process of sharing data between computing devices such as desktops, laptops, smartphones, servers, etc., typically via a network. These communications can happen:</p>
+  <ul>
+    <li>Over a <strong>local network</strong> (like your home Wi-Fi)</li>
+    <li>Across the <strong>internet</strong> (a global network)</li>
+    <li>Through <strong>Bluetooth</strong> or other short-range signals</li>
+  </ul>
+
+  <h2>2. Types of Computer Networks</h2>
+  <ul>
+    <li><strong>LAN (Local Area Network):</strong> Typically used in homes, schools, or small offices.</li>
+    <li><strong>WAN (Wide Area Network):</strong> Spans a large geographic area—like the internet.</li>
+    <li><strong>MAN (Metropolitan Area Network):</strong> Covers a city or campus.</li>
+    <li><strong>PAN (Personal Area Network):</strong> Your smartphone talking to your smartwatch.</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The first message ever sent over the ARPANET (the precursor to the internet) was "LO" — they were trying to type "LOGIN" but the system crashed!
+  </div>
+
+  <h2>3. Real World Examples of Computer Communication</h2>
+  <ul>
+    <li><strong>Video Calling:</strong> Your voice and video data are broken into packets and sent over the network.</li>
+    <li><strong>Email:</strong> Uses SMTP to send and POP/IMAP to receive messages.</li>
+    <li><strong>Online Gaming:</strong> Games sync player actions across the internet in real time.</li>
+    <li><strong>Smart Homes:</strong> Devices like Alexa or Google Home communicate via Wi-Fi.</li>
+  </ul>
+
+  <h2>4. Key Components of Communication</h2>
+  <ul>
+    <li><strong>Sender:</strong> The device initiating the communication.</li>
+    <li><strong>Receiver:</strong> The device receiving the message.</li>
+    <li><strong>Medium:</strong> The channel (cables, air, fiber) through which data is transmitted.</li>
+    <li><strong>Protocol:</strong> The set of rules (like HTTP, FTP, TCP/IP) used for communication.</li>
+  </ul>
+
+  <h2>5. Protocols - The Language of Networks</h2>
+  <p>Protocols ensure that devices from different manufacturers can communicate. Some popular protocols:</p>
+  <ul>
+    <li><strong>HTTP:</strong> For accessing web pages</li>
+    <li><strong>TCP/IP:</strong> The foundation of internet communication</li>
+    <li><strong>FTP:</strong> File Transfer Protocol for downloading/uploading files</li>
+    <li><strong>DNS:</strong> Converts website names to IP addresses</li>
+  </ul>
+
+  <h2>6. Interactive Example: What Happens When You Visit a Website?</h2>
+  <button onclick="toggleExplanation()">Click to Reveal Step-by-Step</button>
+  <div id="explanation" class="hidden">
+    <ol>
+      <li>You type <code>www.example.com</code> into your browser.</li>
+      <li>DNS translates the domain name to an IP address.</li>
+      <li>Your computer sends an HTTP request to the server.</li>
+      <li>The server responds with HTML content.</li>
+      <li>Your browser renders the page.</li>
+    </ol>
+  </div>
+
+  <script>
+    function toggleExplanation() {
+      const explanation = document.getElementById('explanation');
+      explanation.classList.toggle('hidden');
+    }
+  </script>
+
+  <h2>7. Practical Applications</h2>
+  <ul>
+    <li><strong>Healthcare:</strong> Patient records accessed remotely over secure networks.</li>
+    <li><strong>Banking:</strong> Online transactions via encrypted communication.</li>
+    <li><strong>Education:</strong> Virtual classrooms and remote learning tools.</li>
+    <li><strong>Transportation:</strong> GPS and real-time tracking in logistics.</li>
+  </ul>
+
+  <h2>8. Future of Computer Communication</h2>
+  <p>Expect faster and smarter networks with the rise of 5G, Internet of Things (IoT), and AI-based traffic routing. The world is becoming more connected than ever!</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> By 2030, it's estimated that there will be more than 125 billion connected devices globally!
+  </div>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>
