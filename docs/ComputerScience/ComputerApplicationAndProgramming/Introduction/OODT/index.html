@@ -3,62 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physics Project</title>
+  <title>Object Oriented Development Themes</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
+      font-family: Georgia, serif;
+      max-width: 800px;
       margin: auto;
       padding: 2rem;
-      background-color: #f4f4f4;
-      line-height: 1.6;
+      background-color: #fcfcfc;
+      color: #333;
     }
     h1, h2 {
       color: #003366;
     }
-    nav {
-      margin-bottom: 2rem;
-    }
-    nav a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #0055aa;
-    }
-    section {
-      margin-bottom: 2rem;
+    pre {
+      background-color: #f0f0f0;
       padding: 1rem;
-      background-color: #ffffff;
-      border-left: 5px solid #0055aa;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
     }
-    code {
-      background-color: #eee;
-      padding: 0.2rem 0.4rem;
+    .fun-fact {
+      background: #e0f7fa;
+      border-left: 4px solid #00796b;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    .interactive {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
       border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Computer Science</h1>
-  <nav style="text-align: center;">
-    <a href="#physics">Physics</a>
-    <a href="#mathematics">Mathematics</a>
-    <a href="#computerscience">Computer Science</a>
-    <a href="#research">Research</a>
-  </nav>
+  <h1>Object Oriented Development Themes</h1>
+  <p>Object-Oriented Programming (OOP) is a foundational concept in computer science and software engineering. It's based on the concept of "objects", which are instances of classes—blueprints that define their structure and behavior. Let's dive into its key themes, practical applications, and some fun real-world examples.</p>
 
-  <section>
-    <h2>Introduction</h2>
-    <ul>
-      <li>Object oriented development themes</li>
-      <li>Modeling Concepts, Modeling as a design technique</li>
-      <li>Object modeling</li>
-      <li>Dynamic modeling</li>
-      <li>Functional modeling</li>
-    </ul>
-  </section>
+  <h2>1. Core Themes of Object-Oriented Development</h2>
+
+  <h3>Encapsulation</h3>
+  <p>Encapsulation is the bundling of data (variables) and methods (functions) that operate on the data into a single unit called an object. It hides the internal state of an object from the outside world and only exposes a controlled interface.</p>
+  <div class="fun-fact">Fun Fact: The concept of encapsulation was inspired by biological cells, which have membranes that protect their insides!</div>
+  <pre><code>class Car {
+  constructor(brand) {
+    this._brand = brand;
+  }
+  getBrand() {
+    return this._brand;
+  }
+}</code></pre>
+
+  <h3>Abstraction</h3>
+  <p>Abstraction simplifies complex systems by modeling classes appropriate to the problem, and working at the most relevant level of inheritance for a particular aspect of the problem.</p>
+  <p><strong>Real World Example:</strong> A smartphone abstracts away the internal circuit design and provides a touch interface for users.</p>
+
+  <h3>Inheritance</h3>
+  <p>Inheritance allows one class to inherit properties and methods from another. It promotes code reuse and establishes a natural hierarchy.</p>
+  <pre><code>class Animal {
+  speak() {
+    return "Animal sound";
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    return "Woof!";
+  }
+}</code></pre>
+
+  <h3>Polymorphism</h3>
+  <p>Polymorphism means many forms. It allows objects to be treated as instances of their parent class rather than their actual class.</p>
+  <p><strong>Practical Example:</strong> A single function can take many forms—e.g., draw() could draw a circle, square, or triangle depending on the object passed.</p>
+
+  <h2>2. Real World Applications of OOP</h2>
+  <ul>
+    <li>Banking Systems – Classes for customers, accounts, and transactions</li>
+    <li>Video Games – Players, enemies, and objects are all objects with properties</li>
+    <li>E-commerce – Products, users, orders are handled through objects</li>
+    <li>Automobiles – Software in cars uses OOP to model different subsystems</li>
+  </ul>
+
+  <h2>3. Interactive Quiz</h2>
+  <div class="interactive">
+    <p><strong>Which OOP concept hides internal object details?</strong></p>
+    <button onclick="checkAnswer('encapsulation')">Encapsulation</button>
+    <button onclick="checkAnswer('inheritance')">Inheritance</button>
+    <button onclick="checkAnswer('polymorphism')">Polymorphism</button>
+    <p id="feedback"></p>
+  </div>
+
+  <script>
+    function checkAnswer(answer) {
+      const feedback = document.getElementById('feedback');
+      if (answer === 'encapsulation') {
+        feedback.textContent = '✅ Correct! Encapsulation hides internal details.';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = '❌ Try again. Hint: It starts with "E".';
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+
+  <h2>4. More Fun Facts</h2>
+  <div class="fun-fact">Fun Fact: Java, one of the most popular OOP languages, was originally developed for interactive television!</div>
+  <div class="fun-fact">Fun Fact: Python supports both object-oriented and procedural programming styles.</div>
+
+  <h2>5. Summary</h2>
+  <p>OOP helps structure code in a clean, reusable way. With concepts like encapsulation, abstraction, inheritance, and polymorphism, developers can model real-world systems efficiently and maintainably. As you explore programming more deeply, you’ll find these themes in nearly every large application!</p>
 
   <footer>
-    <p>&copy; 2025 Physics Project by Saide Hossain</p>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
   </footer>
 </body>
 </html>
