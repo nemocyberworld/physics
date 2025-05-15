@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Object Oriented Development Themes</title>
+  <title>Computer Applications - Object Modeling</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <style>
     body {
       font-family: Georgia, serif;
@@ -13,7 +16,7 @@
       background-color: #fcfcfc;
       color: #333;
     }
-    h1, h2, h3 {
+    h1, h2 {
       color: #003366;
     }
     pre {
@@ -22,158 +25,191 @@
       border-left: 5px solid #003366;
       overflow-x: auto;
     }
-    .quiz {
-      background: #e6f7ff;
-      border-left: 4px solid #007acc;
-      padding: 1rem;
-      margin: 2rem 0;
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
     }
-    .fun-fact {
-      background: #fff8dc;
-      border-left: 4px solid #f0a500;
+    .interactive {
+      background-color: #eef;
       padding: 1rem;
-      margin: 2rem 0;
-      font-style: italic;
+      margin: 1rem 0;
+      border: 2px dashed #003366;
     }
-    button {
-      margin-top: 10px;
+    input, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <h1>Object Oriented Development Themes</h1>
+  <h1>Computer Applications and Programming: Object Modeling</h1>
 
   <h2>Introduction</h2>
-  <p>Object-Oriented Programming (OOP) is a paradigm in software development that organizes software design around data, or <strong>objects</strong>, rather than functions and logic. It enables developers to build applications that are more modular, reusable, and easier to maintain.</p>
+  <p>Object modeling is a fundamental concept in software design and development. It allows us to represent real-world entities as software objects, making systems more modular, understandable, and reusable.</p>
+  <p><strong>Fun Fact:</strong> Object-oriented programming (OOP) is inspired by how we think and describe the world around us — using nouns (objects) and verbs (methods).</p>
 
-  <div class="fun-fact">
-    💡 Fun Fact: Did you know that OOP was inspired by how humans perceive the world? We naturally think in terms of objects — cars, animals, books — and OOP models software the same way!
-  </div>
+  <h2>What is Object Modeling?</h2>
+  <p>Object modeling is the process of analyzing and designing a system by visualizing it as a group of interacting objects, each with attributes and behaviors. It is the core of Object-Oriented Programming (OOP).</p>
 
-  <h2>Core Themes of Object-Oriented Development</h2>
-  <h3>1. Classes and Objects</h3>
-  <p>A <strong>class</strong> is a blueprint for creating objects. An <strong>object</strong> is an instance of a class with actual values.</p>
-  <pre><code>class Car {
-  constructor(make, model) {
-    this.make = make;
-    this.model = model;
+  <h2>Key Concepts</h2>
+  <ul>
+    <li><strong>Class:</strong> A blueprint for creating objects (e.g., Car, Student).</li>
+    <li><strong>Object:</strong> An instance of a class (e.g., a specific car or student).</li>
+    <li><strong>Attributes:</strong> Data stored inside an object (e.g., color, name).</li>
+    <li><strong>Methods:</strong> Functions that define the behavior of an object.</li>
+    <li><strong>Encapsulation:</strong> Bundling data and methods inside a class.</li>
+    <li><strong>Inheritance:</strong> Mechanism for a class to inherit properties of another class.</li>
+    <li><strong>Polymorphism:</strong> Same method behaving differently based on the object.</li>
+  </ul>
+
+  <h2>Real-World Example: Modeling a Library System</h2>
+  <p>Imagine you're building a system for a library. Here are a few classes you might create:</p>
+  <pre><code>class Book {
+  constructor(title, author, ISBN) {
+    this.title = title;
+    this.author = author;
+    this.ISBN = ISBN;
   }
 
   displayInfo() {
-    return `Car: ${this.make} ${this.model}`;
+    return `${this.title} by ${this.author}`;
   }
 }
 
-const myCar = new Car("Toyota", "Corolla");
-console.log(myCar.displayInfo());</code></pre>
-
-  <h3>2. Encapsulation</h3>
-  <p>Encapsulation hides the internal state of an object and only exposes safe parts of it. This protects the data.</p>
-  <pre><code>class BankAccount {
-  #balance;
-
-  constructor(initialBalance) {
-    this.#balance = initialBalance;
+class Library {
+  constructor() {
+    this.books = [];
   }
 
-  deposit(amount) {
-    this.#balance += amount;
+  addBook(book) {
+    this.books.push(book);
   }
 
-  getBalance() {
-    return this.#balance;
+  listBooks() {
+    return this.books.map(book => book.displayInfo()).join('\n');
   }
-}
+}</code></pre>
 
-const account = new BankAccount(100);
-account.deposit(50);
-console.log(account.getBalance());</code></pre>
+  <div class="interactive">
+    <h3>Try it Yourself</h3>
+    <p>Add a book and list the library contents:</p>
+    <input type="text" id="title" placeholder="Book Title">
+    <input type="text" id="author" placeholder="Author">
+    <input type="text" id="isbn" placeholder="ISBN">
+    <button onclick="addBookToLibrary()">Add Book</button>
+    <pre id="output"></pre>
+    <script>
+      const myLibrary = new (function() {
+        this.books = [];
+        this.addBook = function(book) {
+          this.books.push(book);
+        };
+        this.listBooks = function() {
+          return this.books.map(b => `${b.title} by ${b.author}`).join('\n');
+        };
+      })();
 
-  <h3>3. Inheritance</h3>
-  <p>Inheritance allows a class to acquire properties and methods of another class.</p>
-  <pre><code>class Animal {
-  speak() {
-    return "Animal speaks";
-  }
-}
+      function addBookToLibrary() {
+        const title = document.getElementById('title').value;
+        const author = document.getElementById('author').value;
+        const isbn = document.getElementById('isbn').value;
 
-class Dog extends Animal {
-  speak() {
-    return "Dog barks";
-  }
-}
-
-const pet = new Dog();
-console.log(pet.speak());</code></pre>
-
-  <h3>4. Polymorphism</h3>
-  <p>Polymorphism means many forms — the same function behaves differently based on the object.</p>
-  <pre><code>function makeItSpeak(animal) {
-  console.log(animal.speak());
-}
-
-makeItSpeak(new Animal());
-makeItSpeak(new Dog());</code></pre>
-
-  <h2>Real World Applications</h2>
-  <ul>
-    <li><strong>Web Development</strong> – Organize user interface components using objects.</li>
-    <li><strong>Game Development</strong> – Characters, weapons, and environments are modeled as objects.</li>
-    <li><strong>Banking Systems</strong> – Accounts, users, and transactions are designed using OOP.</li>
-    <li><strong>E-commerce</strong> – Products, orders, and users are managed as classes and objects.</li>
-  </ul>
-
-  <h2>Interactive Quiz</h2>
-  <div class="quiz">
-    <p><strong>Q:</strong> What principle of OOP hides the internal state of an object?</p>
-    <button onclick="checkAnswer('a')">A. Inheritance</button><br>
-    <button onclick="checkAnswer('b')">B. Encapsulation</button><br>
-    <button onclick="checkAnswer('c')">C. Polymorphism</button><br>
-    <button onclick="checkAnswer('d')">D. Abstraction</button>
-    <p id="answer"></p>
+        if (title && author && isbn) {
+          myLibrary.addBook({ title, author, isbn });
+          document.getElementById('output').textContent = myLibrary.listBooks();
+        } else {
+          alert('Please fill all fields.');
+        }
+      }
+    </script>
   </div>
 
-  <h2>Practical Example: User Login System</h2>
-  <pre><code>class User {
-  constructor(username, password) {
-    this.username = username;
-    this.password = password;
+  <h2>More Examples</h2>
+  <h3>Example: Modeling a Student System</h3>
+  <pre><code>class Student {
+  constructor(name, id) {
+    this.name = name;
+    this.id = id;
+    this.courses = [];
   }
 
-  login(inputPassword) {
-    return this.password === inputPassword ? "Login successful" : "Login failed";
+  enroll(course) {
+    this.courses.push(course);
+  }
+
+  getSummary() {
+    return `${this.name} (${this.id}) enrolled in: ${this.courses.join(', ')}`;
+  }
+}</code></pre>
+
+  <h3>Example: Modeling an Online Store</h3>
+  <pre><code>class Product {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
   }
 }
 
-const user1 = new User("admin", "1234");
-console.log(user1.login("1234"));</code></pre>
+class Cart {
+  constructor() {
+    this.items = [];
+  }
 
-  <h2>Benefits of Object-Oriented Development</h2>
+  addItem(product) {
+    this.items.push(product);
+  }
+
+  checkout() {
+    const total = this.items.reduce((sum, item) => sum + item.price, 0);
+    return `Total: $${total.toFixed(2)}`;
+  }
+}</code></pre>
+
+  <h2>Applications in the Real World</h2>
   <ul>
-    <li>Modularity</li>
-    <li>Code reusability</li>
-    <li>Ease of maintenance</li>
-    <li>Improved collaboration in large teams</li>
+    <li>Software Engineering: Used to design scalable applications.</li>
+    <li>Game Development: Modeling characters, levels, and interactions.</li>
+    <li>Banking Systems: Representing accounts, transactions, customers.</li>
+    <li>Healthcare: Patient records, appointments, and diagnostics.</li>
+    <li>Education: Modeling students, courses, grades, and schedules.</li>
   </ul>
 
-  <h2>Conclusion</h2>
-  <p>Object-Oriented Development is foundational for modern software engineering. It models the real world more intuitively and results in efficient and maintainable code. As you grow in programming, mastering OOP will make your code cleaner, more powerful, and future-proof.</p>
+  <h2>Why is Object Modeling Important?</h2>
+  <p>It improves code reusability, modularity, and maintainability. It allows developers to map real-world systems into digital ones seamlessly.</p>
 
-  <footer>
-    <p><a href="../index.html">&larr; Back to Home</a></p>
-  </footer>
-
+  <h2>Interactive Quiz</h2>
+  <div class="interactive">
+    <p><strong>What is the main purpose of a class in OOP?</strong></p>
+    <button onclick="handleQuizAnswer('correct')">A blueprint for creating objects</button><br>
+    <button onclick="handleQuizAnswer('attribute')">A property of an object</button><br>
+    <button onclick="handleQuizAnswer('method')">A function inside a class</button>
+    <p id="quiz-feedback" style="margin-top: 1rem; font-weight: bold;"></p>
+  </div>
+  
   <script>
-    function checkAnswer(option) {
-      const answer = document.getElementById("answer");
-      if (option === 'b') {
-        answer.textContent = "Correct! Encapsulation hides internal state.";
-        answer.style.color = "green";
-      } else {
-        answer.textContent = "Incorrect. Try again!";
-        answer.style.color = "red";
+    function handleQuizAnswer(answer) {
+      const feedback = document.getElementById('quiz-feedback');
+      if (answer === 'correct') {
+        feedback.textContent = '✅ Correct! A class is a blueprint for creating objects.';
+        feedback.style.color = 'green';
+      } else if (answer === 'attribute') {
+        feedback.textContent = '❌ Not quite. An attribute is part of an object, but not the blueprint.';
+        feedback.style.color = 'red';
+      } else if (answer === 'method') {
+        feedback.textContent = '❌ Incorrect. A method is a function inside a class, not the class itself.';
+        feedback.style.color = 'red';
       }
     }
   </script>
+  
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
 </body>
 </html>
