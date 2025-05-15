@@ -3,62 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physics Project</title>
+  <title>Computer Application: Functional Modeling</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
+      font-family: Georgia, serif;
+      max-width: 800px;
       margin: auto;
       padding: 2rem;
-      background-color: #f4f4f4;
-      line-height: 1.6;
+      background-color: #fcfcfc;
+      color: #333;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #003366;
     }
-    nav {
-      margin-bottom: 2rem;
-    }
-    nav a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #0055aa;
-    }
-    section {
-      margin-bottom: 2rem;
+    pre {
+      background-color: #f0f0f0;
       padding: 1rem;
-      background-color: #ffffff;
-      border-left: 5px solid #0055aa;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
     }
-    code {
-      background-color: #eee;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .output {
+      background-color: #e8f0fe;
+      padding: 10px;
+      border-left: 3px solid #003366;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Computer Science</h1>
-  <nav style="text-align: center;">
-    <a href="#physics">Physics</a>
-    <a href="#mathematics">Mathematics</a>
-    <a href="#computerscience">Computer Science</a>
-    <a href="#research">Research</a>
-  </nav>
+  <h1>Functional Modeling in Computer Applications</h1>
 
-  <section>
-    <h2>Introduction</h2>
-    <ul>
-      <li>Object oriented development themes</li>
-      <li>Modeling Concepts, Modeling as a design technique</li>
-      <li>Object modeling</li>
-      <li>Dynamic modeling</li>
-      <li>Functional modeling</li>
-    </ul>
-  </section>
+  <h2>1. Introduction</h2>
+  <p>Functional modeling is a way to represent the functions of a system and how data flows through it. It's widely used in software engineering and computer programming to visualize, analyze, and design systems before writing code.</p>
+
+  <h3>🔍 What is a Function?</h3>
+  <p>In programming, a <strong>function</strong> is a block of organized, reusable code that is used to perform a single, related action. Functions help break down complex problems into smaller tasks.</p>
+
+  <h2>2. Real World Analogy</h2>
+  <p>Think of a vending machine. You insert money, select a drink, and the machine gives it to you. In functional modeling, this is seen as:</p>
+  <ul>
+    <li>Input: money + selection</li>
+    <li>Function: check input, dispense item</li>
+    <li>Output: the selected drink</li>
+  </ul>
+
+  <h2>3. Functional Modeling in Software</h2>
+  <p>Some examples of functional modeling tools and concepts include:</p>
+  <ul>
+    <li><strong>Data Flow Diagrams (DFD)</strong></li>
+    <li><strong>Unified Modeling Language (UML)</strong></li>
+    <li><strong>Function Charts</strong></li>
+  </ul>
+
+  <h2>4. JavaScript Example</h2>
+  <p>Let's build a simple function model: a calculator for square roots.</p>
+  <pre><code>function calculateSquareRoot(num) {
+  return Math.sqrt(num);
+}</code></pre>
+
+  <input type="number" id="inputNumber" placeholder="Enter a number">
+  <button onclick="showSquareRoot()">Calculate Square Root</button>
+  <div class="output" id="outputResult"></div>
+
+  <script>
+    function showSquareRoot() {
+      const num = parseFloat(document.getElementById('inputNumber').value);
+      const result = isNaN(num) ? 'Please enter a valid number.' : 'Square root: ' + Math.sqrt(num).toFixed(3);
+      document.getElementById('outputResult').textContent = result;
+    }
+  </script>
+
+  <h2>5. Practical Applications</h2>
+  <ul>
+    <li>Banking Systems (functions for deposits, withdrawals)</li>
+    <li>Healthcare Software (patient data input & output)</li>
+    <li>E-commerce Platforms (shopping cart, billing)</li>
+    <li>Weather Applications (fetching and displaying data)</li>
+  </ul>
+
+  <h2>6. More Interactive Example</h2>
+  <p>Try entering your name and see how a function processes it:</p>
+  <input type="text" id="userName" placeholder="Enter your name">
+  <button onclick="greetUser()">Greet Me</button>
+  <div class="output" id="greeting"></div>
+
+  <script>
+    function greetUser() {
+      const name = document.getElementById('userName').value;
+      const message = name ? `Hello, ${name}! Welcome to Functional Modeling.` : 'Please enter your name!';
+      document.getElementById('greeting').textContent = message;
+    }
+  </script>
+
+  <h2>7. Fun Fact!</h2>
+  <p>Did you know? The concept of functional decomposition—breaking down functions into simpler parts—is used not just in programming, but also in military strategy and cooking recipes!</p>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Functional modeling helps visualize how inputs are transformed into outputs</li>
+    <li>It's used across industries for better software design</li>
+    <li>Functions in JavaScript can model real-world tasks easily</li>
+    <li>DFDs and UML are key tools for functional modeling</li>
+  </ul>
 
   <footer>
-    <p>&copy; 2025 Physics Project by Saide Hossain</p>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
   </footer>
 </body>
 </html>

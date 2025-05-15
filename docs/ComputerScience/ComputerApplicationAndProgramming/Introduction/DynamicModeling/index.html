@@ -3,62 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physics Project</title>
+  <title>Dynamic Modeling - Interactive Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
+      font-family: Georgia, serif;
+      max-width: 800px;
       margin: auto;
       padding: 2rem;
-      background-color: #f4f4f4;
-      line-height: 1.6;
+      background-color: #fcfcfc;
+      color: #333;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #003366;
     }
-    nav {
-      margin-bottom: 2rem;
-    }
-    nav a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #0055aa;
-    }
-    section {
-      margin-bottom: 2rem;
+    pre {
+      background-color: #f0f0f0;
       padding: 1rem;
-      background-color: #ffffff;
-      border-left: 5px solid #0055aa;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
     }
-    code {
-      background-color: #eee;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive-box {
+      background: #eef;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+    }
+    .fun-fact {
+      background: #ffffcc;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 5px solid #ffcc00;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Computer Science</h1>
-  <nav style="text-align: center;">
-    <a href="#physics">Physics</a>
-    <a href="#mathematics">Mathematics</a>
-    <a href="#computerscience">Computer Science</a>
-    <a href="#research">Research</a>
-  </nav>
+  <h1>Dynamic Modeling</h1>
 
-  <section>
-    <h2>Introduction</h2>
-    <ul>
-      <li>Object oriented development themes</li>
-      <li>Modeling Concepts, Modeling as a design technique</li>
-      <li>Object modeling</li>
-      <li>Dynamic modeling</li>
-      <li>Functional modeling</li>
-    </ul>
-  </section>
+  <h2>Introduction</h2>
+  <p>Dynamic modeling is a method used in computer applications and programming to represent the changing state of systems over time. It's essential in fields such as engineering, biology, finance, animation, and robotics.</p>
+
+  <div class="fun-fact">Fun Fact: The first computer model of a dynamic system was used to simulate rocket trajectories in the 1940s!</div>
+
+  <h2>What is a Dynamic Model?</h2>
+  <p>A dynamic model describes how a system evolves over time, typically using mathematical equations and rules. It usually includes:</p>
+  <ul>
+    <li>State Variables – describe the current status of the system</li>
+    <li>Inputs – external factors affecting the system</li>
+    <li>Outputs – results of the system behavior</li>
+    <li>Equations – rules that govern changes</li>
+  </ul>
+
+  <div class="equation">
+    \[ \frac{dx(t)}{dt} = Ax(t) + Bu(t) \]
+  </div>
+  <p>This is a typical state-space equation used in control theory to model dynamic systems.</p>
+
+  <h2>Real-World Examples</h2>
+
+  <h3>1. Population Growth</h3>
+  <p>Modeling how a population changes over time using:</p>
+  <div class="equation">
+    \[ P(t) = P_0 e^{rt} \]
+  </div>
+  <p>where \( P_0 \) is the initial population, and \( r \) is the growth rate.</p>
+
+  <h3>2. Bank Account with Interest</h3>
+  <p>Money in a savings account with compound interest:</p>
+  <div class="equation">
+    \[ A = P(1 + \frac{r}{n})^{nt} \]
+  </div>
+
+  <h3>3. Bouncing Ball (Physics Simulation)</h3>
+  <p>Motion under gravity can be simulated using dynamic models in animations and games.</p>
+
+  <h2>Interactive Example</h2>
+  <div class="interactive-box">
+    <p>Change the values and see how the population changes over time:</p>
+    <label>Initial Population (P₀): <input type="number" id="pop" value="100"></label><br>
+    <label>Growth Rate (r): <input type="number" id="rate" value="0.02" step="0.01"></label><br>
+    <label>Time (t in years): <input type="number" id="time" value="10"></label><br><br>
+    <button onclick="simulateGrowth()">Simulate</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function simulateGrowth() {
+      const P0 = parseFloat(document.getElementById("pop").value);
+      const r = parseFloat(document.getElementById("rate").value);
+      const t = parseFloat(document.getElementById("time").value);
+      const result = P0 * Math.exp(r * t);
+      document.getElementById("result").innerHTML = `Final Population after ${t} years: ${result.toFixed(2)}`;
+    }
+  </script>
+
+  <h2>Applications in Computer Science</h2>
+  <ul>
+    <li><strong>Simulation Software:</strong> Used in military training, healthcare, and engineering.</li>
+    <li><strong>Game Development:</strong> Animations, character behaviors, and physics engines.</li>
+    <li><strong>Robotics:</strong> Modeling and predicting robot motion.</li>
+    <li><strong>Financial Forecasting:</strong> Predicting market trends and behaviors.</li>
+  </ul>
+
+  <h2>Tools and Languages for Dynamic Modeling</h2>
+  <ul>
+    <li>MATLAB/Simulink</li>
+    <li>Python with libraries like NumPy and SciPy</li>
+    <li>JavaScript (for web-based models)</li>
+    <li>Modelica – a specialized language for physical system modeling</li>
+  </ul>
+
+  <h2>Challenges in Dynamic Modeling</h2>
+  <ul>
+    <li>Accurate parameter estimation</li>
+    <li>Data collection and noise</li>
+    <li>Complexity of nonlinear systems</li>
+    <li>Computational resources</li>
+  </ul>
+
+  <div class="fun-fact">Fun Fact: Dynamic models helped land NASA’s Mars rovers safely by predicting descent dynamics in Martian atmosphere!</div>
 
   <footer>
-    <p>&copy; 2025 Physics Project by Saide Hossain</p>
+    <p><a href="../index.html">&larr; Back to Home</a></p>
   </footer>
 </body>
 </html>
