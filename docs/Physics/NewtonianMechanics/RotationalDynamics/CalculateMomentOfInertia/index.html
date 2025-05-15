@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Topic - Moment of Inertia</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Topic: Calculation of Moment of Inertia for Solids of Different Shapes</h1>
+
+  <h2>Introduction</h2>
+  <p>In the context of <strong>collisions of bodies</strong>, especially rotational collisions, the concept of <em>moment of inertia</em> plays a crucial role. It determines how much torque is needed for a desired angular acceleration about a rotational axis, similar to how mass determines the force needed for linear acceleration.</p>
+
+  <h2>What is Moment of Inertia?</h2>
+  <p>The <strong>moment of inertia</strong> (also known as the rotational inertia) is the measure of an object's resistance to changes in its rotation. It depends not just on the object's mass but also on how the mass is distributed with respect to the axis of rotation.</p>
+  <div class="equation">
+   $$ I = \sum m_i r_i^2 $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><em>I</em> is the moment of inertia</li>
+    <li><em>m<sub>i</sub></em> is the mass of a small particle</li>
+    <li><em>r<sub>i</sub></em> is the distance from the axis of rotation</li>
+  </ul>
+
+  <h2>Moment of Inertia for Common Solid Shapes</h2>
+
+  <h3>1. Solid Sphere (rotating about diameter)</h3>
+  <div class="equation">
+   $$ I = \frac{2}{5} M R^2 $$
+  </div>
+  <p><strong>Example:</strong> A basketball spinning on a player's finger.</p>
+
+  <h3>2. Hollow Sphere</h3>
+  <div class="equation">
+   $$ I = \frac{2}{3} M R^2 $$
+  </div>
+  <p><strong>Example:</strong> A spherical shell like a bowling ball with hollow interior.</p>
+
+  <h3>3. Solid Cylinder (about its central axis)</h3>
+  <div class="equation">
+   $$ I = \frac{1}{2} M R^2 $$
+  </div>
+  <p><strong>Example:</strong> Rolling cans, car wheels, gears.</p>
+
+  <h3>4. Hollow Cylinder</h3>
+  <div class="equation">
+   $$ I = M R^2 $$
+  </div>
+  <p><strong>Example:</strong> Pipes, industrial rollers, rotating drums.</p>
+
+  <h3>5. Thin Rod (about center, perpendicular to length)</h3>
+  <div class="equation">
+   $$ I = \frac{1}{12} M L^2 $$
+  </div>
+  <p><strong>Example:</strong> A baton twirled in gymnastics, or a uniform beam on a hinge.</p>
+
+  <h3>6. Thin Rod (about end, perpendicular to length)</h3>
+  <div class="equation">
+   $$ I = \frac{1}{3} M L^2 $$
+  </div>
+  <p><strong>Example:</strong> A pendulum rod or a door swinging about hinges.</p>
+
+  <h2>Real World Applications</h2>
+  <ul>
+    <li><strong>Engineering:</strong> Designing flywheels, gears, turbines with suitable inertial properties.</li>
+    <li><strong>Sports:</strong> Gymnasts change their moment of inertia by tucking in their limbs to spin faster.</li>
+    <li><strong>Automotive:</strong> Wheels and crankshafts are designed with optimized inertia for efficiency.</li>
+    <li><strong>Spacecraft:</strong> Reaction wheels adjust orientation based on moment of inertia.</li>
+  </ul>
+
+  <h2>Relation to Collisions of Bodies</h2>
+  <p>In rotational collisions (e.g., gears hitting each other, or rotating discs), the conservation of angular momentum is key:</p>
+  <div class="equation">
+   $$ I_1 \omega_1 = I_2 \omega_2 $$
+  </div>
+  <p>Here, \( \omega \) is the angular velocity, and \( I \) is the moment of inertia. This principle is analogous to conservation of linear momentum in translational collisions.</p>
+
+  <h2>Fun Fact!</h2>
+  <p>Figure skaters use the principle of moment of inertia when performing spins: by pulling in their arms, they reduce their moment of inertia and spin faster. This is a real-life application of angular momentum conservation!</p>
+
+  <h2>Why It's Important to Learn</h2>
+  <p>Understanding moment of inertia helps explain why heavier flywheels store more energy, how planets rotate, and how engineering systems achieve balance and efficiency. It’s crucial not only in physics but also in mechanical, aerospace, and civil engineering.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

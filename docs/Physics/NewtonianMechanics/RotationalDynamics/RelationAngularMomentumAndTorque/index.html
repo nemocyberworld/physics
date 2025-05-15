@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relation Between Angular Momentum and Torque</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relation Between Angular Momentum and Torque</h1>
+
+  <p><strong>Chapter:</strong> Collisions of Bodies</p>
+
+  <h2>Introduction</h2>
+  <p>In the study of rotational motion, understanding the relationship between angular momentum and torque is fundamental. This relationship plays a crucial role in analyzing rotational systems, especially during and after collisions. In this lesson, we will explore the in-depth connection between angular momentum and torque, illustrate it with equations, examples, and real-world applications, and show its importance in physical systems.</p>
+
+  <h2>1. What is Angular Momentum?</h2>
+  <p>Angular momentum (denoted by \(\vec{L}\)) is the rotational analog of linear momentum. It is a vector quantity and is defined for a rotating body as:</p>
+  <div class="equation">
+    $$ \vec{L} = \vec{r} \times \vec{p} = \vec{r} \times m\vec{v} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\(\vec{r}\) is the position vector from the axis of rotation to the object</li>
+    <li>\(m\) is the mass of the object</li>
+    <li>\(\vec{v}\) is the linear velocity</li>
+    <li>\(\times\) denotes the cross product</li>
+  </ul>
+
+  <h2>2. What is Torque?</h2>
+  <p>Torque (denoted by \(\vec{\tau}\)) is the measure of the rotational force acting on a body. It changes the rotational state (angular velocity or angular momentum) of an object. Torque is given by:</p>
+  <div class="equation">
+    $$ \vec{\tau} = \vec{r} \times \vec{F} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\(\vec{F}\) is the force applied</li>
+    <li>\(\vec{r}\) is the position vector from the axis of rotation to the point of application of the force</li>
+  </ul>
+
+  <h2>3. The Fundamental Relation</h2>
+  <p>The torque on an object is equal to the time rate of change of its angular momentum:</p>
+  <div class="equation">
+    $$ \vec{\tau} = \frac{d\vec{L}}{dt} $$
+  </div>
+  <p>This is the rotational analog of Newton's Second Law for linear motion (\(F = dp/dt\)). It tells us that:</p>
+  <ul>
+    <li>If no external torque acts on a system, its angular momentum remains constant (conservation of angular momentum).</li>
+    <li>A non-zero torque leads to a change in angular momentum.</li>
+  </ul>
+
+  <h2>4. Application in Collisions</h2>
+  <p>During collisions, particularly rotational ones, torque plays a significant role. Consider the case of a spinning disk struck off-center. The impact applies a torque, changing its angular momentum. In the absence of external torques, the total angular momentum before and after the collision is conserved.</p>
+
+  <h2>5. Real-World Examples</h2>
+  <h3>A. Figure Skater</h3>
+  <p>When a figure skater pulls in their arms, their moment of inertia decreases. Since angular momentum is conserved:</p>
+  <div class="equation">
+    $$ L = I \omega = \text{constant} $$
+  </div>
+  <p>So, a decrease in moment of inertia \(I\) leads to an increase in angular velocity \(\omega\).</p>
+
+  <h3>B. Bicycles and Gyroscopes</h3>
+  <p>The spinning wheels of a bicycle create angular momentum. When you try to tilt a moving bicycle, torque is generated, causing precession rather than tipping. This is the basis of gyroscopic stability.</p>
+
+  <h3>C. Spacecraft Orientation</h3>
+  <p>Satellites and spacecraft use conservation of angular momentum to orient themselves in space using reaction wheels. Applying torque in one direction rotates the spacecraft in the opposite direction.</p>
+
+  <h2>6. Practical Applications</h2>
+  <ul>
+    <li><strong>Mechanical Engineering:</strong> Torque and angular momentum are central in gear design and rotational engines.</li>
+    <li><strong>Aerospace:</strong> Stabilizing satellites using reaction wheels and momentum gyros.</li>
+    <li><strong>Sports:</strong> Gymnasts, divers, and ice skaters manipulate angular momentum for flips and spins.</li>
+    <li><strong>Robotics:</strong> Torque control is crucial for articulated robotic arms.</li>
+  </ul>
+
+  <h2>7. Fun Fact!</h2>
+  <p>Did you know? The Earth is not a perfect sphere, and its angular momentum isn't constant over long periods! Tidal forces from the Moon and Sun apply tiny torques, gradually slowing Earth's rotation—a phenomenon called <em>tidal braking</em>.</p>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li><strong>Angular Momentum</strong> is a vector quantity representing rotational motion.</li>
+    <li><strong>Torque</strong> is the cause of angular acceleration and changes in angular momentum.</li>
+    <li><strong>Relation:</strong> \(\vec{\tau} = \frac{d\vec{L}}{dt}\)</li>
+    <li>In the absence of external torque, angular momentum is conserved.</li>
+    <li>Used in engineering, space science, sports, and more.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
