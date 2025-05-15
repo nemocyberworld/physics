@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparison of Methodologies - Design Methodology</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive, .fun-fact {
+      background: #eef6ff;
+      border-left: 5px solid #3399ff;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #003366;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comparison of Methodologies in Design Methodology</h1>
+  <p>This lesson provides an in-depth comparison of common software/system design methodologies. It includes real-world examples, interactivity using JavaScript, and practical insights for beginners. </p>
+
+  <h2>1. What Are Design Methodologies?</h2>
+  <p>Design methodologies are structured approaches used to plan, design, and develop systems. They help teams organize their work, maintain consistency, and produce high-quality software and systems.</p>
+
+  <div class="fun-fact">
+    <p><strong>Fun Fact:</strong> The term "waterfall" for one methodology came from a 1970 paper by Dr. Winston Royce. Ironically, he proposed it as an example of what <em>not</em> to do — but it stuck!</p>
+  </div>
+
+  <h2>2. Methodologies Compared</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Methodology</th>
+        <th>Description</th>
+        <th>Best Use Cases</th>
+        <th>Challenges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Waterfall</td>
+        <td>Sequential design with distinct phases</td>
+        <td>Clear, fixed requirements like construction or manufacturing</td>
+        <td>Inflexible to changes once a phase is complete</td>
+      </tr>
+      <tr>
+        <td>Agile</td>
+        <td>Iterative and incremental, focused on collaboration</td>
+        <td>Software development with evolving requirements</td>
+        <td>Requires high team discipline and customer involvement</td>
+      </tr>
+      <tr>
+        <td>Spiral</td>
+        <td>Combines design and prototyping in stages</td>
+        <td>Risk-heavy projects like aerospace</td>
+        <td>Complex and costly to manage</td>
+      </tr>
+      <tr>
+        <td>V-Model</td>
+        <td>Emphasizes verification and validation in each phase</td>
+        <td>Critical systems like medical or avionics software</td>
+        <td>Less flexible than Agile</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Interactive Comparison</h2>
+  <div class="interactive">
+    <p>Select a methodology to see real-world examples and strengths.</p>
+    <select id="methodologySelect">
+      <option value="">-- Choose One --</option>
+      <option value="waterfall">Waterfall</option>
+      <option value="agile">Agile</option>
+      <option value="spiral">Spiral</option>
+      <option value="vmodel">V-Model</option>
+    </select>
+    <div id="methodologyInfo"></div>
+  </div>
+
+  <script>
+    document.getElementById("methodologySelect").addEventListener("change", function() {
+      const value = this.value;
+      const output = document.getElementById("methodologyInfo");
+      let content = "";
+
+      switch(value) {
+        case "waterfall":
+          content = `<p><strong>Waterfall Example:</strong> Used in highway construction or firmware development. Each stage must be complete before the next begins.</p>`;
+          break;
+        case "agile":
+          content = `<p><strong>Agile Example:</strong> Used by tech companies like Spotify and Microsoft for continuous delivery of updates.</p>`;
+          break;
+        case "spiral":
+          content = `<p><strong>Spiral Example:</strong> Used in NASA space missions to incrementally test systems before full implementation.</p>`;
+          break;
+        case "vmodel":
+          content = `<p><strong>V-Model Example:</strong> Employed in pacemaker development, where rigorous testing is legally required at every phase.</p>`;
+          break;
+        default:
+          content = "";
+      }
+      output.innerHTML = content;
+    });
+  </script>
+
+  <h2>4. Practical Considerations</h2>
+  <ul>
+    <li><strong>Team Size:</strong> Agile works well for smaller, cross-functional teams. Waterfall fits larger, compartmentalized teams.</li>
+    <li><strong>Project Risk:</strong> Spiral is great for high-risk projects due to its emphasis on early prototyping.</li>
+    <li><strong>Requirement Stability:</strong> Waterfall and V-Model assume stable requirements. Agile embraces change.</li>
+  </ul>
+
+  <h2>5. Quiz Time!</h2>
+  <div class="interactive">
+    <p>Which methodology is best when requirements change frequently?</p>
+    <button onclick="checkAnswer('agile')">Agile</button>
+    <button onclick="checkAnswer('waterfall')">Waterfall</button>
+    <button onclick="checkAnswer('vmodel')">V-Model</button>
+    <p id="quizFeedback"></p>
+  </div>
+
+  <script>
+    function checkAnswer(answer) {
+      const feedback = document.getElementById("quizFeedback");
+      if (answer === "agile") {
+        feedback.textContent = "Correct! Agile is adaptive and ideal for dynamic environments.";
+      } else {
+        feedback.textContent = "Not quite! Agile would be the best fit for changing requirements.";
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

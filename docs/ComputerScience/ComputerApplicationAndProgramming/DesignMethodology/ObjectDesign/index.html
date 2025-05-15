@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Design - Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #eef6ff;
+      border-left: 5px solid #3399ff;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+  </style>
+</head>
+<body>
+  <h1>Object Design: Applying Design Methodology to Object-Oriented Systems</h1>
+  <p>Welcome to this beginner-friendly, in-depth lesson on <strong>Object Design</strong>, an essential part of <strong>Design Methodology</strong>. In this lesson, we'll explore the purpose of object-oriented design, break down key principles, walk through real-world examples, and provide interactive JavaScript activities.</p>
+
+  <h2>What is Object Design?</h2>
+  <p>Object design is the process of planning a system using object-oriented programming principles. It involves identifying the <strong>objects</strong> involved in the system, defining their behaviors (methods), and structuring how they interact.</p>
+
+  <div class="interactive">
+    <p><strong>Fun Fact:</strong> The term "object" in programming was inspired by real-life objects — everything you interact with in the real world can be considered an object with attributes and actions!</p>
+  </div>
+
+  <h2>Why Object Design Matters</h2>
+  <ul>
+    <li>Helps in modularizing a system</li>
+    <li>Improves code reusability and maintenance</li>
+    <li>Reflects real-world models more closely</li>
+    <li>Makes debugging and collaboration easier</li>
+  </ul>
+
+  <h2>Core Principles of Object-Oriented Design</h2>
+  <ol>
+    <li><strong>Encapsulation</strong> – bundling data with methods that operate on that data.</li>
+    <li><strong>Abstraction</strong> – hiding internal details and showing only essential information.</li>
+    <li><strong>Inheritance</strong> – creating new classes from existing ones.</li>
+    <li><strong>Polymorphism</strong> – using a single interface to represent different types.</li>
+  </ol>
+
+  <h2>Interactive Example: Creating a Simple Object</h2>
+  <div class="interactive">
+    <p>Click the button to create a simple JavaScript object representing a car.</p>
+    <button onclick="createCar()">Create Car Object</button>
+    <pre id="carObject"></pre>
+  </div>
+
+  <script>
+    function createCar() {
+      const car = {
+        make: 'Toyota',
+        model: 'Corolla',
+        year: 2021,
+        honk: function() {
+          return 'Beep beep!';
+        }
+      };
+      document.getElementById("carObject").textContent = JSON.stringify(car, null, 2);
+    }
+  </script>
+
+  <h2>Design Methodology Applied to Object Design</h2>
+  <p>Design methodology helps systematize object creation. It generally includes the following steps:</p>
+  <ul>
+    <li>Identify system actors (users or other systems)</li>
+    <li>Identify major use cases</li>
+    <li>Extract nouns (potential objects) and verbs (potential methods) from use cases</li>
+    <li>Define object responsibilities and collaborations</li>
+  </ul>
+
+  <h2>Real-World Example: Library Management System</h2>
+  <p>Objects might include:</p>
+  <ul>
+    <li><code>Book</code>: title, author, ISBN, borrow()</li>
+    <li><code>User</code>: name, membershipId, checkoutBook()</li>
+    <li><code>Library</code>: books[], registerUser(), findBook()</li>
+  </ul>
+
+  <h2>Class Diagram (Simplified)</h2>
+  <pre>
++-----------+       +--------+        +------------+
+|   Library |       |  Book  |        |   User     |
++-----------+       +--------+        +------------+
+| books[]   |<>-----| title  |        | name       |
+| users[]   |       | author |        | userId     |
+| findBook()|       | ISBN   |        | borrow()   |
++-----------+       +--------+        +------------+
+  </pre>
+
+  <h2>Practical Applications of Object Design</h2>
+  <ul>
+    <li>Game development: objects like Player, Enemy, Level, etc.</li>
+    <li>Web development: reusable components in frameworks like React</li>
+    <li>Finance: objects like Account, Transaction, Customer</li>
+    <li>IoT: devices as objects with methods for control and feedback</li>
+  </ul>
+
+  <h2>Interactive Quiz</h2>
+  <div class="interactive">
+    <p>Which of the following is a good example of encapsulation?</p>
+    <button onclick="showAnswer(true)">A. A class hides its data and only exposes methods</button><br>
+    <button onclick="showAnswer(false)">B. A function printing hello world</button><br>
+    <p id="quizAnswer"></p>
+  </div>
+
+  <script>
+    function showAnswer(correct) {
+      document.getElementById("quizAnswer").textContent = correct ? "Correct! Encapsulation means hiding internal details." : "Oops! Try again.";
+    }
+  </script>
+
+  <h2>Fun Fact</h2>
+  <p>The term "polymorphism" comes from Greek, meaning "many forms." It’s the same root word used in biology for organisms that appear in multiple forms!</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

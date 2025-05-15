@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Design - Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #eef6ff;
+      border-left: 5px solid #3399ff;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+  </style>
+</head>
+<body>
+  <h1>System Design: A Deep Dive into Design Methodology</h1>
+  <p>Welcome to this comprehensive, beginner-friendly lesson on <strong>System Design</strong> based on the principles of <strong>Design Methodology</strong>. By the end of this lesson, you'll understand how to break down complex systems, make architectural decisions, and think like a software/system architect.</p>
+
+  <h2>What is System Design?</h2>
+  <p>System Design is the process of defining the architecture, components, modules, interfaces, and data for a system to satisfy specified requirements. It applies to software, hardware, and hybrid systems.</p>
+
+  <div class="interactive">
+    <p><strong>Interactive:</strong> Click the button to see a real-world example!</p>
+    <button onclick="document.getElementById('realWorldExample1').style.display='block'">Show Example</button>
+    <div id="realWorldExample1" style="display:none">
+      <p><strong>Example:</strong> Think about designing a ride-sharing app like Uber. You need to consider:</p>
+      <ul>
+        <li>User authentication</li>
+        <li>Matching drivers and riders</li>
+        <li>Real-time tracking</li>
+        <li>Pricing algorithms</li>
+        <li>Database design for users, rides, payments, etc.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Why is System Design Important?</h2>
+  <ul>
+    <li>Ensures scalability of applications</li>
+    <li>Improves reliability and availability</li>
+    <li>Reduces technical debt and maintenance costs</li>
+    <li>Helps in communicating design decisions to teams</li>
+  </ul>
+
+  <h2>Core Components of System Design</h2>
+  <ol>
+    <li><strong>Requirements Gathering</strong>: Understand what the system is expected to do.</li>
+    <li><strong>High-Level Design</strong>: Decide on architecture patterns (monolith, microservices).</li>
+    <li><strong>Low-Level Design</strong>: Design classes, APIs, databases.</li>
+    <li><strong>Scalability and Performance</strong>: Load balancing, caching, database sharding.</li>
+    <li><strong>Security Considerations</strong>: Authentication, authorization, data encryption.</li>
+  </ol>
+
+  <h2>Design Methodology Phases</h2>
+  <ul>
+    <li><strong>Conceptual Design</strong>: Create block diagrams and flowcharts.</li>
+    <li><strong>Logical Design</strong>: Define data models and API specifications.</li>
+    <li><strong>Physical Design</strong>: Decide on actual hardware, services, and protocols.</li>
+  </ul>
+
+  <h2>Common System Design Patterns</h2>
+  <ul>
+    <li>Client-Server Model</li>
+    <li>Peer-to-Peer Architecture</li>
+    <li>Event-Driven Architecture</li>
+    <li>Microservices Architecture</li>
+    <li>Model-View-Controller (MVC)</li>
+  </ul>
+
+  <h2>Example: Designing a URL Shortener</h2>
+  <p>Let’s go through designing a simple URL shortener like Bit.ly.</p>
+  <ul>
+    <li>Functional Requirements: Shorten a URL, redirect to original</li>
+    <li>Non-Functional Requirements: Low latency, high availability</li>
+    <li>Database: Key-Value store (e.g., Redis)</li>
+    <li>Scaling: Load balancer in front of application servers</li>
+  </ul>
+
+  <div class="interactive">
+    <p><strong>Try it out:</strong> Enter a URL below to simulate shortening it.</p>
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button onclick="shortenURL()">Shorten</button>
+    <p id="shortenedURL"></p>
+  </div>
+
+  <script>
+    function shortenURL() {
+      const url = document.getElementById("urlInput").value;
+      if (url) {
+        const fakeShort = "short.ly/" + Math.random().toString(36).substring(7);
+        document.getElementById("shortenedURL").innerText = `Shortened URL: ${fakeShort}`;
+      }
+    }
+  </script>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li>E-commerce platforms: Product recommendation, inventory management</li>
+    <li>Social networks: Feed generation, notification systems</li>
+    <li>Banking systems: Transaction processing, fraud detection</li>
+    <li>Streaming services: Content delivery, adaptive bitrate streaming</li>
+  </ul>
+
+  <h2>Fun Fact</h2>
+  <p>The original Amazon.com site ran on a monolithic architecture in the 90s. Today, Amazon runs on a vast system of microservices — over 1000 independent services working together!</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

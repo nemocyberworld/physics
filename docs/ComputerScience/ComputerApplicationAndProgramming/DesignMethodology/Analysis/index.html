@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Methodology - Analysis Phase</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      background-color: #eef;
+      border-left: 5px solid #66f;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Design Methodology: The Analysis Phase</h1>
+  <p>The <strong>Analysis</strong> phase in Design Methodology is one of the most critical steps in problem solving, system development, or product design. This phase lays the foundation for all subsequent design and development activities.</p>
+
+  <h2>1. What is the Analysis Phase?</h2>
+  <p>Analysis is the process of understanding and breaking down a problem or need. In this phase, designers:</p>
+  <ul>
+    <li>Identify user needs and system requirements</li>
+    <li>Examine existing systems and limitations</li>
+    <li>Define objectives and constraints</li>
+  </ul>
+  <p>It's about <em>understanding the problem before jumping into solutions</em>.</p>
+
+  <h3>Real-World Example: Smart Home Design</h3>
+  <p>Before creating a smart thermostat, designers must analyze:</p>
+  <ul>
+    <li>Who are the users? (E.g., elderly, busy professionals)</li>
+    <li>What problems are they facing? (E.g., high bills, inconvenience)</li>
+    <li>What data is needed? (E.g., temperature preferences, weather forecast)</li>
+  </ul>
+
+  <h3>Fun Fact!</h3>
+  <p>The term "analysis" comes from the Greek word <em>analusis</em>, meaning "a breaking up." It was originally used in philosophy and mathematics as a way of examining arguments or equations by deconstructing them.</p>
+
+  <h2>2. Key Activities in the Analysis Phase</h2>
+  <ul>
+    <li>Stakeholder Interviews</li>
+    <li>Surveys & Questionnaires</li>
+    <li>SWOT Analysis</li>
+    <li>Feasibility Studies</li>
+    <li>Requirement Gathering & Documentation</li>
+  </ul>
+
+  <h3>Interactive Quiz</h3>
+  <div class="quiz">
+    <p><strong>Which of these is a primary goal of the analysis phase?</strong></p>
+    <button onclick="checkAnswer(this, true)">Understanding the user's needs</button><br>
+    <button onclick="checkAnswer(this, false)">Building the product</button><br>
+    <button onclick="checkAnswer(this, false)">Launching the product</button><br>
+    <button onclick="checkAnswer(this, false)">Marketing the product</button>
+  </div>
+
+  <h2>3. Practical Applications</h2>
+  <p>The analysis phase is used across industries:</p>
+  <ul>
+    <li><strong>Software Development:</strong> Analyzing user requirements before coding.</li>
+    <li><strong>Architecture:</strong> Studying a building's purpose, climate, and regulations.</li>
+    <li><strong>Healthcare:</strong> Designing patient management systems based on workflow analysis.</li>
+    <li><strong>Business:</strong> Using market analysis to guide product design or service improvements.</li>
+  </ul>
+
+  <h3>Example: Designing a Fitness App</h3>
+  <p>Analysis includes:</p>
+  <ul>
+    <li>User profiles: Athletes, beginners, people with health conditions</li>
+    <li>Key features: Step tracking, workout logs, reminders</li>
+    <li>Market competition: What features exist, what’s missing</li>
+  </ul>
+
+  <h2>4. Analytical Tools</h2>
+  <ul>
+    <li>Flowcharts</li>
+    <li>Use Case Diagrams</li>
+    <li>Personas</li>
+    <li>Mind Maps</li>
+    <li>Gap Analysis</li>
+  </ul>
+  <p>These tools help visualize data, user behavior, and process flows.</p>
+
+  <h2>5. Summary</h2>
+  <ul>
+    <li>The analysis phase is about understanding the problem deeply</li>
+    <li>It sets the direction for solution development</li>
+    <li>Tools and techniques vary by domain, but the goal is always clarity</li>
+  </ul>
+
+  <h3>Another Quiz!</h3>
+  <div class="quiz">
+    <p><strong>What does a SWOT analysis focus on?</strong></p>
+    <button onclick="checkAnswer(this, false)">Sales and Web Optimization</button><br>
+    <button onclick="checkAnswer(this, false)">System Weight Optimization Tools</button><br>
+    <button onclick="checkAnswer(this, true)">Strengths, Weaknesses, Opportunities, Threats</button><br>
+    <button onclick="checkAnswer(this, false)">Syntax Without Obsolete Technology</button>
+  </div>
+
+  <script>
+    function checkAnswer(button, correct) {
+      if (correct) {
+        button.style.backgroundColor = '#4CAF50';
+        button.innerText += ' ✓ Correct';
+      } else {
+        button.style.backgroundColor = '#f44336';
+        button.innerText += ' ✗ Incorrect';
+      }
+      const buttons = button.parentElement.querySelectorAll('button');
+      buttons.forEach(btn => btn.disabled = true);
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>
