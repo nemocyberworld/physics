@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Oriented Development Themes</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .quiz {
+      background: #e6f7ff;
+      border-left: 4px solid #007acc;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+    .fun-fact {
+      background: #fff8dc;
+      border-left: 4px solid #f0a500;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Object Oriented Development Themes</h1>
+
+  <h2>Introduction</h2>
+  <p>Object-Oriented Programming (OOP) is a paradigm in software development that organizes software design around data, or <strong>objects</strong>, rather than functions and logic. It enables developers to build applications that are more modular, reusable, and easier to maintain.</p>
+
+  <div class="fun-fact">
+    💡 Fun Fact: Did you know that OOP was inspired by how humans perceive the world? We naturally think in terms of objects — cars, animals, books — and OOP models software the same way!
+  </div>
+
+  <h2>Core Themes of Object-Oriented Development</h2>
+  <h3>1. Classes and Objects</h3>
+  <p>A <strong>class</strong> is a blueprint for creating objects. An <strong>object</strong> is an instance of a class with actual values.</p>
+  <pre><code>class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+
+  displayInfo() {
+    return `Car: ${this.make} ${this.model}`;
+  }
+}
+
+const myCar = new Car("Toyota", "Corolla");
+console.log(myCar.displayInfo());</code></pre>
+
+  <h3>2. Encapsulation</h3>
+  <p>Encapsulation hides the internal state of an object and only exposes safe parts of it. This protects the data.</p>
+  <pre><code>class BankAccount {
+  #balance;
+
+  constructor(initialBalance) {
+    this.#balance = initialBalance;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount(100);
+account.deposit(50);
+console.log(account.getBalance());</code></pre>
+
+  <h3>3. Inheritance</h3>
+  <p>Inheritance allows a class to acquire properties and methods of another class.</p>
+  <pre><code>class Animal {
+  speak() {
+    return "Animal speaks";
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    return "Dog barks";
+  }
+}
+
+const pet = new Dog();
+console.log(pet.speak());</code></pre>
+
+  <h3>4. Polymorphism</h3>
+  <p>Polymorphism means many forms — the same function behaves differently based on the object.</p>
+  <pre><code>function makeItSpeak(animal) {
+  console.log(animal.speak());
+}
+
+makeItSpeak(new Animal());
+makeItSpeak(new Dog());</code></pre>
+
+  <h2>Real World Applications</h2>
+  <ul>
+    <li><strong>Web Development</strong> – Organize user interface components using objects.</li>
+    <li><strong>Game Development</strong> – Characters, weapons, and environments are modeled as objects.</li>
+    <li><strong>Banking Systems</strong> – Accounts, users, and transactions are designed using OOP.</li>
+    <li><strong>E-commerce</strong> – Products, orders, and users are managed as classes and objects.</li>
+  </ul>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p><strong>Q:</strong> What principle of OOP hides the internal state of an object?</p>
+    <button onclick="checkAnswer('a')">A. Inheritance</button><br>
+    <button onclick="checkAnswer('b')">B. Encapsulation</button><br>
+    <button onclick="checkAnswer('c')">C. Polymorphism</button><br>
+    <button onclick="checkAnswer('d')">D. Abstraction</button>
+    <p id="answer"></p>
+  </div>
+
+  <h2>Practical Example: User Login System</h2>
+  <pre><code>class User {
+  constructor(username, password) {
+    this.username = username;
+    this.password = password;
+  }
+
+  login(inputPassword) {
+    return this.password === inputPassword ? "Login successful" : "Login failed";
+  }
+}
+
+const user1 = new User("admin", "1234");
+console.log(user1.login("1234"));</code></pre>
+
+  <h2>Benefits of Object-Oriented Development</h2>
+  <ul>
+    <li>Modularity</li>
+    <li>Code reusability</li>
+    <li>Ease of maintenance</li>
+    <li>Improved collaboration in large teams</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>Object-Oriented Development is foundational for modern software engineering. It models the real world more intuitively and results in efficient and maintainable code. As you grow in programming, mastering OOP will make your code cleaner, more powerful, and future-proof.</p>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function checkAnswer(option) {
+      const answer = document.getElementById("answer");
+      if (option === 'b') {
+        answer.textContent = "Correct! Encapsulation hides internal state.";
+        answer.style.color = "green";
+      } else {
+        answer.textContent = "Incorrect. Try again!";
+        answer.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
