@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C++ as an Object-Oriented Programming Language</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .answer {
+      background-color: #e6f0ff;
+      border-left: 5px solid #003366;
+      padding: 1rem;
+      margin: 1rem 0;
+      display: none;
+    }
+    .fun-fact {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffcc00;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>C++ as an Object-Oriented Programming Language</h1>
+  <p>Welcome to this comprehensive lesson on <strong>Object-Oriented Programming (OOP) in C++</strong>. Whether you're brand new or just brushing up, you'll find detailed explanations, real-world examples, practical applications, and fun interactive bits to help solidify your understanding.</p>
+
+  <h2>What is Object-Oriented Programming?</h2>
+  <p>Object-Oriented Programming is a programming paradigm based on the concept of "objects". These objects can contain data, in the form of fields (often called <em>attributes</em> or <em>properties</em>), and code, in the form of procedures (often called <em>methods</em>).</p>
+  <p>C++ is a powerful language that supports OOP features such as classes, inheritance, encapsulation, and polymorphism.</p>
+
+  <h2>Key Concepts of OOP in C++</h2>
+
+  <h3>1. Classes and Objects</h3>
+  <p>A <strong>class</strong> is like a blueprint for creating objects. An <strong>object</strong> is an instance of a class.</p>
+  
+  <pre>
+class Car {
+  public:
+    string brand;
+    string model;
+    int year;
+  
+    void honk() {
+      cout &lt;&lt; "Beep beep!" &lt;&lt; endl;
+    }
+};
+  </pre>
+  <p>Here, <code>Car</code> is a class with properties like <code>brand</code>, <code>model</code>, and <code>year</code>, and a method called <code>honk()</code>.</p>
+
+  <h3>Real-world example:</h3>
+  <p>Think of a <em>Car</em> blueprint. Each car you buy (a Honda Civic, a Toyota Corolla) is an object created from this blueprint. Each car has attributes (color, brand, model year) and behaviors (drive, honk, stop).</p>
+
+  <button onclick="toggleAnswer('objExample')">Show/Hide Object Example Code</button>
+  <div id="objExample" class="answer">
+<pre>
+Car myCar;                 // Creating an object of type Car
+myCar.brand = "Toyota";
+myCar.model = "Corolla";
+myCar.year = 2020;
+myCar.honk();              // Output: Beep beep!
+</pre>
+  </div>
+
+  <h3>2. Encapsulation</h3>
+  <p>Encapsulation means bundling data (variables) and methods (functions) that operate on the data into a single unit or class. It also hides the internal state of the object from the outside world — often done using <code>private</code> access specifier.</p>
+  
+  <pre>
+class BankAccount {
+  private:
+    double balance;
+  public:
+    BankAccount(double initialBalance) {
+      balance = initialBalance;
+    }
+    void deposit(double amount) {
+      balance += amount;
+    }
+    void withdraw(double amount) {
+      if (amount &lt;= balance) {
+        balance -= amount;
+      } else {
+        cout &lt;&lt; "Insufficient funds." &lt;&lt; endl;
+      }
+    }
+    double getBalance() {
+      return balance;
+    }
+};
+  </pre>
+
+  <h3>Real-world application:</h3>
+  <p>Bank accounts are classic examples of encapsulation. You cannot directly modify the balance without going through methods like <code>deposit</code> or <code>withdraw</code>. This protects the integrity of your money.</p>
+
+  <button onclick="toggleAnswer('bankExample')">Show/Hide Bank Account Example</button>
+  <div id="bankExample" class="answer">
+<pre>
+BankAccount myAccount(1000);
+myAccount.deposit(500);
+myAccount.withdraw(200);
+cout &lt;&lt; "Balance: " &lt;&lt; myAccount.getBalance() &lt;&lt; endl;  // Balance: 1300
+</pre>
+  </div>
+
+  <h3>3. Inheritance</h3>
+  <p>Inheritance allows a class to inherit properties and methods from another class. This promotes code reuse and establishes a relationship between classes.</p>
+
+  <pre>
+class Vehicle {
+  public:
+    void start() {
+      cout &lt;&lt; "Vehicle started" &lt;&lt; endl;
+    }
+};
+
+class Car : public Vehicle {
+  public:
+    void honk() {
+      cout &lt;&lt; "Car honking" &lt;&lt; endl;
+    }
+};
+  </pre>
+
+  <h3>Real-world example:</h3>
+  <p>A <code>Car</code> is a kind of <code>Vehicle</code>. It inherits the ability to start from <code>Vehicle</code>, but also has its own behavior, like honking.</p>
+
+  <button onclick="toggleAnswer('inheritanceExample')">Show/Hide Inheritance Example</button>
+  <div id="inheritanceExample" class="answer">
+<pre>
+Car myCar;
+myCar.start();  // Vehicle started
+myCar.honk();   // Car honking
+</pre>
+  </div>
+
+  <h3>4. Polymorphism</h3>
+  <p>Polymorphism allows methods to do different things based on the object it is acting on. This can be achieved using function overriding with <code>virtual</code> functions.</p>
+
+  <pre>
+class Animal {
+  public:
+    virtual void sound() {
+      cout &lt;&lt; "Some generic animal sound" &lt;&lt; endl;
+    }
+};
+
+class Dog : public Animal {
+  public:
+    void sound() override {
+      cout &lt;&lt; "Bark" &lt;&lt; endl;
+    }
+};
+
+class Cat : public Animal {
+  public:
+    void sound() override {
+      cout &lt;&lt; "Meow" &lt;&lt; endl;
+    }
+};
+  </pre>
+
+  <h3>Practical use:</h3>
+  <p>You can write code that works on <code>Animal</code> pointers, but the actual <code>sound()</code> function that gets called depends on the specific type of animal.</p>
+
+  <button onclick="toggleAnswer('polymorphismExample')">Show/Hide Polymorphism Example</button>
+  <div id="polymorphismExample" class="answer">
+<pre>
+Animal* a1 = new Dog();
+Animal* a2 = new Cat();
+
+a1-&gt;sound();   // Bark
+a2-&gt;sound();   // Meow
+</pre>
+  </div>
+
+  <h2>Why Use Object-Oriented Programming in C++?</h2>
+  <ul>
+    <li><strong>Modularity:</strong> Code is organized into classes making it easier to maintain.</li>
+    <li><strong>Reusability:</strong> Inheritance and polymorphism reduce code duplication.</li>
+    <li><strong>Flexibility:</strong> Polymorphism allows flexible and easily extendable code.</li>
+    <li><strong>Real-World Modeling:</strong> Closely models real-world entities.</li>
+  </ul>
+
+  <h2>Practical Applications of OOP in C++</h2>
+  <ul>
+    <li><strong>Game Development:</strong> Objects represent characters, enemies, and items with behaviors.</li>
+    <li><strong>GUI Applications:</strong> Windows, buttons, and menus are objects with events and properties.</li>
+    <li><strong>Simulations:</strong> Simulate real-world systems like traffic, weather, or physics.</li>
+    <li><strong>Banking Systems:</strong> Secure encapsulated transactions.</li>
+    <li><strong>Embedded Systems:</strong> Hardware components can be modeled as objects.</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The first version of C++ was called "C with Classes" and was developed by Bjarne Stroustrup in 1979!
+  </div>
+
+  <h2>Try It Yourself: Interactive Quiz</h2>
+  <p>Let's test your understanding! Choose the correct answer below:</p>
+
+  <form id="quizForm">
+    <label>
+      <input type="radio" name="q1" value="a" />
+      1) What feature of OOP allows you to hide data implementation details?
+    </label><br/>
+    <label><input type="radio" name="q1" value="a" /> Polymorphism</label><br/>
+    <label><input type="radio" name="q1" value="b" /> Encapsulation</label><br/>
+    <label><input type="radio" name="q1" value="c" /> Inheritance</label><br/><br/>
+
+    <label>
+      <input type="radio" name="q2" value="a" />
+      2) Which keyword is used in C++ to inherit from a base class?
+    </label><br/>
+    <label><input type="radio" name="q2" value="a" /> extends</label><br/>
+    <label><input type="radio" name="q2" value="b" /> inherits</label><br/>
+    <label><input type="radio" name="q2" value="c" /> public</label><br/><br/>
+
+    <button type="button" onclick="checkQuiz()">Submit Answers</button>
+  </form>
+  <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === "block") {
+        el.style.display = "none";
+      } else {
+        el.style.display = "block";
+      }
+    }
+
+    function checkQuiz() {
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      let score = 0;
+      let total = 2;
+      let resultText = "";
+
+      if (!q1 || !q2) {
+        alert("Please answer all questions!");
+        return;
+      }
+
+      if (q1.value === "b") score++;
+      if (q2.value === "c") score++;
+
+      resultText = `You scored ${score} out of ${total}. `;
+
+      if (score === total) {
+        resultText += "Excellent! You're getting the hang of C++ OOP concepts.";
+      } else if (score === 1) {
+        resultText += "Good try! Review the concepts and try again.";
+      } else {
+        resultText += "Don't worry, keep learning and practicing!";
+      }
+
+      document.getElementById("quizResult").textContent = resultText;
+    }
+  </script>
+</body>
+</html>

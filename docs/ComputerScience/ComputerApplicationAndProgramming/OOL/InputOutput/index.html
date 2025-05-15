@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Managing Console I/O Operation in C++ - Examples</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0.5rem 1rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .example-container {
+      margin-top: 1rem;
+      border: 2px solid #003366;
+      border-radius: 8px;
+      background: #e7f0ff;
+      padding: 1rem;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+    .quiz {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px solid #003366;
+      border-radius: 8px;
+      background: #e7f0ff;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    .fun-fact {
+      background-color: #fffae6;
+      border-left: 5px solid #f4c430;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Object-Oriented Programming in C++</h1>
+  <h2>Managing Console I/O Operations</h2>
+
+  <p>
+    Console Input/Output (I/O) operations form the backbone of interaction between a C++ program and the user.
+    Understanding how to effectively manage console I/O is crucial for creating user-friendly applications.
+  </p>
+
+  <h3>1. Basic Console Output with <code>cout</code></h3>
+  <p>
+    In C++, the <code>cout</code> object, part of the <code>iostream</code> library, is used to output data to
+    the console.
+  </p>
+  <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello, world!" &lt;&lt; endl;
+  return 0;
+}
+  </pre>
+  <p>
+    Here, <code>endl</code> inserts a newline character and flushes the output buffer.
+  </p>
+
+  <h3>2. Console Input Using <code>cin</code></h3>
+  <p>
+    The <code>cin</code> object is used to read input from the keyboard.
+  </p>
+  <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  int age;
+  cout &lt;&lt; "Enter your age: ";
+  cin &gt;&gt; age;
+  cout &lt;&lt; "You entered: " &lt;&lt; age &lt;&lt; endl;
+  return 0;
+}
+  </pre>
+
+  <h3>3. Managing Input Errors</h3>
+  <p>
+    Sometimes users enter invalid input. We can check for errors and clear the input buffer.
+  </p>
+  <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  int number;
+  cout &lt;&lt; "Enter a number: ";
+  while (!(cin &gt;&gt; number)) {
+    cout &lt;&lt; "Invalid input. Please enter a valid number: ";
+    cin.clear();               // Clear error flag
+    cin.ignore(10000, '\n');   // Discard invalid input
+  }
+  cout &lt;&lt; "You entered: " &lt;&lt; number &lt;&lt; endl;
+  return 0;
+}
+  </pre>
+
+  <h3>4. Using <code>cerr</code> and <code>clog</code></h3>
+  <p>
+    Besides <code>cout</code>, C++ provides:
+  </p>
+  <ul>
+    <li><code>cerr</code>: Used for error messages (unbuffered output).</li>
+    <li><code>clog</code>: Used for logging messages (buffered output).</li>
+  </ul>
+  <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cerr &lt;&lt; "Error: Invalid operation!" &lt;&lt; endl;
+  clog &lt;&lt; "Log: Operation attempted." &lt;&lt; endl;
+  return 0;
+}
+  </pre>
+
+  <h3>5. Formatting Output with Manipulators</h3>
+  <p>
+    The <code>iomanip</code> library provides useful manipulators to format output:
+  </p>
+  <ul>
+    <li><code>setw(n)</code>: Set width of the next output.</li>
+    <li><code>setprecision(n)</code>: Set decimal precision for floating-point output.</li>
+    <li><code>fixed</code>: Use fixed-point notation.</li>
+    <li><code>left</code> and <code>right</code>: Align output.</li>
+  </ul>
+  <pre>
+#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; setw(10) &lt;&lt; left &lt;&lt; "Name"
+       &lt;&lt; setw(5) &lt;&lt; right &lt;&lt; "Age" &lt;&lt; endl;
+  cout &lt;&lt; setw(10) &lt;&lt; left &lt;&lt; "Alice"
+       &lt;&lt; setw(5) &lt;&lt; right &lt;&lt; 30 &lt;&lt; endl;
+  cout &lt;&lt; setw(10) &lt;&lt; left &lt;&lt; "Bob"
+       &lt;&lt; setw(5) &lt;&lt; right &lt;&lt; 25 &lt;&lt; endl;
+
+  cout &lt;&lt; fixed &lt;&lt; setprecision(2);
+  cout &lt;&lt; "Pi approx: " &lt;&lt; 3.14159265 &lt;&lt; endl;
+
+  return 0;
+}
+  </pre>
+
+  <h3>6. Real-World Example: Simple Console Menu</h3>
+  <p>
+    Here is a simple interactive menu for a console application:
+  </p>
+  <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  int choice;
+
+  do {
+    cout &lt;&lt; "\nMenu:\n";
+    cout &lt;&lt; "1. Say Hello\n";
+    cout &lt;&lt; "2. Display Date\n";
+    cout &lt;&lt; "3. Exit\n";
+    cout &lt;&lt; "Enter your choice: ";
+    cin &gt;&gt; choice;
+
+    switch(choice) {
+      case 1:
+        cout &lt;&lt; "Hello, User!" &lt;&lt; endl;
+        break;
+      case 2:
+        cout &lt;&lt; "Today's date is May 15, 2025." &lt;&lt; endl;
+        break;
+      case 3:
+        cout &lt;&lt; "Exiting program." &lt;&lt; endl;
+        break;
+      default:
+        cout &lt;&lt; "Invalid choice. Try again." &lt;&lt; endl;
+    }
+  } while(choice != 3);
+
+  return 0;
+}
+  </pre>
+
+  <h3>7. Interactive: Try Viewing Examples</h3>
+  <p>Click the buttons below to see different console I/O examples:</p>
+  <button onclick="showExample('basicOutput')">Basic Output</button>
+  <button onclick="showExample('inputError')">Input Error Handling</button>
+  <button onclick="showExample('formatOutput')">Formatted Output</button>
+  <button onclick="showExample('menu')">Simple Menu</button>
+
+  <div class="example-container" id="exampleCode" style="display:none;"></div>
+
+  <h3>8. Quiz: Test Your Console I/O Knowledge</h3>
+  <div class="quiz">
+    <p><strong>Question:</strong> Which object is used to display error messages on the console?</p>
+    <form id="quizForm">
+      <input type="radio" name="q1" id="opt1" value="a" />
+      <label for="opt1">a) cout</label><br />
+      <input type="radio" name="q1" id="opt2" value="b" />
+      <label for="opt2">b) cin</label><br />
+      <input type="radio" name="q1" id="opt3" value="c" />
+      <label for="opt3">c) cerr</label><br />
+      <input type="radio" name="q1" id="opt4" value="d" />
+      <label for="opt4">d) clog</label><br />
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <p id="quizResult" class="result"></p>
+  </div>
+
+  <h3>9. Fun Fact!</h3>
+  <div class="fun-fact">
+    <strong>Did you know?</strong> The <code>iostream</code> library in C++ was introduced to provide a type-safe and
+    extensible way to handle input and output, replacing older C-style <code>printf</code> and
+    <code>scanf</code> functions!
+  </div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    const examples = {
+      basicOutput: `#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Hello, world!" << endl;
+  return 0;
+}`,
+      inputError: `#include <iostream>
+using namespace std;
+
+int main() {
+  int number;
+  cout << "Enter a number: ";
+  while (!(cin >> number)) {
+    cout << "Invalid input. Please enter a valid number: ";
+    cin.clear();               // Clear error flag
+    cin.ignore(10000, '\\n');  // Discard invalid input
+  }
+  cout << "You entered: " << number << endl;
+  return 0;
+}`,
+      formatOutput: `#include <iomanip>
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << setw(10) << left << "Name"
+       << setw(5) << right << "Age" << endl;
+  cout << setw(10) << left << "Alice"
+       << setw(5) << right << 30 << endl;
+  cout << setw(10) << left << "Bob"
+       << setw(5) << right << 25 << endl;
+
+  cout << fixed << setprecision(2);
+  cout << "Pi approx: " << 3.14159265 << endl;
+
+  return 0;
+}`,
+      menu: `#include <iostream>
+using namespace std;
+
+int main() {
+  int choice;
+
+  do {
+    cout << "\\nMenu:\\n";
+    cout << "1. Say Hello\\n";
+    cout << "2. Display Date\\n";
+    cout << "3. Exit\\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch(choice) {
+      case 1:
+        cout << "Hello, User!" << endl;
+        break;
+      case 2:
+        cout << "Today's date is May 15, 2025." << endl;
+        break;
+      case 3:
+        cout << "Exiting program." << endl;
+        break;
+      default:
+        cout << "Invalid choice. Try again." << endl;
+    }
+  } while(choice != 3);
+
+  return 0;
+}`,
+    };
+
+    function showExample(name) {
+      const container = document.getElementById('exampleCode');
+      container.style.display = 'block';
+      container.textContent = examples[name];
+    }
+
+    function checkAnswer() {
+      const form = document.forms['quizForm'];
+      const result = document.getElementById('quizResult');
+      const selected = form.q1.value;
+      if (!selected) {
+        result.textContent = 'Please select an answer!';
+        result.style.color = 'red';
+        return;
+      }
+      if (selected === 'c') {
+        result.textContent = 'Correct! cerr is used for error messages.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect. Try again!';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

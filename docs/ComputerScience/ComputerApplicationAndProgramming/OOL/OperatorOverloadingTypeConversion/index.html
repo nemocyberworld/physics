@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Operator Overloading & Type Conversion - C++ OOP</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      background: #eaeaea;
+      padding: 0 0.3rem;
+      border-radius: 3px;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .quiz {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px solid #003366;
+      border-radius: 8px;
+      background: #e7f0ff;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    .fun-fact {
+      background-color: #fffae6;
+      border-left: 5px solid #f4c430;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Object-Oriented Programming in C++</h1>
+  <h2>Operator Overloading and Type Conversion</h2>
+
+  <p>
+    Welcome to this in-depth lesson on <strong>Operator Overloading</strong> and <strong>Type Conversion</strong> in
+    C++. These are powerful features that let you customize how operators like
+    <code>+</code>, <code>-</code>, and even type conversions behave with your own classes.
+  </p>
+
+  <h3>1. What is Operator Overloading?</h3>
+  <p>
+    In C++, <strong>operator overloading</strong> allows you to define or change the way operators work for
+    user-defined types (classes and structs). This means you can make operators work intuitively with your
+    objects, just like they do with built-in types like <code>int</code> or <code>double</code>.
+  </p>
+  <p>
+    For example, if you have a class representing a complex number, you can overload the
+    <code>+</code> operator to add two complex numbers directly using <code>c1 + c2</code>.
+  </p>
+
+  <h3>Why is this useful?</h3>
+  <ul>
+    <li>Makes your code more readable and natural.</li>
+    <li>Allows your objects to behave like built-in types.</li>
+    <li>Enables intuitive mathematical and logical operations on custom types.</li>
+  </ul>
+
+  <h3>2. How to Overload an Operator?</h3>
+  <p>
+    You overload an operator by defining a function with a special name like
+    <code>operator+</code> inside your class. Here's a simple example with a class <code>Point</code> that
+    represents a 2D point:
+  </p>
+
+  <pre>
+class Point {
+  public:
+    int x, y;
+
+    Point(int a, int b) : x(a), y(b) {}
+
+    // Overload the + operator to add two Points
+    Point operator+(const Point& p) {
+      return Point(x + p.x, y + p.y);
+    }
+};
+  </pre>
+
+  <p>
+    Now you can add two points like this:
+  </p>
+
+  <pre>
+Point p1(2, 3);
+Point p2(4, 5);
+Point p3 = p1 + p2;  // Uses overloaded + operator
+  </pre>
+
+  <p>
+    This will result in <code>p3.x == 6</code> and <code>p3.y == 8</code>.
+  </p>
+
+  <h3>3. Real-World Example: Complex Numbers</h3>
+  <p>
+    Let's say you want to work with complex numbers. Here’s a basic class with overloaded <code>+</code> and
+    <code>-</code> operators:
+  </p>
+
+  <pre>
+class Complex {
+  public:
+    double real, imag;
+
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+
+    Complex operator+(const Complex& c) {
+      return Complex(real + c.real, imag + c.imag);
+    }
+
+    Complex operator-(const Complex& c) {
+      return Complex(real - c.real, imag - c.imag);
+    }
+
+    void display() {
+      std::cout << real << " + " << imag << "i\n";
+    }
+};
+  </pre>
+
+  <p>
+    Now you can easily add or subtract complex numbers using <code>+</code> and <code>-</code>.
+  </p>
+
+  <h3>4. Operator Overloading Can Be Applied to Many Operators</h3>
+  <p>
+    Some commonly overloaded operators:
+  </p>
+  <ul>
+    <li>Arithmetic: <code>+ - * / %</code></li>
+    <li>Comparison: <code>== != &lt; &gt; &lt;= &gt;=</code></li>
+    <li>Assignment: <code>= += -= *= /=</code></li>
+    <li>Increment/Decrement: <code>++ --</code></li>
+    <li>Stream insertion and extraction: <code>&lt;&lt; &gt;&gt;</code> (for input/output)</li>
+  </ul>
+
+  <h3>5. What is Type Conversion in C++?</h3>
+  <p>
+    Type conversion is about converting a variable of one type into another type. In C++, you can define your own
+    conversions between classes and built-in types using <strong>conversion constructors</strong> and
+    <strong>conversion operators</strong>.
+  </p>
+
+  <h3>6. Conversion Constructor</h3>
+  <p>
+    A conversion constructor takes a single argument and allows implicit conversion from that argument's type to
+    your class.
+  </p>
+
+  <pre>
+class Distance {
+  private:
+    int meters;
+
+  public:
+    Distance(int m = 0) : meters(m) {}  // conversion constructor
+
+    void display() {
+      std::cout << meters << " meters\n";
+    }
+};
+  </pre>
+
+  <p>
+    You can now implicitly convert an <code>int</code> to a <code>Distance</code>:
+  </p>
+
+  <pre>
+Distance d = 100;  // int 100 converted to Distance object
+d.display();       // Output: 100 meters
+  </pre>
+
+  <h3>7. Conversion Operator</h3>
+  <p>
+    This allows you to convert your object into another type. For example:
+  </p>
+
+  <pre>
+class Distance {
+  private:
+    int meters;
+
+  public:
+    Distance(int m = 0) : meters(m) {}
+
+    // conversion operator to int
+    operator int() {
+      return meters;
+    }
+};
+  </pre>
+
+  <p>
+    Now you can do this:
+  </p>
+
+  <pre>
+Distance d(150);
+int meters = d;  // calls operator int()
+std::cout << meters;  // Output: 150
+  </pre>
+
+  <h3>8. Practical Application: Currency Conversion Class</h3>
+  <p>Imagine a class that stores an amount in USD but can convert to Euro automatically:</p>
+
+  <pre>
+class USD {
+  double amount;
+public:
+  USD(double a) : amount(a) {}
+
+  operator double() { return amount; }  // Convert to double (USD amount)
+
+  operator Euro();  // Conversion to Euro (defined later)
+};
+
+class Euro {
+  double amount;
+public:
+  Euro(double a) : amount(a) {}
+
+  operator double() { return amount; }  // Convert to double (Euro amount)
+};
+
+// Define conversion from USD to Euro
+USD::operator Euro() {
+  return Euro(amount * 0.9);  // Assume 1 USD = 0.9 Euro
+}
+  </pre>
+
+  <p>This enables you to write:</p>
+
+  <pre>
+USD usd(100);
+Euro euro = usd;  // Automatically converts USD to Euro
+  </pre>
+
+  <h3>9. Fun Fact!</h3>
+  <div class="fun-fact">
+    <strong>Did you know?</strong> C++ was one of the first mainstream languages to introduce operator overloading,
+    giving programmers a way to make code very expressive and close to mathematical notation!
+  </div>
+
+  <h3>10. Interactive: Try Operator Overloading in Action</h3>
+  <p>Use the buttons below to toggle examples and see how operator overloading works.</p>
+
+  <button onclick="showExample('point')">Show Point Addition Example</button>
+  <button onclick="showExample('complex')">Show Complex Number Addition Example</button>
+
+  <pre id="codeExample" style="display:none;"></pre>
+
+  <h3>11. Quiz: Test Your Knowledge</h3>
+  <div class="quiz">
+    <p><strong>Question:</strong> Which operator cannot be overloaded in C++?</p>
+    <form id="quizForm">
+      <input type="radio" name="q1" id="opt1" value="a" />
+      <label for="opt1">a) + (addition)</label><br />
+      <input type="radio" name="q1" id="opt2" value="b" />
+      <label for="opt2">b) :: (scope resolution)</label><br />
+      <input type="radio" name="q1" id="opt3" value="c" />
+      <label for="opt3">c) == (equality)</label><br />
+      <input type="radio" name="q1" id="opt4" value="d" />
+      <label for="opt4">d) - (subtraction)</label><br />
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <p id="quizResult" class="result"></p>
+  </div>
+
+  <footer style="margin-top:3rem;">
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Code examples for buttons
+    const examples = {
+      point: `
+class Point {
+  public:
+    int x, y;
+
+    Point(int a, int b) : x(a), y(b) {}
+
+    // Overload the + operator to add two Points
+    Point operator+(const Point& p) {
+      return Point(x + p.x, y + p.y);
+    }
+};
+
+int main() {
+  Point p1(2, 3);
+  Point p2(4, 5);
+  Point p3 = p1 + p2;  // Uses overloaded + operator
+  std::cout << "p3.x = " << p3.x << ", p3.y = " << p3.y << "\\n";
+  return 0;
+}
+      `,
+      complex: `
+class Complex {
+  public:
+    double real, imag;
+
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+
+    Complex operator+(const Complex& c) {
+      return Complex(real + c.real, imag + c.imag);
+    }
+
+    void display() {
+      std::cout << real << " + " << imag << "i\\n";
+    }
+};
+
+int main() {
+  Complex c1(3.5, 2.5);
+  Complex c2(1.5, 4.5);
+  Complex c3 = c1 + c2;
+  c3.display();
+  return 0;
+}
+      `,
+    };
+
+    function showExample(name) {
+      const pre = document.getElementById('codeExample');
+      pre.style.display = 'block';
+      pre.textContent = examples[name];
+    }
+
+    function checkAnswer() {
+      const form = document.forms['quizForm'];
+      const result = document.getElementById('quizResult');
+      const answer = form.q1.value;
+      if (!answer) {
+        result.textContent = 'Please select an option!';
+        result.style.color = 'red';
+        return;
+      }
+      if (answer === 'b') {
+        result.textContent = 'Correct! The scope resolution operator (::) cannot be overloaded.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect. Try again!';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

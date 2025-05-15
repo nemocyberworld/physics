@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparison of C and C++ - Object-Oriented Language in C++</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0 1.5rem 0;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .answer {
+      background-color: #e6f0ff;
+      border-left: 5px solid #003366;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+    .fun-fact {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffcc00;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comparison of C and C++: Understanding Object-Oriented Language in C++</h1>
+  
+  <p>This lesson dives deep into the differences and similarities between <strong>C</strong> and <strong>C++</strong>, highlighting why C++ is often referred to as an <em>Object-Oriented Programming (OOP)</em> language, while C is a procedural language.</p>
+
+  <h2>1. Overview of C and C++ Languages</h2>
+  <p><strong>C</strong> is a procedural programming language developed in the early 1970s, widely used for system programming and embedded systems due to its efficiency and control over hardware.</p>
+  <p><strong>C++</strong>, developed by Bjarne Stroustrup starting in 1979, is an extension of C that adds Object-Oriented features while retaining the efficiency and control of C.</p>
+
+  <h2>2. Procedural vs Object-Oriented Programming</h2>
+  <p><strong>C</strong> follows a <em>procedural programming</em> paradigm: programs are structured as sequences of procedures or routines (functions) that operate on data.</p>
+  <p><strong>C++</strong> supports <em>both procedural and object-oriented programming</em>, enabling programs to be designed around <strong>objects</strong> which encapsulate data and behavior.</p>
+
+  <h3>Why is Object-Oriented Programming Important?</h3>
+  <p>OOP helps model real-world entities, promotes code reuse, modularity, and easier maintenance — key advantages when building large or complex software.</p>
+
+  <h2>3. Key Differences Between C and C++ with Examples</h2>
+
+  <h3>3.1 Data Abstraction and Encapsulation</h3>
+  <p><strong>C++</strong> supports <em>classes</em>, which bundle data and functions operating on the data together, hiding implementation details. <strong>C</strong> lacks this feature.</p>
+
+  <button onclick="toggleAnswer('encapsulationExample')">Show/Hide Code Example: Encapsulation</button>
+  <div id="encapsulationExample" class="answer">
+<pre>
+// C (Procedural)
+struct Rectangle {
+  int length;
+  int width;
+};
+
+int area(struct Rectangle *r) {
+  return r->length * r->width;
+}
+
+// C++ (Encapsulation)
+class Rectangle {
+  private:
+    int length;
+    int width;
+  public:
+    Rectangle(int l, int w) {
+      length = l; width = w;
+    }
+    int area() {
+      return length * width;
+    }
+};
+</pre>
+  </div>
+  <p><strong>Explanation:</strong> In C, the data and functions are separate, and data is public. In C++, data is encapsulated, and access is controlled.</p>
+
+  <h3>3.2 Inheritance</h3>
+  <p><strong>C++</strong> supports inheritance — creating new classes based on existing ones. This allows code reuse and polymorphic behavior. <strong>C</strong> does not.</p>
+
+  <button onclick="toggleAnswer('inheritanceExample')">Show/Hide Code Example: Inheritance</button>
+  <div id="inheritanceExample" class="answer">
+<pre>
+class Vehicle {
+  public:
+    void start() { cout &lt;&lt; "Starting vehicle" &lt;&lt; endl; }
+};
+
+class Car : public Vehicle {
+  public:
+    void honk() { cout &lt;&lt; "Beep beep!" &lt;&lt; endl; }
+};
+</pre>
+  </div>
+
+  <h3>3.3 Polymorphism</h3>
+  <p>In C++, polymorphism allows methods to behave differently based on the object type, usually implemented with <code>virtual</code> functions. C does not support this directly.</p>
+
+  <button onclick="toggleAnswer('polymorphismExample')">Show/Hide Code Example: Polymorphism</button>
+  <div id="polymorphismExample" class="answer">
+<pre>
+class Animal {
+  public:
+    virtual void sound() { cout &lt;&lt; "Some sound" &lt;&lt; endl; }
+};
+
+class Dog : public Animal {
+  public:
+    void sound() override { cout &lt;&lt; "Bark" &lt;&lt; endl; }
+};
+
+Animal *a = new Dog();
+a->sound();  // Outputs: Bark
+</pre>
+  </div>
+
+  <h3>3.4 Standard Template Library (STL)</h3>
+  <p><strong>C++</strong> offers the <em>Standard Template Library</em>, providing generic data structures and algorithms (like vectors, lists, maps). C programmers have to implement these manually or use external libraries.</p>
+
+  <h3>3.5 Function Overloading and Default Arguments</h3>
+  <p><strong>C++</strong> allows <em>function overloading</em> (same function name, different parameters) and <em>default arguments</em>. These features do not exist in C.</p>
+
+  <h3>3.6 Memory Management</h3>
+  <p>Both C and C++ allow manual memory management, but C++ adds <code>new</code> and <code>delete</code> operators that simplify allocation/deallocation and support constructors/destructors for resource management.</p>
+
+  <h2>4. Real-World Applications and Use Cases</h2>
+
+  <h3>C Programming Language</h3>
+  <ul>
+    <li>Operating Systems (e.g., Linux Kernel)</li>
+    <li>Embedded Systems and Firmware</li>
+    <li>Low-level hardware interfacing</li>
+    <li>Simple utilities and performance-critical software</li>
+  </ul>
+
+  <h3>C++ Programming Language</h3>
+  <ul>
+    <li>Game Development (using OOP for characters, game objects)</li>
+    <li>Desktop Applications with GUI (Qt, MFC frameworks)</li>
+    <li>Large scale software with complex data modeling</li>
+    <li>Real-time systems needing OOP flexibility</li>
+    <li>Financial modeling and simulations</li>
+  </ul>
+
+  <h2>5. Fun Fact</h2>
+  <div class="fun-fact">
+    Did you know? The name “C++” comes from the increment operator “++” in C, signifying an enhancement or improvement over C.
+  </div>
+
+  <h2>6. Interactive Quiz: Test Your Understanding</h2>
+  <p>Select the correct answers and click submit to see your score!</p>
+
+  <form id="quizForm">
+    <label>1) Which programming paradigm does C++ support that C does not?</label><br/>
+    <input type="radio" name="q1" value="a" id="q1a"/><label for="q1a"> Procedural programming</label><br/>
+    <input type="radio" name="q1" value="b" id="q1b"/><label for="q1b"> Object-Oriented programming</label><br/>
+    <input type="radio" name="q1" value="c" id="q1c"/><label for="q1c"> Functional programming</label><br/><br/>
+
+    <label>2) Which C++ feature allows methods to behave differently depending on the object type?</label><br/>
+    <input type="radio" name="q2" value="a" id="q2a"/><label for="q2a"> Encapsulation</label><br/>
+    <input type="radio" name="q2" value="b" id="q2b"/><label for="q2b"> Polymorphism</label><br/>
+    <input type="radio" name="q2" value="c" id="q2c"/><label for="q2c"> Inheritance</label><br/><br/>
+
+    <label>3) Which of the following is NOT a feature of C++?</label><br/>
+    <input type="radio" name="q3" value="a" id="q3a"/><label for="q3a"> Classes and Objects</label><br/>
+    <input type="radio" name="q3" value="b" id="q3b"/><label for="q3b"> Function Overloading</label><br/>
+    <input type="radio" name="q3" value="c" id="q3c"/><label for="q3c"> goto statement</label><br/><br/>
+
+    <button type="button" onclick="checkQuiz()">Submit Answers</button>
+  </form>
+
+  <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+
+    function checkQuiz() {
+      const answers = {
+        q1: 'b', // Object-Oriented programming
+        q2: 'b', // Polymorphism
+        q3: 'c'  // goto statement is not a C++ specific feature (exists in C too)
+      };
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let unanswered = false;
+
+      for (const q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (!selected) {
+          alert("Please answer all questions!");
+          unanswered = true;
+          break;
+        }
+        if (selected.value === answers[q]) {
+          score++;
+        }
+      }
+      if (unanswered) return;
+
+      let message = `You scored ${score} out of ${total}. `;
+
+      if (score === total) {
+        message += "Excellent! You really understand the differences between C and C++.";
+      } else if (score >= total / 2) {
+        message += "Good effort! Review some concepts and you'll master this.";
+      } else {
+        message += "Keep practicing! OOP and C++ features take some time to master.";
+      }
+      document.getElementById('quizResult').textContent = message;
+    }
+  </script>
+</body>
+</html>

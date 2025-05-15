@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Object Oriented System Development - Lesson</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .code-example {
+      background-color: #e8f0fe;
+      padding: 1rem;
+      border-left: 5px solid #1a73e8;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+    }
+    button {
+      background-color: #1a73e8;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #155ab6;
+    }
+    .interactive-section {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: #f9fafb;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .answer {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Object Oriented System Development</h1>
+  <p>Welcome to this detailed lesson on <strong>Object-Oriented System Development</strong>, focusing on principles rooted in <em>Object-Oriented Programming (OOP) in C++</em>. This lesson is designed for beginners and will cover foundational concepts, practical applications, and real-world examples to help you grasp how OOP enables effective system development.</p>
+
+  <h2>1. What is Object-Oriented System Development?</h2>
+  <p>Object-Oriented System Development is a software engineering approach that uses <em>objects</em> — self-contained units consisting of data and functions — as the fundamental building blocks of systems. Instead of just writing procedures or functions, you model real-world entities as objects, making programs more modular, reusable, and easier to maintain.</p>
+
+  <h3>Key Concepts of OOP</h3>
+  <ul>
+    <li><strong>Class:</strong> A blueprint or template that defines attributes (data) and behaviors (functions/methods).</li>
+    <li><strong>Object:</strong> An instance of a class representing a real-world entity.</li>
+    <li><strong>Encapsulation:</strong> Bundling data and methods inside a class, hiding internal state.</li>
+    <li><strong>Inheritance:</strong> Creating new classes based on existing ones, promoting reuse.</li>
+    <li><strong>Polymorphism:</strong> Ability of different classes to be treated through the same interface, often by method overriding.</li>
+  </ul>
+
+  <h2>2. Why Use Object-Oriented Development?</h2>
+  <p>OOP helps developers model complex systems naturally by mimicking how humans perceive the world — as interacting objects. Here are some advantages:</p>
+  <ul>
+    <li>Improves software modularity and organization</li>
+    <li>Promotes code reuse via inheritance and polymorphism</li>
+    <li>Makes programs easier to maintain and extend</li>
+    <li>Facilitates team collaboration by clear separation of concerns</li>
+  </ul>
+
+  <h3>Fun Fact</h3>
+  <p><em>The first object-oriented programming language was Simula, developed in the 1960s, which introduced the idea of classes and objects before C++ brought these concepts mainstream.</em></p>
+
+  <h2>3. Object-Oriented Concepts in C++</h2>
+  <p>Let's see how the core OOP concepts translate into C++ syntax:</p>
+
+  <h3>Example: Defining a Class and Creating Objects</h3>
+  <pre class="code-example">
+class Car {
+  public:
+    string brand;
+    int year;
+
+    void honk() {
+      cout &lt;&lt; "Beep beep!" &lt;&lt; endl;
+    }
+};
+
+int main() {
+  Car myCar;
+  myCar.brand = "Toyota";
+  myCar.year = 2020;
+  myCar.honk(); // Output: Beep beep!
+}
+  </pre>
+
+  <h3>Explanation:</h3>
+  <ul>
+    <li><code>class Car</code> defines a blueprint with attributes <code>brand</code> and <code>year</code>, and a method <code>honk()</code>.</li>
+    <li><code>myCar</code> is an instance (object) of the <code>Car</code> class.</li>
+    <li>Using <code>myCar.honk()</code> calls the object's behavior.</li>
+  </ul>
+
+  <h2>4. Real-World Example: Library Management System</h2>
+  <p>Imagine you're building a system to manage books in a library. Using OOP, you might create classes like:</p>
+  <ul>
+    <li><strong>Book</strong> (attributes: title, author, ISBN; methods: checkOut(), returnBook())</li>
+    <li><strong>Member</strong> (attributes: memberId, name; methods: borrowBook(), returnBook())</li>
+    <li><strong>Library</strong> (attributes: list of books and members; methods: addBook(), registerMember())</li>
+  </ul>
+
+  <p>This modular approach lets you represent each real-world entity as a class with clear responsibilities.</p>
+
+  <h2>5. Interactive Quiz: Test Your Understanding</h2>
+  <div class="interactive-section">
+    <p><strong>Question:</strong> Which of the following is NOT a pillar of Object-Oriented Programming?</p>
+    <form id="quizForm">
+      <label><input type="radio" name="answer" value="a"> Encapsulation</label><br />
+      <label><input type="radio" name="answer" value="b"> Inheritance</label><br />
+      <label><input type="radio" name="answer" value="c"> Compilation</label><br />
+      <label><input type="radio" name="answer" value="d"> Polymorphism</label><br />
+      <button type="button" onclick="checkQuiz()">Submit Answer</button>
+    </form>
+    <p class="answer" id="quizAnswer"></p>
+  </div>
+
+  <h2>6. Practical Applications of Object-Oriented Development</h2>
+  <p>OOP is used in many real-world systems and industries, including:</p>
+  <ul>
+    <li><strong>Game Development:</strong> Entities like players, enemies, and items modeled as objects for easy interaction and inheritance.</li>
+    <li><strong>Graphical User Interfaces (GUIs):</strong> Buttons, windows, dialogs are classes with properties and behaviors.</li>
+    <li><strong>Banking Systems:</strong> Customers, accounts, and transactions as objects improve data encapsulation and security.</li>
+    <li><strong>Automotive Software:</strong> Vehicles, sensors, and control systems modeled using OOP for modular updates and diagnostics.</li>
+  </ul>
+
+  <h2>7. Deep Dive: Encapsulation and Access Modifiers</h2>
+  <p>Encapsulation hides internal object data to protect it from unintended modification. In C++, you control access with:</p>
+  <ul>
+    <li><code>public:</code> Accessible from anywhere</li>
+    <li><code>private:</code> Accessible only within the class</li>
+    <li><code>protected:</code> Accessible within the class and derived classes</li>
+  </ul>
+
+  <h3>Example: Encapsulation in Action</h3>
+  <pre class="code-example">
+class Account {
+  private:
+    double balance;
+
+  public:
+    Account(double initialBalance) {
+      if (initialBalance &gt;= 0) balance = initialBalance;
+      else balance = 0;
+    }
+
+    void deposit(double amount) {
+      if (amount &gt; 0) balance += amount;
+    }
+
+    void withdraw(double amount) {
+      if (amount &lt;= balance) balance -= amount;
+    }
+
+    double getBalance() {
+      return balance;
+    }
+};
+  </pre>
+
+  <p>This protects <code>balance</code> from being set directly, preventing errors or fraud.</p>
+
+  <h2>8. Hands-On: Simple Object-Oriented Calculator</h2>
+  <p>Let's build a small interactive calculator using JavaScript to illustrate OOP principles:</p>
+
+  <button onclick="showCalculator()">Show Calculator</button>
+  <div id="calculator" style="display:none; margin-top:1rem;">
+
+    <label>Enter first number: <input id="num1" type="number" /></label><br/><br/>
+    <label>Enter second number: <input id="num2" type="number" /></label><br/><br/>
+    <button onclick="performCalculation()">Calculate Sum</button>
+
+    <p id="calcResult" style="font-weight:bold; margin-top:1rem;"></p>
+  </div>
+
+  <h2>9. Summary</h2>
+  <p>Object-Oriented System Development encourages modeling software as interacting objects, encapsulating data and behavior for modular, maintainable, and scalable programs. Learning OOP concepts in C++ builds a strong foundation for developing complex systems in many industries.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function checkQuiz() {
+      const options = document.getElementsByName('answer');
+      let selected = null;
+      for (const option of options) {
+        if (option.checked) selected = option.value;
+      }
+      const answerElement = document.getElementById('quizAnswer');
+      if (!selected) {
+        answerElement.textContent = "Please select an answer before submitting.";
+        answerElement.style.color = "red";
+        return;
+      }
+      if (selected === 'c') {
+        answerElement.textContent = "Correct! Compilation is not a pillar of OOP.";
+        answerElement.style.color = "green";
+      } else {
+        answerElement.textContent = "Incorrect. Try again!";
+        answerElement.style.color = "red";
+      }
+    }
+
+    function showCalculator() {
+      const calc = document.getElementById('calculator');
+      if (calc.style.display === 'none') {
+        calc.style.display = 'block';
+      } else {
+        calc.style.display = 'none';
+      }
+    }
+
+    // Simple Calculator class in JS to show OOP concept
+    class Calculator {
+      constructor(num1, num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+      }
+      sum() {
+        return this.num1 + this.num2;
+      }
+    }
+
+    function performCalculation() {
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+      const resultElement = document.getElementById('calcResult');
+
+      if (isNaN(n1) || isNaN(n2)) {
+        resultElement.textContent = "Please enter valid numbers.";
+        resultElement.style.color = "red";
+        return;
+      }
+
+      const calc = new Calculator(n1, n2);
+      resultElement.textContent = `Sum: ${calc.sum()}`;
+      resultElement.style.color = "green";
+    }
+  </script>
+
+</body>
+</html>

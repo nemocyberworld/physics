@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Functions in Object-Oriented C++ - Interactive Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .interactive-output {
+      background: #eef6fc;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-left: 4px solid #0059b3;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    .funfact {
+      background: #fff7cc;
+      border-left: 5px solid #ffcc00;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Functions in Object-Oriented C++</h1>
+  <p>
+    Welcome to this interactive lesson on <strong>Functions</strong> in <em>Object-Oriented Programming</em> using C++.
+    Functions are fundamental building blocks in programming—they help organize code into reusable blocks that perform specific tasks.
+  </p>
+
+  <h2>What is a Function?</h2>
+  <p>
+    A function is a block of code that performs a particular task. It can take input parameters, execute code, and optionally return a value.
+    In Object-Oriented Programming (OOP), functions are often called <strong>methods</strong> when they are defined inside a class.
+  </p>
+
+  <h3>Function Syntax in C++</h3>
+  <pre>
+return_type function_name(parameter_list) {
+    // body of the function
+    // code to be executed
+}
+  </pre>
+  <p>Example:</p>
+  <pre>
+int add(int a, int b) {
+    return a + b;
+}
+  </pre>
+
+  <h2>Functions in Classes (Methods)</h2>
+  <p>
+    In OOP, functions inside classes are called methods. They operate on data contained in the class and help define the behavior of objects.
+  </p>
+
+  <pre>
+class Car {
+  public:
+    void startEngine() {
+      std::cout << "Engine started!" << std::endl;
+    }
+};
+  </pre>
+
+  <h2>Real World Example: Bank Account</h2>
+  <p>Imagine you are building a banking application. You need to create an account, deposit money, withdraw money, and check the balance.</p>
+
+  <pre>
+class BankAccount {
+  private:
+    double balance;
+
+  public:
+    BankAccount() { balance = 0; }
+
+    void deposit(double amount) {
+      balance += amount;
+      std::cout << "Deposited: $" << amount << std::endl;
+    }
+
+    void withdraw(double amount) {
+      if(amount &lt;= balance) {
+        balance -= amount;
+        std::cout << "Withdrawn: $" << amount << std::endl;
+      } else {
+        std::cout << "Insufficient funds!" << std::endl;
+      }
+    }
+
+    double getBalance() {
+      return balance;
+    }
+};
+  </pre>
+
+  <h3>Try a Simple Bank Account Deposit!</h3>
+  <p>Enter an amount to deposit:</p>
+  <input id="depositAmount" type="number" min="0" step="0.01" value="50" />
+  <button onclick="depositMoney()">Deposit</button>
+
+  <div class="interactive-output" id="bankOutput">Balance: $0.00</div>
+
+  <script>
+    // BankAccount simulation in JavaScript (mimics C++ class behavior)
+    class BankAccount {
+      constructor() {
+        this.balance = 0;
+      }
+      deposit(amount) {
+        this.balance += amount;
+        return `Deposited: $${amount.toFixed(2)}`;
+      }
+      withdraw(amount) {
+        if (amount <= this.balance) {
+          this.balance -= amount;
+          return `Withdrawn: $${amount.toFixed(2)}`;
+        } else {
+          return "Insufficient funds!";
+        }
+      }
+      getBalance() {
+        return this.balance;
+      }
+    }
+
+    const myAccount = new BankAccount();
+
+    function depositMoney() {
+      const amount = parseFloat(document.getElementById("depositAmount").value);
+      if (isNaN(amount) || amount <= 0) {
+        alert("Please enter a valid positive number.");
+        return;
+      }
+      const message = myAccount.deposit(amount);
+      const balance = myAccount.getBalance();
+      document.getElementById("bankOutput").textContent = message + `\nBalance: $${balance.toFixed(2)}`;
+    }
+  </script>
+
+  <h2>Function Parameters and Return Types</h2>
+  <p>Functions can take inputs, called <em>parameters</em>, and return outputs using <em>return statements</em>. Here's an example of a function that calculates the area of a rectangle:</p>
+  <pre>
+double area(double width, double height) {
+  return width * height;
+}
+  </pre>
+
+  <h3>Interactive Area Calculator</h3>
+  <p>Enter width and height:</p>
+  Width: <input id="width" type="number" min="0" step="0.01" value="5" />
+  Height: <input id="height" type="number" min="0" step="0.01" value="10" />
+  <button onclick="calculateArea()">Calculate Area</button>
+
+  <div class="interactive-output" id="areaOutput">Area: </div>
+
+  <script>
+    function calculateArea() {
+      const w = parseFloat(document.getElementById("width").value);
+      const h = parseFloat(document.getElementById("height").value);
+      if (isNaN(w) || w <= 0 || isNaN(h) || h <= 0) {
+        alert("Please enter valid positive numbers for width and height.");
+        return;
+      }
+      const area = w * h;
+      document.getElementById("areaOutput").textContent = `Area: ${area.toFixed(2)} square units`;
+    }
+  </script>
+
+  <h2>Why Use Functions?</h2>
+  <ul>
+    <li><strong>Code Reusability:</strong> Write once, use multiple times.</li>
+    <li><strong>Organization:</strong> Break large programs into manageable pieces.</li>
+    <li><strong>Abstraction:</strong> Hide complex details, show only what’s necessary.</li>
+    <li><strong>Maintainability:</strong> Easier to update and fix bugs.</li>
+  </ul>
+
+  <h2>Advanced: Function Overloading in C++</h2>
+  <p>
+    Function overloading means having multiple functions with the same name but different parameter lists.
+    The compiler decides which one to call based on the arguments.
+  </p>
+
+  <pre>
+int add(int a, int b) {
+  return a + b;
+}
+
+double add(double a, double b) {
+  return a + b;
+}
+  </pre>
+
+  <h2>Fun Fact!</h2>
+  <div class="funfact">
+    The concept of functions dates back to ancient mathematics, but the term "function" was formally introduced by the mathematician Gottfried Wilhelm Leibniz in the 17th century.
+  </div>
+
+  <h2>Practical Applications of Functions in OOP</h2>
+  <ul>
+    <li><strong>Game Development:</strong> Functions handle player actions, score calculations, and game logic.</li>
+    <li><strong>Web Browsers:</strong> Functions render pages, manage user input, and handle network requests.</li>
+    <li><strong>Banking Software:</strong> Functions manage transactions, interest calculations, and reporting.</li>
+    <li><strong>Robotics:</strong> Functions control sensors, motors, and decision-making algorithms.</li>
+  </ul>
+
+  <h2>Summary</h2>
+  <p>
+    Functions are the heart of programming, especially in Object-Oriented Languages like C++. They enable encapsulation, reuse, and modularity.
+    Understanding functions will give you a strong foundation to build complex and efficient programs.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

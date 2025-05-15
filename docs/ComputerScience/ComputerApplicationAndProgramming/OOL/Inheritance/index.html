@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inheritance – Extending Classes in C++</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .interactive-output {
+      background: #eef6fc;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-left: 4px solid #0059b3;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    .funfact {
+      background: #fff7cc;
+      border-left: 5px solid #ffcc00;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Inheritance – Extending Classes in Object-Oriented C++</h1>
+
+  <p>
+    Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that allows one class to inherit properties and behaviors (data members and functions) from another class.
+    This promotes code reuse, establishes relationships between classes, and supports polymorphism.
+  </p>
+
+  <h2>What is Inheritance?</h2>
+  <p>
+    In C++, inheritance lets you create a new class (called the <strong>derived class</strong> or <em>child</em>) based on an existing class (called the <strong>base class</strong> or <em>parent</em>).
+    The derived class inherits attributes and methods from the base class and can also add its own unique features.
+  </p>
+
+  <h3>Basic Syntax of Inheritance in C++</h3>
+  <pre>
+class BaseClass {
+  // base class members
+};
+
+class DerivedClass : access_specifier BaseClass {
+  // derived class members
+};
+  </pre>
+
+  <p>
+    The <code>access_specifier</code> is usually <code>public</code>, <code>protected</code>, or <code>private</code>, with <code>public</code> being most common.
+  </p>
+
+  <h2>Simple Example: Animals and Dogs</h2>
+  <p>
+    Let's say we have a base class <code>Animal</code> that defines basic animal properties and behaviors.
+    We want to create a derived class <code>Dog</code> that inherits from <code>Animal</code> but also has dog-specific behavior.
+  </p>
+
+  <pre>
+class Animal {
+public:
+  void eat() {
+    std::cout &lt;&lt; "This animal eats food." &lt;&lt; std::endl;
+  }
+};
+
+class Dog : public Animal {
+public:
+  void bark() {
+    std::cout &lt;&lt; "The dog barks: Woof!" &lt;&lt; std::endl;
+  }
+};
+  </pre>
+
+  <p>
+    Here, <code>Dog</code> inherits the <code>eat()</code> method from <code>Animal</code> and also has its own method <code>bark()</code>.
+  </p>
+
+  <h3>Interactive Example</h3>
+  <p>Click the buttons below to simulate calling methods on base and derived classes:</p>
+
+  <button onclick="animalEat()">Animal: eat()</button>
+  <button onclick="dogEat()">Dog: eat() (inherited)</button>
+  <button onclick="dogBark()">Dog: bark()</button>
+
+  <div class="interactive-output" id="inheritanceOutput"></div>
+
+  <script>
+    // Simulate the classes in JS to demonstrate inheritance concept
+    class Animal {
+      eat() {
+        return "This animal eats food.";
+      }
+    }
+
+    class Dog extends Animal {
+      bark() {
+        return "The dog barks: Woof!";
+      }
+    }
+
+    const animal = new Animal();
+    const dog = new Dog();
+
+    function animalEat() {
+      document.getElementById("inheritanceOutput").textContent = animal.eat();
+    }
+
+    function dogEat() {
+      document.getElementById("inheritanceOutput").textContent = dog.eat();
+    }
+
+    function dogBark() {
+      document.getElementById("inheritanceOutput").textContent = dog.bark();
+    }
+  </script>
+
+  <h2>Real World Example: Vehicles</h2>
+  <p>
+    Consider a base class <code>Vehicle</code> and derived classes <code>Car</code> and <code>Bike</code>.
+    All vehicles have common properties like speed and capacity, but each type can have unique features.
+  </p>
+
+  <pre>
+class Vehicle {
+public:
+  int speed;
+  int capacity;
+
+  void start() {
+    std::cout &lt;&lt; "Vehicle started." &lt;&lt; std::endl;
+  }
+};
+
+class Car : public Vehicle {
+public:
+  int numDoors;
+
+  void openTrunk() {
+    std::cout &lt;&lt; "Trunk is open." &lt;&lt; std::endl;
+  }
+};
+
+class Bike : public Vehicle {
+public:
+  bool hasCarrier;
+
+  void ringBell() {
+    std::cout &lt;&lt; "Ring ring!" &lt;&lt; std::endl;
+  }
+};
+  </pre>
+
+  <h3>Try it Yourself</h3>
+  <p>Choose a vehicle type and action:</p>
+
+  <select id="vehicleType">
+    <option value="vehicle">Vehicle</option>
+    <option value="car">Car</option>
+    <option value="bike">Bike</option>
+  </select>
+
+  <select id="vehicleAction">
+    <option value="start">Start</option>
+    <option value="openTrunk">Open Trunk (Car only)</option>
+    <option value="ringBell">Ring Bell (Bike only)</option>
+  </select>
+
+  <button onclick="performAction()">Perform Action</button>
+
+  <div class="interactive-output" id="vehicleOutput"></div>
+
+  <script>
+    class Vehicle {
+      constructor() {
+        this.speed = 0;
+        this.capacity = 4;
+      }
+      start() {
+        return "Vehicle started.";
+      }
+    }
+
+    class Car extends Vehicle {
+      constructor() {
+        super();
+        this.numDoors = 4;
+      }
+      openTrunk() {
+        return "Trunk is open.";
+      }
+    }
+
+    class Bike extends Vehicle {
+      constructor() {
+        super();
+        this.hasCarrier = true;
+      }
+      ringBell() {
+        return "Ring ring!";
+      }
+    }
+
+    function performAction() {
+      const vehicleType = document.getElementById("vehicleType").value;
+      const action = document.getElementById("vehicleAction").value;
+      let obj;
+
+      if (vehicleType === "vehicle") {
+        obj = new Vehicle();
+      } else if (vehicleType === "car") {
+        obj = new Car();
+      } else if (vehicleType === "bike") {
+        obj = new Bike();
+      }
+
+      let result = "";
+
+      if (action === "start" && typeof obj.start === "function") {
+        result = obj.start();
+      } else if (action === "openTrunk" && typeof obj.openTrunk === "function") {
+        result = obj.openTrunk();
+      } else if (action === "ringBell" && typeof obj.ringBell === "function") {
+        result = obj.ringBell();
+      } else {
+        result = "This action is not available for the selected vehicle.";
+      }
+
+      document.getElementById("vehicleOutput").textContent = result;
+    }
+  </script>
+
+  <h2>Access Specifiers and Inheritance</h2>
+  <p>
+    When inheriting, access specifiers (<code>public</code>, <code>protected</code>, <code>private</code>) control visibility of base class members:
+  </p>
+  <ul>
+    <li><strong>public inheritance:</strong> public and protected members stay public/protected in derived class.</li>
+    <li><strong>protected inheritance:</strong> public and protected members become protected in derived class.</li>
+    <li><strong>private inheritance:</strong> public and protected members become private in derived class.</li>
+  </ul>
+  <p>Public inheritance is most common and models "is-a" relationships (e.g., a Dog is an Animal).</p>
+
+  <h2>Types of Inheritance in C++</h2>
+  <ul>
+    <li>Single inheritance (one base, one derived class)</li>
+    <li>Multiple inheritance (a derived class inherits from multiple base classes)</li>
+    <li>Multilevel inheritance (chain of inheritance like grandparent → parent → child)</li>
+    <li>Hierarchical inheritance (multiple derived classes from one base class)</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <div class="funfact">
+    The concept of inheritance in programming is inspired by real-world biological inheritance, where offspring inherit traits from their parents.
+  </div>
+
+  <h2>Practical Applications of Inheritance</h2>
+  <ul>
+    <li><strong>GUI Frameworks:</strong> Base classes define common controls; derived classes extend with specific features (e.g., Button, TextBox).</li>
+    <li><strong>Game Development:</strong> Characters inherit common properties from a base class, with specialized subclasses for enemies, players, and NPCs.</li>
+    <li><strong>Automobile Software:</strong> Base vehicle class extended by specific car, truck, or motorcycle classes with additional features.</li>
+    <li><strong>Banking Systems:</strong> Base Account class extended by SavingsAccount, CheckingAccount classes with specific rules.</li>
+  </ul>
+
+  <h2>Summary</h2>
+  <p>
+    Inheritance is a powerful mechanism to create a new class from an existing one, promoting code reuse and logical structure.
+    Understanding inheritance is key to mastering Object-Oriented Programming in C++.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

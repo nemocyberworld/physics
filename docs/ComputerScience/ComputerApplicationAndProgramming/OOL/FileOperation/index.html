@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Files in C++ - Examples</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0.5rem 1rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .example-container {
+      margin-top: 1rem;
+      border: 2px solid #003366;
+      border-radius: 8px;
+      background: #e7f0ff;
+      padding: 1rem;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+    .quiz {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px solid #003366;
+      border-radius: 8px;
+      background: #e7f0ff;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    .fun-fact {
+      background-color: #fffae6;
+      border-left: 5px solid #f4c430;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Object-Oriented Programming in C++</h1>
+  <h2>Working with Files</h2>
+
+  <p>
+    Working with files is a fundamental part of programming that allows you to read from and write data to files stored on disk.
+    C++ provides a powerful and easy-to-use way to handle files via its <code>fstream</code> library.
+  </p>
+
+  <h3>1. Introduction to File Streams</h3>
+  <p>
+    To work with files, you include the header <code>&lt;fstream&gt;</code>, which provides three main classes:
+  </p>
+  <ul>
+    <li><code>ifstream</code>: input file stream (reading from files)</li>
+    <li><code>ofstream</code>: output file stream (writing to files)</li>
+    <li><code>fstream</code>: file stream (both reading and writing)</li>
+  </ul>
+
+  <h3>2. Writing to a File with <code>ofstream</code></h3>
+  <p>Let's start by creating and writing text to a file named <code>example.txt</code>:</p>
+  <pre>
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");  // Open file for writing
+
+    if (!outFile) {
+        cout &lt;&lt; "Error opening file for writing." &lt;&lt; endl;
+        return 1;
+    }
+
+    outFile &lt;&lt; "Hello, this is a test file." &lt;&lt; endl;
+    outFile &lt;&lt; "Writing data to a file is simple!" &lt;&lt; endl;
+
+    outFile.close();  // Always close your files
+    cout &lt;&lt; "Data written successfully." &lt;&lt; endl;
+    return 0;
+}
+  </pre>
+
+  <p>
+    Here, <code>ofstream outFile("example.txt");</code> opens the file for writing.
+    If the file does not exist, it will be created. If it exists, it will be overwritten.
+  </p>
+
+  <h3>3. Reading from a File with <code>ifstream</code></h3>
+  <p>To read data back from the file:</p>
+  <pre>
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    ifstream inFile("example.txt");  // Open file for reading
+
+    if (!inFile) {
+        cout &lt;&lt; "Error opening file for reading." &lt;&lt; endl;
+        return 1;
+    }
+
+    string line;
+    while (getline(inFile, line)) {
+        cout &lt;&lt; line &lt;&lt; endl;
+    }
+
+    inFile.close();
+    return 0;
+}
+  </pre>
+
+  <p>
+    We use <code>getline()</code> to read the file line by line, which is convenient for text files.
+  </p>
+
+  <h3>4. Appending Data to a File</h3>
+  <p>Sometimes, you want to add data to the end of a file without deleting its contents. This is done by opening the file in <code>append</code> mode:</p>
+  <pre>
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt", ios::app); // Open file in append mode
+
+    if (!outFile) {
+        cout &lt;&lt; "Error opening file." &lt;&lt; endl;
+        return 1;
+    }
+
+    outFile &lt;&lt; "Appending a new line to the file." &lt;&lt; endl;
+
+    outFile.close();
+    cout &lt;&lt; "Data appended successfully." &lt;&lt; endl;
+    return 0;
+}
+  </pre>
+
+  <h3>5. Using <code>fstream</code> for Both Reading and Writing</h3>
+  <p>
+    The <code>fstream</code> class can do both:
+  </p>
+  <pre>
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    fstream file("example.txt", ios::in | ios::out | ios::app);
+
+    if (!file) {
+        cout &lt;&lt; "File opening failed." &lt;&lt; endl;
+        return 1;
+    }
+
+    // Write to file
+    file &lt;&lt; "Adding more content with fstream." &lt;&lt; endl;
+
+    // Move to beginning to read content
+    file.seekg(0);
+
+    string line;
+    while (getline(file, line)) {
+        cout &lt;&lt; line &lt;&lt; endl;
+    }
+
+    file.close();
+    return 0;
+}
+  </pre>
+
+  <h3>6. Practical Application: Saving User Data</h3>
+  <p>
+    Imagine you are creating a simple program to save users' names and scores. You can write the data to a file and read it later:
+  </p>
+  <pre>
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+struct User {
+    string name;
+    int score;
+};
+
+int main() {
+    ofstream outFile("users.txt", ios::app);
+
+    if (!outFile) {
+        cout &lt;&lt; "Cannot open file." &lt;&lt; endl;
+        return 1;
+    }
+
+    User user;
+    cout &lt;&lt; "Enter name: ";
+    getline(cin, user.name);
+    cout &lt;&lt; "Enter score: ";
+    cin &gt;&gt; user.score;
+
+    outFile &lt;&lt; user.name &lt;&lt; "," &lt;&lt; user.score &lt;&lt; endl;
+    outFile.close();
+
+    cout &lt;&lt; "User data saved." &lt;&lt; endl;
+    return 0;
+}
+  </pre>
+
+  <h3>7. Reading User Data Back</h3>
+  <pre>
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+int main() {
+    ifstream inFile("users.txt");
+
+    if (!inFile) {
+        cout &lt;&lt; "Cannot open file." &lt;&lt; endl;
+        return 1;
+    }
+
+    string line;
+    while (getline(inFile, line)) {
+        stringstream ss(line);
+        string name;
+        int score;
+        getline(ss, name, ',');
+        ss &gt;&gt; score;
+
+        cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; ", Score: " &lt;&lt; score &lt;&lt; endl;
+    }
+
+    inFile.close();
+    return 0;
+}
+  </pre>
+
+  <h3>8. Important Tips When Working with Files</h3>
+  <ul>
+    <li>Always check if the file opened successfully before proceeding.</li>
+    <li>Close files explicitly with <code>close()</code> to avoid resource leaks.</li>
+    <li>Use <code>ios::app</code> to append instead of overwrite.</li>
+    <li>Use string streams (<code>stringstream</code>) to parse complex file content.</li>
+    <li>Handle file exceptions in advanced programs for robustness.</li>
+  </ul>
+
+  <h3>9. Interactive: Explore File I/O Examples</h3>
+  <p>Click buttons below to display various code samples on file handling:</p>
+  <button onclick="showExample('writeFile')">Write File</button>
+  <button onclick="showExample('readFile')">Read File</button>
+  <button onclick="showExample('appendFile')">Append File</button>
+  <button onclick="showExample('fstream')">Read/Write fstream</button>
+  <button onclick="showExample('userData')">User Data Save</button>
+  <button onclick="showExample('readUserData')">Read User Data</button>
+
+  <div class="example-container" id="exampleCode" style="display:none;"></div>
+
+  <h3>10. Quiz: Test Your File I/O Knowledge</h3>
+  <div class="quiz">
+    <p><strong>Question:</strong> Which mode is used to append data to a file without overwriting existing content?</p>
+    <form id="quizForm">
+      <input type="radio" id="a" name="q1" value="a" />
+      <label for="a">a) ios::in</label><br />
+      <input type="radio" id="b" name="q1" value="b" />
+      <label for="b">b) ios::out</label><br />
+      <input type="radio" id="c" name="q1" value="c" />
+      <label for="c">c) ios::app</label><br />
+      <input type="radio" id="d" name="q1" value="d" />
+      <label for="d">d) ios::trunc</label><br />
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <div id="quizResult" class="result"></div>
+  </div>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The concept of file handling dates back to early computer systems in the 1950s when punch cards and magnetic tapes were the main data storage devices!
+  </div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    const examples = {
+      writeFile: `#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");  // Open file for writing
+
+    if (!outFile) {
+        cout << "Error opening file for writing." << endl;
+        return 1;
+    }
+
+    outFile << "Hello, this is a test file." << endl;
+    outFile << "Writing data to a file is simple!" << endl;
+
+    outFile.close();  // Always close your files
+    cout << "Data written successfully." << endl;
+    return 0;
+}`,
+      readFile: `#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream inFile("example.txt");  // Open file for reading
+
+    if (!inFile) {
+        cout << "Error opening file for reading." << endl;
+        return 1;
+    }
+
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+
+    inFile.close();
+    return 0;
+}`,
+      appendFile: `#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt", ios::app); // Open file in append mode
+
+    if (!outFile) {
+        cout << "Error opening file." << endl;
+        return 1;
+    }
+
+    outFile << "Appending a new line to the file." << endl;
+
+    outFile.close();
+    cout << "Data appended successfully." << endl;
+    return 0;
+}`,
+      fstream: `#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main() {
+    fstream file("example.txt", ios::in | ios::out | ios::app);
+
+    if (!file) {
+        cout << "File opening failed." << endl;
+        return 1;
+    }
+
+    // Write to file
+    file << "Adding more content with fstream." << endl;
+
+    // Move to beginning to read content
+    file.seekg(0);
+
+    string line;
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+
+    file.close();
+    return 0;
+}`,
+      userData: `#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct User {
+    string name;
+    int score;
+};
+
+int main() {
+    ofstream outFile("users.txt", ios::app);
+
+    if (!outFile) {
+        cout << "Cannot open file." << endl;
+        return 1;
+    }
+
+    User user;
+    cout << "Enter name: ";
+    getline(cin, user.name);
+    cout << "Enter score: ";
+    cin >> user.score;
+
+    outFile << user.name << "," << user.score << endl;
+    outFile.close();
+
+    cout << "User data saved." << endl;
+    return 0;
+}`,
+      readUserData: `#include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("users.txt");
+
+    if (!inFile) {
+        cout << "Cannot open file." << endl;
+        return 1;
+    }
+
+    string line;
+    while (getline(inFile, line)) {
+        stringstream ss(line);
+        string name;
+        int score;
+        getline(ss, name, ',');
+        ss >> score;
+
+        cout << "Name: " << name << ", Score: " << score << endl;
+    }
+
+    inFile.close();
+    return 0;
+}`,
+    };
+
+    function showExample(exampleKey) {
+      const exampleDiv = document.getElementById("exampleCode");
+      exampleDiv.style.display = "block";
+      exampleDiv.textContent = examples[exampleKey];
+      exampleDiv.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function checkAnswer() {
+      const quizResult = document.getElementById("quizResult");
+      const selected = document.querySelector('input[name="q1"]:checked');
+      if (!selected) {
+        quizResult.textContent = "Please select an answer.";
+        quizResult.style.color = "red";
+        return;
+      }
+      if (selected.value === "c") {
+        quizResult.textContent = "Correct! ios::app is used to append data.";
+        quizResult.style.color = "green";
+      } else {
+        quizResult.textContent =
+          "Incorrect. The correct answer is ios::app.";
+        quizResult.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

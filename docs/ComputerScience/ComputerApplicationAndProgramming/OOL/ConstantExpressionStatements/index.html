@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Declaration and Constants, Expression and Statements in C++</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0 1.5rem 0;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .answer {
+      background-color: #e6f0ff;
+      border-left: 5px solid #003366;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+    .fun-fact {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffcc00;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Declaration and Constants, Expression and Statements in C++</h1>
+
+  <h2>1. Introduction</h2>
+  <p>In C++, <strong>declarations</strong>, <strong>constants</strong>, <strong>expressions</strong>, and <strong>statements</strong> form the foundation of all programs. Understanding these concepts is essential for mastering C++ and object-oriented programming.</p>
+
+  <h2>2. Declaration</h2>
+  <p>A <em>declaration</em> tells the compiler about the existence and type of variables, functions, or objects.</p>
+  <p>Every variable or object must be declared before use.</p>
+  
+  <button onclick="toggleAnswer('declarationExample')">Show/Hide Code Example: Variable Declaration</button>
+  <div id="declarationExample" class="answer">
+<pre>
+// Declaring variables in C++
+int age;             // declares an integer variable named age
+double price;        // declares a double precision floating-point variable
+char grade;          // declares a character variable
+bool isPassed;       // declares a boolean variable
+  </pre>
+  </div>
+
+  <p>You can also declare multiple variables in one line:</p>
+  <pre>int x, y, z;</pre>
+
+  <h3>Initialization vs Declaration</h3>
+  <p>Initialization is assigning an initial value during declaration:</p>
+
+  <button onclick="toggleAnswer('initializationExample')">Show/Hide Code Example: Initialization</button>
+  <div id="initializationExample" class="answer">
+<pre>
+int age = 25;          // declared and initialized
+double price = 10.99;
+char grade = 'A';
+bool isPassed = true;
+</pre>
+  </div>
+
+  <h2>3. Constants</h2>
+  <p>Constants are variables whose value cannot be changed once initialized. They protect your program from accidental modification of important values.</p>
+
+  <h3>How to declare constants in C++?</h3>
+  <pre>const data_type variableName = value;</pre>
+
+  <button onclick="toggleAnswer('constantExample')">Show/Hide Code Example: Constants</button>
+  <div id="constantExample" class="answer">
+<pre>
+const double PI = 3.14159;
+const int MAX_USERS = 100;
+const char NEWLINE = '\n';
+</pre>
+  </div>
+
+  <p><strong>Why use constants?</strong></p>
+  <ul>
+    <li>Make programs easier to read and maintain</li>
+    <li>Prevent accidental changes to critical values</li>
+    <li>Allow the compiler to optimize the code better</li>
+  </ul>
+
+  <h3>Fun Fact</h3>
+  <div class="fun-fact">
+    The <code>const</code> keyword is your program’s way of saying “Don’t touch this value!” — making your code safer and less error-prone.
+  </div>
+
+  <h2>4. Expressions</h2>
+  <p>An <em>expression</em> is a combination of variables, constants, operators, and function calls that are evaluated to produce a value.</p>
+  
+  <p>Examples of expressions:</p>
+  <pre>5 + 3</pre>
+  <pre>age * 2</pre>
+  <pre>price / 4.5</pre>
+  <pre>(x + y) > z</pre>
+
+  <h3>Operators used in expressions:</h3>
+  <ul>
+    <li><strong>Arithmetic operators:</strong> +, -, *, /, %</li>
+    <li><strong>Relational operators:</strong> ==, !=, &gt;, &lt;, &gt;=, &lt;=</li>
+    <li><strong>Logical operators:</strong> &&, ||, !</li>
+  </ul>
+
+  <button onclick="toggleAnswer('expressionExample')">Show/Hide Code Example: Expressions</button>
+  <div id="expressionExample" class="answer">
+<pre>
+int result = 5 + 3 * 2;      // result is 11 because * has higher precedence
+bool isAdult = (age >= 18);
+bool passed = (score > 50) && (attendance > 75);
+</pre>
+  </div>
+
+  <h2>5. Statements</h2>
+  <p>A <em>statement</em> is a complete instruction that performs some action. It can be a declaration, an expression followed by a semicolon, or a control statement.</p>
+
+  <p>Examples:</p>
+  <pre>int x = 10;</pre>
+  <pre>y = x + 5;</pre>
+  <pre>cout << "Hello, world!" << endl;</pre>
+
+  <h3>Types of statements:</h3>
+  <ul>
+    <li><strong>Declaration statements:</strong> Declare variables or constants.</li>
+    <li><strong>Expression statements:</strong> Perform calculations or call functions.</li>
+    <li><strong>Control statements:</strong> if, else, for, while, switch.</li>
+  </ul>
+
+  <button onclick="toggleAnswer('statementExample')">Show/Hide Code Example: Statements</button>
+  <div id="statementExample" class="answer">
+<pre>
+int age = 20;                      // declaration statement
+age = age + 1;                    // expression statement
+if (age >= 18) {                  // control statement
+  cout << "You are an adult." << endl;
+} else {
+  cout << "You are a minor." << endl;
+}
+</pre>
+  </div>
+
+  <h2>6. Practical Applications and Examples</h2>
+  <p>Understanding declarations, constants, expressions, and statements helps you in every part of programming, especially in Object-Oriented Programming (OOP) where you work with classes and objects.</p>
+
+  <h3>Example: Using constants in a class</h3>
+
+  <button onclick="toggleAnswer('classConstantsExample')">Show/Hide Code Example: Constants in Classes</button>
+  <div id="classConstantsExample" class="answer">
+<pre>
+class Circle {
+  public:
+    static const double PI;       // constant declaration
+    double radius;
+
+    Circle(double r) {
+      radius = r;
+    }
+
+    double area() {
+      return PI * radius * radius;
+    }
+};
+
+const double Circle::PI = 3.14159;  // constant definition outside class
+
+int main() {
+  Circle c(5);
+  cout << "Area of circle: " << c.area() << endl;
+  return 0;
+}
+</pre>
+  </div>
+
+  <h2>7. Summary</h2>
+  <ul>
+    <li><strong>Declaration:</strong> tells the compiler about variables, constants, or functions.</li>
+    <li><strong>Constants:</strong> variables that cannot be changed after initialization; declared with <code>const</code>.</li>
+    <li><strong>Expressions:</strong> combinations of variables, constants, and operators that evaluate to a value.</li>
+    <li><strong>Statements:</strong> complete instructions ending with a semicolon.</li>
+    <li>These concepts are the building blocks of all C++ programs including Object-Oriented Programming.</li>
+  </ul>
+
+  <h2>8. Quiz: Test Your Understanding</h2>
+  <form id="quizForm">
+    <label>1) What keyword is used to declare a constant in C++?</label><br/>
+    <input type="radio" id="q1a" name="q1" value="a" /><label for="q1a">static</label><br/>
+    <input type="radio" id="q1b" name="q1" value="b" /><label for="q1b">const</label><br/>
+    <input type="radio" id="q1c" name="q1" value="c" /><label for="q1c">volatile</label><br/><br/>
+
+    <label>2) Which of these is an expression?</label><br/>
+    <input type="radio" id="q2a" name="q2" value="a" /><label for="q2a">int x = 5;</label><br/>
+    <input type="radio" id="q2b" name="q2" value="b" /><label for="q2b">5 + 3 * 2</label><br/>
+    <input type="radio" id="q2c" name="q2" value="c" /><label for="q2c">cout &lt;&lt; "Hello";</label><br/><br/>
+
+    <label>3) What does a statement in C++ end with?</label><br/>
+    <input type="radio" id="q3a" name="q3" value="a" /><label for="q3a">a period (.)</label><br/>
+    <input type="radio" id="q3b" name="q3" value="b" /><label for="q3b">a semicolon (;)</label><br/>
+    <input type="radio" id="q3c" name="q3" value="c" /><label for="q3c">a colon (:)</label><br/><br/>
+
+    <button type="button" onclick="checkQuiz()">Submit Answers</button>
+  </form>
+
+  <div id="quizResult" style="margin-top:1rem; font-weight:bold;"></div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+
+    function checkQuiz() {
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b'
+      };
+
+      let score = 0;
+      const total = Object.keys(answers).length;
+
+      for (const q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (!selected) {
+          alert('Please answer all questions before submitting.');
+          return;
+        }
+        if (selected.value === answers[q]) {
+          score++;
+        }
+      }
+
+      let message = `You scored ${score} out of ${total}. `;
+      if (score === total) {
+        message += 'Excellent! You have a solid grasp of declarations, constants, expressions, and statements.';
+      } else if (score >= total / 2) {
+        message += 'Good job! Review the lesson to improve further.';
+      } else {
+        message += 'Keep practicing! These are fundamental concepts worth mastering.';
+      }
+      document.getElementById('quizResult').textContent = message;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Encapsulation in Object-Oriented C++</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .interactive-output {
+      background: #eef6fc;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-left: 4px solid #0059b3;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    .funfact {
+      background: #fff7cc;
+      border-left: 5px solid #ffcc00;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encapsulation in Object-Oriented C++</h1>
+
+  <p>
+    <strong>Encapsulation</strong> is one of the core principles of Object-Oriented Programming (OOP).
+    It refers to the bundling of data (variables) and methods (functions) that operate on the data into a single unit, called a <em>class</em>, and restricting direct access to some of the object's components.
+  </p>
+
+  <h2>Why Encapsulation?</h2>
+  <p>
+    Encapsulation helps protect an object's internal state from unintended interference and misuse by hiding its internal details and exposing only what is necessary through a public interface.
+  </p>
+
+  <h2>Access Specifiers in C++</h2>
+  <p>Encapsulation is implemented using three key access specifiers:</p>
+  <ul>
+    <li><strong>private:</strong> Members are accessible only within the class itself.</li>
+    <li><strong>protected:</strong> Members are accessible within the class and by derived classes.</li>
+    <li><strong>public:</strong> Members are accessible from anywhere.</li>
+  </ul>
+
+  <h2>Simple Example of Encapsulation</h2>
+  <pre>
+class BankAccount {
+private:
+  double balance;  // private data, hidden from outside
+
+public:
+  BankAccount(double initialBalance) {
+    if (initialBalance &gt;= 0)
+      balance = initialBalance;
+    else
+      balance = 0;
+  }
+
+  void deposit(double amount) {
+    if (amount &gt; 0)
+      balance += amount;
+  }
+
+  void withdraw(double amount) {
+    if (amount &gt; 0 &amp;&amp; amount &lt;= balance)
+      balance -= amount;
+  }
+
+  double getBalance() {
+    return balance;
+  }
+};
+  </pre>
+
+  <p>
+    Here, the <code>balance</code> is <strong>private</strong>, meaning no outside code can directly change it.
+    Instead, public methods like <code>deposit</code>, <code>withdraw</code>, and <code>getBalance</code> control how the balance changes and is accessed.
+  </p>
+
+  <h3>Interactive Demo</h3>
+  <p>Try managing your bank account below!</p>
+
+  <label>Initial Balance: $<input type="number" id="initialBalance" value="1000" min="0" /></label><br /><br />
+  <button onclick="createAccount()">Create Account</button><br /><br />
+
+  <label>Deposit Amount: $<input type="number" id="depositAmount" value="0" min="0" /></label>
+  <button onclick="makeDeposit()">Deposit</button><br /><br />
+
+  <label>Withdraw Amount: $<input type="number" id="withdrawAmount" value="0" min="0" /></label>
+  <button onclick="makeWithdraw()">Withdraw</button><br /><br />
+
+  <button onclick="showBalance()">Show Balance</button>
+
+  <div class="interactive-output" id="accountOutput"></div>
+
+  <script>
+    class BankAccount {
+      #balance;  // private field using JS private field syntax
+
+      constructor(initialBalance) {
+        this.#balance = initialBalance >= 0 ? initialBalance : 0;
+      }
+
+      deposit(amount) {
+        if (amount > 0) {
+          this.#balance += amount;
+          return `Deposited $${amount.toFixed(2)}`;
+        } else {
+          return "Deposit amount must be positive.";
+        }
+      }
+
+      withdraw(amount) {
+        if (amount <= 0) return "Withdraw amount must be positive.";
+        if (amount > this.#balance) return "Insufficient funds.";
+        this.#balance -= amount;
+        return `Withdrew $${amount.toFixed(2)}`;
+      }
+
+      getBalance() {
+        return this.#balance;
+      }
+    }
+
+    let account = null;
+
+    function createAccount() {
+      const initial = parseFloat(document.getElementById("initialBalance").value);
+      if (isNaN(initial) || initial < 0) {
+        document.getElementById("accountOutput").textContent = "Please enter a valid initial balance.";
+        return;
+      }
+      account = new BankAccount(initial);
+      document.getElementById("accountOutput").textContent = `Account created with balance $${account.getBalance().toFixed(2)}.`;
+    }
+
+    function makeDeposit() {
+      if (!account) {
+        document.getElementById("accountOutput").textContent = "Create an account first!";
+        return;
+      }
+      const amount = parseFloat(document.getElementById("depositAmount").value);
+      if (isNaN(amount)) {
+        document.getElementById("accountOutput").textContent = "Please enter a valid deposit amount.";
+        return;
+      }
+      const message = account.deposit(amount);
+      document.getElementById("accountOutput").textContent = message;
+    }
+
+    function makeWithdraw() {
+      if (!account) {
+        document.getElementById("accountOutput").textContent = "Create an account first!";
+        return;
+      }
+      const amount = parseFloat(document.getElementById("withdrawAmount").value);
+      if (isNaN(amount)) {
+        document.getElementById("accountOutput").textContent = "Please enter a valid withdraw amount.";
+        return;
+      }
+      const message = account.withdraw(amount);
+      document.getElementById("accountOutput").textContent = message;
+    }
+
+    function showBalance() {
+      if (!account) {
+        document.getElementById("accountOutput").textContent = "Create an account first!";
+        return;
+      }
+      document.getElementById("accountOutput").textContent = `Current balance is $${account.getBalance().toFixed(2)}.`;
+    }
+  </script>
+
+  <h2>Real-World Examples of Encapsulation</h2>
+  <ul>
+    <li><strong>ATM Machines:</strong> Users interact with ATM through buttons and screens, but internal account data and operations are hidden.</li>
+    <li><strong>Smartphones:</strong> Apps access phone features via APIs, but internal hardware details remain hidden from users.</li>
+    <li><strong>Car Engine Control:</strong> Drivers operate controls (steering, gas pedal) without directly manipulating the engine's internal parts.</li>
+  </ul>
+
+  <h2>Encapsulation and Data Security</h2>
+  <p>
+    Encapsulation also enhances security by preventing unauthorized access or accidental modification of important data.
+    It forces controlled interaction through well-defined interfaces (methods).
+  </p>
+
+  <h2>Fun Fact!</h2>
+  <div class="funfact">
+    In many programming languages like JavaScript, C++, and Java, encapsulation is implemented differently but serves the same purpose: protecting the object's integrity by hiding its data.
+  </div>
+
+  <h2>Advanced Notes: Getters and Setters</h2>
+  <p>
+    Sometimes, direct access to private data is needed in a controlled way.
+    This is often done by <em>getter</em> and <em>setter</em> functions.
+  </p>
+  <pre>
+class Person {
+private:
+  int age;
+
+public:
+  void setAge(int a) {
+    if (a &gt;= 0) age = a;
+  }
+
+  int getAge() {
+    return age;
+  }
+};
+  </pre>
+
+  <p>This ensures only valid age values are set.</p>
+
+  <h2>Summary</h2>
+  <p>
+    Encapsulation is vital for building reliable, secure, and maintainable software.
+    It hides complexity, protects data, and controls access, making your programs easier to understand and less error-prone.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
