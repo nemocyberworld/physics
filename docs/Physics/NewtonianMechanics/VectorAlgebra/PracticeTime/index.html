@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Algebra - Interactive Physics Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    
+    input[type="number"] {
+      width: 80px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+  <style>
+      .example {
+      background: #eef;
+      border-left: 5px solid #3366cc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+  </style>
+    <style>
+        body {
+          font-family: Georgia, serif;
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+          background-color: #fcfcfc;
+          color: #333;
+        }
+        h1, h2, h3 {
+          color: #003366;
+        }
+        pre {
+          background-color: #f0f0f0;
+          padding: 1rem;
+          border-left: 5px solid #003366;
+          overflow-x: auto;
+        }
+        .equation {
+          font-family: 'Courier New', monospace;
+          background: #f9f9f9;
+          display: block;
+          padding: 0.5rem;
+          margin: 1rem 0;
+          border-left: 3px solid #999;
+        }
+        button {
+          background-color: #003366;
+          color: white;
+          padding: 0.5rem 1rem;
+          margin: 1rem 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #005599;
+        }
+        .output {
+          background-color: #eef;
+          padding: 1rem;
+          margin-top: 1rem;
+        }
+      </style>
+    <style>
+        .interactive {
+          background: #eef;
+          padding: 1rem;
+          margin: 1rem 0;
+        }
+        input[type="number"] {
+          width: 60px;
+          margin: 0 5px;
+        }
+      </style>
+  <style>
+    input[type="text"] {
+      width: 100px;
+      padding: 0.3rem;
+    }
+  </style>
+  <style>
+    input {
+      width: 50px;
+    }
+  </style>
+  
+</head>
+<body>
+  <h1>Interactive Physics Lesson: Vector Algebra</h1>
+
+  <h2>1. Vector Algebra</h2>
+  <p>Vectors are mathematical objects that have both magnitude and direction. They're used extensively in physics and engineering to describe forces, velocities, and other directional quantities.</p>
+
+  <h3>Example 1: Vector Addition</h3>
+  <p>Given vectors \( \mathbf{A} = 3\hat{i} + 2\hat{j} \) and \( \mathbf{B} = 4\hat{i} - \hat{j} \), find \( \mathbf{A} + \mathbf{B} \).</p>
+  <div class="equation">
+    \( \mathbf{A} + \mathbf{B} = (3 + 4)\hat{i} + (2 - 1)\hat{j} = 7\hat{i} + \hat{j} \)
+  </div>
+  <p><strong>Real-life application:</strong> Adding velocity vectors in flight navigation.</p>
+
+  <div class="interactive">
+    <p><strong>Try it yourself:</strong></p>
+    <p>Enter two vectors in the form A(i,j) and B(i,j):</p>
+    <label>Ax: <input id="ax" type="number" value="3"></label>
+    <label>Ay: <input id="ay" type="number" value="2"></label><br>
+    <label>Bx: <input id="bx" type="number" value="4"></label>
+    <label>By: <input id="by" type="number" value="-1"></label><br><br>
+    <button onclick="addVectors()">Add Vectors</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function addVectors() {
+      let ax = parseFloat(document.getElementById('ax').value);
+      let ay = parseFloat(document.getElementById('ay').value);
+      let bx = parseFloat(document.getElementById('bx').value);
+      let by = parseFloat(document.getElementById('by').value);
+      let rx = ax + bx;
+      let ry = ay + by;
+      document.getElementById('result').innerHTML = `\( \mathbf{R} = ${rx} \hat{i} + ${ry} \hat{j} \)`;
+      MathJax.typeset();
+    }
+  </script>
+
+  <h3>Example 2: Vector Subtraction</h3>
+  <p>Given \( \mathbf{A} = 6\hat{i} - 5\hat{j} \) and \( \mathbf{B} = 3\hat{i} + 4\hat{j} \), find \( \mathbf{A} - \mathbf{B} \).</p>
+  <div class="equation">
+    \( \mathbf{A} - \mathbf{B} = (6 - 3)\hat{i} + (-5 - 4)\hat{j} = 3\hat{i} - 9\hat{j} \)
+  </div>
+  <p><strong>Fun Fact:</strong> Subtraction of vectors is used to determine relative velocity, such as two cars moving in opposite directions.</p>
+
+  <h3>Example 3: Magnitude and Direction</h3>
+  <p>Find the magnitude and direction of \( \mathbf{A} = 4\hat{i} + 3\hat{j} - 2\hat{k} \).</p>
+  <div class="equation">
+    \( |\mathbf{A}| = \sqrt{4^2 + 3^2 + (-2)^2} = \sqrt{29} \approx 5.39 \)
+  </div>
+  <p><strong>Application:</strong> Calculating resultant force from multiple directions in 3D space.</p>
+
+  <h3>Example 4: Angle Between Vectors</h3>
+  <p>Given \( \mathbf{A} = \hat{i} + 2\hat{j} \), \( \mathbf{B} = 2\hat{i} - \hat{j} \), find the angle \( \theta \) between them.</p>
+  <div class="equation">
+    \( \cos\theta = \frac{\mathbf{A} \cdot \mathbf{B}}{|\mathbf{A}||\mathbf{B}|} = \frac{(1)(2) + (2)(-1)}{\sqrt{1^2+2^2}\sqrt{2^2+(-1)^2}} = \frac{0}{\sqrt{5}\sqrt{5}} = 0 \Rightarrow \theta = 90^\circ \)
+  </div>
+  <p><strong>Use Case:</strong> Engineering design often requires components to be orthogonal (at right angles) for structural stability.</p>
+
+  <h3>Example 5: Commutative Property</h3>
+  <p>Show that \( \mathbf{A} + \mathbf{B} + \mathbf{C} = \mathbf{C} + \mathbf{B} + \mathbf{A} \).</p>
+  <p>Try using random vectors and verify using the calculator above!</p>
+
+  <h3>Example 6: Scalar Multiplication</h3>
+  <p>Given \( \mathbf{A} = 2\hat{i} + 3\hat{j} + \hat{k} \) and \( \mathbf{B} = \hat{i} - 2\hat{j} + 4\hat{k} \), find \( 3\mathbf{A} - 2\mathbf{B} \).</p>
+  <div class="equation">
+    \( 3\mathbf{A} = 6\hat{i} + 9\hat{j} + 3\hat{k} \)<br>
+    \( 2\mathbf{B} = 2\hat{i} - 4\hat{j} + 8\hat{k} \)<br>
+    \( 3\mathbf{A} - 2\mathbf{B} = (6-2)\hat{i} + (9+4)\hat{j} + (3-8)\hat{k} = 4\hat{i} + 13\hat{j} - 5\hat{k} \)
+  </div>
+
+  <h2>2. Fundamentals of Vectors</h2>
+  <h3>Example 7: Unit Vector</h3>
+  <p>Find the unit vector of \( \mathbf{A} = 3\hat{i} + 4\hat{j} \).</p>
+  <div class="equation">
+    \( |\mathbf{A}| = 5 \Rightarrow \hat{A} = \frac{1}{5}(3\hat{i} + 4\hat{j}) = 0.6\hat{i} + 0.8\hat{j} \)
+  </div>
+  <p><strong>Application:</strong> Unit vectors are used to specify directions in computer graphics and physics simulations.</p>
+
+  <h3>Example 8: Magnitude & Direction Form</h3>
+  <p>Express \( \mathbf{A} = 5\hat{i} - 3\hat{j} \) in terms of magnitude and direction:</p>
+  <div class="equation">
+    \( |\mathbf{A}| = \sqrt{34} \approx 5.83, \quad \theta = \tan^{-1}(-3/5) \approx -30.96^\circ \)
+  </div>
+
+  <h3>Example 9: Dot Product of Unit Vectors</h3>
+  <p>If \( \mathbf{A} \) and \( \mathbf{B} \) are unit vectors, show that \( \mathbf{A} \cdot \mathbf{B} = \cos \theta \).</p>
+  <div class="equation">
+    \( \mathbf{A} \cdot \mathbf{B} = |\mathbf{A}||\mathbf{B}|\cos\theta = 1 \cdot 1 \cdot \cos\theta = \cos\theta \)
+  </div>
+
+  <h2>3. Vector Addition and Subtraction</h2>
+
+  <h3>Example 10: Add Vectors</h3>
+  <p>\( \mathbf{A} = 3\hat{i} + 2\hat{j}, \quad \mathbf{B} = -\hat{i} + 4\hat{j} \)</p>
+  <div class="equation">
+    \( \mathbf{A} + \mathbf{B} = 2\hat{i} + 6\hat{j} \)
+  </div>
+
+  <h3>Example 11: Resultant Vector</h3>
+  <p>\( \mathbf{A} = \hat{i} + 2\hat{j}, \quad \mathbf{B} = 3\hat{i} - 4\hat{j} \)</p>
+  <div class="equation">
+    \( \mathbf{R} = 4\hat{i} - 2\hat{j} \)
+  </div>
+
+  <h3>Example 12: Subtracting Vectors</h3>
+  <p>\( \mathbf{A} = 2\hat{i} + \hat{j}, \quad \mathbf{B} = 3\hat{i} - 5\hat{j} \)</p>
+  <div class="equation">
+    \( \mathbf{A} - \mathbf{B} = -\hat{i} + 6\hat{j} \)
+  </div>
+
+  <h2>4. Scalar (Dot) Product</h2>
+  <p>The scalar product of two vectors is a number (scalar) obtained by multiplying the magnitudes of the two vectors and the cosine of the angle between them.</p>
+  <div class="equation">
+    $$ \mathbf{A} \cdot \mathbf{B} = |\mathbf{A}||\mathbf{B}| \cos\theta $$
+  </div>
+  <p><strong>Real-world example:</strong> The work done by a force is the dot product of the force vector and displacement vector.</p>
+
+  <h3>Example 13: Compute the scalar product of \( \mathbf{A} = 2\hat{i} + 3\hat{j} \) and \( \mathbf{B} = \hat{i} - 4\hat{j} \)</h3>
+  <div class="interactive">
+    <p>Enter your values for the components to compute:</p>
+    <p>\( \mathbf{A} = \) <input id="a1" type="text" value="2">\( \hat{i} + \)
+    <input id="a2" type="text" value="3">\( \hat{j} \)</p>
+    <p>\( \mathbf{B} = \) <input id="b1" type="text" value="1">\( \hat{i} + \)
+    <input id="b2" type="text" value="-4">\( \hat{j} \)</p>
+    <button onclick="computeDotProduct()">Compute Dot Product</button>
+    <p id="dotResult"></p>
+  </div>
+
+  <h3>Example 14: Find the angle between \( \mathbf{A} = 5\hat{i} + 2\hat{j} \) and \( \mathbf{B} = \hat{i} + 6\hat{j} \)</h3>
+  <p>Use the identity:</p>
+  <div class="equation">
+    $$ \cos\theta = \frac{\mathbf{A} \cdot \mathbf{B}}{|\mathbf{A}||\mathbf{B}|} $$
+  </div>
+
+  <h3>Example 15: Orthogonality</h3>
+  <p>If \( \mathbf{A} \cdot \mathbf{B} = 0 \), the angle between them is 90&deg;, proving they are orthogonal (perpendicular).</p>
+  <p><strong>Fun Fact:</strong> Orthogonality is widely used in computer graphics to calculate lighting effects and reflections!</p>
+
+  <h2>5. Vector (Cross) Product</h2>
+  <p>The vector product (or cross product) results in a vector perpendicular to both original vectors.</p>
+  <div class="equation">
+    $$ \mathbf{A} \times \mathbf{B} = |\mathbf{A}||\mathbf{B}|\sin\theta\ \hat{n} $$
+  </div>
+  <p><strong>Application:</strong> Used in torque calculation: \( \tau = \mathbf{r} \times \mathbf{F} \)</p>
+
+  <h3>Example 16: Compute \( \mathbf{A} \times \mathbf{B} \)</h3>
+  <p>Let \( \mathbf{A} = \hat{i} + 2\hat{j} + 3\hat{k} \), \( \mathbf{B} = 4\hat{i} + 5\hat{j} + 6\hat{k} \)</p>
+  <div class="equation">
+    $$ \mathbf{A} \times \mathbf{B} = \left|\begin{array}{ccc}
+    \hat{i} & \hat{j} & \hat{k} \\
+    1 & 2 & 3 \\
+    4 & 5 & 6
+    \end{array}\right| $$
+  </div>
+  <p>Result: \( \mathbf{A} \times \mathbf{B} = -3\hat{i} + 6\hat{j} - 3\hat{k} \)</p>
+
+  <h3>Example 17: Magnitude of Cross Product</h3>
+  <p>\( \mathbf{A} = 2\hat{i} + \hat{j}, \mathbf{B} = 3\hat{i} + 4\hat{j} \)</p>
+  <div class="equation">
+    $$ |\mathbf{A} \times \mathbf{B}| = |(2)(4) - (1)(3)| = 5 $$
+  </div>
+
+  <h3>Example 18: Parallel Vectors</h3>
+  <p>If \( \mathbf{A} \parallel \mathbf{B} \), then \( \theta = 0^{\circ} \) or \( 180^{\circ} \), and \( \sin\theta = 0 \), hence \( \mathbf{A} \times \mathbf{B} = 0 \).</p>
+
+  <h2>6. Scalar Triple Product</h2>
+  <p>The scalar triple product gives the volume of a parallelepiped formed by three vectors.</p>
+  <div class="equation">
+    $$ \mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) $$
+  </div>
+
+  <h3>Example 19:</h3>
+  <p>\( \mathbf{A} = \hat{i} + 2\hat{j}, \mathbf{B} = 3\hat{i} - \hat{j}, \mathbf{C} = \hat{i} + 4\hat{k} \)</p>
+  <p>Step 1: Compute \( \mathbf{B} \times \mathbf{C} \)</p>
+  <p>Step 2: Dot it with \( \mathbf{A} \)</p>
+
+  <h3>Example 20: Invariance</h3>
+  <p>The scalar triple product is invariant under cyclic permutations:</p>
+  <div class="equation">
+    $$ \mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B}) $$
+  </div>
+
+  <h2>7. Vector Triple Product</h2>
+  <p>The vector triple product involves three vectors and can be simplified using an identity.</p>
+  <div class="equation">
+    $$ \mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = (\mathbf{A} \cdot \mathbf{C})\mathbf{B} - (\mathbf{A} \cdot \mathbf{B})\mathbf{C} $$
+  </div>
+
+  <h3>Example 21:</h3>
+  <p>\( \mathbf{A} = \hat{i} + \hat{j}, \mathbf{B} = 2\hat{i} - \hat{j}, \mathbf{C} = 3\hat{i} + 4\hat{k} \)</p>
+
+  <h3>Example 22: Proof of Identity</h3>
+  <p>To prove the identity
+    <div class="equation">
+     \( \mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = (\mathbf{A} \cdot \mathbf{C})\mathbf{B} - (\mathbf{A} \cdot \mathbf{B})\mathbf{C} \)
+</div>
+    consider expanding
+    <div class="equation">
+        \( \mathbf{B} \times \mathbf{C} \)
+    </div>  into its components, then take the cross product with \( \mathbf{A} \). By regrouping and simplifying terms, you’ll arrive at the right-hand side of the identity. This is extremely useful in simplifying expressions in physics and engineering involving torque, angular momentum, and electromagnetic field equations.</p>
+
+  <script>
+        function computeDotProduct() {
+      const a1 = parseFloat(document.getElementById("a1").value);
+      const a2 = parseFloat(document.getElementById("a2").value);
+      const b1 = parseFloat(document.getElementById("b1").value);
+      const b2 = parseFloat(document.getElementById("b2").value);
+      const result = a1 * b1 + a2 * b2;
+      document.getElementById("dotResult").innerText = `Dot Product = ${result}`;
+    }
+  </script>
+  
+    <h2>8. Vector Components and Unit Vectors</h2>
+    <h3>23. Component of \( \vec{A} = 5\hat{i} + 4\hat{j} \) along \( \vec{B} = 3\hat{i} - 2\hat{j} \)</h3>
+    <p>The component of A along B is given by:</p>
+    <div class="equation">
+      $$ \text{Comp}_{\vec{B}}\vec{A} = \frac{\vec{A} \cdot \vec{B}}{|\vec{B}|} $$
+    </div>
+    <p>Compute it interactively:</p>
+    <div class="interactive">
+      <p>Vector A = (5, 4), Vector B = (3, -2)</p>
+      <button onclick="calcComponent()">Calculate Component</button>
+      <p id="componentResult"></p>
+    </div>
+    <script>
+      function calcComponent() {
+        let Ax = 5, Ay = 4;
+        let Bx = 3, By = -2;
+        let dot = Ax * Bx + Ay * By;
+        let magB = Math.sqrt(Bx**2 + By**2);
+        let comp = dot / magB;
+        document.getElementById('componentResult').innerText =
+          `Component of A along B = ${comp.toFixed(2)}`;
+      }
+    </script>
+  
+    <h3>24. Express \( \vec{A} = 2\hat{i} + 3\hat{j} + 4\hat{k} \)</h3>
+    <p>This vector is already in component form. But what does it mean?</p>
+    <ul>
+      <li>It moves 2 units in the x-direction, 3 in y, and 4 in z.</li>
+      <li>Useful for describing 3D position, like a drone's location.</li>
+    </ul>
+  
+    <h2>9. Vector Equations</h2>
+    <h3>25. Vector equation of a line through origin and parallel to \( \vec{A} + \vec{B} \)</h3>
+    <p>Given \( \vec{A} = 3\hat{i} + 2\hat{j}, \vec{B} = \hat{i} - 4\hat{j} \), then:</p>
+    <div class="equation">
+      $$ \vec{A} + \vec{B} = (3+1)\hat{i} + (2-4)\hat{j} = 4\hat{i} - 2\hat{j} $$
+    </div>
+    <p>Line equation: \( \vec{r}(t) = t(4\hat{i} - 2\hat{j}) \)</p>
+  
+    <h2>10. Applications in Physics</h2>
+    <h3>26. Motion: \( \vec{r}(t) = 3t\hat{i} + 2t^2\hat{j} \)</h3>
+    <p>Velocity is the derivative of position:</p>
+    <div class="equation">
+      $$ \vec{v}(t) = \frac{d\vec{r}}{dt} = 3\hat{i} + 4t\hat{j} $$
+    </div>
+    <p>Acceleration is derivative of velocity:</p>
+    <div class="equation">
+      $$ \vec{a}(t) = \frac{d\vec{v}}{dt} = 4\hat{j} $$
+    </div>
+    <p><strong>Real-world Example:</strong> A car speeding up in a curve — position, velocity, and acceleration vectors change dynamically.</p>
+  
+    <h3>27. Torque: \( \vec{F} = 3\hat{i} + 2\hat{j}, \vec{r} = 2\hat{i} + 3\hat{j} \)</h3>
+    <p>Torque: \( \vec{\tau} = \vec{r} \times \vec{F} \)</p>
+    <div class="equation">
+      $$ \vec{\tau} = (2)(2) - (3)(3) = 4 - 9 = -5 \hat{k} $$
+    </div>
+    <p>So, \( \vec{\tau} = -5\hat{k} \). Torque is perpendicular to the plane of r and F.</p>
+  
+    <h2>11. Vector Identities</h2>
+    <h3>28. Simplify \( (\vec{A} \times \vec{B}) \cdot (\vec{A} \times \vec{B}) \)</h3>
+    <p>Fun fact: This is the square of the magnitude of the cross product!</p>
+    <div class="equation">
+      $$ (\vec{A} \times \vec{B}) \cdot (\vec{A} \times \vec{B}) = |\vec{A} \times \vec{B}|^2 $$
+    </div>
+    <p>This is useful in computing areas of parallelograms spanned by vectors.</p>
+  
+    <h3>29. Use identity to simplify:</h3>
+    <div class="equation">
+      $$ (\vec{A} \cdot \vec{B})\vec{C} + (\vec{A} \cdot \vec{C})\vec{B} $$
+    </div>
+    <p>This is the expression of a triple scalar product identity related to gradient operations and force projections in physics.</p>
+  
+    <h2>12. Vector Differentiation</h2>
+    <h3>30. Differentiate \( \vec{r}(t) = t^2 \hat{i} + 3t \hat{j} + \hat{k} \)</h3>
+    <p>Velocity:</p>
+    <div class="equation">
+      $$ \vec{v}(t) = 2t \hat{i} + 3 \hat{j} $$
+    </div>
+    <p>Acceleration:</p>
+    <div class="equation">
+      $$ \vec{a}(t) = 2\hat{i} $$
+    </div>
+  
+    <h3>31. Rate of change of \( \vec{A} = 2t\hat{i} + t^2\hat{j} + 3t\hat{k} \)</h3>
+    <p>Time derivative:</p>
+    <div class="equation">
+      $$ \frac{d\vec{A}}{dt} = 2\hat{i} + 2t\hat{j} + 3\hat{k} $$
+    </div>
+  
+    <h2>Fun Fact!</h2>
+    <p>Vectors are essential in video games! Every moving character, flying object, or rotating camera uses vectors to calculate movement and orientation in 3D space.</p>
+  
+    <h2>13. Vector Integration</h2>
+    <p>Vector integration is used in physics and engineering to determine quantities like displacement from velocity, or to calculate work done by a force. Let's explore:</p>
+  
+    <h3>32. Integrate \( \mathbf{A}(t) = 3t^2 \hat{i} + 2t \hat{j} + t \hat{k} \) with respect to \( t \)</h3>
+    <button onclick="integrateVector()">Show Integration</button>
+    <div id="intResult" class="output"></div>
+  
+    <script>
+      function integrateVector() {
+  const result = `
+    <b>Result:</b>
+    <div class='equation'>
+      $$ \\int \\mathbf{A}(t) dt = t^3 \\hat{i} + t^2 \\hat{j} + \\frac{t^2}{2} \\hat{k} + \\mathbf{C} $$
+    </div>`;
+  document.getElementById("intResult").innerHTML = result;
+  MathJax.typesetPromise(); // Re-render MathJax after inserting new math
+}
+
+    </script>
+  
+    <h3>33. Line Integral</h3>
+    <p>Compute the line integral \( \int_C \mathbf{F} \cdot d\mathbf{r} \), where \( \mathbf{F} = 2\hat{i} + 3\hat{j} \) and \( \mathbf{r}(t) = t\hat{i} + t^2\hat{j}, 0 \leq t \leq 1 \)</p>
+    <p><b>Step-by-step:</b></p>
+    <ul>
+      <li>\( \frac{d\mathbf{r}}{dt} = \hat{i} + 2t\hat{j} \)</li>
+      <li>\( \mathbf{F} \cdot \frac{d\mathbf{r}}{dt} = 2 + 6t \)</li>
+      <li>\( \int_0^1 (2 + 6t) dt = 2t + 3t^2 \Big|_0^1 = 2 + 3 = 5 \)</li>
+    </ul>
+    <div class="equation">
+      $$ \int_C \mathbf{F} \cdot d\mathbf{r} = 5 $$
+    </div>
+  
+    <h2>14. Orthogonal and Orthonormal Vectors</h2>
+    <h3>34. Prove \( \hat{i}, \hat{j}, \hat{k} \) are orthonormal</h3>
+    <p>They are:</p>
+    <ul>
+      <li>Mutually perpendicular (dot product is 0)</li>
+      <li>Unit vectors (magnitude = 1)</li>
+    </ul>
+    <div class="equation">
+      $$ \hat{i} \cdot \hat{j} = 0, \quad \hat{i} \cdot \hat{i} = 1 $$
+    </div>
+  
+    <h3>35. Projection</h3>
+    <p>\( \mathbf{A} = 4\hat{i} + 3\hat{j}, \quad \mathbf{B} = 2\hat{i} + \hat{j} \)</p>
+    <div class="equation">
+      $$ \text{proj}_\mathbf{B} \mathbf{A} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{B}\|^2} \mathbf{B} = \frac{8 + 3}{5} (2\hat{i} + \hat{j}) = \frac{11}{5}(2\hat{i} + \hat{j}) $$
+    </div>
+  
+    <h2>15. Gradient, Divergence, Curl</h2>
+    <h3>36. Gradient</h3>
+    <p>\( \phi(x,y,z) = x^2 + y^2 + z^2 \Rightarrow \nabla \phi = 2x\hat{i} + 2y\hat{j} + 2z\hat{k} \)</p>
+  
+    <h3>37. Divergence</h3>
+    <p>\( \nabla \cdot \mathbf{F} = \partial x/\partial x + \partial y/\partial y + \partial z/\partial z = 3 \)</p>
+  
+    <h3>38. Curl</h3>
+    <p>\( \nabla \times \mathbf{F} = (0 - 0)\hat{i} - (0 - 1)\hat{j} + (1 - 1)\hat{k} = -\hat{j} \)</p>
+  
+    <h2>16. Stokes' Theorem</h2>
+    <p>\( \mathbf{F} = x\hat{i} + y\hat{j} + z\hat{k}, S = \text{unit square in } xy\text{-plane} \)</p>
+    <p>\( \nabla \times \mathbf{F} = \mathbf{0} \Rightarrow \int_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S} = 0 \)</p>
+  
+    <h2>17. Green’s Theorem</h2>
+    <p>\( \oint_C (-y dx + x dy), C: x^2 + y^2 = 1 \)</p>
+    <p>\( \text{Area} = \pi \Rightarrow \oint_C (-y dx + x dy) = 2\pi \)</p>
+  
+    <h2>18. Gauss’s Divergence Theorem</h2>
+    <p>\( \mathbf{F} = x\hat{i} + y\hat{j} + z\hat{k}, S = \text{unit sphere} \)</p>
+    <p>Divergence = 3, Volume = \( \frac{4}{3}\pi \Rightarrow \Phi = 3 \cdot \frac{4}{3}\pi = 4\pi \)</p>
+  
+    <h2>Real-World Applications</h2>
+    <ul>
+      <li><b>Gradient</b>: Used in temperature fields to find the direction of heat flow.</li>
+      <li><b>Divergence</b>: Measures sources/sinks in fluid dynamics.</li>
+      <li><b>Curl</b>: Describes rotation in a fluid, used in meteorology.</li>
+      <li><b>Stokes'/Green's Theorem</b>: Used in electromagnetic theory, fluid mechanics.</li>
+      <li><b>Gauss’s Theorem</b>: Key in calculating electric and gravitational flux.</li>
+    </ul>
+  
+    <h2>Fun Fact!</h2>
+    <p>NASA uses divergence and curl extensively in simulating the behavior of rocket exhausts and magnetic fields in space!</p>
+
+    <h2>🔄 Convert Cylindrical to Cartesian Coordinates</h2>
+    <p>Given: \((r, \theta, z) = (3, \frac{\pi}{4}, 5)\)</p>
+    <div class="equation">
+      $$ x = r \cos(\theta), \quad y = r \sin(\theta), \quad z = z $$
+    </div>
+    <button onclick="convertCylindrical()">Convert to Cartesian</button>
+    <div id="cylindricalResult"></div>
+  
+    <h2>🌐 Volume in Spherical Coordinates</h2>
+    <p>The volume element in spherical coordinates is:</p>
+    <div class="equation">
+      $$ dV = r^2 \sin(\phi)\,dr\,d\theta\,d\phi $$
+    </div>
+    <p>To compute the volume of a sphere of radius \(R\):</p>
+    <div class="equation">
+      $$ V = \int_0^{2\pi} \int_0^{\pi} \int_0^R r^2 \sin(\phi)\,dr\,d\phi\,d\theta $$
+    </div>
+    <div class="example">
+      <strong>Real-World Example:</strong> Calculating the volume of a planet, modeled as a sphere, helps astronomers estimate its mass when the average density is known.
+    </div>
+  
+    <h2>📌 Convert Spherical to Cartesian Coordinates</h2>
+    <p>Given: \((r=4, \theta=\frac{\pi}{3}, \phi=\frac{\pi}{6})\)</p>
+    <div class="equation">
+      $$ x = r \sin(\phi) \cos(\theta),\quad y = r \sin(\phi) \sin(\theta),\quad z = r \cos(\phi) $$
+    </div>
+    <button onclick="convertSpherical()">Convert to Cartesian</button>
+    <div id="sphericalResult"></div>
+  
+    <h2>🧭 Cartesian to Spherical Coordinates</h2>
+    <p>Given: \((x, y, z) = (2, 2, 2)\)</p>
+    <div class="equation">
+      $$ r = \sqrt{x^2 + y^2 + z^2}, \quad \theta = \tan^{-1}(\frac{y}{x}), \quad \phi = \cos^{-1}(\frac{z}{r}) $$
+    </div>
+    <button onclick="cartesianToSpherical()">Convert to Spherical</button>
+    <div id="cartesianToSphericalResult"></div>
+  
+    <h2>🎓 Fun Fact</h2>
+    <p>GPS satellites rely heavily on conversions between spherical and Cartesian coordinates to provide accurate positioning for your phone!</p>
+  
+    <script>
+      function convertCylindrical() {
+        const r = 3;
+        const theta = Math.PI / 4;
+        const z = 5;
+        const x = r * Math.cos(theta);
+        const y = r * Math.sin(theta);
+        document.getElementById('cylindricalResult').innerHTML = `
+          <div class="equation">
+            x = ${x.toFixed(2)}, y = ${y.toFixed(2)}, z = ${z}
+          </div>`;
+      }
+  
+      function convertSpherical() {
+        const r = 4;
+        const theta = Math.PI / 3;
+        const phi = Math.PI / 6;
+        const x = r * Math.sin(phi) * Math.cos(theta);
+        const y = r * Math.sin(phi) * Math.sin(theta);
+        const z = r * Math.cos(phi);
+        document.getElementById('sphericalResult').innerHTML = `
+          <div class="equation">
+            x = ${x.toFixed(2)}, y = ${y.toFixed(2)}, z = ${z.toFixed(2)}
+          </div>`;
+      }
+  
+      function cartesianToSpherical() {
+        const x = 2, y = 2, z = 2;
+        const r = Math.sqrt(x*x + y*y + z*z);
+        const theta = Math.atan2(y, x);
+        const phi = Math.acos(z / r);
+        document.getElementById('cartesianToSphericalResult').innerHTML = `
+          <div class="equation">
+            r = ${r.toFixed(2)}, θ = ${theta.toFixed(2)} rad, φ = ${phi.toFixed(2)} rad
+          </div>`;
+      }
+    </script>
+
+<h2>26. Vector Components and Projections</h2>
+<p>Understanding how one vector projects onto another is crucial in physics and engineering. It's used in mechanics (e.g., breaking forces into components) and even graphics engines.</p>
+
+<h3>69. Component of \( \vec{A} = 3\hat{i} + 4\hat{j} \) along \( \vec{B} = \hat{i} + 2\hat{j} \)</h3>
+<div class="equation">
+  $$ \text{Component of } \vec{A} \text{ along } \vec{B} = \frac{\vec{A} \cdot \vec{B}}{\|\vec{B}\|} $$
+</div>
+<p><strong>Dot Product:</strong> \( \vec{A} \cdot \vec{B} = 3\cdot1 + 4\cdot2 = 11 \)<br>
+   \( \|\vec{B}\| = \sqrt{1^2 + 2^2} = \sqrt{5} \)</p>
+<p>\( \Rightarrow \text{Component} = \frac{11}{\sqrt{5}} \approx 4.92 \)</p>
+
+<h3>Interactive Calculator</h3>
+<div class="interactive">
+  <p>Enter components of \( \vec{A} = a_1\hat{i} + a_2\hat{j} \) and \( \vec{B} = b_1\hat{i} + b_2\hat{j} \):</p>
+  <input id="a1" type="number" placeholder="a1">i +
+  <input id="a2" type="number" placeholder="a2">j<br>
+  <input id="b1" type="number" placeholder="b1">i +
+  <input id="b2" type="number" placeholder="b2">j<br><br>
+  <button onclick="calculateComponent()">Calculate Component</button>
+  <div class="result" id="componentResult"></div>
+</div>
+
+<h3>70. Projection of \( \vec{A} = 5\hat{i} + 6\hat{j} \) onto \( \vec{B} = 4\hat{i} - 3\hat{j} \)</h3>
+<div class="equation">
+  $$ \text{Proj}_{\vec{B}} \vec{A} = \frac{\vec{A} \cdot \vec{B}}{\vec{B} \cdot \vec{B}} \vec{B} $$
+</div>
+<p><strong>Real World Use:</strong> In physics, projection helps determine how much of a force vector acts in a given direction—like along a slope.</p>
+<p>\( \vec{A} \cdot \vec{B} = 5\cdot4 + 6\cdot(-3) = 20 - 18 = 2 \)<br>
+   \( \vec{B} \cdot \vec{B} = 16 + 9 = 25 \)<br>
+   \( \Rightarrow \text{Projection} = \frac{2}{25}\vec{B} = \frac{2}{25}(4\hat{i} - 3\hat{j}) \)</p>
+
+<h3>71. Angle Between Vectors</h3>
+<p>\( \vec{A} = 6\hat{i} + 2\hat{j}, \vec{B} = 3\hat{i} - 4\hat{j} \)</p>
+<div class="equation">
+  $$ \cos\theta = \frac{\vec{A} \cdot \vec{B}}{\|\vec{A}\|\|\vec{B}\|} $$
+</div>
+
+<h2>Fun Fact</h2>
+<p>Did you know? NASA uses vector projections to calculate the path of spacecraft when transitioning between orbits!</p>
+
+<script>
+  function calculateComponent() {
+    const a1 = parseFloat(document.getElementById('a1').value);
+    const a2 = parseFloat(document.getElementById('a2').value);
+    const b1 = parseFloat(document.getElementById('b1').value);
+    const b2 = parseFloat(document.getElementById('b2').value);
+
+    const dotProduct = a1 * b1 + a2 * b2;
+    const bMagnitude = Math.sqrt(b1 ** 2 + b2 ** 2);
+    const component = dotProduct / bMagnitude;
+
+    document.getElementById('componentResult').textContent =
+      `Component of A along B is approximately: ${component.toFixed(2)}`;
+  }
+</script>
+
+<h2>27. Advanced Vector Calculus Applications</h2>
+
+<h3>72. Divergence of a Vector Field</h3>
+<p>Given:</p>
+<div class="equation">\[ \mathbf{F} = x^2 y \hat{i} + y z^2 \hat{j} + x z^2 \hat{k} \]</div>
+<p>The divergence is calculated as:</p>
+<div class="equation">\[ \nabla \cdot \mathbf{F} = \frac{\partial}{\partial x}(x^2 y) + \frac{\partial}{\partial y}(y z^2) + \frac{\partial}{\partial z}(x z^2) \]</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('divergence').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ \\text{Divergence} = 2xy + z^2 + 2xz \\]</div>';
+    MathJax.typesetPromise();">Show Answer</button>
+  <div id="divergence"></div>
+</div>
+<p><strong>Real-world Example:</strong> In fluid dynamics, divergence measures how much fluid expands or compresses at a point, helping analyze sources or sinks.</p>
+
+<h3>73. Curl of a Vector Field</h3>
+<div class="equation">\[ \mathbf{F} = y^2 \hat{i} + 2 x z \hat{j} + z \hat{k} \]</div>
+<p>Use the curl formula:</p>
+<div class="equation">
+\[ \nabla \times \mathbf{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+y^2 & 2 x z & z
+\end{vmatrix} \]
+</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('curl').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ \\text{Curl} = (-2x) \\hat{i} - \\hat{j} + 2z \\hat{k} \\]</div>';
+    MathJax.typesetPromise();">Show Answer</button>
+  <div id="curl"></div>
+</div>
+<p><strong>Application:</strong> Curl describes rotational behavior in fields, such as magnetic fields in electromagnetism.</p>
+
+<h3>74. Flux Through a Cylinder</h3>
+<div class="equation">\[ \mathbf{F} = x^2 \hat{i} + y^2 \hat{j} + z^2 \hat{k} \]</div>
+<p>Flux through a closed surface relates to divergence via Gauss's theorem.</p>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('flux').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ \\text{Flux} = \\iiint_V (2x + 2y + 2z) \\, dV = 6V \\]</div>';
+    MathJax.typesetPromise();">Show Hint</button>
+  <div id="flux"></div>
+</div>
+
+<h2>28. Polar, Spherical, and Cylindrical Coordinates (Continued)</h2>
+
+<h3>75. Convert Cartesian to Spherical</h3>
+<div class="equation">\[ \mathbf{A} = 3 \hat{i} + 4 \hat{j} + 5 \hat{k} \]</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('spherical').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ r = \\sqrt{50}, \\quad \\theta = \\cos^{-1}\\left(\\frac{5}{\\sqrt{50}}\\right), \\quad \\phi = \\tan^{-1}\\left(\\frac{4}{3}\\right) \\]</div>';
+    MathJax.typesetPromise();">Show Conversion</button>
+  <div id="spherical"></div>
+</div>
+
+<h3>76. Gradient in Spherical Coordinates</h3>
+<div class="equation">\[ \phi(r, \theta, \phi) = r^2 + \theta^2 + \phi^2 \]</div>
+<p>Use the spherical gradient formula:</p>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('gradient').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ \\nabla \\phi = 2 r \\hat{r} + \\frac{2 \\theta}{r} \\hat{\\theta} + \\frac{2 \\phi}{r \\sin \\theta} \\hat{\\phi} \\]</div>';
+    MathJax.typesetPromise();">Show Gradient</button>
+  <div id="gradient"></div>
+</div>
+
+<h3>77. Line Integral on Spiral</h3>
+<p>Curve defined by \( r = t, \theta = t \).</p>
+<div class="equation">\[ \int_C x^2 \, dx + y^2 \, dy \]</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('lineintegral').innerHTML = 
+      '<div>Parametrize as: \\( x = t \\cos t, \\quad y = t \\sin t \\) <br> Then compute the integral over \\( t \\).</div>';
+    MathJax.typesetPromise();">Show Strategy</button>
+  <div id="lineintegral"></div>
+</div>
+
+<h2>29. Applications of Scalar and Vector Products</h2>
+
+<h3>78. Scalar Triple Product</h3>
+<div class="equation">\[ \mathbf{A} = 2 \hat{i} + \hat{j}, \quad \mathbf{B} = 3 \hat{i} + 2 \hat{j}, \quad \mathbf{C} = \hat{i} + 4 \hat{k} \]</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('tripleproduct').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ A \\cdot (B \\times C) = 2 \\times 8 + 1 \\times (-12) = 4 \\]</div>';
+    MathJax.typesetPromise();">Show Answer</button>
+  <div id="tripleproduct"></div>
+</div>
+<p><strong>Fun Fact:</strong> The scalar triple product gives the volume of the parallelepiped formed by the three vectors.</p>
+
+<h3>79. Cross Product and Magnitude</h3>
+<div class="equation">\[ \mathbf{A} = 2 \hat{i} + 3 \hat{j}, \quad \mathbf{B} = \hat{i} + 4 \hat{k} \]</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('crossproduct').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ A \\times B = 12 \\hat{i} - 8 \\hat{j} + 5 \\hat{k}, \\quad |A \\times B| = \\sqrt{233} \\]</div>';
+    MathJax.typesetPromise();">Show Answer</button>
+  <div id="crossproduct"></div>
+</div>
+
+<h2>30. Practice with Vector Equations</h2>
+
+<h3>80. Line Equation</h3>
+<p>Given:</p>
+<div class="equation">\[ \mathbf{A} = 3 \hat{i} + 4 \hat{j}, \quad \mathbf{B} = \hat{i} + 2 \hat{j} \]</div>
+<div class="equation">\[ \mathbf{r}(t) = \mathbf{A} + t \mathbf{B} \]</div>
+<div class="interactive">
+  <button onclick="
+    document.getElementById('lineeq').innerHTML = 
+      '<div class=&quot;equation&quot;>\\[ r(t) = (3 + t) \\hat{i} + (4 + 2 t) \\hat{j} \\]</div>';
+    MathJax.typesetPromise();">Show Equation</button>
+  <div id="lineeq"></div>
+</div>
+
+<h3>81. Plane Equation</h3>
+<p>Point: (1, 2, 3), Normal Vector \( \mathbf{A} = 2 \hat{i} - 3 \hat{j} + \hat{k} \)</p>
+<div class="equation">\[ 2(x - 1) - 3(y - 2) + (z - 3) = 0 \]</div>
+
+<div class="funfact" style="background:#e0f7fa; padding: 10px; margin-top: 15px; border-left: 5px solid #00796b;">
+  <strong>Fun Fact:</strong> Planes are crucial in 3D modeling, graphics engines, and simulations in game development!
+</div>
+
+<h2>31. Advanced Vector Algebra and Geometry</h2>
+
+<h3>Example 82: Are vectors orthogonal?</h3>
+<p>Given vectors <strong>\(\mathbf{A} = 2\hat{i} + \hat{j}\)</strong> and <strong>\(\mathbf{B} = 4\hat{i} - 3\hat{j}\)</strong>, show that they are <em>not</em> orthogonal.</p>
+<p><strong>Recall:</strong> Two vectors are orthogonal if their dot product is zero.</p>
+<div class="equation">
+  $$ \mathbf{A} \cdot \mathbf{B} = (2)(4) + (1)(-3) = 8 - 3 = 5 \neq 0 $$
+</div>
+<p>Since the dot product is 5, vectors A and B are <strong>not orthogonal</strong>.</p>
+
+<h3>Try it yourself:</h3>
+<div class="vector-input">
+  <label>Vector A: </label>
+  <input type="number" id="aX" placeholder="Ax" value="2" step="any" />
+  <input type="number" id="aY" placeholder="Ay" value="1" step="any" />
+  <input type="number" id="aZ" placeholder="Az" step="any" />
+</div>
+<div class="vector-input">
+  <label>Vector B: </label>
+  <input type="number" id="bX" placeholder="Bx" value="4" step="any" />
+  <input type="number" id="bY" placeholder="By" value="-3" step="any" />
+  <input type="number" id="bZ" placeholder="Bz" step="any" />
+</div>
+<button onclick="checkOrthogonality()">Check if Orthogonal</button>
+<div id="orthogonalResult" class="result"></div>
+
+<script>
+  function checkOrthogonality() {
+    const Ax = parseFloat(document.getElementById('aX').value) || 0;
+    const Ay = parseFloat(document.getElementById('aY').value) || 0;
+    const Az = parseFloat(document.getElementById('aZ').value) || 0;
+
+    const Bx = parseFloat(document.getElementById('bX').value) || 0;
+    const By = parseFloat(document.getElementById('bY').value) || 0;
+    const Bz = parseFloat(document.getElementById('bZ').value) || 0;
+
+    const dotProduct = Ax * Bx + Ay * By + Az * Bz;
+
+    let resultText = `Dot product: ${dotProduct.toFixed(3)}\n`;
+    if (Math.abs(dotProduct) < 1e-10) {
+      resultText += "Vectors are orthogonal (perpendicular).";
+    } else {
+      resultText += "Vectors are NOT orthogonal.";
+    }
+    document.getElementById('orthogonalResult').textContent = resultText;
+  }
+</script>
+
+<h3>Example 83: Prove if cross product is zero, vectors are parallel or anti-parallel</h3>
+<p>The cross product of two vectors is zero if and only if the vectors are collinear (parallel or anti-parallel). Why?</p>
+<p><strong>Recall:</strong> The magnitude of the cross product is given by</p>
+<div class="equation">
+  $$ |\mathbf{A} \times \mathbf{B}| = |\mathbf{A}||\mathbf{B}|\sin\theta $$
+</div>
+<p>If the cross product is zero, then either:</p>
+<ul>
+  <li>At least one vector is zero (trivial case)</li>
+  <li>Or \(\sin \theta = 0\) which means \(\theta = 0^\circ\) or \(180^\circ\)</li>
+</ul>
+<p>So, the vectors lie along the same or exactly opposite direction — they are parallel or anti-parallel.</p>
+
+<h3>Example 84: Find angle between two vectors using scalar product</h3>
+<p>Vectors:</p>
+<ul>
+  <li>\(\mathbf{A} = 3\hat{i} + 4\hat{j}\)</li>
+  <li>\(\mathbf{B} = -\hat{i} + 2\hat{j}\)</li>
+</ul>
+<p>Angle \(\theta\) between vectors can be found by:</p>
+<div class="equation">
+  $$ \cos \theta = \frac{\mathbf{A} \cdot \mathbf{B}}{|\mathbf{A}||\mathbf{B}|} $$
+</div>
+<p>Calculate step by step:</p>
+<ul>
+  <li>\(\mathbf{A} \cdot \mathbf{B} = 3 \times (-1) + 4 \times 2 = -3 + 8 = 5\)</li>
+  <li>\(|\mathbf{A}| = \sqrt{3^2 + 4^2} = 5\)</li>
+  <li>\(|\mathbf{B}| = \sqrt{(-1)^2 + 2^2} = \sqrt{5}\)</li>
+</ul>
+<p>Then:</p>
+<div class="equation">
+  $$ \cos \theta = \frac{5}{5 \times \sqrt{5}} = \frac{1}{\sqrt{5}} $$
+</div>
+<p>So, \(\theta = \cos^{-1}\left(\frac{1}{\sqrt{5}}\right) \approx 63.43^\circ\).</p>
+
+<h3>Try it yourself: Find angle between two vectors</h3>
+<div class="vector-input">
+  <label>Vector A:</label>
+  <input type="number" id="angleAx" value="3" step="any" /> 
+  <input type="number" id="angleAy" value="4" step="any" />
+  <input type="number" id="angleAz" step="any" />
+</div>
+<div class="vector-input">
+  <label>Vector B:</label>
+  <input type="number" id="angleBx" value="-1" step="any" />
+  <input type="number" id="angleBy" value="2" step="any" />
+  <input type="number" id="angleBz" step="any" />
+</div>
+<button onclick="calculateAngle()">Calculate Angle</button>
+<div id="angleResult" class="result"></div>
+
+<script>
+  function calculateAngle() {
+    const Ax = parseFloat(document.getElementById('angleAx').value) || 0;
+    const Ay = parseFloat(document.getElementById('angleAy').value) || 0;
+    const Az = parseFloat(document.getElementById('angleAz').value) || 0;
+    const Bx = parseFloat(document.getElementById('angleBx').value) || 0;
+    const By = parseFloat(document.getElementById('angleBy').value) || 0;
+    const Bz = parseFloat(document.getElementById('angleBz').value) || 0;
+
+    const dot = Ax * Bx + Ay * By + Az * Bz;
+    const magA = Math.sqrt(Ax * Ax + Ay * Ay + Az * Az);
+    const magB = Math.sqrt(Bx * Bx + By * By + Bz * Bz);
+
+    if (magA === 0 || magB === 0) {
+      document.getElementById('angleResult').textContent = 'One of the vectors is zero vector, angle is undefined.';
+      return;
+    }
+
+    const cosTheta = dot / (magA * magB);
+    const clampedCosTheta = Math.min(1, Math.max(-1, cosTheta)); // Clamp for numerical safety
+    const angleRad = Math.acos(clampedCosTheta);
+    const angleDeg = angleRad * (180 / Math.PI);
+
+    document.getElementById('angleResult').textContent =
+      `Dot product: ${dot.toFixed(3)}\n` +
+      `|A| = ${magA.toFixed(3)}, |B| = ${magB.toFixed(3)}\n` +
+      `Cos θ = ${cosTheta.toFixed(3)}\n` +
+      `Angle θ = ${angleDeg.toFixed(2)}°`;
+  }
+</script>
+
+<h3>Fun Fact:</h3>
+<div class="fun-fact">
+  Vectors are everywhere! In computer graphics, vectors define directions and positions, and are used in video games to move characters realistically. Even your smartphone uses vector math to interpret accelerometer data!
+</div>
+
+<h2>32. Vector Identities</h2>
+
+<h3>Identity 88: Vector identity involving cross products</h3>
+<p>Prove that:</p>
+<div class="equation">
+  $$(\mathbf{A} \times \mathbf{B}) \cdot (\mathbf{A} \times \mathbf{B}) = |\mathbf{A}|^2 |\mathbf{B}|^2 - (\mathbf{A} \cdot \mathbf{B})^2$$
+</div>
+<p>This identity shows that the square of the magnitude of the cross product equals the product of the squared magnitudes minus the square of the dot product.</p>
+<p>This is related to the geometric fact that:</p>
+<div class="equation">
+  $$|\mathbf{A} \times \mathbf{B}| = |\mathbf{A}||\mathbf{B}|\sin \theta$$
+</div>
+<p>and</p>
+<div class="equation">
+  $$\mathbf{A} \cdot \mathbf{B} = |\mathbf{A}||\mathbf{B}|\cos \theta$$
+</div>
+<p>Since \(\sin^2 \theta + \cos^2 \theta = 1\), the identity follows naturally.</p>
+
+<h3>Interactive verification</h3>
+<p>Enter vectors A and B to verify this identity:</p>
+<div class="vector-input">
+  <label>Vector A:</label>
+  <input type="number" id="idA1x" value="1" step="any" />
+  <input type="number" id="idA1y" value="2" step="any" />
+  <input type="number" id="idA1z" value="3" step="any" />
+</div>
+<div class="vector-input">
+  <label>Vector B:</label>
+  <input type="number" id="idB1x" value="4" step="any" />
+  <input type="number" id="idB1y" value="5" step="any" />
+  <input type="number" id="idB1z" value="6" step="any" />
+</div>
+<button onclick="verifyVectorIdentity()">Verify Identity</button>
+<div id="identityResult" class="result"></div>
+
+<script>
+  function crossProduct(A, B) {
+    return [
+      A[1] * B[2] - A[2] * B[1],
+      A[2] * B[0] - A[0] * B[2],
+      A[0] * B[1] - A[1] * B[0]
+    ];
+  }
+  function dotProduct(A, B) {
+    return A[0]*B[0] + A[1]*B[1] + A[2]*B[2];
+  }
+  function magnitude(V) {
+    return Math.sqrt(dotProduct(V, V));
+  }
+  function verifyVectorIdentity() {
+    const A = [
+      parseFloat(document.getElementById('idA1x').value) || 0,
+      parseFloat(document.getElementById('idA1y').value) || 0,
+      parseFloat(document.getElementById('idA1z').value) || 0
+    ];
+    const B = [
+      parseFloat(document.getElementById('idB1x').value) || 0,
+      parseFloat(document.getElementById('idB1y').value) || 0,
+      parseFloat(document.getElementById('idB1z').value) || 0
+    ];
+    const AxB = crossProduct(A, B);
+    const leftSide = dotProduct(AxB, AxB);
+    const rightSide = magnitude(A)**2 * magnitude(B)**2 - dotProduct(A, B)**2;
+
+    const resultText = 
+      `Left side ( (A×B)·(A×B) ) = ${leftSide.toFixed(6)}\n` +
+      `Right side ( |A|²|B|² - (A·B)² ) = ${rightSide.toFixed(6)}\n` +
+      `Identity holds: ${Math.abs(leftSide - rightSide) < 1e-6}`;
+    document.getElementById('identityResult').textContent = resultText;
+  }
+</script>
+
+<h2>33. Advanced Scalar and Vector Products</h2>
+
+<h3>Example 92: Calculate dot and cross products</h3>
+<p>Vectors:</p>
+<ul>
+  <li>\(\mathbf{A} = 2\hat{i} + 3\hat{j} + 4\hat{k}\)</li>
+  <li>\(\mathbf{B} = 5\hat{i} - 2\hat{j} + 3\hat{k}\)</li>
+</ul>
+<p><strong>Dot product:</strong></p>
+<div class="equation">
+  $$ \mathbf{A} \cdot \mathbf{B} = 2 \times 5 + 3 \times (-2) + 4 \times 3 = 10 - 6 + 12 = 16 $$
+</div>
+<p><strong>Cross product:</strong></p>
+<div class="equation">
+  $$ \mathbf{A} \times \mathbf{B} = 
+  \begin{vmatrix}
+  \hat{i} & \hat{j} & \hat{k} \\
+  2 & 3 & 4 \\
+  5 & -2 & 3
+  \end{vmatrix} = \hat{i}(3 \times 3 - 4 \times (-2)) - \hat{j}(2 \times 3 - 4 \times 5) + \hat{k}(2 \times (-2) - 3 \times 5) $$
+</div>
+<div class="equation">
+  $$ = \hat{i}(9 + 8) - \hat{j}(6 - 
+  \hat{k}(-4 - 15) = 17\hat{i} + 14\hat{j} - 19\hat{k} $$
+
+</div> <h3>Try it yourself: Calculate dot and cross products</h3> <div class="vector-input"> <label>Vector A:</label> <input type="number" id="prodAx" value="2" step="any" /> <input type="number" id="prodAy" value="3" step="any" /> <input type="number" id="prodAz" value="4" step="any" /> </div> <div class="vector-input"> <label>Vector B:</label> <input type="number" id="prodBx" value="5" step="any" /> <input type="number" id="prodBy" value="-2" step="any" /> <input type="number" id="prodBz" value="3" step="any" /> </div> <button onclick="calculateDotCross()">Calculate</button> <div id="productResult" class="result"></div> <script> function calculateDotCross() { const A = [ parseFloat(document.getElementById('prodAx').value) || 0, parseFloat(document.getElementById('prodAy').value) || 0, parseFloat(document.getElementById('prodAz').value) || 0 ]; const B = [ parseFloat(document.getElementById('prodBx').value) || 0, parseFloat(document.getElementById('prodBy').value) || 0, parseFloat(document.getElementById('prodBz').value) || 0 ]; const dot = dotProduct(A, B); const cross = crossProduct(A, B); const crossStr = `${cross[0].toFixed(3)}\hat{i} + ${cross[1].toFixed(3)}\hat{j} + ${cross[2].toFixed(3)}\hat{k}`; document.getElementById('productResult').textContent = `Dot product: ${dot.toFixed(3)}\nCross product: ${crossStr}`; } </script> 
+<h2>34. Triple Products and Applications</h2> <h3>Example 95: Scalar triple product and volume of parallelepiped</h3> <p>Vectors:</p> <ul> <li>\(\mathbf{A} = \hat{i} + 2\hat{j} + 3\hat{k}\)</li> <li>\(\mathbf{B} = 4\hat{i} + 5\hat{j} + 6\hat{k}\)</li> <li>\(\mathbf{C} = 7\hat{i} + 8\hat{j} + 9\hat{k}\)</li> </ul> <p>The scalar triple product is:</p> <div class="equation"> $$ \mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) $$ </div> <p>Which equals the volume of the parallelepiped formed by the three vectors.</p> <h3>Calculate it:</h3> <div class="vector-input"> <label>Vector A:</label> <input type="number" id="tripleAx" value="1" step="any" /> <input type="number" id="tripleAy" value="2" step="any" /> <input type="number" id="tripleAz" value="3" step="any" /> </div> <div class="vector-input"> <label>Vector B:</label> <input type="number" id="tripleBx" value="4" step="any" /> <input type="number" id="tripleBy" value="5" step="any" /> <input type="number" id="tripleBz" value="6" step="any" /> </div> <div class="vector-input"> <label>Vector C:</label> <input type="number" id="tripleCx" value="7" step="any" /> <input type="number" id="tripleCy" value="8" step="any" /> <input type="number" id="tripleCz" value="9" step="any" /> </div> <button onclick="calculateTripleProduct()">Calculate Volume</button> 
+<div id="tripleResult" class="result"></div> <script> 
+function calculateTripleProduct() { const A = [ parseFloat(document.getElementById('tripleAx').value) || 0, parseFloat(document.getElementById('tripleAy').value) || 0, parseFloat(document.getElementById('tripleAz').value) || 0 ]; const B = [ parseFloat(document.getElementById('tripleBx').value) || 0, parseFloat(document.getElementById('tripleBy').value) || 0, parseFloat(document.getElementById('tripleBz').value) || 0 ]; const C = [ parseFloat(document.getElementById('tripleCx').value) || 0, parseFloat(document.getElementById('tripleCy').value) || 0, parseFloat(document.getElementById('tripleCz').value) || 0 ]; const BxC = crossProduct(B, C); const volume = dotProduct(A, BxC); document.getElementById('tripleResult').textContent = `Scalar triple product (volume) = ${volume.toFixed(3)}\n` + (volume === 0 ? 'Vectors are coplanar.' : 'Volume of parallelepiped formed by A, B, C.'); } </script> 
+
+<h2>35. Applications of Vector Algebra</h2>
+
+<h3>Example 99: Using vector products in physics (Torque)</h3>
+<p><strong>Torque \(\boldsymbol{\tau}\)</strong> is given by:</p> 
+<div class="equation">
+$$ \boldsymbol{\tau} = \mathbf{r} \times \mathbf{F} $$
+</div>
+<p>where \(\mathbf{r}\) is the position vector from the pivot point, and \(\mathbf{F}\) is the applied force vector.</p> 
+
+<h3>Calculate Torque Example:</h3> 
+<p>Given:</p> 
+<ul>
+<li>Position vector \( \mathbf{r} = 3\hat{i} + 2\hat{j} + 0\hat{k} \) m</li>
+<li>Force vector \( \mathbf{F} = 0\hat{i} + 5\hat{j} + 4\hat{k} \) N</li>
+</ul> 
+
+<button onclick="calculateTorque()">Calculate Torque</button> 
+<div id="torqueResult" class="result"></div>
+
+<script>
+function calculateTorque() {
+  const r = [3, 2, 0];
+  const F = [0, 5, 4];
+
+  // Assuming crossProduct function is defined elsewhere or implement here:
+  function crossProduct(A, B) {
+    return [
+      A[1]*B[2] - A[2]*B[1],
+      A[2]*B[0] - A[0]*B[2],
+      A[0]*B[1] - A[1]*B[0]
+    ];
+  }
+
+  const torque = crossProduct(r, F);
+  const torqueStr = `${torque[0].toFixed(3)}\\hat{i} + ${torque[1].toFixed(3)}\\hat{j} + ${torque[2].toFixed(3)}\\hat{k}`;
+
+  // Use innerHTML with MathJax rendering in mind
+  document.getElementById('torqueResult').innerHTML = `Torque vector \\( \\boldsymbol{\\tau} = \\mathbf{r} \\times \\mathbf{F} = ${torqueStr} \\) N·m`;
+
+  if (typeof MathJax !== "undefined") {
+    MathJax.typesetPromise();  // Re-render math
+  }
+}
+</script>
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
