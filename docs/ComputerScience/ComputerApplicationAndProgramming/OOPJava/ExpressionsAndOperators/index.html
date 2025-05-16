@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Lesson - Expressions and Operators</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #e6f7ff;
+      border-left: 4px solid #00aaff;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .example {
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java Programming: Expressions and Operators</h1>
+
+  <p><strong>Expressions</strong> are constructs made up of variables, literals, method calls, and operators that evaluate to a single value. <strong>Operators</strong> are symbols that perform operations on variables and values.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The first programming languages didn't have many of the operators we use today—developers had to write long functions just to compare values!
+  </div>
+
+  <h2>Types of Java Operators</h2>
+  <ul>
+    <li>Arithmetic Operators</li>
+    <li>Relational (Comparison) Operators</li>
+    <li>Logical Operators</li>
+    <li>Assignment Operators</li>
+    <li>Unary Operators</li>
+    <li>Bitwise Operators</li>
+    <li>Ternary Operator</li>
+    <li>Instanceof Operator</li>
+  </ul>
+
+  <h3>1. Arithmetic Operators</h3>
+  <p>Used for mathematical operations:</p>
+  <pre><code>int a = 10;
+int b = 5;
+int sum = a + b;      // 15
+int diff = a - b;     // 5
+int prod = a * b;     // 50
+int div = a / b;      // 2
+int mod = a % b;      // 0</code></pre>
+
+  <h3>2. Relational Operators</h3>
+  <p>Used to compare two values. Result is boolean.</p>
+  <pre><code>System.out.println(a > b);  // true
+System.out.println(a == b); // false</code></pre>
+
+  <h3>3. Logical Operators</h3>
+  <p>Used to combine multiple boolean expressions:</p>
+  <pre><code>boolean x = true;
+boolean y = false;
+System.out.println(x && y); // false
+System.out.println(x || y); // true
+System.out.println(!x);     // false</code></pre>
+
+  <h3>4. Assignment Operators</h3>
+  <p>Used to assign values to variables.</p>
+  <pre><code>int number = 10;
+number += 5;  // number = number + 5 → 15</code></pre>
+
+  <h3>5. Unary Operators</h3>
+  <p>Operate on one operand.</p>
+  <pre><code>int a = 5;
+int b = -a;    // -5
+int c = ++a;   // pre-increment
+int d = a--;   // post-decrement</code></pre>
+
+  <h3>6. Bitwise Operators</h3>
+  <p>Operate on individual bits:</p>
+  <pre><code>int a = 5;  // 0101
+int b = 3;  // 0011
+System.out.println(a & b); // 0001 → 1</code></pre>
+
+  <h3>7. Ternary Operator</h3>
+  <p>Short form for if-else condition:</p>
+  <pre><code>int max = (a > b) ? a : b;</code></pre>
+
+  <h3>8. instanceof Operator</h3>
+  <p>Checks whether an object is of a specific type:</p>
+  <pre><code>String str = "Hello";
+System.out.println(str instanceof String);  // true</code></pre>
+
+  <h2>Real-World Examples</h2>
+  <h3>Banking System</h3>
+  <pre><code>double balance = 1000.0;
+balance -= 200.0;  // Withdrawal
+balance += 500.0;  // Deposit</code></pre>
+
+  <h3>Login System</h3>
+  <pre><code>boolean isUser = true;
+boolean hasPassword = true;
+boolean canLogin = isUser && hasPassword;</code></pre>
+
+  <h3>Grade Evaluation</h3>
+  <pre><code>int score = 85;
+String result = (score >= 60) ? "Pass" : "Fail";</code></pre>
+
+  <button onclick="document.getElementById('moreOps').style.display='block'">Show More Practical Applications</button>
+  <div id="moreOps" style="display:none">
+    <h3>Shopping Cart</h3>
+    <pre><code>int items = 3;
+double price = 9.99;
+double total = items * price;
+boolean eligibleForDiscount = total > 25;</code></pre>
+
+    <h3>Temperature Check</h3>
+    <pre><code>double temp = 37.5;
+boolean hasFever = temp > 37.0;</code></pre>
+  </div>
+
+  <h2>Interactive Quiz</h2>
+  <p>What will the following code output?</p>
+  <pre><code>int a = 10;
+int b = 5;
+System.out.println((a > b) && (b > 0));</code></pre>
+
+  <button onclick="checkAnswer('a')">A. false</button><br>
+  <button onclick="checkAnswer('b')">B. true</button><br>
+  <button onclick="checkAnswer('c')">C. Error</button>
+
+  <p id="quizResult"></p>
+
+  <script>
+    function checkAnswer(option) {
+      const result = document.getElementById("quizResult");
+      if (option === 'b') {
+        result.innerHTML = "✅ Correct! Both conditions are true, so the result is true.";
+        result.style.color = 'green';
+      } else {
+        result.innerHTML = "❌ Incorrect. Remember, both (a > b) and (b > 0) are true.";
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizer Methods in Java - Interactive Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: #e0f7fa;
+      border: 1px solid #00796b;
+    }
+    .quiz button {
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java Topic: Finalizer Methods</h1>
+
+  <h2>Introduction</h2>
+  <p>In Java, the <code>finalize()</code> method is a special method defined in the <code>Object</code> class that can be overridden by your class. It is invoked by the garbage collector before an object is destroyed, giving you a chance to clean up resources.</p>
+
+  <h2>What is a Finalizer Method?</h2>
+  <p>A finalizer method is defined as:</p>
+  <pre><code>protected void finalize() throws Throwable {
+  // cleanup code
+  super.finalize();
+}</code></pre>
+
+  <p>It is called automatically by the JVM's garbage collector before reclaiming the memory used by the object.</p>
+
+  <h2>Real-World Analogy</h2>
+  <p>Imagine renting a car. When you're done using it, you clean it, refuel it, and return the keys. The <code>finalize()</code> method is like that cleanup step before the object (car) is removed from memory (returned).</p>
+
+  <h2>Example: File Handle Cleanup</h2>
+  <p>When working with files, failing to close the file can result in memory/resource leaks. A finalizer can ensure the file is closed properly.</p>
+  <pre><code>import java.io.*;
+
+public class FileManager {
+  private FileWriter writer;
+
+  public FileManager(String filename) throws IOException {
+    writer = new FileWriter(filename);
+  }
+
+  public void writeData(String data) throws IOException {
+    writer.write(data);
+  }
+
+  @Override
+  protected void finalize() throws Throwable {
+    System.out.println("Finalizing FileManager, closing file.");
+    if (writer != null) {
+      writer.close();
+    }
+    super.finalize();
+  }
+}</code></pre>
+
+  <h2>Important Notes</h2>
+  <ul>
+    <li><strong>Not Guaranteed:</strong> You can't guarantee when or if <code>finalize()</code> will be called.</li>
+    <li><strong>Performance Overhead:</strong> It adds extra overhead and can delay object cleanup.</li>
+    <li><strong>Deprecated in Java 9:</strong> As of Java 9, <code>finalize()</code> is deprecated and may be removed in future versions. Use <code>try-with-resources</code> or <code>AutoCloseable</code> instead.</li>
+  </ul>
+
+  <h2>Modern Alternative: try-with-resources</h2>
+  <pre><code>try (FileWriter writer = new FileWriter("example.txt")) {
+  writer.write("Hello, World!");
+} catch (IOException e) {
+  e.printStackTrace();
+}</code></pre>
+
+  <h2>Fun Fact</h2>
+  <p>Did you know? In early Java days, people relied heavily on <code>finalize()</code>, but it often caused memory leaks rather than preventing them!</p>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li>Releasing non-memory resources like file handles or network sockets.</li>
+    <li>Logging object lifecycle (for debugging).</li>
+    <li>Educational examples for understanding garbage collection.</li>
+  </ul>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p><strong>Q:</strong> Which of the following is a safer alternative to finalize() for resource management?</p>
+    <button onclick="checkAnswer('a')">a) Using static blocks</button><br>
+    <button onclick="checkAnswer('b')">b) try-with-resources</button><br>
+    <button onclick="checkAnswer('c')">c) Thread.sleep()</button><br>
+    <p id="quizAnswer"></p>
+  </div>
+
+  <script>
+    function checkAnswer(option) {
+      const answer = document.getElementById("quizAnswer");
+      if (option === 'b') {
+        answer.innerText = "Correct! try-with-resources is the modern and safer approach.";
+        answer.style.color = 'green';
+      } else {
+        answer.innerText = "Incorrect. Try-with-resources is the recommended alternative.";
+        answer.style.color = 'red';
+      }
+    }
+  </script>
+
+  <h2>Summary</h2>
+  <p>The <code>finalize()</code> method was once a tool for cleaning up before object destruction, but modern Java programming discourages its use. Instead, prefer <code>try-with-resources</code> and <code>AutoCloseable</code> for managing external resources.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

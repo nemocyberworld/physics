@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP: Attributes and Behavior</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      padding: 1rem;
+      background-color: #eef;
+      border: 2px dashed #003366;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java OOP: Attributes and Behavior</h1>
+
+  <h2>1. Introduction</h2>
+  <p>In Object-Oriented Programming (OOP), every object has two main components: <strong>attributes</strong> and <strong>behavior</strong>. Attributes are the data (also called fields or properties), and behavior is what the object can do (methods).</p>
+
+  <h2>2. Attributes (Fields)</h2>
+  <p>Attributes describe the state or characteristics of an object. Think of them as variables inside a class.</p>
+  <pre><code>class Dog {
+  String name;
+  int age;
+  String breed;
+}</code></pre>
+  <p>In the above example, <code>name</code>, <code>age</code>, and <code>breed</code> are attributes of a <code>Dog</code>.</p>
+
+  <h2>3. Behavior (Methods)</h2>
+  <p>Behavior defines what an object can do. It is represented by methods in a class.</p>
+  <pre><code>class Dog {
+  void bark() {
+    System.out.println("Woof!");
+  }
+  void eat() {
+    System.out.println("The dog is eating.");
+  }
+}</code></pre>
+
+  <div class="interactive">
+    <h3>Try It Yourself!</h3>
+    <p>Click the button to simulate the dog's behavior:</p>
+    <button onclick="dogBark()">Make Dog Bark</button>
+    <button onclick="dogEat()">Make Dog Eat</button>
+    <p id="dogOutput"></p>
+  </div>
+
+  <script>
+    function dogBark() {
+      document.getElementById("dogOutput").textContent = "Woof! The dog is barking! 🐶";
+    }
+    function dogEat() {
+      document.getElementById("dogOutput").textContent = "The dog is eating kibble! 🍖";
+    }
+  </script>
+
+  <h2>4. Real-World Examples</h2>
+  <ul>
+    <li><strong>Car:</strong> Attributes: color, speed, model | Behavior: drive(), brake()</li>
+    <li><strong>Phone:</strong> Attributes: brand, OS, screenSize | Behavior: call(), text(), browseInternet()</li>
+    <li><strong>Book:</strong> Attributes: title, author, pages | Behavior: open(), read()</li>
+  </ul>
+
+  <h2>5. Why Are They Important?</h2>
+  <p>Attributes and behavior help encapsulate data and logic within objects. This leads to more modular, reusable, and maintainable code. For example, a <code>Student</code> class can hold student data and behaviors like <code>attendClass()</code> or <code>submitAssignment()</code>.</p>
+
+  <h2>6. Fun Fact!</h2>
+  <p>In Java, every method is tied to a class—even the <code>main()</code> method! Java treats everything as a class-based object model, unlike some languages that allow standalone functions.</p>
+
+  <h2>7. Practical Applications</h2>
+  <p>Attributes and behavior are used in:</p>
+  <ul>
+    <li><strong>Game Development:</strong> Characters with health, strength, attack() behavior</li>
+    <li><strong>Banking Systems:</strong> Accounts with balance, withdraw() behavior</li>
+    <li><strong>Shopping Apps:</strong> Products with price, addToCart() behavior</li>
+  </ul>
+
+  <h2>8. Creating and Using a Class</h2>
+  <pre><code>class Student {
+  String name;
+  int grade;
+
+  void study() {
+    System.out.println(name + " is studying.");
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Student s1 = new Student();
+    s1.name = "Alice";
+    s1.grade = 10;
+    s1.study();
+  }
+}</code></pre>
+
+  <h2>9. Recap</h2>
+  <ul>
+    <li><strong>Attributes</strong> are variables inside a class (state).</li>
+    <li><strong>Behavior</strong> are methods that describe what an object does (actions).</li>
+  </ul>
+
+  <h2>10. Challenge</h2>
+  <p>Create a class <code>Cat</code> with attributes <code>name</code> and <code>color</code>. Add methods <code>meow()</code> and <code>sleep()</code> that print fun messages. Try to implement it on your own!</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

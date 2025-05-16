@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Oriented Java - Class Hierarchy</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #669;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Object-Oriented Java: Creating a Class Hierarchy</h1>
+
+  <h2>Introduction</h2>
+  <p>One of the foundational concepts in Object-Oriented Programming (OOP) is the <strong>class hierarchy</strong>. Java, being a powerful OOP language, allows us to create robust and scalable applications by building a hierarchy of classes.</p>
+
+  <div class="interactive">
+    <h3>Fun Fact!</h3>
+    <p>Did you know? All classes in Java implicitly inherit from the <code>Object</code> class. That means every class you create has some built-in methods like <code>toString()</code>, <code>equals()</code>, and <code>hashCode()</code> by default!</p>
+  </div>
+
+  <h2>1. What is a Class Hierarchy?</h2>
+  <p>A class hierarchy shows the relationship between different classes using inheritance. Think of it like a family tree—parent classes pass on their traits (methods and fields) to child classes.</p>
+
+  <h3>Real-World Example</h3>
+  <p>Consider an organization:</p>
+  <ul>
+    <li><strong>Employee</strong> - base class</li>
+    <li><strong>Manager</strong> and <strong>Engineer</strong> - subclasses of Employee</li>
+    <li><strong>SeniorEngineer</strong> - subclass of Engineer</li>
+  </ul>
+
+  <pre><code>class Employee {
+    String name;
+    int id;
+    void work() {
+        System.out.println(name + " is working");
+    }
+}
+
+class Manager extends Employee {
+    void manage() {
+        System.out.println(name + " is managing");
+    }
+}
+
+class Engineer extends Employee {
+    void code() {
+        System.out.println(name + " is coding");
+    }
+}
+
+class SeniorEngineer extends Engineer {
+    void mentor() {
+        System.out.println(name + " is mentoring junior engineers");
+    }
+}</code></pre>
+
+  <h2>2. Interactive Practice</h2>
+  <div class="interactive">
+    <p>Click the button to simulate a Senior Engineer doing all tasks:</p>
+    <button onclick="simulateTasks()">Run Simulation</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function simulateTasks() {
+      let output = "";
+      let name = "Alice";
+      output += name + " is working\n";
+      output += name + " is coding\n";
+      output += name + " is mentoring junior engineers\n";
+      document.getElementById("output").textContent = output;
+    }
+  </script>
+
+  <h2>3. Why Use Class Hierarchies?</h2>
+  <ul>
+    <li><strong>Code Reusability:</strong> Inherited code avoids redundancy.</li>
+    <li><strong>Scalability:</strong> Easy to add new classes with minimal changes.</li>
+    <li><strong>Polymorphism:</strong> Subclasses can be treated as their superclass types, allowing flexible code.</li>
+  </ul>
+
+  <h2>4. More Real-Life Applications</h2>
+  <ul>
+    <li><strong>Vehicles:</strong> Vehicle → Car → ElectricCar</li>
+    <li><strong>Animals:</strong> Animal → Mammal → Dog</li>
+    <li><strong>Banking:</strong> Account → SavingsAccount, CheckingAccount</li>
+  </ul>
+
+  <h2>5. In-Depth: Method Overriding</h2>
+  <p>Subclasses can override methods from their parent class:</p>
+
+  <pre><code>class Animal {
+    void speak() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void speak() {
+        System.out.println("Bark!");
+    }
+}</code></pre>
+
+  <h2>6. Best Practices</h2>
+  <ul>
+    <li>Use inheritance when classes share common behavior.</li>
+    <li>Avoid deep hierarchies (more than 3-4 levels).</li>
+    <li>Use <code>super</code> to call parent methods.</li>
+  </ul>
+
+  <h2>7. Quiz Time!</h2>
+  <div class="interactive">
+    <p>What will the following code print?</p>
+    <pre><code>Animal a = new Dog();
+a.speak();</code></pre>
+    <button onclick="showAnswer()">Show Answer</button>
+    <pre id="quizAnswer"></pre>
+  </div>
+
+  <script>
+    function showAnswer() {
+      document.getElementById("quizAnswer").textContent = "Bark!";
+    }
+  </script>
+
+  <h2>Conclusion</h2>
+  <p>Class hierarchies form the backbone of structured and organized Java applications. By understanding and leveraging inheritance, method overriding, and class relationships, you can write clean, efficient, and reusable Java code.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects and Classes in Java</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      padding: 1rem;
+      background-color: #eef;
+      border: 2px dashed #003366;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java OOP: Objects and Classes</h1>
+
+  <h2>1. What is Object-Oriented Programming?</h2>
+  <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects". These objects can contain data (fields) and code (methods). Java is a pure object-oriented language, which means everything revolves around the use of objects and classes.</p>
+
+  <h2>2. Understanding Classes</h2>
+  <p>A <strong>class</strong> is like a blueprint or template. It defines the structure and behavior (data and methods) that the objects created from the class will have.</p>
+  <pre><code>class Car {
+  String color;
+  int speed;
+
+  void drive() {
+    System.out.println("The car is driving.");
+  }
+}</code></pre>
+
+  <h2>3. Understanding Objects</h2>
+  <p>An <strong>object</strong> is an instance of a class. You create objects using the <code>new</code> keyword:</p>
+  <pre><code>Car myCar = new Car();
+myCar.color = "Red";
+myCar.speed = 100;
+myCar.drive();</code></pre>
+
+  <div class="interactive">
+    <h3>Try It Yourself!</h3>
+    <p>Click the button to see what happens when an object calls a method:</p>
+    <button onclick="driveCar()">Drive the Car</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function driveCar() {
+      document.getElementById("output").textContent = "The car is driving! Vroom vroom! 🚗";
+    }
+  </script>
+
+  <h2>4. Real-World Examples</h2>
+  <ul>
+    <li><strong>Bank Account:</strong> A class can represent a bank account with attributes like balance, and methods like deposit() and withdraw().</li>
+    <li><strong>Student:</strong> A Student class may include name, roll number, and marks with methods like study() or giveExam().</li>
+    <li><strong>Smartphone:</strong> With properties like brand, model, and memory, and methods like makeCall() or takePhoto().</li>
+  </ul>
+
+  <h2>5. Fun Fact!</h2>
+  <p>Did you know? Java was originally developed for interactive television, but it was too advanced for the digital cable television industry at the time. The language was initially called Oak!</p>
+
+  <h2>6. Practical Applications</h2>
+  <p>Understanding objects and classes is essential for building:</p>
+  <ul>
+    <li>Mobile applications (e.g., Android apps)</li>
+    <li>Web applications (e.g., banking sites)</li>
+    <li>Games (object-oriented engines use classes for characters, weapons, etc.)</li>
+    <li>Enterprise software (billing, customer management)</li>
+  </ul>
+
+  <h2>7. Creating Multiple Objects</h2>
+  <pre><code>Car car1 = new Car();
+Car car2 = new Car();
+car1.color = "Blue";
+car2.color = "Green";
+System.out.println(car1.color); // Blue
+System.out.println(car2.color); // Green</code></pre>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li><strong>Class:</strong> Blueprint</li>
+    <li><strong>Object:</strong> Instance of class</li>
+    <li><strong>Method:</strong> Function inside a class</li>
+    <li><strong>Field:</strong> Variable inside a class</li>
+  </ul>
+
+  <h2>9. Challenge</h2>
+  <p>Create a class <code>Book</code> with attributes: <code>title</code>, <code>author</code>, and <code>pages</code>. Then, create a method <code>read()</code> that prints a message: "Reading [title] by [author]". Try to do it on your own!</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

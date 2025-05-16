@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Applets and Applications - Interactive Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #eef;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson: Applets and Applications in Java</h1>
+
+  <h2>1. Introduction</h2>
+  <p>Java supports two types of programs: <strong>Applications</strong> and <strong>Applets</strong>. Applications are stand-alone programs that run independently, while Applets are small programs that run inside a web browser or an applet viewer.</p>
+
+  <div class="interactive">
+    <h3>Interactive Q:</h3>
+    <p>What is the key difference between an applet and an application?</p>
+    <button onclick="alert('Correct! Applications run standalone, Applets run inside a browser.')">Reveal Answer</button>
+  </div>
+
+  <h2>2. Java Applications</h2>
+  <p>A Java application must have a <code>main</code> method. Here’s a simple example:</p>
+  <pre>
+public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+  </pre>
+  <p>Run this program in a terminal or IDE like Eclipse or IntelliJ IDEA.</p>
+
+  <h2>3. Java Applets</h2>
+  <p>Applets are classes that extend the <code>Applet</code> class or <code>JApplet</code> (Swing version). They override lifecycle methods like <code>init()</code>, <code>start()</code>, <code>stop()</code>, and <code>destroy()</code>.</p>
+  <pre>
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class HelloApplet extends Applet {
+  public void paint(Graphics g) {
+    g.drawString("Hello Applet!", 20, 20);
+  }
+}
+  </pre>
+
+  <h2>4. Applet Lifecycle</h2>
+  <p>Applets go through a sequence of states:</p>
+  <ul>
+    <li><strong>init()</strong>: Called once when the applet is loaded.</li>
+    <li><strong>start()</strong>: Called after init or when restarting.</li>
+    <li><strong>paint()</strong>: Called to redraw the interface.</li>
+    <li><strong>stop()</strong>: Called when the applet is paused.</li>
+    <li><strong>destroy()</strong>: Called when the applet is terminated.</li>
+  </ul>
+
+  <div class="interactive">
+    <h3>Try it Yourself</h3>
+    <p>Click to simulate the applet lifecycle:</p>
+    <button onclick="simulateApplet()">Start Simulation</button>
+    <div id="appletLifecycle"></div>
+  </div>
+
+  <script>
+    function simulateApplet() {
+      const output = [
+        'init() called',
+        'start() called',
+        'paint() called',
+        'stop() called',
+        'destroy() called'
+      ];
+      let display = '';
+      output.forEach((step, i) => {
+        setTimeout(() => {
+          display += step + '<br>';
+          document.getElementById('appletLifecycle').innerHTML = display;
+        }, i * 1000);
+      });
+    }
+  </script>
+
+  <h2>5. Real-World Applications</h2>
+  <p>Java applets were once popular for web-based games, interactive simulations, and visual demonstrations in education. Though modern browsers have dropped support, they remain a great learning tool.</p>
+  <ul>
+    <li><strong>Educational tools:</strong> Simulate physics or chemistry experiments.</li>
+    <li><strong>Financial dashboards:</strong> Display stock tickers and graphs (historically).</li>
+    <li><strong>Data visualization:</strong> Graph plotting tools embedded in web pages.</li>
+  </ul>
+
+  <h2>6. Applications in Practice</h2>
+  <p>Today, applet ideas live on in desktop and mobile applications:</p>
+  <ul>
+    <li>Interactive learning apps (e.g., Khan Academy)</li>
+    <li>Weather widgets</li>
+    <li>Mini-games and puzzles</li>
+  </ul>
+
+  <h2>7. Fun Fact</h2>
+  <p>Did you know? The original version of the game <strong>Minecraft</strong> was written in Java and had elements similar to applets in how it was embedded in browsers!</p>
+
+  <h2>8. Security Considerations</h2>
+  <p>Due to security risks, modern browsers block applets by default. Java Web Start or JavaFX are now used instead. Always avoid running untrusted applets.</p>
+
+  <h2>9. Summary</h2>
+  <ul>
+    <li>Applications run on JVM with a <code>main</code> method.</li>
+    <li>Applets run in browsers and have a lifecycle.</li>
+    <li>Modern use of applets is mostly educational or legacy support.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

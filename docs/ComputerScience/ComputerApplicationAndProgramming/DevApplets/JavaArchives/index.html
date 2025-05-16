@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Archives - Interactive Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive {
+      background-color: #eef;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    input {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson: Java Archives (JAR Files)</h1>
+
+  <h2>1. What is a Java Archive?</h2>
+  <p>A Java Archive (JAR) is a package file format used to aggregate many Java class files and associated metadata and resources (text, images, etc.) into one file. It simplifies deployment and sharing.</p>
+
+  <h2>2. Why Use JAR Files?</h2>
+  <ul>
+    <li>Reduces complexity by bundling files together</li>
+    <li>Improves download performance on the web</li>
+    <li>Ensures consistency in deployment</li>
+    <li>Enables digital signing and version control</li>
+  </ul>
+
+  <h2>3. Creating a JAR File</h2>
+  <p>Assume you have compiled classes <code>MyApplet.class</code> and <code>Helper.class</code>. You can package them with:</p>
+  <pre>
+jar cf MyApplet.jar MyApplet.class Helper.class
+  </pre>
+
+  <h2>4. Including JAR in HTML Applet</h2>
+  <p>Instead of including many <code>.class</code> files, just use the <code>archive</code> attribute:</p>
+  <pre>
+<applet code="MyApplet.class" archive="MyApplet.jar" width="300" height="150"></applet>
+  </pre>
+
+  <div class="interactive">
+    <h3>Interactive: Generate &lt;applet&gt; Tag with Archive</h3>
+    <label>Class Name: <input type="text" id="className" value="MyApplet.class"></label><br>
+    <label>Archive File: <input type="text" id="archiveName" value="MyApplet.jar"></label><br>
+    <label>Width: <input type="number" id="width" value="300"></label><br>
+    <label>Height: <input type="number" id="height" value="150"></label><br><br>
+    <button onclick="generateTag()">Generate Applet Tag</button>
+    <pre id="resultTag"></pre>
+  </div>
+
+  <script>
+    function generateTag() {
+      const className = document.getElementById('className').value;
+      const archive = document.getElementById('archiveName').value;
+      const width = document.getElementById('width').value;
+      const height = document.getElementById('height').value;
+
+      const tag = `<applet code=\"${className}\" archive=\"${archive}\" width=\"${width}\" height=\"${height}\">\n</applet>`;
+
+      document.getElementById('resultTag').innerText = tag;
+    }
+  </script>
+
+  <h2>5. Real-World Examples</h2>
+  <ul>
+    <li>Educational simulations bundled for easy use in schools</li>
+    <li>Enterprise tools distributed securely with dependencies</li>
+    <li>Games that include sounds, images, and logic in one file</li>
+    <li>Legacy inventory management software accessed via browser</li>
+  </ul>
+
+  <h2>6. Command Breakdown</h2>
+  <p><strong>jar cf MyArchive.jar *.class</strong> — creates a JAR file with all <code>.class</code> files</p>
+  <p><strong>jar tf MyArchive.jar</strong> — lists contents of the JAR</p>
+  <p><strong>jar xf MyArchive.jar</strong> — extracts contents</p>
+
+  <h2>7. Fun Fact</h2>
+  <p>JAR files are based on the popular ZIP file format. You can actually open a JAR with any ZIP tool and peek inside!</p>
+
+  <h2>8. Signing JAR Files</h2>
+  <p>Signed JARs were often required to grant permissions in browsers:</p>
+  <pre>
+jarsigner -keystore myKeystore myApplet.jar myAlias
+  </pre>
+  <p>This allowed for secure identity verification in corporate environments.</p>
+
+  <h2>9. Modern Alternatives</h2>
+  <p>Although applets are deprecated, JAR files are still heavily used in:</p>
+  <ul>
+    <li>Maven/Gradle Java projects</li>
+    <li>JavaFX and Spring Boot applications</li>
+    <li>Cloud-deployable microservices</li>
+  </ul>
+
+  <h2>10. Summary</h2>
+  <ul>
+    <li>JAR files bundle Java classes and resources</li>
+    <li>They simplify deployment of applets and applications</li>
+    <li>Still widely used in modern Java ecosystems</li>
+    <li>You can explore them using ZIP tools</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Applets - Parameters</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive {
+      background-color: #eef;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    input {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson: Passing Parameters to Applets</h1>
+
+  <h2>1. What are Applet Parameters?</h2>
+  <p>Parameters are values you can pass from an HTML page to a Java applet. They help customize behavior without altering code. Think of them like arguments passed to a function!</p>
+
+  <h2>2. Basic Syntax</h2>
+  <p>Inside the <code>&lt;applet&gt;</code> tag, use <code>&lt;param&gt;</code> tags:</p>
+  <pre>
+<applet code="GreetingApplet.class" width="300" height="100">
+  <param name="username" value="Alice">
+</applet>
+  </pre>
+
+  <h2>3. Reading Parameters in Java</h2>
+  <p>In your applet class, use <code>getParameter("parameterName")</code>:</p>
+  <pre>
+public void paint(Graphics g) {
+  String user = getParameter("username");
+  g.drawString("Hello, " + user + "!", 20, 20);
+}
+  </pre>
+
+  <div class="interactive">
+    <h3>Interactive: Generate &lt;applet&gt; Tag with Parameters</h3>
+    <label>Applet Class: <input type="text" id="appletClass" value="GreetingApplet.class"></label><br>
+    <label>Parameter Name: <input type="text" id="paramName" value="username"></label><br>
+    <label>Parameter Value: <input type="text" id="paramValue" value="Alice"></label><br>
+    <label>Width: <input type="number" id="appletWidth" value="300"></label><br>
+    <label>Height: <input type="number" id="appletHeight" value="100"></label><br><br>
+    <button onclick="generateAppletCode()">Generate HTML</button>
+    <pre id="appletCode"></pre>
+  </div>
+
+  <script>
+    function generateAppletCode() {
+      const appletClass = document.getElementById('appletClass').value;
+      const paramName = document.getElementById('paramName').value;
+      const paramValue = document.getElementById('paramValue').value;
+      const width = document.getElementById('appletWidth').value;
+      const height = document.getElementById('appletHeight').value;
+
+      const tag = `<applet code=\"${appletClass}\" width=\"${width}\" height=\"${height}\">\n` +
+                  `  <param name=\"${paramName}\" value=\"${paramValue}\">\n</applet>`;
+      document.getElementById('appletCode').innerText = tag;
+    }
+  </script>
+
+  <h2>4. Real-World Applications</h2>
+  <ul>
+    <li>Displaying a user's name on greeting cards</li>
+    <li>Customizing simulation variables in physics animations</li>
+    <li>Changing color schemes or layout preferences</li>
+    <li>Game levels or modes set via HTML</li>
+  </ul>
+
+  <h2>5. Multiple Parameters</h2>
+  <p>You can pass more than one parameter:</p>
+  <pre>
+<applet code="SimApplet.class" width="400" height="200">
+  <param name="speed" value="5">
+  <param name="mass" value="2.5">
+</applet>
+  </pre>
+
+  <h2>6. Fun Fact</h2>
+  <p>Applets were once used for entire browser-based games and dashboards—long before JavaScript took over. They allowed real-time user interaction before AJAX was a thing!</p>
+
+  <h2>7. Troubleshooting Tips</h2>
+  <ul>
+    <li>Make sure the parameter names match exactly in Java</li>
+    <li>Check for null values when parameters are missing</li>
+    <li>Use default values as fallback in your applet</li>
+  </ul>
+
+  <h2>8. Modern Context</h2>
+  <p>Applets are now deprecated in browsers, but parameter-based customization continues in:</p>
+  <ul>
+    <li>JavaScript web components</li>
+    <li>JavaFX apps using FXML parameters</li>
+    <li>Spring Boot apps using config files</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

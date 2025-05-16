@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP: Interfaces and Packages</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive {
+      margin: 1rem 0;
+      padding: 1rem;
+      background-color: #eef;
+      border: 2px dashed #003366;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java OOP: Interfaces and Packages</h1>
+
+  <h2>1. What is an Interface?</h2>
+  <p>An <strong>interface</strong> in Java is a contract that a class agrees to fulfill. It is a collection of abstract methods (methods without bodies). A class implements an interface to provide concrete behavior.</p>
+
+  <h2>2. Syntax of an Interface</h2>
+  <pre><code>interface Animal {
+  void makeSound();
+}
+
+class Dog implements Animal {
+  public void makeSound() {
+    System.out.println("Woof woof!");
+  }
+}</code></pre>
+
+  <h2>3. Real-World Example</h2>
+  <p>Think of an <code>interface</code> as a remote control. Different devices (TV, Fan, AC) implement the same interface to respond to the <code>powerOn()</code> button.</p>
+
+  <h2>4. Interactive Interface Simulation</h2>
+  <div class="interactive">
+    <p>Select an animal and see its behavior via interface method!</p>
+    <button onclick="simulateSound('Dog')">Dog</button>
+    <button onclick="simulateSound('Cat')">Cat</button>
+    <p id="interfaceOutput"></p>
+  </div>
+
+  <script>
+    function simulateSound(animal) {
+      let output;
+      switch(animal) {
+        case 'Dog':
+          output = 'Dog says: Woof woof!';
+          break;
+        case 'Cat':
+          output = 'Cat says: Meow~';
+          break;
+      }
+      document.getElementById("interfaceOutput").textContent = output;
+    }
+  </script>
+
+  <h2>5. Why Use Interfaces?</h2>
+  <ul>
+    <li><strong>Multiple Inheritance:</strong> Java allows a class to implement multiple interfaces.</li>
+    <li><strong>Abstraction:</strong> Hides implementation and exposes behavior.</li>
+    <li><strong>Loose Coupling:</strong> Helps in scalable and testable architecture.</li>
+  </ul>
+
+  <h2>6. Practical Examples of Interfaces</h2>
+  <ul>
+    <li><code>Comparable</code> Interface: For sorting objects.</li>
+    <li><code>Runnable</code> Interface: For creating threads.</li>
+    <li>In game design, different weapons or players might implement a <code>Usable</code> interface.</li>
+  </ul>
+
+  <h2>7. Fun Fact About Interfaces!</h2>
+  <p>Java 8 introduced <strong>default methods</strong> in interfaces, allowing methods with bodies — bridging the gap between interfaces and abstract classes!</p>
+
+  <h2>8. What are Packages?</h2>
+  <p>A <strong>package</strong> is a namespace for organizing classes and interfaces. Think of it as a folder structure for your code that prevents name conflicts and promotes modularization.</p>
+
+  <h2>9. Declaring a Package</h2>
+  <pre><code>package animals;
+
+public class Dog {
+  public void bark() {
+    System.out.println("Woof!");
+  }
+}</code></pre>
+
+  <h2>10. Importing a Package</h2>
+  <pre><code>import animals.Dog;
+
+public class Main {
+  public static void main(String[] args) {
+    Dog d = new Dog();
+    d.bark();
+  }
+}</code></pre>
+
+  <h2>11. Why Use Packages?</h2>
+  <ul>
+    <li>Organize code better.</li>
+    <li>Prevent class name conflicts.</li>
+    <li>Control access with visibility modifiers.</li>
+  </ul>
+
+  <h2>12. Interactive: Package Practice</h2>
+  <div class="interactive">
+    <p>Imagine you created a package named <code>mathutils</code>. What would you likely include?</p>
+    <button onclick="showPackageUse('calculator')">Calculator Class</button>
+    <button onclick="showPackageUse('geometry')">Geometry Tools</button>
+    <p id="packageOutput"></p>
+  </div>
+
+  <script>
+    function showPackageUse(option) {
+      let msg = option === 'calculator'
+        ? 'mathutils.Calculator: includes add, subtract, multiply, divide methods.'
+        : 'mathutils.Geometry: includes area, perimeter, volume calculations.';
+      document.getElementById("packageOutput").textContent = msg;
+    }
+  </script>
+
+  <h2>13. Summary</h2>
+  <ul>
+    <li><strong>Interfaces</strong> define contracts for behavior.</li>
+    <li><strong>Packages</strong> organize your Java code effectively.</li>
+    <li>Both support scalable and modular application development.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

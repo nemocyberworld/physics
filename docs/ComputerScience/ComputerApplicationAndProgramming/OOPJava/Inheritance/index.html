@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP: Inheritance</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      padding: 1rem;
+      background-color: #eef;
+      border: 2px dashed #003366;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java OOP: Inheritance</h1>
+
+  <h2>1. What is Inheritance?</h2>
+  <p><strong>Inheritance</strong> is a fundamental concept in object-oriented programming where one class (child or subclass) inherits the attributes and behaviors (methods) of another class (parent or superclass). It allows for code reuse and logical hierarchy.</p>
+
+  <h2>2. Syntax of Inheritance</h2>
+  <p>In Java, inheritance is implemented using the <code>extends</code> keyword:</p>
+  <pre><code>class Animal {
+  void eat() {
+    System.out.println("This animal eats food.");
+  }
+}
+
+class Dog extends Animal {
+  void bark() {
+    System.out.println("The dog barks.");
+  }
+}</code></pre>
+
+  <h2>3. Real-World Analogy</h2>
+  <p>Imagine a generic <strong>Vehicle</strong> class. A <strong>Car</strong> and a <strong>Bike</strong> both are types of vehicles. They inherit general behavior like <code>start()</code> or <code>stop()</code> but also have unique methods.</p>
+
+  <h2>4. Interactive Example</h2>
+  <div class="interactive">
+    <p>Click the buttons below to simulate inheritance-based behavior in a Dog object:</p>
+    <button onclick="animalEat()">Animal Eat</button>
+    <button onclick="dogBark()">Dog Bark</button>
+    <p id="inheritOutput"></p>
+  </div>
+
+  <script>
+    function animalEat() {
+      document.getElementById("inheritOutput").textContent = "This animal eats food.";
+    }
+    function dogBark() {
+      document.getElementById("inheritOutput").textContent = "The dog barks loudly! 🐕";
+    }
+  </script>
+
+  <h2>5. Why Use Inheritance?</h2>
+  <ul>
+    <li><strong>Code Reusability:</strong> Avoid rewriting code.</li>
+    <li><strong>Logical Structure:</strong> Represent real-world relationships.</li>
+    <li><strong>Maintainability:</strong> Easier to update and manage.</li>
+  </ul>
+
+  <h2>6. Types of Inheritance in Java</h2>
+  <ul>
+    <li><strong>Single Inheritance:</strong> One child class inherits from one parent class.</li>
+    <li><strong>Multilevel Inheritance:</strong> Class B inherits from A, and C inherits from B.</li>
+    <li><strong>Hierarchical Inheritance:</strong> Multiple child classes inherit from a single parent.</li>
+  </ul>
+
+  <h2>7. Practical Examples</h2>
+  <ul>
+    <li><strong>Employee Management System:</strong> Class <code>Employee</code> can be extended by <code>Manager</code>, <code>Engineer</code>, etc.</li>
+    <li><strong>Game Characters:</strong> <code>Character</code> class can be extended into <code>Warrior</code>, <code>Archer</code>, <code>Wizard</code>.</li>
+    <li><strong>E-Commerce Platform:</strong> <code>Product</code> can be a base class for <code>Book</code>, <code>Electronics</code>, etc.</li>
+  </ul>
+
+  <h2>8. The super Keyword</h2>
+  <p>The <code>super</code> keyword is used to refer to the parent class. It can be used to call the parent's constructor or methods:</p>
+  <pre><code>class Animal {
+  void eat() {
+    System.out.println("Animal eats");
+  }
+}
+
+class Dog extends Animal {
+  void eat() {
+    super.eat();
+    System.out.println("Dog eats bones");
+  }
+}</code></pre>
+
+  <h2>9. Fun Fact!</h2>
+  <p>Java does not support multiple inheritance with classes to avoid the "diamond problem". However, it allows multiple inheritance through <strong>interfaces</strong>!</p>
+
+  <h2>10. Challenge</h2>
+  <p>Create a base class <code>Shape</code> with a method <code>area()</code>. Then create two subclasses <code>Circle</code> and <code>Rectangle</code> that override the <code>area()</code> method. Try to implement it on your own!</p>
+
+  <h2>11. Summary</h2>
+  <ul>
+    <li>Inheritance lets a class inherit from another class.</li>
+    <li>Use <code>extends</code> to implement inheritance.</li>
+    <li><code>super</code> keyword accesses parent class features.</li>
+    <li>Promotes code reuse and real-world modeling.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

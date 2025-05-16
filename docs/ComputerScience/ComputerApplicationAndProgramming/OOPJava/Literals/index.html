@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Lesson - Literals</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #e6f7ff;
+      border-left: 4px solid #00aaff;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .example {
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java Programming: Literals</h1>
+
+  <p><strong>Literals</strong> in Java are the constant values that are assigned to variables. These values are fixed and do not change during program execution.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Did you know? The word "literal" comes from Latin "littera," meaning "letter." In programming, it refers to exactly what is written—no interpretation needed!
+  </div>
+
+  <h2>Types of Literals in Java</h2>
+  <ul>
+    <li>Integer Literals</li>
+    <li>Floating-point Literals</li>
+    <li>Character Literals</li>
+    <li>String Literals</li>
+    <li>Boolean Literals</li>
+    <li>Null Literal</li>
+  </ul>
+
+  <h3>1. Integer Literals</h3>
+  <p>These are whole numbers like <code>100</code>, <code>-25</code>. They can be expressed in decimal, octal, hexadecimal, and binary form.</p>
+
+  <div class="example">
+    <pre><code>int a = 100;          // Decimal
+int b = 0123;         // Octal (starts with 0)
+int c = 0x7B;         // Hexadecimal (starts with 0x)
+int d = 0b1010;       // Binary (starts with 0b)</code></pre>
+  </div>
+
+  <button onclick="alert('Binary literals were introduced in Java 7!')">Click for a Tip</button>
+
+  <h3>2. Floating-point Literals</h3>
+  <p>Numbers with decimals. Default type is <code>double</code>.</p>
+  <pre><code>float pi = 3.14f;
+double gravity = 9.8;</code></pre>
+
+  <h3>3. Character Literals</h3>
+  <p>Single characters enclosed in single quotes.</p>
+  <pre><code>char letter = 'A';
+char digit = '5';</code></pre>
+
+  <h3>4. String Literals</h3>
+  <p>Text enclosed in double quotes.</p>
+  <pre><code>String greeting = "Hello, World!";</code></pre>
+
+  <h3>5. Boolean Literals</h3>
+  <p>Only two values: <code>true</code> and <code>false</code>.</p>
+  <pre><code>boolean isJavaFun = true;</code></pre>
+
+  <h3>6. Null Literal</h3>
+  <p>Used to indicate no value or object reference.</p>
+  <pre><code>String name = null;</code></pre>
+
+  <h2>Real-World Example</h2>
+  <p>Consider a Student management system:</p>
+  <pre><code>String studentName = "Alice";
+int age = 20;
+boolean isEnrolled = true;
+double GPA = 3.75;</code></pre>
+
+  <button onclick="document.getElementById('moreExamples').style.display='block'">Show More Examples</button>
+  <div id="moreExamples" style="display:none">
+    <h3>Examples in Context</h3>
+    <pre><code>// Bank account
+String accountHolder = "John Doe";
+int accountNumber = 12345678;
+double balance = 1000.75;
+boolean isActive = true;</code></pre>
+
+    <pre><code>// Weather report
+String day = "Monday";
+double temperature = 29.4;
+boolean isRaining = false;</code></pre>
+  </div>
+
+  <h2>Interactive Quiz</h2>
+  <p>What is the correct way to define a character literal in Java?</p>
+  <button onclick="checkAnswer('a')">A. char letter = "A";</button><br>
+  <button onclick="checkAnswer('b')">B. char letter = 'A';</button><br>
+  <button onclick="checkAnswer('c')">C. char letter = A;</button>
+
+  <p id="quizResult"></p>
+
+  <script>
+    function checkAnswer(option) {
+      const result = document.getElementById("quizResult");
+      if (option === 'b') {
+        result.innerHTML = "✅ Correct! 'A' is the correct character literal.";
+        result.style.color = 'green';
+      } else {
+        result.innerHTML = "❌ Incorrect. Remember, character literals use single quotes like 'A'.";
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to Home</a></p>
+  </footer>
+</body>
+</html>

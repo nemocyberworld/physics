@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creating Applet - Java Lesson</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson: Creating Applets in Java</h1>
+
+  <h2>1. What is an Applet?</h2>
+  <p>An <strong>applet</strong> is a Java program that can be embedded in a web page and run in a browser using the Java plugin. Although they are considered outdated, understanding applets is useful for learning how Java handles GUI components, threads, and lifecycle management.</p>
+
+  <h2>2. The Basic Applet Structure</h2>
+  <p>To create an applet, you need to extend the <code>Applet</code> class (or <code>JApplet</code> for Swing-based applets). Here's a simple example:</p>
+  <pre>
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class MyApplet extends Applet {
+  public void paint(Graphics g) {
+    g.drawString("Welcome to Java Applet!", 20, 20);
+  }
+}
+  </pre>
+
+  <h2>3. Applet HTML Tag</h2>
+  <p>To run the applet in a browser, you would embed it in an HTML file using the <code>&lt;applet&gt;</code> tag:</p>
+  <pre>
+<html>
+  <body>
+    <applet code="MyApplet.class" width="300" height="100"></applet>
+  </body>
+</html>
+  </pre>
+  <p><strong>Note:</strong> Most modern browsers no longer support Java applets. Applet viewers or legacy environments are used instead.</p>
+
+  <h2>4. Lifecycle of an Applet</h2>
+  <p>The applet lifecycle includes four main methods:</p>
+  <ul>
+    <li><code>init()</code>: Initialization logic</li>
+    <li><code>start()</code>: Start or resume execution</li>
+    <li><code>paint()</code>: Redraw the GUI</li>
+    <li><code>stop()</code> and <code>destroy()</code>: Cleanup resources</li>
+  </ul>
+
+  <div class="interactive">
+    <h3>Interactive Simulation</h3>
+    <p>Click to simulate the applet lifecycle.</p>
+    <button onclick="simulateAppletLifecycle()">Simulate</button>
+    <div id="lifecycleOutput"></div>
+  </div>
+
+  <script>
+    function simulateAppletLifecycle() {
+      const steps = [
+        'init() - Applet initialized',
+        'start() - Applet started',
+        'paint() - Drawing components',
+        'stop() - Applet stopped',
+        'destroy() - Applet destroyed'
+      ];
+      let output = '';
+      steps.forEach((msg, i) => {
+        setTimeout(() => {
+          output += msg + '<br>';
+          document.getElementById('lifecycleOutput').innerHTML = output;
+        }, i * 1000);
+      });
+    }
+  </script>
+
+  <h2>5. Real-World Examples of Applets</h2>
+  <ul>
+    <li>Interactive physics simulations for education (pendulums, optics)</li>
+    <li>Simple online games (chess, puzzles)</li>
+    <li>Graphing calculators and plotting tools</li>
+    <li>Early e-commerce product configurators</li>
+  </ul>
+
+  <h2>6. Adding User Interaction</h2>
+  <p>You can capture mouse and keyboard input using Java's event handling. Here's an example of handling a mouse click:</p>
+  <pre>
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ClickApplet extends Applet implements MouseListener {
+  int x = 0, y = 0;
+
+  public void init() {
+    addMouseListener(this);
+  }
+
+  public void paint(Graphics g) {
+    g.drawString("You clicked at: (" + x + ", " + y + ")", x, y);
+  }
+
+  public void mouseClicked(MouseEvent e) {
+    x = e.getX();
+    y = e.getY();
+    repaint();
+  }
+
+  // Unused methods
+  public void mouseEntered(MouseEvent e) {}
+  public void mouseExited(MouseEvent e) {}
+  public void mousePressed(MouseEvent e) {}
+  public void mouseReleased(MouseEvent e) {}
+}
+  </pre>
+
+  <h2>7. Common Mistakes When Creating Applets</h2>
+  <ul>
+    <li>Forgetting to override <code>paint()</code></li>
+    <li>Not compiling to <code>.class</code> file before embedding</li>
+    <li>Misplacing the applet HTML in unsupported browsers</li>
+  </ul>
+
+  <h2>8. Fun Fact</h2>
+  <p>The first Java applet was demonstrated in 1995 and showcased an animated molecule model. It wowed audiences by bringing interactivity to websites—years before JavaScript was widespread!</p>
+
+  <h2>9. Modern Alternatives</h2>
+  <p>Applets are now largely replaced by:</p>
+  <ul>
+    <li><strong>JavaFX</strong>: Modern GUI applications</li>
+    <li><strong>Web technologies</strong>: HTML5, CSS3, JavaScript</li>
+    <li><strong>Electron and Flutter</strong>: Cross-platform desktop and mobile apps</li>
+  </ul>
+
+  <h2>10. Summary</h2>
+  <ul>
+    <li>Applets are small Java programs embedded in web pages.</li>
+    <li>They follow a strict lifecycle managed by the browser or applet viewer.</li>
+    <li>They serve as a great way to learn Java GUI basics.</li>
+    <li>Modern Java applications use JavaFX or other frameworks.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Topic - Creating Methods and Class Methods</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0055a5;
+    }
+    .output {
+      margin-top: 1rem;
+      background-color: #eef6fc;
+      padding: 1rem;
+      border-left: 5px solid #0055a5;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .funfact {
+      background: #fffae6;
+      border-left: 6px solid #ffcc00;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java Programming: Creating Methods and Class Methods</h1>
+
+  <p>Welcome to a detailed lesson on <strong>Creating Methods and Class Methods</strong> in Java. Understanding how to define and use methods is critical in building reusable, modular, and well-structured programs.</p>
+
+  <h2>1. What is a Method?</h2>
+  <p>A <strong>method</strong> is a block of code that performs a specific task. You can think of it as a mini-program that does something useful. For example, a method could calculate the square of a number, print a greeting, or update a user profile.</p>
+
+  <h2>2. Instance Methods</h2>
+  <p>Instance methods belong to an object. You need to create an object of the class to call these methods.</p>
+
+  <pre>
+class Calculator {
+  int square(int x) {
+    return x * x;
+  }
+}
+  </pre>
+
+  <p>To use it:</p>
+  <pre>
+Calculator calc = new Calculator();
+System.out.println(calc.square(5)); // Outputs: 25
+  </pre>
+
+  <h2>3. Class (Static) Methods</h2>
+  <p><strong>Static methods</strong>, also known as class methods, belong to the class itself, not to objects. You can call them without creating an object.</p>
+
+  <pre>
+class MathTools {
+  static int cube(int x) {
+    return x * x * x;
+  }
+}
+  </pre>
+
+  <p>To use a static method:</p>
+  <pre>
+System.out.println(MathTools.cube(3)); // Outputs: 27
+  </pre>
+
+  <h2>4. Real-World Example: Bank Account</h2>
+  <p>Each account can show its balance (instance method). But we might want a method that shows the total number of accounts (class method).</p>
+
+  <pre>
+class BankAccount {
+  int balance;
+  static int totalAccounts = 0;
+
+  BankAccount(int initialBalance) {
+    balance = initialBalance;
+    totalAccounts++;
+  }
+
+  void displayBalance() {
+    System.out.println("Balance: $" + balance);
+  }
+
+  static void displayTotalAccounts() {
+    System.out.println("Total accounts: " + totalAccounts);
+  }
+}
+  </pre>
+
+  <h2>5. JavaScript Simulation: Test Your Understanding</h2>
+  <p>Create a virtual bank account and see instance and class methods in action:</p>
+
+  <label for="initialBalance">Initial Balance:</label><br />
+  <input type="number" id="initialBalance" placeholder="e.g. 1000" /><br /><br />
+
+  <button onclick="createAccount()">Create Account</button>
+
+  <div class="output" id="output">No accounts created yet.</div>
+
+  <div class="funfact">
+    <strong>Fun Fact:</strong> Java's naming of "methods" instead of "functions" in classes follows from its object-oriented roots inspired by C++ and Smalltalk!
+  </div>
+
+  <h2>6. Method Overloading</h2>
+  <p>You can define multiple methods with the same name, but different parameter types or counts. This is called <strong>method overloading</strong>.</p>
+
+  <pre>
+class Printer {
+  void print(String msg) {
+    System.out.println(msg);
+  }
+
+  void print(int num) {
+    System.out.println("Number: " + num);
+  }
+}
+  </pre>
+
+  <p>Calling <code>print("Hello")</code> and <code>print(42)</code> will invoke different versions of the method.</p>
+
+  <h2>7. Practical Applications</h2>
+  <ul>
+    <li><strong>ATM System:</strong> Instance methods to withdraw or deposit money, class method to log total transactions.</li>
+    <li><strong>Game Scoreboard:</strong> Instance method to display a player’s score, class method to show total players online.</li>
+    <li><strong>Library App:</strong> Instance method for borrowing a book, class method to check total borrowed books.</li>
+  </ul>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Methods encapsulate reusable logic in Java.</li>
+    <li><strong>Instance methods</strong> need an object to be used.</li>
+    <li><strong>Class methods</strong> use <code>static</code> and can be called from the class directly.</li>
+    <li>Use methods to make your code clean, readable, and organized.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    class BankAccount {
+      constructor(initialBalance) {
+        this.balance = initialBalance;
+        BankAccount.totalAccounts++;
+      }
+
+      displayBalance() {
+        return `Balance: $${this.balance}`;
+      }
+
+      static displayTotalAccounts() {
+        return `Total accounts: ${BankAccount.totalAccounts}`;
+      }
+    }
+    BankAccount.totalAccounts = 0;
+
+    const accounts = [];
+    const outputDiv = document.getElementById('output');
+
+    function createAccount() {
+      const balanceInput = document.getElementById('initialBalance');
+      const balance = parseFloat(balanceInput.value);
+
+      if (isNaN(balance) || balance < 0) {
+        alert('Please enter a valid positive number for balance.');
+        return;
+      }
+
+      const newAccount = new BankAccount(balance);
+      accounts.push(newAccount);
+
+      let outputText = '';
+      accounts.forEach((acc, index) => {
+        outputText += `${index + 1}. ${acc.displayBalance()}\n`;
+      });
+
+      outputText += '\n' + BankAccount.displayTotalAccounts();
+      outputDiv.textContent = outputText;
+
+      balanceInput.value = '';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP - Statements and Expressions</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #669;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java OOP: Statements and Expressions</h1>
+
+  <h2>Introduction</h2>
+  <p>In Java, understanding the difference between <strong>statements</strong> and <strong>expressions</strong> is fundamental. These are the building blocks of all Java programs, including Object-Oriented code.</p>
+
+  <div class="interactive">
+    <h3>Fun Fact!</h3>
+    <p>Every line of code in Java that does something is a <em>statement</em>. Every computation or value calculation is an <em>expression</em>. Without either, your code wouldn't run!</p>
+  </div>
+
+  <h2>1. What is an Expression?</h2>
+  <p>An <strong>expression</strong> is a piece of code that evaluates to a value. Examples include:</p>
+  <ul>
+    <li><code>5 + 2</code> → evaluates to <code>7</code></li>
+    <li><code>"Hello " + "World"</code> → evaluates to <code>"Hello World"</code></li>
+    <li><code>x * y</code> (if <code>x</code> and <code>y</code> are numbers)</li>
+  </ul>
+
+  <h3>Real-World Analogy</h3>
+  <p>Think of expressions like math: When you calculate your bill <code>(price * quantity)</code>, you're forming an expression.</p>
+
+  <h2>2. What is a Statement?</h2>
+  <p>A <strong>statement</strong> performs an action. It might assign a value, make a decision, or loop through values. Common types include:</p>
+  <ul>
+    <li><strong>Declaration statement:</strong> <code>int x;</code></li>
+    <li><strong>Assignment statement:</strong> <code>x = 5;</code></li>
+    <li><strong>Method call statement:</strong> <code>System.out.println(x);</code></li>
+    <li><strong>Control flow statements:</strong> <code>if</code>, <code>for</code>, <code>while</code></li>
+  </ul>
+
+  <h2>3. Interactive Example</h2>
+  <div class="interactive">
+    <p>Enter values and watch how expressions and statements work together:</p>
+    <label for="num1">Enter number 1:</label>
+    <input type="number" id="num1">
+    <label for="num2">Enter number 2:</label>
+    <input type="number" id="num2">
+    <button onclick="evaluateExpression()">Evaluate</button>
+    <pre id="exprOutput"></pre>
+  </div>
+
+  <script>
+    function evaluateExpression() {
+      let num1 = parseFloat(document.getElementById('num1').value);
+      let num2 = parseFloat(document.getElementById('num2').value);
+      let result = num1 + num2;
+      document.getElementById('exprOutput').textContent = `Expression: ${num1} + ${num2} = ${result}`;
+    }
+  </script>
+
+  <h2>4. Statement vs Expression in Java Code</h2>
+  <pre><code>// Expression:
+int total = price * quantity; // price * quantity is an expression
+
+// Statement:
+total = 100; // Assignment statement
+System.out.println(total); // Method call statement</code></pre>
+
+  <h2>5. Expressions Inside Statements</h2>
+  <p>Most statements contain expressions. For example:</p>
+  <pre><code>if (age &gt; 18) {
+    System.out.println("You are an adult");
+}</code></pre>
+  <p>Here, <code>age &gt; 18</code> is an expression inside an <code>if</code> statement.</p>
+
+  <h2>6. More Real-Life Applications</h2>
+  <ul>
+    <li>Calculating discounts: <code>price * discount</code></li>
+    <li>Checking login: <code>if(username.equals("admin"))</code></li>
+    <li>Counting scores in games: <code>score += 10;</code></li>
+  </ul>
+
+  <h2>7. Quiz Time!</h2>
+  <div class="interactive">
+    <p>Which of these are statements and which are expressions?</p>
+    <pre>
+1. int x = 5 + 3;
+2. System.out.println("Java");
+3. 10 * 20
+    </pre>
+    <button onclick="revealQuiz()">Reveal Answers</button>
+    <pre id="quizAnswers"></pre>
+  </div>
+
+  <script>
+    function revealQuiz() {
+      const answers = `1. Statement (with an expression inside)
+2. Statement
+3. Expression`;
+      document.getElementById('quizAnswers').textContent = answers;
+    }
+  </script>
+
+  <h2>8. Pro Tip</h2>
+  <p>Every time you write a line of code, ask yourself: "Is this doing something (a statement)? Or calculating something (an expression)?" This will make your understanding of Java sharper and your debugging easier.</p>
+
+  <h2>Conclusion</h2>
+  <p>Statements and expressions are essential in Java programming. Mastering them allows you to write logical, functional, and interactive programs. They are at the heart of everything from simple calculators to full-fledged enterprise software.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

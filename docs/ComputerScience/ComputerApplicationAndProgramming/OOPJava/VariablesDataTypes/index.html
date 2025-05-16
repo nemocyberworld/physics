@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP - Variables and Data Types</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #669;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    input {
+      margin: 0.25rem 0.5rem;
+      padding: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java OOP: Variables and Data Types</h1>
+
+  <h2>Introduction</h2>
+  <p>Variables and data types are the foundation of any programming language, including Java. In Object-Oriented Programming (OOP), variables store the state of an object. Understanding how to use them is essential to writing good Java code.</p>
+
+  <div class="interactive">
+    <h3>Fun Fact!</h3>
+    <p>The word "variable" comes from Latin "variabilis," meaning changeable — and that’s exactly what variables are: named containers for data that can change!</p>
+  </div>
+
+  <h2>1. What is a Variable?</h2>
+  <p>A <strong>variable</strong> is a name that refers to a memory location where data is stored. In Java, every variable must have a <em>type</em> — which determines what kind of data it holds.</p>
+
+  <h2>2. Java Variable Syntax</h2>
+  <pre><code>type variableName = value;</code></pre>
+  <p>Example:</p>
+  <pre><code>int age = 25;
+String name = "Alice";
+boolean isJavaFun = true;</code></pre>
+
+  <h2>3. Types of Variables</h2>
+  <ul>
+    <li><strong>Local variables:</strong> Declared inside methods</li>
+    <li><strong>Instance variables:</strong> Belong to objects</li>
+    <li><strong>Class variables (static):</strong> Shared across all objects</li>
+  </ul>
+
+  <h2>4. Java Data Types</h2>
+  <h3>Primitive Data Types:</h3>
+  <ul>
+    <li><code>int</code> – whole numbers (e.g., 10, -5)</li>
+    <li><code>double</code> – decimal numbers (e.g., 3.14)</li>
+    <li><code>boolean</code> – true or false</li>
+    <li><code>char</code> – single character (e.g., 'A')</li>
+  </ul>
+  <h3>Non-Primitive Data Types:</h3>
+  <ul>
+    <li><code>String</code> – sequence of characters (e.g., "Hello")</li>
+    <li><code>Arrays</code>, <code>Classes</code>, <code>Interfaces</code> etc.</li>
+  </ul>
+
+  <h2>5. Interactive Example</h2>
+  <div class="interactive">
+    <p>Try entering your own values to see how variables and data types work together:</p>
+    <label for="userName">Your Name (String):</label>
+    <input type="text" id="userName">
+    <label for="userAge">Your Age (int):</label>
+    <input type="number" id="userAge">
+    <label for="likesJava">Do you like Java? (true/false):</label>
+    <input type="text" id="likesJava">
+    <button onclick="showVariables()">Show My Variables</button>
+    <pre id="varOutput"></pre>
+  </div>
+
+  <script>
+    function showVariables() {
+      let name = document.getElementById('userName').value;
+      let age = parseInt(document.getElementById('userAge').value);
+      let likesJava = document.getElementById('likesJava').value.toLowerCase() === 'true';
+
+      let output = `Java Variables:\n`;
+      output += `String name = \"${name}\";\n`;
+      output += `int age = ${age};\n`;
+      output += `boolean likesJava = ${likesJava};`;
+
+      document.getElementById('varOutput').textContent = output;
+    }
+  </script>
+
+  <h2>6. Real-World Examples</h2>
+  <ul>
+    <li>Bank app: <code>double balance = 1023.75;</code></li>
+    <li>Game: <code>int score = 0;</code>, <code>boolean gameOver = false;</code></li>
+    <li>E-commerce: <code>String productName = "Laptop";</code></li>
+  </ul>
+
+  <h2>7. Practice Challenge</h2>
+  <p>Create a Java program that stores a student’s name, age, grade (as double), and whether they passed (boolean).</p>
+
+  <h2>8. Quiz Time!</h2>
+  <div class="interactive">
+    <p>Match the data type with the correct value:</p>
+    <ol>
+      <li>int</li>
+      <li>double</li>
+      <li>boolean</li>
+      <li>String</li>
+    </ol>
+    <ul>
+      <li>A. true</li>
+      <li>B. 42</li>
+      <li>C. "Java is fun"</li>
+      <li>D. 3.14159</li>
+    </ul>
+    <button onclick="showQuizAnswers()">Reveal Answers</button>
+    <pre id="quizOutput"></pre>
+  </div>
+
+  <script>
+    function showQuizAnswers() {
+      const answers = `1 → B. 42\n2 → D. 3.14159\n3 → A. true\n4 → C. \"Java is fun\"`;
+      document.getElementById('quizOutput').textContent = answers;
+    }
+  </script>
+
+  <h2>Conclusion</h2>
+  <p>Variables and data types are essential to every Java program. With a clear understanding of how to declare, assign, and use variables of different types, you're building a strong foundation in Java and Object-Oriented Programming.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

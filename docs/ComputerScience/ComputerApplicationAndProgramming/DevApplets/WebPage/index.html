@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Including Applet on Web Page</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson: Including Applets on a Web Page</h1>
+
+  <h2>1. Introduction</h2>
+  <p>Including a Java Applet in a web page used to be a common way to bring interactivity and advanced graphics into websites before JavaScript and HTML5 took over. While applets are now largely deprecated, learning how to include them can help you understand legacy systems and how early interactive content was delivered online.</p>
+
+  <h2>2. Prerequisites</h2>
+  <ul>
+    <li>Java Development Kit (JDK) installed</li>
+    <li>A compiled <code>.class</code> file of your applet</li>
+    <li>Basic understanding of HTML</li>
+  </ul>
+
+  <h2>3. Syntax of the &lt;applet&gt; Tag</h2>
+  <p>Here is the basic syntax to embed a Java applet:</p>
+  <pre>
+<applet code="MyApplet.class" width="300" height="150"></applet>
+  </pre>
+
+  <h2>4. Example</h2>
+  <p>Let's say we have an applet class that displays a greeting. Here's the Java code:</p>
+  <pre>
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class GreetingApplet extends Applet {
+  public void paint(Graphics g) {
+    g.drawString("Hello from the Applet!", 20, 20);
+  }
+}
+  </pre>
+
+  <p>To display this applet in a web page:</p>
+  <pre>
+<html>
+  <body>
+    <applet code="GreetingApplet.class" width="300" height="100"></applet>
+  </body>
+</html>
+  </pre>
+
+  <div class="interactive">
+    <h3>Try it Yourself!</h3>
+    <p>Change the width and height of the applet below:</p>
+    Width: <input type="number" id="widthInput" value="300"> px<br>
+    Height: <input type="number" id="heightInput" value="100"> px<br><br>
+    <button onclick="updateAppletTag()">Update Applet Tag</button>
+    <p>Generated HTML:</p>
+    <pre id="appletCodeOutput"></pre>
+  </div>
+
+  <script>
+    function updateAppletTag() {
+      const width = document.getElementById('widthInput').value;
+      const height = document.getElementById('heightInput').value;
+      const tag = `&lt;applet code=\"GreetingApplet.class\" width=\"${width}\" height=\"${height}\"&gt;&lt;/applet&gt;`;
+      document.getElementById('appletCodeOutput').innerText = tag;
+    }
+  </script>
+
+  <h2>5. Real-World Applications of Applets</h2>
+  <ul>
+    <li>Early online banking interfaces</li>
+    <li>Remote file uploaders and file browsers</li>
+    <li>Physics simulations in education portals</li>
+    <li>Legacy inventory and form systems</li>
+  </ul>
+
+  <h2>6. Modern Compatibility</h2>
+  <p>Most modern browsers no longer support applets due to security concerns and lack of plugin support. Instead, tools like Java Web Start, JavaFX, or converting logic to JavaScript using tools like GWT (Google Web Toolkit) are recommended.</p>
+
+  <h2>7. Alternative to &lt;applet&gt; Tag</h2>
+  <p>Another way of embedding Java Applets was using the <code>&lt;object&gt;</code> tag:</p>
+  <pre>
+<object classid="java:MyApplet.class" width="300" height="150">
+  <param name="code" value="MyApplet.class">
+</object>
+  </pre>
+
+  <h2>8. Fun Fact</h2>
+  <p>Did you know? The <code>&lt;applet&gt;</code> tag was one of the first ways to bring mini-programs into the web. This helped Java become the most popular language of the early 2000s!</p>
+
+  <h2>9. Troubleshooting Tips</h2>
+  <ul>
+    <li>Ensure your <code>.class</code> file is in the correct directory.</li>
+    <li>Use the Java Applet Viewer to test: <code>appletviewer filename.html</code></li>
+    <li>Check your browser’s Java settings or use legacy environments.</li>
+  </ul>
+
+  <h2>10. Summary</h2>
+  <ul>
+    <li>Applets are embedded Java programs for web interaction.</li>
+    <li>The <code>&lt;applet&gt;</code> tag is the traditional method for including applets.</li>
+    <li>Modern browsers do not support applets—alternatives are available.</li>
+    <li>Understanding applets gives insight into the evolution of web interactivity.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

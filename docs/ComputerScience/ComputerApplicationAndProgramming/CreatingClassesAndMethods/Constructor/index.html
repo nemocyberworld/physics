@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Topic - Constructor Methods</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+    .output {
+      background-color: #eef6fc;
+      border-left: 5px solid #003366;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+      margin-top: 1rem;
+    }
+    .funfact {
+      background: #fffae6;
+      border-left: 6px solid #ffcc00;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java Programming: Constructor Methods</h1>
+
+  <p>Welcome! In this lesson, we will dive deep into <strong>Constructor Methods</strong> in Java. Constructors are a fundamental concept used when creating objects. This topic is especially important for building robust and reusable code in Java.</p>
+
+  <h2>1. What is a Constructor?</h2>
+  <p>A <strong>constructor</strong> in Java is a special method used to initialize objects. It is automatically called when a new object is created using the <code>new</code> keyword.</p>
+
+  <h2>2. Constructor Syntax</h2>
+  <pre>
+class Dog {
+  String name;
+
+  // Constructor
+  Dog(String dogName) {
+    name = dogName;
+  }
+}
+  </pre>
+  <p>Here, the constructor <code>Dog(String dogName)</code> initializes the <code>name</code> attribute when a new <code>Dog</code> object is created.</p>
+
+  <h2>3. Real-World Example: Bank Account</h2>
+  <pre>
+class BankAccount {
+  String accountHolder;
+  double balance;
+
+  BankAccount(String name, double initialDeposit) {
+    accountHolder = name;
+    balance = initialDeposit;
+  }
+
+  void displayInfo() {
+    System.out.println("Account Holder: " + accountHolder);
+    System.out.println("Balance: $" + balance);
+  }
+}
+  </pre>
+
+  <h2>4. Interactive Constructor Demo</h2>
+  <p>Create a new bank account below:</p>
+
+  <label for="name">Name:</label><br />
+  <input type="text" id="name" placeholder="e.g. Alice" /><br /><br />
+
+  <label for="deposit">Initial Deposit ($):</label><br />
+  <input type="number" id="deposit" placeholder="e.g. 1000" /><br /><br />
+
+  <button onclick="createAccount()">Create Account</button>
+
+  <div class="output" id="accountOutput">
+    No account created yet.
+  </div>
+
+  <h2>5. Default Constructors</h2>
+  <p>If no constructor is defined, Java provides a default no-argument constructor:</p>
+  <pre>
+class Car {
+  String brand;
+}
+
+Car myCar = new Car(); // uses the default constructor
+  </pre>
+
+  <h2>6. Constructor Overloading</h2>
+  <p>You can define multiple constructors with different parameter lists. This is called <strong>constructor overloading</strong>:</p>
+  <pre>
+class Rectangle {
+  int length, width;
+
+  // Constructor 1
+  Rectangle() {
+    length = 0;
+    width = 0;
+  }
+
+  // Constructor 2
+  Rectangle(int l, int w) {
+    length = l;
+    width = w;
+  }
+}
+  </pre>
+
+  <h2>7. Fun Fact</h2>
+  <div class="funfact">
+    The concept of constructors in object-oriented programming comes from Simula, the first object-oriented language developed in the 1960s. Java adopted and enhanced these principles!
+  </div>
+
+  <h2>8. Practical Applications</h2>
+  <ul>
+    <li><strong>Games:</strong> Initialize characters with health, position, and attributes using constructors.</li>
+    <li><strong>Finance Apps:</strong> Set up bank accounts, credit cards, and transactions with default or custom values.</li>
+    <li><strong>Mobile Apps:</strong> Load user profiles using constructors when the app launches.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    class BankAccount {
+      constructor(name, balance) {
+        this.accountHolder = name;
+        this.balance = parseFloat(balance).toFixed(2);
+      }
+
+      displayInfo() {
+        return `Account Holder: ${this.accountHolder}\nBalance: $${this.balance}`;
+      }
+    }
+
+    function createAccount() {
+      const name = document.getElementById("name").value.trim();
+      const deposit = document.getElementById("deposit").value;
+
+      if (name === "" || deposit === "") {
+        alert("Please enter both name and deposit amount.");
+        return;
+      }
+
+      const account = new BankAccount(name, deposit);
+      document.getElementById("accountOutput").textContent = account.displayInfo();
+
+      // Clear inputs
+      document.getElementById("name").value = "";
+      document.getElementById("deposit").value = "";
+    }
+  </script>
+</body>
+</html>
