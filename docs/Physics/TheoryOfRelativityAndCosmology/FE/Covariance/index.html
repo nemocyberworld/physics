@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Principle of General Covariance - Einstein's Field Equations</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      border: 1px solid #99c;
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Principle of General Covariance</h1>
+  
+  <p>
+    The <strong>Principle of General Covariance</strong> is a cornerstone of Einstein’s General Relativity.
+    It states that the laws of physics must take the same form in all coordinate systems, not just inertial ones.
+    In simpler terms, the equations describing nature should be valid regardless of how you observe or measure them.
+  </p>
+  
+  <h2>What Does This Mean?</h2>
+  <p>
+    In classical physics, the laws often change their form when you switch coordinate systems (e.g., from Cartesian to polar coordinates). However, Einstein’s theory requires that the fundamental equations describing gravity hold true in <em>any</em> coordinate system. This means:
+  </p>
+  <ul>
+    <li>Physical laws are <em>covariant</em> under any smooth change of coordinates.</li>
+    <li>There is no preferred frame of reference — all frames are equally valid.</li>
+    <li>Spacetime geometry, described by the metric tensor \\(g_{\mu\nu}\\), transforms in a way that preserves physical laws.</li>
+  </ul>
+
+  <h2>Mathematical Expression</h2>
+  <p>
+    The principle leads to writing Einstein's field equations in tensor form:
+  </p>
+  <div class="equation">
+    $$ G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8 \\pi G}{c^4} T_{\\mu\\nu} $$
+  </div>
+  <p>
+    Here:
+    <ul>
+      <li>\\(G_{\\mu\\nu}\\) is the Einstein tensor, expressing spacetime curvature.</li>
+      <li>\\(\\Lambda\\) is the cosmological constant.</li>
+      <li>\\(T_{\\mu\\nu}\\) is the stress-energy tensor, describing matter and energy.</li>
+    </ul>
+  </p>
+  
+  <h2>Interactive Coordinate Transformation</h2>
+  <p>Try changing the coordinate system to see how the same physical law remains valid.</p>
+  <div class="interactive">
+    <label for="coordSelect">Select coordinate system:</label>
+    <select id="coordSelect" onchange="updateLaw()">
+      <option value="cartesian">Cartesian (x, y)</option>
+      <option value="polar">Polar (r, θ)</option>
+    </select>
+    <p id="lawDescription"></p>
+  </div>
+
+  <script>
+    function updateLaw() {
+      const select = document.getElementById("coordSelect");
+      const desc = document.getElementById("lawDescription");
+      if (select.value === "cartesian") {
+        desc.innerHTML = `
+          In Cartesian coordinates, the metric is:<br>
+          <code>ds^2 = dx^2 + dy^2</code><br>
+          and the equations maintain their tensor form.
+        `;
+      } else {
+        desc.innerHTML = `
+          In Polar coordinates, the metric changes to:<br>
+          <code>ds^2 = dr^2 + r^2 d\\theta^2</code><br>
+          but the physics described by the Einstein equations remains unchanged.
+        `;
+      }
+    }
+    window.onload = updateLaw;
+  </script>
+
+  <h2>Real-World Applications</h2>
+  <ul>
+    <li><strong>GPS Technology:</strong> The GPS satellites operate in curved spacetime, and their calculations depend on general covariance to remain accurate.</li>
+    <li><strong>Black Hole Physics:</strong> Descriptions of black holes are independent of coordinate choices like Schwarzschild or Kerr coordinates.</li>
+    <li><strong>Cosmology:</strong> Our understanding of the expanding universe uses equations valid in any coordinate system.</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>
+    Einstein was deeply inspired by the idea that physical laws should be independent of coordinates, leading him to develop tensor calculus and differential geometry tools for his theory.
+  </p>
+
+  <h2>Why Is This Important?</h2>
+  <p>
+    Before General Relativity, physics often relied on special coordinate systems for convenience. The principle of general covariance emphasizes the universal nature of physics, making the laws applicable everywhere, anytime, and for all observers.
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    - The Principle of General Covariance requires physical laws to be form-invariant under any smooth coordinate transformations.<br>
+    - It enforces that no coordinate system is privileged.<br>
+    - This principle is central to the geometric description of gravity in General Relativity.<br>
+    - It ensures the Einstein field equations are universally valid.<br>
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

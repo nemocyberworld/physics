@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricci Tensor - Tensor Calculus</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #339;
+    }
+    .fun-fact {
+      background: #fff8dc;
+      padding: 0.8rem;
+      border-left: 5px solid orange;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ricci Tensor - A Key Tool in General Relativity</h1>
+
+  <h2>Introduction</h2>
+  <p>The <strong>Ricci tensor</strong> is a fundamental concept in tensor calculus, especially in the context of general relativity and cosmology. It captures how volumes distort in curved spacetime. Unlike the full Riemann tensor, the Ricci tensor is a simplified version that still retains essential information about curvature.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The Ricci tensor appears directly in Einstein’s field equations, which govern how matter and energy curve spacetime!
+  </div>
+
+  <h2>Definition</h2>
+  <p>The Ricci tensor is defined as a contraction of the Riemann curvature tensor:</p>
+  <div class="equation">
+    $$ R_{\mu\nu} = R^\lambda_{\;\mu\lambda\nu} $$
+  </div>
+  <p>This operation reduces the four-index Riemann tensor to a simpler two-index tensor while retaining key curvature information.</p>
+
+  <h2>Physical Interpretation</h2>
+  <p>The Ricci tensor tells us how volumes change in curved spacetime. For example, it explains how the presence of matter makes a sphere of test particles contract or expand.</p>
+
+  <h2>Real-World Examples</h2>
+  <ul>
+    <li><strong>Black Holes:</strong> Near a black hole, the Ricci tensor reveals how matter collapses spacetime.</li>
+    <li><strong>Cosmology:</strong> It’s central to the Friedmann equations used in Big Bang theory and cosmic expansion.</li>
+    <li><strong>Geodesic Deviation:</strong> Describes how nearby particles fall towards or away from each other.</li>
+  </ul>
+
+  <div class="interactive">
+    <h3>Interactive: Estimate Spacetime Curvature</h3>
+    <label for="mass">Mass (kg):</label>
+    <input type="number" id="mass" value="1e30"><br>
+    <label for="radius">Radius from center (m):</label>
+    <input type="number" id="radius" value="1e9"><br>
+    <button onclick="calculateRicci()">Calculate Approximate Ricci Component</button>
+    <div id="ricciResult"></div>
+  </div>
+
+  <script>
+    function calculateRicci() {
+      const G = 6.67430e-11; // gravitational constant
+      const c = 299792458; // speed of light
+      const mass = parseFloat(document.getElementById('mass').value);
+      const radius = parseFloat(document.getElementById('radius').value);
+      const curvature = (2 * G * mass) / (radius ** 3 * c ** 2);
+      const output = `<p>Estimated Ricci curvature component at distance r: <strong>${curvature.toExponential(3)}</strong> m<sup>-2</sup></p>`;
+      document.getElementById('ricciResult').innerHTML = output;
+    }
+  </script>
+
+  <h2>Mathematical Properties</h2>
+  <ul>
+    <li>It is a symmetric tensor: \( R_{\mu\nu} = R_{\nu\mu} \)</li>
+    <li>It appears in the trace of the Riemann tensor.</li>
+    <li>It contributes to the scalar curvature \( R \) through: \( R = g^{\mu\nu} R_{\mu\nu} \)</li>
+  </ul>
+
+  <h2>Einstein’s Field Equations</h2>
+  <p>The Ricci tensor plays a starring role in Einstein’s field equations:</p>
+  <div class="equation">
+    $$ R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = \frac{8 \pi G}{c^4} T_{\mu\nu} $$
+  </div>
+  <p>Here, \( T_{\mu\nu} \) is the energy-momentum tensor, and \( g_{\mu\nu} \) is the metric. This equation tells us how energy and momentum influence spacetime curvature.</p>
+
+  <h2>Applications in Cosmology</h2>
+  <ol>
+    <li><strong>FLRW Universe:</strong> In an expanding universe, Ricci components describe how the scale factor evolves.</li>
+    <li><strong>Dark Energy:</strong> The cosmological constant modifies the Ricci curvature in the field equations.</li>
+    <li><strong>Gravitational Collapse:</strong> Ricci curvature grows with increasing density, leading to black hole formation.</li>
+  </ol>
+
+  <h2>Example: FLRW Metric</h2>
+  <p>In a homogeneous and isotropic universe, the Ricci tensor has simplified forms:</p>
+  <div class="equation">
+    $$ R_{00} = -3 \frac{\ddot{a}}{a}, \quad R_{ij} = \left(\frac{\ddot{a}}{a} + 2 \left(\frac{\dot{a}}{a}\right)^2 + 2 \frac{k}{a^2} \right) g_{ij} $$
+  </div>
+
+  <h2>Practice Questions</h2>
+  <ol>
+    <li>Derive the Ricci tensor from the Riemann tensor using contractions.</li>
+    <li>Explain the physical significance of \( R_{00} \) in cosmological models.</li>
+    <li>Explore the behavior of the Ricci tensor in vacuum vs. non-vacuum solutions.</li>
+  </ol>
+
+  <h2>Conclusion</h2>
+  <p>The Ricci tensor is a condensed but powerful expression of curvature that directly connects matter and geometry. Understanding it is key to exploring the dynamic structure of the universe.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principle of Equivalence - Einstein's Field Equations</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      border: 1px solid #99c;
+      padding: 1em;
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Principle of Equivalence</h1>
+  <p>
+    The <strong>Principle of Equivalence</strong> is one of the foundational ideas of Einstein’s General Theory of Relativity. It states that the effects of gravity are locally indistinguishable from the effects of acceleration. This means that being in a gravitational field is locally the same as being in an accelerated frame.
+  </p>
+
+  <h2>Understanding the Principle</h2>
+  <p>
+    Imagine you're inside a closed elevator:
+  </p>
+  <ul>
+    <li>If it's at rest on Earth, you feel your weight due to gravity.</li>
+    <li>If it's in deep space accelerating at \(9.8\, \text{m/s}^2\), you'll feel the same weight.</li>
+  </ul>
+  <p>
+    This is the essence of the Equivalence Principle.
+  </p>
+
+  <div class="interactive">
+    <h3>Interactive Thought Experiment</h3>
+    <p>Try selecting between two frames:</p>
+    <select id="frameSelect" onchange="describeFrame()">
+      <option value="earth">Elevator on Earth</option>
+      <option value="space">Elevator accelerating in space</option>
+    </select>
+    <p id="frameDescription"></p>
+  </div>
+
+  <script>
+    function describeFrame() {
+      const desc = document.getElementById("frameDescription");
+      const frame = document.getElementById("frameSelect").value;
+      if (frame === "earth") {
+        desc.innerText = "You feel a downward force. A dropped object falls to the floor. This is gravity.";
+      } else {
+        desc.innerText = "You feel the same downward force. A dropped object also falls to the floor. But you're in deep space. This is acceleration!";
+      }
+    }
+    window.onload = describeFrame;
+  </script>
+
+  <h2>Mathematical Formulation</h2>
+  <p>
+    The principle is deeply tied to the geometry of spacetime. Einstein used it to argue that gravity is not a force but a manifestation of curved spacetime.
+  </p>
+  <div class="equation">
+    $$ g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu} $$
+  </div>
+  <p>
+    Where \( g_{\mu\nu} \) is the curved metric and \( \eta_{\mu\nu} \) is the flat Minkowski metric.
+  </p>
+
+  <h2>Real World Applications</h2>
+  <ul>
+    <li><strong>GPS Systems:</strong> Account for general relativistic effects due to Earth's gravitational field.</li>
+    <li><strong>Free Fall:</strong> Astronauts orbiting Earth are actually in continuous free fall.</li>
+    <li><strong>Gravitational Lensing:</strong> Light bending around massive objects is an application of the curvature of spacetime.</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>
+    Einstein called the moment he realized the equivalence of acceleration and gravity “the happiest thought of my life.” It revolutionized our understanding of the universe.
+  </p>
+
+  <h2>Visualizing Curved Spacetime</h2>
+  <div class="interactive">
+    <p>Use the slider to simulate the strength of a gravitational field and its effect on spacetime curvature.</p>
+    <input type="range" id="gravitySlider" min="0" max="100" value="50" oninput="updateGravity()">
+    <p id="gravityEffect"></p>
+  </div>
+  <script>
+    function updateGravity() {
+      const val = document.getElementById("gravitySlider").value;
+      const effect = document.getElementById("gravityEffect");
+      effect.innerText = `Gravitational intensity: ${val}. Spacetime curvature is ${val > 50 ? 'strong' : 'mild'}.`;
+    }
+    window.onload = updateGravity;
+  </script>
+
+  <h2>Conclusion</h2>
+  <p>
+    The Principle of Equivalence is more than a clever observation—it’s the doorway to understanding the curvature of spacetime and the formulation of Einstein’s field equations. It challenges our common-sense notion of gravity and reveals the elegance of general relativity.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

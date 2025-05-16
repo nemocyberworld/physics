@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Robertson-Walker Metric - Cosmology Lesson</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .fun-fact {
+      background-color: #d6e9f8;
+      border-left: 5px solid #2a7ae2;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cosmology Lesson: The Robertson-Walker Metric</h1>
+  <p>
+    Welcome to this comprehensive lesson on the <strong>Robertson-Walker metric</strong>, a foundational concept in
+    cosmology derived from the theory of relativity. Here, you will learn what the metric represents,
+    why it’s crucial for understanding the universe, and how it applies to real-world cosmology.
+  </p>
+
+  <h2>1. What is the Robertson-Walker Metric?</h2>
+  <p>
+    The Robertson-Walker metric describes a <em>homogeneous</em> and <em>isotropic</em> universe — meaning,
+    it looks the same at every point (homogeneous) and in every direction (isotropic). This metric forms the basis of the
+    <em>Friedmann-Lemaître-Robertson-Walker (FLRW) models</em> of the universe, which explain how the universe expands or contracts over time.
+  </p>
+
+  <p>
+    Think of the universe as a perfectly smooth expanding balloon. The Robertson-Walker metric mathematically models this expansion,
+    telling us how distances between points in the universe change as time passes.
+  </p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The Robertson-Walker metric is named after Howard Percy Robertson and Arthur Geoffrey Walker,
+    who independently developed the metric in the 1930s.
+  </div>
+
+  <h2>2. The Metric in Mathematical Form</h2>
+  <p>
+    The Robertson-Walker metric is written as:
+  </p>
+  <div class="equation" id="metric-equation">
+    $$ ds^2 = -c^2 dt^2 + a(t)^2 \left( \frac{dr^2}{1 - kr^2} + r^2 d\theta^2 + r^2 \sin^2 \theta d\phi^2 \right) $$
+  </div>
+  <p>
+    Where:
+    <ul>
+      <li><code>ds</code> is the spacetime interval (a measure of distance in spacetime)</li>
+      <li><code>c</code> is the speed of light</li>
+      <li><code>t</code> is the cosmic time</li>
+      <li><code>a(t)</code> is the scale factor, showing how the size of the universe changes over time</li>
+      <li><code>r, \theta, \phi</code> are spatial coordinates (like latitude and longitude)</li>
+      <li><code>k</code> determines the curvature of space: it can be -1, 0, or +1 (open, flat, or closed universe)</li>
+    </ul>
+  </p>
+
+  <button onclick="toggleExplanation()">Show/Hide Explanation of Terms</button>
+  <div id="terms-explanation" class="hidden">
+    <h3>Explanation of Key Terms</h3>
+    <p>
+      <strong>Scale factor \( a(t) \):</strong> It tells us how much the universe has expanded or contracted relative to some reference time.
+      For example, if \( a(t) = 2 \), distances between galaxies have doubled since the reference time.
+    </p>
+    <p>
+      <strong>Curvature \( k \):</strong> This determines the shape of the universe's spatial sections:
+      <ul>
+        <li><code>k = 0</code>: Flat universe, like an infinite flat plane</li>
+        <li><code>k = +1</code>: Closed universe, curved like a sphere</li>
+        <li><code>k = -1</code>: Open universe, shaped like a saddle</li>
+      </ul>
+    </p>
+    <p>
+      <strong>Coordinates \( r, \theta, \phi \):</strong> These are spherical coordinates used to specify position in space.
+    </p>
+  </div>
+
+  <h2>3. Real-World Examples and Applications</h2>
+  <p>
+    The Robertson-Walker metric is not just a mathematical curiosity — it helps us understand:
+  </p>
+  <ul>
+    <li><strong>The expanding universe:</strong> Observations of distant galaxies show they are moving away from us, which is described by \( a(t) \) growing over time.</li>
+    <li><strong>Cosmic Microwave Background (CMB):</strong> The uniformity of the CMB radiation fits perfectly with the assumptions of homogeneity and isotropy behind the metric.</li>
+    <li><strong>Predicting the fate of the universe:</strong> Depending on the curvature \( k \) and the behavior of \( a(t) \), the universe might expand forever, stop expanding, or eventually collapse.</li>
+  </ul>
+
+  <h3>Example: Hubble’s Law and the Scale Factor</h3>
+  <p>
+    Hubble’s Law states that the velocity \( v \) at which a galaxy recedes from us is proportional to its distance \( d \):
+  </p>
+  <div class="equation">
+    $$ v = H_0 d $$
+  </div>
+  <p>
+    Here, \( H_0 \) is the Hubble constant, which relates to the scale factor as:
+  </p>
+  <div class="equation">
+    $$ H(t) = \frac{\dot{a}(t)}{a(t)} $$
+  </div>
+  <p>
+    The scale factor's time derivative \( \dot{a}(t) \) shows how fast the universe is expanding.
+  </p>
+
+  <button onclick="showExampleCalculation()">Show Example Calculation</button>
+  <div id="example-calculation" class="hidden">
+    <h4>Calculating Recession Velocity of a Galaxy</h4>
+    <p>
+      Suppose a galaxy is 1 billion light-years away, and the Hubble constant is approximately
+      \( H_0 = 70 \, \text{km/s/Mpc} \). Convert 1 billion light-years to megaparsecs (1 Mpc ≈ 3.26 million light-years):
+    </p>
+    <pre>
+Distance \( d \) = \(\frac{1,000,000,000}{3,260,000} \approx 306.7 \, \text{Mpc}\)
+
+Velocity \( v = H_0 \times d = 70 \times 306.7 \approx 21,469 \, \text{km/s} \)
+    </pre>
+    <p>
+      So the galaxy is moving away at about 21,469 kilometers per second due to the universe’s expansion.
+    </p>
+  </div>
+
+  <h2>4. Practical Implications in Modern Cosmology</h2>
+  <p>
+    Understanding the Robertson-Walker metric allows cosmologists to:
+  </p>
+  <ul>
+    <li>Model large-scale structure formation in the universe</li>
+    <li>Predict observable effects like redshift of light from distant galaxies</li>
+    <li>Understand dark energy and dark matter effects on cosmic expansion</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Did you know?</strong> The Robertson-Walker metric assumes the universe is the same everywhere and in every direction,
+    but small-scale structures like stars, galaxies, and black holes break this perfect symmetry!
+  </div>
+
+  <h2>5. Interactive Quiz: Test Your Understanding</h2>
+  <p>Answer the question below and click "Check Answer".</p>
+  <p><strong>Question:</strong> If the curvature \( k = +1 \), what shape best describes the universe?</p>
+  <select id="quiz-answer">
+    <option value="">--Select your answer--</option>
+    <option value="flat">Flat like a plane</option>
+    <option value="closed">Closed like a sphere</option>
+    <option value="open">Open like a saddle</option>
+  </select>
+  <button onclick="checkQuizAnswer()">Check Answer</button>
+  <p id="quiz-result"></p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleExplanation() {
+      const el = document.getElementById('terms-explanation');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+
+    function showExampleCalculation() {
+      const el = document.getElementById('example-calculation');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+
+    function checkQuizAnswer() {
+      const answer = document.getElementById('quiz-answer').value;
+      const result = document.getElementById('quiz-result');
+      if (!answer) {
+        result.textContent = 'Please select an answer.';
+        result.style.color = 'red';
+        return;
+      }
+      if (answer === 'closed') {
+        result.textContent = 'Correct! A curvature k = +1 means the universe is closed, like a sphere.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect. Try again!';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

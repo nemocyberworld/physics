@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmology: Redshift, Hubble’s Law & Olber’s Paradox</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #005599;
+    }
+    .hidden {
+      display: none;
+      margin-top: 0.5rem;
+      background-color: #eef6ff;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: 1px solid #aaccee;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .fun-fact {
+      background: #fff3cd;
+      border-left: 5px solid #ffeeba;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cosmology: Cosmological Redshift, Hubble’s Law & Olber’s Paradox</h1>
+  <p><em>Chapter: Theory of Relativity and Cosmology</em></p>
+
+  <h2>Introduction</h2>
+  <p>
+    Cosmology is the branch of physics that studies the Universe as a whole: its origin, structure, evolution, and eventual fate. 
+    In this lesson, we dive deep into some foundational concepts: <strong>Cosmological Redshift</strong>, <strong>Hubble’s Law</strong>, and the intriguing <strong>Olber’s Paradox</strong>. 
+    These concepts give us clues about the expanding universe and the nature of the cosmos.
+  </p>
+
+  <h2>1. Cosmological Redshift</h2>
+  <p>
+    When we observe light from distant galaxies, we notice its wavelength has stretched — shifted towards the red end of the spectrum. 
+    This effect is called <strong>cosmological redshift</strong>. It occurs because space itself is expanding.
+  </p>
+  <p>
+    The redshift \( z \) is defined as:
+  </p>
+  <div class="equation">
+    $$ z = \frac{\lambda_{\text{observed}} - \lambda_{\text{emitted}}}{\lambda_{\text{emitted}}} $$
+  </div>
+  <p>
+    Here, \( \lambda_{\text{emitted}} \) is the wavelength when light left the source, and \( \lambda_{\text{observed}} \) is what we measure now.
+  </p>
+
+  <button onclick="toggleVisibility('redshift-details')">Show/Hide: Why does redshift happen?</button>
+  <div id="redshift-details" class="hidden">
+    <p>
+      Imagine space like a stretchy rubber band. As the universe expands, the space between galaxies stretches, so light traveling through this space also stretches, increasing its wavelength. 
+      This shift to longer wavelengths means the light moves towards the red end of the spectrum, hence the name "redshift".
+    </p>
+    <p>
+      This is different from the Doppler effect (like the sound change of a passing ambulance), though related. Cosmological redshift arises due to expansion of space itself, not just motion through space.
+    </p>
+  </div>
+
+  <h3>Real-World Example:</h3>
+  <p>
+    The light from the Andromeda galaxy is slightly blueshifted because it’s moving towards us, but light from very distant galaxies shows significant redshift — a direct indicator of the universe’s expansion.
+  </p>
+
+  <h2>2. Hubble’s Law</h2>
+  <p>
+    In 1929, Edwin Hubble discovered a remarkable relationship between the distance to a galaxy and its redshift — meaning the farther away a galaxy is, the faster it appears to be moving away from us.
+  </p>
+  <p>Hubble’s Law is mathematically stated as:</p>
+  <div class="equation">
+    $$ v = H_0 \times d $$
+  </div>
+  <p>
+    where:
+    <ul>
+      <li>\( v \) = recessional velocity of the galaxy (how fast it moves away, in km/s)</li>
+      <li>\( d \) = distance to the galaxy (in megaparsecs, Mpc)</li>
+      <li>\( H_0 \) = Hubble constant, the rate of expansion of the universe (around 70 km/s/Mpc)</li>
+    </ul>
+  </p>
+
+  <button onclick="toggleVisibility('hubble-application')">Show/Hide: Practical applications of Hubble’s Law</button>
+  <div id="hubble-application" class="hidden">
+    <p>
+      Hubble’s Law allows astronomers to estimate the distance of faraway galaxies simply by measuring their redshift. This method is fundamental in observational cosmology.
+    </p>
+    <p>
+      Also, by studying how \( H_0 \) changes over time, scientists estimate the age and fate of the Universe — whether it will expand forever, slow down, or collapse.
+    </p>
+  </div>
+
+  <h3>Example Calculation:</h3>
+  <p>Suppose a galaxy is observed to be 100 Mpc away. What is its recessional velocity?</p>
+  <pre>
+    v = H₀ × d = 70 km/s/Mpc × 100 Mpc = 7000 km/s
+  </pre>
+
+  <h2>3. Olber’s Paradox</h2>
+  <p>
+    Olber’s Paradox asks a simple question: <em>“If the universe is infinite, eternal, and uniformly filled with stars, why is the night sky dark?”</em> 
+  </p>
+  <p>
+    Intuitively, if there are infinite stars everywhere, every line of sight should end on a star, making the night sky as bright as the surface of a star.
+  </p>
+
+  <button onclick="toggleVisibility('olbers-explanation')">Show/Hide: Resolving Olber’s Paradox</button>
+  <div id="olbers-explanation" class="hidden">
+    <p>The paradox is resolved by modern cosmology because:</p>
+    <ul>
+      <li>The universe is <strong>not eternal</strong>; it had a beginning (Big Bang ~13.8 billion years ago).</li>
+      <li>The universe is <strong>expanding</strong>, which redshifts and dims light from distant sources.</li>
+      <li>The observable universe is <strong>finite</strong> — we can only see light from stars within a certain distance.</li>
+      <li>Interstellar dust and gas absorb some light, though not enough alone to solve the paradox.</li>
+    </ul>
+  </div>
+
+  <h3>Fun Fact</h3>
+  <div class="fun-fact">
+    The night sky’s darkness was puzzling enough that famous astronomers like Johannes Kepler and Heinrich Olbers spent decades thinking about it. It was only with the advent of modern cosmology and the Big Bang theory that the paradox was satisfactorily explained.
+  </div>
+
+  <h2>Summary</h2>
+  <p>
+    To wrap up:
+  </p>
+  <ul>
+    <li><strong>Cosmological redshift</strong> tells us space is expanding and stretches light waves from distant galaxies.</li>
+    <li><strong>Hubble’s Law</strong> quantifies this expansion by linking galaxy distances to their recessional velocity.</li>
+    <li><strong>Olber’s Paradox</strong> highlights why the night sky is dark despite many stars, explained by the universe’s finite age and expansion.</li>
+  </ul>
+
+  <h2>Quick Quiz</h2>
+  <p>Try answering this to test your understanding:</p>
+  <p><strong>Q:</strong> If a galaxy’s redshift \( z = 0.5 \), is it moving towards us or away? And what does this imply about the universe?</p>
+  <button onclick="checkQuiz()">Show Answer</button>
+  <p id="quiz-answer" class="hidden"></p>
+
+  <script>
+    function toggleVisibility(id) {
+      const el = document.getElementById(id);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+    function checkQuiz() {
+      const answer = document.getElementById('quiz-answer');
+      if (answer.classList.contains('hidden')) {
+        answer.textContent = "Answer: The galaxy is moving away from us because a positive redshift (z = 0.5) means the light’s wavelength is stretched. This supports that the universe is expanding.";
+        answer.classList.remove('hidden');
+      } else {
+        answer.classList.add('hidden');
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

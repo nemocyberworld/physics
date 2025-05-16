@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Causality and Simultaneity in Different Frames</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      border: 1px solid #ccd;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Causality and Simultaneity in Different Frames</h1>
+
+  <h2>1. Introduction</h2>
+  <p>One of the most revolutionary ideas from Einstein's Theory of Special Relativity is that simultaneity is not absolute — it depends on the observer's frame of reference. Two events that appear simultaneous in one frame may occur at different times in another. This has deep consequences for how we understand cause and effect (causality).</p>
+
+  <h2>2. Spacetime Interval</h2>
+  <p>The spacetime interval is invariant across reference frames and determines whether events are causally connected. It is given by:</p>
+  <div class="equation">
+    $$ s^2 = - (c \Delta t)^2 + (\Delta x)^2 $$
+  </div>
+
+  <h2>3. Simultaneity Check (Interactive)</h2>
+  <div class="interactive">
+    <p>Enter spatial and temporal coordinates of two events. See if they're simultaneous in your frame and how another frame in relative motion views them.</p>
+    <label>Event A time \(t_A\) (s): <input type="number" id="tA" step="any"></label><br>
+    <label>Event B time \(t_B\) (s): <input type="number" id="tB" step="any"></label><br>
+    <label>Event A position \(x_A\) (m): <input type="number" id="xA" step="any"></label><br>
+    <label>Event B position \(x_B\) (m): <input type="number" id="xB" step="any"></label><br>
+    <label>Relative velocity \(v\) (m/s): <input type="number" id="v" step="any"></label><br>
+    <button onclick="checkSimultaneity()">Check Simultaneity</button>
+    <p id="simResult"></p>
+  </div>
+
+  <script>
+    function checkSimultaneity() {
+      const c = 299792458;
+      const tA = parseFloat(document.getElementById("tA").value);
+      const tB = parseFloat(document.getElementById("tB").value);
+      const xA = parseFloat(document.getElementById("xA").value);
+      const xB = parseFloat(document.getElementById("xB").value);
+      const v = parseFloat(document.getElementById("v").value);
+
+      const gamma = 1 / Math.sqrt(1 - (v ** 2) / (c ** 2));
+      const tA_prime = gamma * (tA - (v * xA) / (c ** 2));
+      const tB_prime = gamma * (tB - (v * xB) / (c ** 2));
+
+      let result = `In your frame: ` + (tA === tB ? "Events are simultaneous." : "Events are NOT simultaneous.");
+      result += `\nIn the moving frame: Event A time = ${tA_prime.toFixed(6)} s, Event B time = ${tB_prime.toFixed(6)} s.`;
+      result += (Math.abs(tA_prime - tB_prime) < 1e-9) ? " They appear simultaneous." : " They are not simultaneous.";
+
+      document.getElementById("simResult").innerText = result;
+    }
+  </script>
+
+  <h2>4. Real-World Examples</h2>
+  <ul>
+    <li><strong>Train-and-Light Thought Experiment:</strong> Light emitted from the center of a moving train appears to reach the front and back at different times to a trackside observer, but simultaneously to someone on the train.</li>
+    <li><strong>GPS Satellites:</strong> Satellites move at high speeds and are in different gravitational fields. Clocks must be corrected for both time dilation and relativity of simultaneity to synchronize with Earth time.</li>
+    <li><strong>High-speed Communications:</strong> Causality ensures signals in fiber optics or deep space transmissions can't break the light speed limit — ensuring consistency in information delivery.</li>
+  </ul>
+
+  <h2>5. Practical Applications</h2>
+  <ul>
+    <li><strong>Relativistic Protocol Design:</strong> Networks or distributed systems in space missions require synchronization of clocks where simultaneity must be frame-aware.</li>
+    <li><strong>Astrophysical Simulations:</strong> Modeling galaxy formation or particle interactions in high-speed collisions must account for causality and relative simultaneity.</li>
+    <li><strong>Quantum Entanglement Research:</strong> Experiments test whether 'instantaneous' quantum effects still obey relativistic causality.</li>
+  </ul>
+
+  <h2>6. Fun Fact!</h2>
+  <p>Did you know? Einstein's realization that simultaneity is relative came from a thought experiment involving lightning strikes and trains! This was a pivotal moment leading to the special theory of relativity in 1905.</p>
+
+  <h2>7. Summary</h2>
+  <ul>
+    <li>Causality preserves the order of events that can affect each other.</li>
+    <li>Simultaneity is frame-dependent; it's not absolute.</li>
+    <li>The invariant interval ensures the consistency of physics across frames.</li>
+    <li>Applications include GPS, space navigation, and quantum research.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

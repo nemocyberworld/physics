@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metric Tensors & Newtonian Gravity - Einstein's Field Equations</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: "Courier New", monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .example, .application, .fun-fact {
+      background-color: #e7f3ff;
+      border-left: 5px solid #007acc;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 3px;
+    }
+    button {
+      margin: 1rem 0 2rem 0;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0055a5;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Metric Tensors and Newtonian Gravitational Potential: Einstein’s Field Equations</h1>
+
+  <p>
+    Welcome to this interactive lesson on some of the foundational concepts in
+    <strong>Theory of Relativity and Cosmology</strong>. Here, we'll explore the
+    <strong>metric tensor</strong>, understand the <strong>Newtonian gravitational potential</strong>,
+    and dive deep into <strong>Einstein's field equations</strong>, the backbone of
+    General Relativity.
+  </p>
+
+  <h2>1. What is a Metric Tensor?</h2>
+  <p>
+    At the heart of General Relativity is the concept of a <strong>metric tensor</strong>.
+    Simply put, it’s a mathematical object that defines how distances and angles are measured in
+    a curved spacetime. Unlike flat space (like on a piece of paper), spacetime around massive objects
+    is curved, and the metric tensor tells us exactly how.
+  </p>
+  <p>
+    The metric tensor is often represented as <code>g<sub>μν</sub></code>, a matrix of functions that
+    vary with position in spacetime. It allows us to calculate the <em>interval</em> between two events:
+  </p>
+  <div class="equation">
+    $$ ds^2 = g_{\mu\nu} dx^\mu dx^\nu $$
+  </div>
+  <p>
+    where <code>ds</code> is the spacetime interval, <code>dx^\mu</code> and <code>dx^\nu</code> are
+    infinitesimal coordinate differences, and the summation is over the indices μ and ν.
+  </p>
+
+  <button onclick="toggleDetails('metricDetails')">Show/Hide Detailed Explanation of Metric Tensor</button>
+  <div id="metricDetails" class="hidden">
+    <p>
+      In flat, Minkowski spacetime (special relativity), the metric tensor components are constant and simple:
+    </p>
+    <div class="equation">
+      $$ g_{\mu\nu} = \begin{pmatrix} -1 & 0 & 0 & 0 \\ 0 & +1 & 0 & 0 \\ 0 & 0 & +1 & 0 \\ 0 & 0 & 0 & +1 \end{pmatrix} $$
+    </div>
+    <p>
+      But near a massive object like a star or planet, these components become functions that depend on spacetime coordinates,
+      describing how gravity warps spacetime.
+    </p>
+  </div>
+
+  <h2>2. Newtonian Gravitational Potential</h2>
+  <p>
+    Before Einstein, gravity was understood via Newton's Law of Universal Gravitation. It describes the gravitational force
+    as an instantaneous pull between masses. The potential that generates this force is called the
+    <strong>Newtonian gravitational potential</strong>, often denoted by <code>Φ</code>.
+  </p>
+  <p>
+    The gravitational potential satisfies Poisson’s equation:
+  </p>
+  <div class="equation">
+    $$ \nabla^2 \Phi = 4 \pi G \rho $$
+  </div>
+  <p>
+    where:
+    <ul>
+      <li><code>Φ</code> is the gravitational potential</li>
+      <li><code>G</code> is the gravitational constant</li>
+      <li><code>ρ</code> is the mass density</li>
+    </ul>
+  </p>
+  <p>
+    The force felt by a mass <code>m</code> is the gradient (spatial change) of this potential:
+  </p>
+  <div class="equation">
+    $$ \mathbf{F} = -m \nabla \Phi $$
+  </div>
+
+  <div class="example">
+    <h3>Example: Earth’s Gravitational Potential</h3>
+    <p>
+      The gravitational potential outside Earth is:
+    </p>
+    <div class="equation">
+      $$ \Phi(r) = -\frac{GM}{r} $$
+    </div>
+    <p>
+      Here, <code>M</code> is Earth's mass, and <code>r</code> is the distance from Earth's center. This explains why
+      gravity gets weaker as you move away from the planet.
+    </p>
+  </div>
+
+  <h2>3. From Newton to Einstein: The Field Equations</h2>
+  <p>
+    Einstein revolutionized gravity by describing it as the curvature of spacetime caused by mass-energy,
+    not just a force. This curvature is encoded in the metric tensor. Einstein’s field equations link
+    the distribution of mass-energy to the geometry of spacetime:
+  </p>
+  <div class="equation">
+    $$ G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8 \pi G}{c^4} T_{\mu\nu} $$
+  </div>
+  <p>
+    Where:
+    <ul>
+      <li><code>G<sub>μν</sub></code> is the Einstein tensor describing curvature</li>
+      <li><code>Λ</code> is the cosmological constant (explaining dark energy)</li>
+      <li><code>g<sub>μν</sub></code> is the metric tensor</li>
+      <li><code>T<sub>μν</sub></code> is the stress-energy tensor (mass-energy content)</li>
+      <li><code>c</code> is the speed of light</li>
+    </ul>
+  </p>
+  <p>
+    These equations form a system of 10 interlinked partial differential equations. Solutions to these tell us how spacetime behaves around stars, black holes,
+    and even the entire universe.
+  </p>
+
+  <button onclick="toggleDetails('einsteinDetails')">Show/Hide Step-by-Step Explanation of Einstein's Field Equations</button>
+  <div id="einsteinDetails" class="hidden">
+    <p>
+      <strong>Step 1: Einstein Tensor \( G_{\mu\nu} \)</strong><br />
+      This tensor summarizes how spacetime curves. It is derived from the Ricci curvature tensor and the scalar curvature, capturing all curvature information relevant for gravity.
+    </p>
+    <p>
+      <strong>Step 2: Stress-Energy Tensor \( T_{\mu\nu} \)</strong><br />
+      Represents the energy, momentum, pressure, and stress of matter and radiation at each point in spacetime. Different matter distributions create different spacetime curvatures.
+    </p>
+    <p>
+      <strong>Step 3: Cosmological Constant \( \Lambda \)</strong><br />
+      Originally introduced by Einstein to allow for a static universe, it now models the mysterious dark energy causing accelerated expansion of the cosmos.
+    </p>
+  </div>
+
+  <div class="application">
+    <h3>Practical Applications of Einstein’s Field Equations</h3>
+    <ul>
+      <li><strong>GPS Satellites:</strong> They must correct for relativistic time dilation caused by Earth's gravity using metrics derived from these equations.</li>
+      <li><strong>Black Hole Predictions:</strong> Solutions like the Schwarzschild metric describe the event horizon and singularity of black holes.</li>
+      <li><strong>Cosmology:</strong> Modeling the evolution and shape of the universe, including expansion and big bang scenarios.</li>
+    </ul>
+  </div>
+
+  <div class="fun-fact">
+    <h3>Fun Fact</h3>
+    <p>
+      Did you know? When Einstein first introduced his field equations in 1915, even he found them incredibly complex. It took years of work by many physicists to understand and solve special cases!
+    </p>
+  </div>
+
+  <h2>4. Interactive: Explore Metric Components</h2>
+  <p>Try changing the value of the gravitational potential and see how the simplified metric components respond:</p>
+  <label for="phiInput">Gravitational Potential Φ (in arbitrary units): </label>
+  <input type="range" id="phiInput" min="-10" max="0" step="0.1" value="-1" />
+  <span id="phiValue">-1.0</span>
+
+  <p>Approximate metric component \( g_{00} \) near weak gravity is:</p>
+  <div class="equation" id="metricComponent">
+    $$ g_{00} = -(1 + 2 \frac{\Phi}{c^2}) $$
+  </div>
+
+  <script>
+    // JavaScript interactivity for toggling sections
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      if (el.classList.contains("hidden")) {
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+      }
+    }
+
+    // Constants
+    const c = 3e8; // speed of light in m/s
+
+    // Elements
+    const phiInput = document.getElementById("phiInput");
+    const phiValue = document.getElementById("phiValue");
+    const metricComponent = document.getElementById("metricComponent");
+
+    function updateMetricComponent() {
+      const phi = parseFloat(phiInput.value);
+      phiValue.textContent = phi.toFixed(1);
+      // Calculate g00 in weak field approx: g00 = -(1 + 2*Φ/c^2)
+      const g00 = -(1 + (2 * phi) / (c * c));
+
+      // Show g00 with scientific notation and 6 decimals
+      const g00Str = g00.toExponential(6);
+
+      metricComponent.innerHTML = `$$ g_{00} = ${g00Str} $$`;
+      MathJax.typesetPromise(); // re-render MathJax
+    }
+
+    phiInput.addEventListener("input", updateMetricComponent);
+
+    // Initialize on load
+    updateMetricComponent();
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

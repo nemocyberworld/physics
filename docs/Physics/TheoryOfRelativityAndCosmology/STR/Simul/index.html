@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simultaneity - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz, .fun-fact {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .quiz {
+      background: #e0f7fa;
+    }
+    .fun-fact {
+      background: #fff3cd;
+      border-left: 5px solid #ffeeba;
+    }
+    .quiz label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .answer {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simultaneity in Special Theory of Relativity</h1>
+  <h2>Chapter: Special Theory of Relativity</h2>
+
+  <p>The concept of simultaneity is one of the most striking and counterintuitive results of Einstein's Special Theory of Relativity. It challenges our everyday experience and shows that two events that are simultaneous in one frame of reference may not be simultaneous in another.</p>
+
+  <h2>What is Simultaneity?</h2>
+  <p><strong>Simultaneity</strong> refers to the occurrence of two or more events at the same time. In classical physics, time is absolute—everyone agrees on what is simultaneous. However, in relativity, simultaneity becomes relative—it depends on the observer's frame of reference.</p>
+
+  <h2>Einstein's Train Thought Experiment</h2>
+  <p>Imagine a train moving at a constant speed. Two lightning bolts strike the ends of the train—front and back. To someone standing on the platform, the bolts appear to strike simultaneously. But to a passenger on the train moving forward, the bolt at the front appears to strike <em>later</em> than the one at the back.</p>
+
+  <h3>Explanation:</h3>
+  <ul>
+    <li>Platform observer: Light from both strikes travels equal distances to the midpoint — they appear simultaneous.</li>
+    <li>Train observer: The midpoint moves toward the lightning at the front and away from the one at the back — they don’t appear simultaneous!</li>
+  </ul>
+
+  <h2>Key Equation</h2>
+  <div class="equation">
+    \( t' = \gamma \left(t - \frac{vx}{c^2} \right) \)
+  </div>
+  <p>This Lorentz transformation shows how time in one frame depends on both time and space in another. \( \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} \)</p>
+
+  <h2>Real-World Example: GPS Systems</h2>
+  <p>GPS satellites orbit Earth at high speeds and experience time differently from observers on Earth. Because simultaneity is relative, clocks on satellites must be adjusted using both special and general relativity to provide accurate positioning.</p>
+
+  <h2>Practical Application: Data Transfer</h2>
+  <p>In data communication between spacecraft and Earth, engineers must consider relativistic time offsets — otherwise, transmissions might be out of sync due to differing simultaneity judgments.</p>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p>Two events are observed as simultaneous in one frame. In another frame moving at constant velocity, these events are:</p>
+    <form id="quizForm">
+      <label><input type="radio" name="answer" value="a"> Always simultaneous.</label>
+      <label><input type="radio" name="answer" value="b"> Simultaneous only if the speed is low.</label>
+      <label><input type="radio" name="answer" value="c"> Not necessarily simultaneous.</label>
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <div class="answer" id="quizAnswer"></div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const choices = document.getElementsByName('answer');
+      let selected;
+      for (const choice of choices) {
+        if (choice.checked) {
+          selected = choice.value;
+          break;
+        }
+      }
+      const answerDiv = document.getElementById('quizAnswer');
+      if (selected === 'c') {
+        answerDiv.innerHTML = 'Correct! Simultaneity depends on the observer’s frame of reference.';
+      } else {
+        answerDiv.innerHTML = 'Incorrect. In relativity, simultaneity is relative to the observer.';
+      }
+    }
+  </script>
+
+  <h2>Fun Fact!</h2>
+  <div class="fun-fact">
+    <strong>Did you know?</strong> Einstein’s realization about simultaneity being relative came while thinking about riding on a beam of light! This thought experiment led him to revolutionize our understanding of time itself.
+  </div>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Simultaneity means events happening at the same time — but this depends on the observer’s motion.</li>
+    <li>Two observers in different inertial frames may disagree on whether two events were simultaneous.</li>
+    <li>This leads to real-world implications for technology and our concept of time.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

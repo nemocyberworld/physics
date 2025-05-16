@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curvature Tensor and Its Properties - Tensor Calculus</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .example {
+      background: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 5px solid #66f;
+    }
+    .funfact {
+      background: #ffe;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 5px solid #cc0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: white;
+      border: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Curvature Tensor and Its Properties</h1>
+  <h2>Introduction</h2>
+  <p>The curvature tensor is a central concept in tensor calculus, especially in the context of General Relativity. It describes how space-time is curved due to the presence of mass and energy. In this lesson, we explore what the curvature tensor is, its properties, its meaning, and why it matters in physics and cosmology.</p>
+
+  <div class="funfact">
+    <strong>Fun Fact:</strong> Albert Einstein used the curvature tensor to develop his famous field equations in General Relativity!
+  </div>
+
+  <h2>1. Motivation: Why Curvature Matters</h2>
+  <p>Imagine driving in a straight line on Earth. Due to Earth's curvature, your path will eventually lead you in a circle. In a similar way, particles in curved space-time move along paths (called geodesics) that are affected by curvature. This is what we perceive as gravity!</p>
+
+  <h2>2. What is the Curvature Tensor?</h2>
+  <p>The curvature tensor, also known as the Riemann curvature tensor, measures the failure of second covariant derivatives to commute. It encapsulates the intrinsic curvature of a space.</p>
+
+  <div class="equation">
+    $$ R^\rho_{\ \sigma\mu\nu} = \partial_\mu \Gamma^\rho_{\nu\sigma} - \partial_\nu \Gamma^\rho_{\mu\sigma} + \Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma} - \Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma} $$
+  </div>
+
+  <h2>3. Key Properties</h2>
+  <ul>
+    <li>It has 4 indices: \( R^\rho_{\ \sigma\mu\nu} \)</li>
+    <li>It is antisymmetric in its last two indices: \( R^\rho_{\ \sigma\mu\nu} = -R^\rho_{\ \sigma\nu\mu} \)</li>
+    <li>It satisfies the Bianchi identity</li>
+  </ul>
+
+  <div class="equation">
+    $$ \nabla_\lambda R^\rho_{\ \sigma\mu\nu} + \nabla_\mu R^\rho_{\ \sigma\nu\lambda} + \nabla_\nu R^\rho_{\ \sigma\lambda\mu} = 0 $$
+  </div>
+
+  <h2>4. Interactive Demo</h2>
+  <p>Click the button to see an analogy of curvature using vectors transported around a triangle.</p>
+  <button onclick="showCurvatureExplanation()">Show Curvature Analogy</button>
+  <pre id="curvatureExplanation" style="display:none;">
+    Imagine you walk in a triangle on a curved surface (like a globe). 
+    You start at the equator, go north to the pole, turn 90 degrees, go back to the equator, 
+    then walk back to the starting point. Your direction has changed! This change reflects curvature.
+  </pre>
+
+  <script>
+    function showCurvatureExplanation() {
+      document.getElementById("curvatureExplanation").style.display = "block";
+    }
+  </script>
+
+  <h2>5. Real-World Example: Gravity as Geometry</h2>
+  <div class="example">
+    <strong>GPS Satellites:</strong> GPS systems must account for the curvature of space-time caused by Earth’s mass. Without this correction (based on the curvature tensor), GPS would be off by kilometers!
+  </div>
+
+  <h2>6. The Ricci Tensor and Scalar</h2>
+  <p>We can derive other tensors from the curvature tensor:</p>
+  <ul>
+    <li>Ricci Tensor: \( R_{\mu\nu} = R^\lambda_{\ \mu\lambda\nu} \)</li>
+    <li>Ricci Scalar: \( R = g^{\mu\nu} R_{\mu\nu} \)</li>
+  </ul>
+
+  <h2>7. Einstein Field Equations</h2>
+  <p>The Ricci tensor and scalar are used in Einstein's equations:</p>
+  <div class="equation">
+    $$ R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} $$
+  </div>
+  <p>This links the curvature of space-time to energy and momentum.</p>
+
+  <h2>8. Application: Black Holes</h2>
+  <p>Black holes are solutions to Einstein’s equations where curvature becomes infinite at a singularity. The curvature tensor becomes extremely important in describing their structure.</p>
+
+  <h2>9. Application: Cosmology</h2>
+  <p>The evolution of the universe is studied using cosmological models based on curvature. The Friedmann equations, derived from Einstein’s equations, describe how the universe expands.</p>
+
+  <h2>10. More Fun Facts</h2>
+  <div class="funfact">
+    <ul>
+      <li>The shape of the universe (flat, open, or closed) is a question of curvature!</li>
+      <li>Einstein originally included a "cosmological constant" to keep the universe static. Later, he called it his "biggest blunder."
+      </li>
+    </ul>
+  </div>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

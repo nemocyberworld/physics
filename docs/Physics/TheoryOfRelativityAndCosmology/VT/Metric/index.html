@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Metric Tensor (Flat Space-Time Only) - Vectors and Tensors</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre,
+    .equation {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: "Courier New", monospace;
+      margin: 1rem 0;
+    }
+    .interactive {
+      background-color: #eef6ff;
+      border: 1px solid #003366;
+      padding: 1rem;
+      margin: 1rem 0 2rem;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Metric Tensor (Flat Space-Time Only)</h1>
+  <h2>Vectors and Tensors — Theory of Relativity and Cosmology</h2>
+
+  <p>
+    Welcome to this comprehensive lesson on the metric tensor in flat space-time! In this lesson, we will explore:
+  </p>
+  <ul>
+    <li>What the metric tensor is and why it is fundamental in relativity.</li>
+    <li>How it helps measure distances and intervals in space-time.</li>
+    <li>Practical examples and applications of the metric tensor.</li>
+    <li>Interactive exercises to solidify your understanding.</li>
+  </ul>
+
+  <h2>1. Introduction: What is the Metric Tensor?</h2>
+  <p>
+    In physics and mathematics, especially in the theory of relativity, the <em>metric tensor</em> is a crucial mathematical object that defines how distances and angles are measured in a given space. When we say
+    "flat space-time," we mean the idealized model of space and time without gravity — also known as Minkowski space-time.
+  </p>
+
+  <p>
+    Unlike Euclidean space where distances are calculated by the Pythagorean theorem, space-time combines three spatial dimensions with one time dimension, and the metric tensor encodes how to measure intervals between events in this 4D structure.
+  </p>
+
+  <h3>Fun Fact 🤓</h3>
+  <p>
+    The word "tensor" comes from the Latin <em>tendere</em>, meaning "to stretch." Tensors can be thought of as objects that generalize vectors and matrices — they can "stretch" or "transform" information in multiple directions.
+  </p>
+
+  <h2>2. The Metric Tensor in Flat Space-Time</h2>
+  <p>
+    In flat space-time (Minkowski space), the metric tensor is usually denoted as <code>η<sub>μν</sub></code> (the Greek letter eta). It looks like a 4x4 matrix:
+  </p>
+
+  <div class="equation">
+    $$
+    \eta_{\mu \nu} = \begin{pmatrix}
+    -1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{pmatrix}
+    $$
+  </div>
+
+  <p>
+    Here, the time component is negative (signature <code>(-+++)</code>), and the spatial components are positive. This metric helps us calculate the <strong>space-time interval</strong> between two events, which is invariant (the same) for all observers.
+  </p>
+
+  <h3>What does this matrix mean?</h3>
+  <p>
+    If you have two nearby events with coordinates <code>x^\mu</code> and <code>x^\mu + dx^\mu</code>, the infinitesimal interval squared <code>ds^2</code> is:
+  </p>
+
+  <div class="equation">
+    $$
+    ds^2 = \eta_{\mu \nu} dx^\mu dx^\nu = -c^2 dt^2 + dx^2 + dy^2 + dz^2
+    $$
+  </div>
+
+  <p>
+    Here, <code>c</code> is the speed of light, <code>t</code> is time, and <code>x, y, z</code> are spatial coordinates. This interval tells us whether two events are separated by time, space, or a mix of both.
+  </p>
+
+  <h2>3. Interactive: Calculate Space-Time Interval</h2>
+  <div class="interactive">
+    <p>Enter the time difference and spatial distance between two events to calculate the space-time interval.</p>
+    <label>
+      Time difference \( \Delta t \) in seconds:
+      <input type="number" id="deltaTime" value="2" step="0.01" />
+    </label>
+    <br /><br />
+    <label>
+      Spatial distance \( \sqrt{\Delta x^2 + \Delta y^2 + \Delta z^2} \) in meters:
+      <input type="number" id="deltaSpace" value="300000000" step="1" />
+    </label>
+    <br /><br />
+    <button onclick="calculateInterval()">Calculate Interval \( ds^2 \)</button>
+
+    <p id="intervalResult" style="margin-top: 1rem; font-weight: bold;"></p>
+  </div>
+
+  <h2>4. Real-World Example: GPS Satellites and the Metric Tensor</h2>
+  <p>
+    The Global Positioning System (GPS) relies heavily on understanding the metric tensor and relativistic effects.
+    Because satellites orbit Earth at high speeds and different gravitational potentials, their clocks tick differently compared to clocks on Earth.
+  </p>
+  <p>
+    The metric tensor in flat space-time (and its extensions to curved space-time) allows engineers to calculate these time differences accurately, ensuring the GPS positions are precise within meters!
+  </p>
+
+  <h2>5. Practical Application: Special Relativity & Energy</h2>
+  <p>
+    The metric tensor underlies many famous equations of special relativity — for instance, it helps in deriving the invariant mass-energy relation:
+  </p>
+  <div class="equation">
+    $$
+    E^2 = (pc)^2 + (m c^2)^2
+    $$
+  </div>
+  <p>
+    Here, the energy <code>E</code>, momentum <code>p</code>, and rest mass <code>m</code> relate through the metric-defined space-time interval in momentum space.
+  </p>
+
+  <h2>6. Summary</h2>
+  <ul>
+    <li>The metric tensor defines how to measure distances and intervals in space-time.</li>
+    <li>In flat space-time, it has the Minkowski form with signature <code>(-+++)</code>.</li>
+    <li>It plays a fundamental role in relativity and applications like GPS and particle physics.</li>
+    <li>Its invariant intervals help us understand causality and the structure of the universe.</li>
+  </ul>
+
+  <h2>7. Quiz: Test Your Understanding</h2>
+  <div class="interactive">
+    <p>What is the sign of the time component of the metric tensor in flat space-time?</p>
+    <button onclick="checkAnswer('negative')">Negative</button>
+    <button onclick="checkAnswer('positive')">Positive</button>
+    <button onclick="checkAnswer('zero')">Zero</button>
+    <p id="quizFeedback" style="margin-top:1rem; font-weight:bold;"></p>
+  </div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    const c = 299792458; // speed of light in m/s
+
+    function calculateInterval() {
+      const dt = parseFloat(document.getElementById("deltaTime").value);
+      const ds = parseFloat(document.getElementById("deltaSpace").value);
+      // Calculate ds^2 = -c^2 dt^2 + dx^2 + dy^2 + dz^2
+      const intervalSquared = -Math.pow(c * dt, 2) + Math.pow(ds, 2);
+      let message = `Space-time interval squared (ds²) = ${intervalSquared.toExponential(3)} m²`;
+
+      if (intervalSquared > 0) {
+        message += " (Spacelike interval)";
+      } else if (intervalSquared < 0) {
+        message += " (Timelike interval)";
+      } else {
+        message += " (Lightlike or null interval)";
+      }
+      document.getElementById("intervalResult").textContent = message;
+    }
+
+    function checkAnswer(answer) {
+      const feedback = document.getElementById("quizFeedback");
+      if (answer === "negative") {
+        feedback.textContent = "Correct! The time component of the metric tensor is negative in flat space-time.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "Oops! That's not right. Try again!";
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

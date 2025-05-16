@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raising and Lowering Indices with Metric Tensors</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre,
+    .equation {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: "Courier New", monospace;
+      margin: 1rem 0;
+    }
+    .interactive {
+      background-color: #eef6ff;
+      border: 1px solid #003366;
+      padding: 1rem;
+      margin: 1rem 0 2rem;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    label {
+      display: block;
+      margin-top: 0.8rem;
+    }
+    input {
+      font-size: 1rem;
+      padding: 0.3rem 0.5rem;
+      margin-top: 0.3rem;
+      width: 100%;
+      max-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Raising and Lowering Indices with Metric Tensors</h1>
+  <h2>Vectors and Tensors — Theory of Relativity and Cosmology</h2>
+
+  <p>
+    Welcome! In this lesson, we will deeply explore how the metric tensor allows us to <strong>raise and lower indices</strong> on vectors and tensors in the framework of relativity. Understanding this concept is essential to grasp how physical quantities transform and interact in space-time.
+  </p>
+
+  <h2>1. What are Indices and Why Do They Matter?</h2>
+  <p>
+    In tensor notation, indices tell us about the type of tensor and how it transforms. 
+    For vectors:
+  </p>
+  <ul>
+    <li>Upper indices (superscripts) denote <em>contravariant components</em> — like \( V^\mu \).</li>
+    <li>Lower indices (subscripts) denote <em>covariant components</em> — like \( V_\mu \).</li>
+  </ul>
+  <p>
+    Raising or lowering indices changes the way a vector or tensor behaves under coordinate transformations.
+  </p>
+
+  <h3>Fun Fact 🤓</h3>
+  <p>
+    The idea of raising and lowering indices was introduced to neatly handle the curvature of space-time by physicists working on general relativity. It keeps equations consistent regardless of the coordinate system used.
+  </p>
+
+  <h2>2. The Metric Tensor as the “Index Operator”</h2>
+  <p>
+    The metric tensor \( g_{\mu\nu} \) is the key to converting contravariant vectors \( V^\mu \) to covariant vectors \( V_\mu \), and vice versa.
+  </p>
+
+  <p>
+    To lower an index:
+  </p>
+  <div class="equation">
+    $$
+    V_\mu = g_{\mu\nu} V^\nu
+    $$
+  </div>
+
+  <p>
+    To raise an index (using the inverse metric \( g^{\mu\nu} \)):
+  </p>
+  <div class="equation">
+    $$
+    V^\mu = g^{\mu\nu} V_\nu
+    $$
+  </div>
+
+  <p>
+    Note: repeated indices imply summation (Einstein summation convention).
+  </p>
+
+  <h2>3. Metric Tensor in Flat Space-Time</h2>
+  <p>
+    In special relativity, flat space-time uses the Minkowski metric \( \eta_{\mu\nu} \):
+  </p>
+  <div class="equation">
+    $$
+    \eta_{\mu\nu} = \begin{pmatrix}
+      -1 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 1 \\
+    \end{pmatrix}
+    $$
+  </div>
+
+  <p>
+    The inverse metric \( \eta^{\mu\nu} \) has the same components in flat space-time.
+  </p>
+
+  <h2>4. Interactive Example: Lowering and Raising a Vector Index</h2>
+  <div class="interactive">
+    <p>Enter components of a contravariant vector \( V^\mu = (V^0, V^1, V^2, V^3) \) and see the lowered covariant vector \( V_\mu \) calculated.</p>
+    <label>
+      \( V^0 \) (time component):
+      <input type="number" id="V0" value="2" step="0.01" />
+    </label>
+    <label>
+      \( V^1 \) (x-component):
+      <input type="number" id="V1" value="1" step="0.01" />
+    </label>
+    <label>
+      \( V^2 \) (y-component):
+      <input type="number" id="V2" value="0" step="0.01" />
+    </label>
+    <label>
+      \( V^3 \) (z-component):
+      <input type="number" id="V3" value="0" step="0.01" />
+    </label>
+    <button onclick="lowerIndex()">Lower Indices</button>
+
+    <p id="loweredVector" style="margin-top: 1rem; font-weight: bold;"></p>
+
+    <hr />
+
+    <p>Now try raising the index back:</p>
+    <button onclick="raiseIndex()">Raise Indices</button>
+    <p id="raisedVector" style="margin-top: 1rem; font-weight: bold;"></p>
+  </div>
+
+  <h2>5. Real-World Application: Electromagnetic Four-Vector</h2>
+  <p>
+    The four-potential \( A^\mu \) in electromagnetism has contravariant components. Using the metric tensor, physicists lower indices to get covariant components \( A_\mu \), necessary for writing Maxwell's equations in a covariant form.
+  </p>
+
+  <div class="equation">
+    $$
+    A_\mu = g_{\mu\nu} A^\nu
+    $$
+  </div>
+
+  <p>
+    This ensures the equations hold true regardless of the observer’s frame of reference — fundamental for relativistic electromagnetism.
+  </p>
+
+  <h2>6. Practical Implication: Consistency Across Reference Frames</h2>
+  <p>
+    Raising and lowering indices ensures physical laws retain their form when switching between different coordinate systems. This is crucial in cosmology and astrophysics when analyzing phenomena in curved or flat space-time.
+  </p>
+
+  <h2>7. Quick Quiz</h2>
+  <div class="interactive">
+    <p>Given a vector \( V^\mu = (3, 4, 0, 0) \) and using the Minkowski metric, what is \( V_0 \)?</p>
+    <button onclick="quizAnswer('correct', 'lower')">-3</button>
+    <button onclick="quizAnswer('incorrect', 'lower')">3</button>
+    <button onclick="quizAnswer('incorrect', 'lower')">4</button>
+    <button onclick="quizAnswer('incorrect', 'lower')">-4</button>
+
+    <p id="quizFeedback" style="margin-top:1rem; font-weight:bold;"></p>
+  </div>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Indices specify how tensors transform in relativity — contravariant (upper) and covariant (lower).</li>
+    <li>The metric tensor acts as the tool to raise and lower indices.</li>
+    <li>In flat space-time, the Minkowski metric is used.</li>
+    <li>This operation ensures physical laws are consistent across different frames.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Minkowski metric (signature - + + +)
+    const eta = [
+      [-1, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1],
+    ];
+
+    // Lower indices: V_mu = g_{mu nu} V^nu
+    function lowerIndex() {
+      const V = [
+        parseFloat(document.getElementById("V0").value),
+        parseFloat(document.getElementById("V1").value),
+        parseFloat(document.getElementById("V2").value),
+        parseFloat(document.getElementById("V3").value),
+      ];
+
+      let lowered = [];
+      for (let mu = 0; mu < 4; mu++) {
+        let sum = 0;
+        for (let nu = 0; nu < 4; nu++) {
+          sum += eta[mu][nu] * V[nu];
+        }
+        lowered.push(sum);
+      }
+
+      document.getElementById(
+        "loweredVector"
+      ).innerHTML = `Lowered vector \( V_\\mu \\) = ( ${lowered
+        .map((v) => v.toFixed(2))
+        .join(", ")} )`;
+    }
+
+    // Raise indices: V^mu = g^{mu nu} V_nu (inverse metric same as eta here)
+    function raiseIndex() {
+      const loweredText = document
+        .getElementById("loweredVector")
+        .textContent.trim();
+      if (!loweredText) {
+        alert("Please lower the indices first.");
+        return;
+      }
+      // Extract numbers from string (simple parsing)
+      const lowered = loweredText
+        .match(/\(([^)]+)\)/)[1]
+        .split(",")
+        .map((x) => parseFloat(x));
+
+      let raised = [];
+      for (let mu = 0; mu < 4; mu++) {
+        let sum = 0;
+        for (let nu = 0; nu < 4; nu++) {
+          sum += eta[mu][nu] * lowered[nu];
+        }
+        raised.push(sum);
+      }
+
+      document.getElementById(
+        "raisedVector"
+      ).innerHTML = `Raised vector \( V^\\mu \\) = ( ${raised
+        .map((v) => v.toFixed(2))
+        .join(", ")} )`;
+    }
+
+    // Quiz check
+    function quizAnswer(result, action) {
+      const feedback = document.getElementById("quizFeedback");
+      if (result === "correct") {
+        feedback.textContent = "Correct! \( V_0 = -3 \) for the given vector.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "Try again! Hint: Time component changes sign when lowering.";
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

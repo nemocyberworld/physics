@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four Vectors - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #e6f7ff;
+      border-left: 5px solid #0099cc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Four Vectors in Special Relativity</h1>
+
+  <h2>Introduction</h2>
+  <p>Four-vectors are a foundational concept in Einstein's Special Theory of Relativity. They unify space and time into a single four-dimensional spacetime structure, allowing us to express the laws of physics in a form that remains unchanged across different inertial frames.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The concept of four-vectors is what lets GPS satellites keep perfect time despite orbiting Earth at thousands of kilometers per hour!
+  </div>
+
+  <h2>What is a Four-Vector?</h2>
+  <p>A four-vector is a mathematical object with four components: one time component and three spatial components. It transforms in a specific way under Lorentz transformations.</p>
+
+  <div class="equation">
+    $$ A^\mu = (A^0, A^1, A^2, A^3) $$
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li><strong>A<sup>0</sup></strong> is the time component (often ct)</li>
+    <li><strong>A<sup>1</sup>, A<sup>2</sup>, A<sup>3</sup></strong> are the spatial components (x, y, z)</li>
+  </ul>
+
+  <h2>Example: Position Four-Vector</h2>
+  <div class="equation">
+    $$ x^\mu = (ct, x, y, z) $$
+  </div>
+  <p>This combines time and position into one vector.</p>
+
+  <h2>Example: Four-Velocity</h2>
+  <div class="equation">
+   $$ u^\mu = \frac{dx^\mu}{d\tau} = \gamma(c, v_x, v_y, v_z) $$
+  </div>
+  <p>Where \( \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} \) and \( \tau \) is proper time.</p>
+
+  <h2>Interactive Quiz</h2>
+  <p>Which of the following is a correct time component for a four-vector?</p>
+  <button onclick="document.getElementById('ans1').style.display='block'">Show Answer</button>
+  <div class="answer" id="ans1">Correct! The time component is usually written as \( ct \) (speed of light times time).</div>
+
+  <h2>Why Are Four-Vectors Useful?</h2>
+  <ul>
+    <li>They make relativistic equations simpler and more elegant.</li>
+    <li>They preserve the form of physical laws under Lorentz transformations.</li>
+    <li>They make it easier to identify conserved quantities (like energy and momentum).</li>
+  </ul>
+
+  <h2>Real-World Application: Particle Physics</h2>
+  <p>In particle accelerators like CERN's LHC, four-momentum vectors are used to analyze high-speed collisions. These help determine the energy and momentum of subatomic particles.</p>
+
+  <h2>Mathematical Insight: Minkowski Metric</h2>
+  <p>To compute the "length" of a four-vector, we use the Minkowski metric:</p>
+  <div class="equation">
+   $$ s^2 = -(ct)^2 + x^2 + y^2 + z^2 $$
+  </div>
+  <p>This invariant quantity remains the same across all inertial frames.</p>
+
+  <h2>More Examples</h2>
+  <h3>Four-Momentum:</h3>
+  <div class="equation">
+   $$ p^\mu = (\gamma mc, \gamma mv_x, \gamma mv_y, \gamma mv_z) $$
+  </div>
+  <h3>Four-Force:</h3>
+  <div class="equation">
+   $$ F^\mu = \frac{dp^\mu}{d\tau} $$
+  </div>
+
+  <h2>Fun Fact</h2>
+  <div class="fun-fact">
+    <strong>Did You Know?</strong> Four-vectors are so reliable that the data from deep space probes like Voyager are interpreted using four-vector transformations!
+  </div>
+
+  <h2>Challenge: Lorentz Invariance</h2>
+  <p>Try this: Calculate the invariant interval between two events if:</p>
+  <ul>
+    <li>Event A: (t = 2s, x = 300,000 km)</li>
+    <li>Event B: (t = 3s, x = 600,000 km)</li>
+  </ul>
+  <button onclick="document.getElementById('ans2').style.display='block'">Show Answer</button>
+  <div class="answer" id="ans2">
+    Using \( s^2 = -(c \Delta t)^2 + (\Delta x)^2 \), the result is 0! These events are light-like separated.
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>Four-vectors are the natural language of Special Relativity. They simplify the mathematics, reveal deeper symmetries, and are essential tools in modern physics from cosmology to quantum field theory.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Interactive logic can go here if needed later
+  </script>
+</body>
+</html>

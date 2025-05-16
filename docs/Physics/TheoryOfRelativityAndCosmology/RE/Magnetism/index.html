@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magnetism as a Relativistic Phenomenon</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin-top: 1rem;
+      border: 1px solid #ccd;
+      border-radius: 8px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Magnetism as a Relativistic Phenomenon</h1>
+
+  <p>
+    Have you ever wondered why moving electric charges produce magnetic fields? Or why magnetic fields can influence electric currents? 
+    The deep connection between electricity and magnetism becomes beautifully clear through the lens of Einstein’s theory of Special Relativity.
+  </p>
+
+  <h2>1. Foundations: Electric and Magnetic Fields</h2>
+  <p>
+    Electric fields are created by charges. Magnetic fields, as it turns out, are also produced by moving charges. But here's the twist —
+    magnetism is actually a *relativistic effect* of electricity! That means magnetism wouldn't exist if we didn't live in a relativistic universe.
+  </p>
+
+  <h2>2. Relativistic Length Contraction and Current-Carrying Wires</h2>
+  <p>
+    Consider a long wire with positive ions fixed in place and electrons moving as a current. To a stationary observer, the wire is electrically neutral.
+    But what happens when we observe this wire from a moving frame of reference — say, moving alongside the electrons?
+  </p>
+
+  <div class="equation">
+    $$ L = L_0 \sqrt{1 - \frac{v^2}{c^2}} $$
+  </div>
+
+  <p>
+    This is the famous length contraction equation. From the perspective of the moving observer, the positive ions in the wire appear more densely packed
+    due to this contraction, while the electrons appear stationary. This imbalance leads to an electric field — hence, a magnetic effect observed in the stationary frame.
+  </p>
+
+  <h2>3. Real-World Example: Particle Accelerators</h2>
+  <p>
+    In particle accelerators, charged particles move at speeds close to the speed of light. The magnetic forces they experience are actually 
+    manifestations of electric fields from the lab frame — shifted due to relativistic motion.
+  </p>
+
+  <div class="interactive">
+    <h3>Interactive Example</h3>
+    <p>Type a speed (as a fraction of the speed of light, c) to see length contraction:</p>
+    <input type="number" id="speedInput" placeholder="e.g., 0.9" step="0.01" min="0" max="1">
+    <button onclick="calculateContraction()">Calculate</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateContraction() {
+      const v = parseFloat(document.getElementById("speedInput").value);
+      if (v < 0 || v >= 1) {
+        document.getElementById("result").innerText = "Enter a speed between 0 and 1.";
+        return;
+      }
+      const L0 = 1; // Let's say rest length is 1 meter
+      const L = L0 * Math.sqrt(1 - v*v);
+      document.getElementById("result").innerText = `Contracted length: ${L.toFixed(4)} meters`;
+    }
+  </script>
+
+  <h2>4. Magnetic Force as a Relativistic Effect</h2>
+  <p>
+    When a test charge moves near a current-carrying wire, it experiences a magnetic force. But in the frame of the test charge,
+    there’s a different charge density due to relativistic effects. What appears as a magnetic force in one frame is just an electric field in another!
+  </p>
+
+  <h2>5. Practical Applications</h2>
+  <ul>
+    <li><strong>Electromagnets:</strong> Used in MRI machines, speakers, and motors — rely on this relativistic relationship.</li>
+    <li><strong>GPS Systems:</strong> Account for both general and special relativistic effects to maintain accurate timing.</li>
+    <li><strong>Transformers:</strong> Efficient power transfer is explained by changing magnetic and electric fields — inherently relativistic.</li>
+  </ul>
+
+  <h2>6. Fun Fact</h2>
+  <p>
+    Did you know? Magnetism disappears entirely if you ignore special relativity. If the speed of light were infinite (i.e., no relativistic effects),
+    magnetic fields wouldn’t exist at all!
+  </p>
+
+  <h2>7. Mathematical Summary</h2>
+  <p>The relationship between electric and magnetic fields in relativity is often expressed using the electromagnetic field tensor:</p>
+  <div class="equation">
+    $$ F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu $$
+  </div>
+  <p>
+    Where \( A^\mu \) is the four-potential combining scalar and vector potentials. This tensor transforms under Lorentz transformations,
+    unifying electric and magnetic fields into a single framework.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

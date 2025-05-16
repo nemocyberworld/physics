@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Static Black Holes - Schwarzschild & Reissner-Nordström</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+      cursor: pointer;
+      user-select: none;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 0.3rem;
+    }
+    .section-content {
+      display: none;
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid #003366;
+      background-color: #f9faff;
+      border-radius: 4px;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e7f3ff;
+      border-left: 5px solid #1a73e8;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+    .example-btn {
+      background-color: #1a73e8;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .example-popup {
+      display: none;
+      background: #fff;
+      border: 2px solid #1a73e8;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(26, 115, 232, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cosmology: Static Black Holes (Schwarzschild & Reissner-Nordström)</h1>
+  <p>
+    This lesson covers two fundamental types of static black holes in General Relativity: the <strong>Schwarzschild</strong> black hole and the <strong>Reissner-Nordström</strong> black hole. 
+    Both represent idealized solutions to Einstein's field equations, helping us understand gravity, spacetime curvature, and extreme astrophysical objects.
+  </p>
+
+  <p>
+    Click each section heading to reveal in-depth explanations, equations, practical applications, and fun facts. Let's explore these cosmic phenomena step by step.
+  </p>
+
+  <!-- Schwarzschild Black Hole -->
+  <h2 id="schwarzschild">Schwarzschild Black Hole</h2>
+  <div class="section-content">
+    <p>
+      The Schwarzschild black hole is the simplest solution describing a non-rotating, uncharged black hole — meaning it has mass but no electric charge or spin.
+      It was discovered by Karl Schwarzschild in 1916, shortly after Einstein published General Relativity.
+    </p>
+    <p>
+      It describes a spherical black hole characterized only by its <strong>mass</strong> <em>M</em>. The event horizon — the boundary beyond which nothing can escape — lies at the <em>Schwarzschild radius</em>:
+    </p>
+
+    <div class="equation">
+      $$ R_s = \frac{2GM}{c^2} $$
+      <br />
+      <small><em>Where:</em> \(G\) is the gravitational constant, \(M\) the mass of the black hole, and \(c\) the speed of light.</small>
+    </div>
+
+    <p>
+      For example, a black hole with the mass of our Sun would have a Schwarzschild radius of about 3 kilometers!
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('example-schw')">Show Example: Schwarzschild Radius of a Solar-Mass Black Hole</button>
+    <div id="example-schw" class="example-popup">
+      <p>
+        Given the Sun’s mass \( M_\odot = 1.989 \times 10^{30} \, \text{kg} \), the Schwarzschild radius is:
+      </p>
+      <div class="equation">
+        $$ R_s = \frac{2 \times 6.674 \times 10^{-11} \times 1.989 \times 10^{30}}{(3 \times 10^8)^2} \approx 2.95 \text{ km} $$
+      </div>
+      <p>
+        This tiny radius compared to the Sun’s actual size (~700,000 km) shows how dense black holes are!
+      </p>
+    </div>
+
+    <h3>Key Properties:</h3>
+    <ul>
+      <li>Non-rotating and uncharged</li>
+      <li>Spherically symmetric spacetime geometry</li>
+      <li>Event horizon at Schwarzschild radius</li>
+      <li>Singularity at the center where curvature becomes infinite</li>
+    </ul>
+
+    <h3>Physical Interpretation & Applications</h3>
+    <p>
+      Schwarzschild black holes provide a foundation for understanding gravitational time dilation, light bending, and black hole thermodynamics.
+      They model static black holes formed from collapsed stars without spin or charge.
+    </p>
+    <p>
+      <strong>Real-World Example:</strong> Stellar-mass black holes detected via X-ray binaries often approximate Schwarzschild solutions if spin and charge are low.
+    </p>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> Schwarzschild’s original paper was written while he was serving on the Russian front during World War I!
+    </div>
+  </div>
+
+  <!-- Reissner-Nordström Black Hole -->
+  <h2 id="reissner-nordstrom">Reissner-Nordström Black Hole</h2>
+  <div class="section-content">
+    <p>
+      The Reissner-Nordström black hole generalizes Schwarzschild’s solution by including <strong>electric charge</strong>. It describes a static, spherically symmetric black hole with mass <em>M</em> and charge <em>Q</em>.
+    </p>
+
+    <p>
+      Its spacetime metric includes effects of electromagnetic fields, leading to more complex horizons. The radii of the horizons (outer and inner) are given by:
+    </p>
+
+    <div class="equation">
+      $$ r_\pm = \frac{GM}{c^2} \pm \sqrt{\left(\frac{GM}{c^2}\right)^2 - \frac{GQ^2}{4\pi \epsilon_0 c^4}} $$
+      <br />
+      <small><em>Where:</em> \(r_+\) is the event horizon radius, \(r_-\) the Cauchy horizon, \(Q\) is the electric charge, and \(\epsilon_0\) the permittivity of free space.</small>
+    </div>
+
+    <p>
+      If the charge is zero, this reduces to the Schwarzschild radius. If the charge is large enough, the black hole becomes an <em>extremal</em> black hole with interesting physical properties.
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('example-rn')">Show Example: Horizons of a Charged Black Hole</button>
+    <div id="example-rn" class="example-popup">
+      <p>
+        For a black hole with mass \(M\) and charge \(Q\), depending on the balance of these values, it can have two horizons, one horizon, or none (a naked singularity).
+      </p>
+      <p>
+        This has profound implications in cosmic censorship and the stability of spacetime.
+      </p>
+    </div>
+
+    <h3>Key Properties:</h3>
+    <ul>
+      <li>Static, spherically symmetric, but electrically charged</li>
+      <li>Two horizons: event horizon and Cauchy (inner) horizon</li>
+      <li>Charge affects gravitational field and horizon structure</li>
+      <li>Potential for extremal black holes where horizons merge</li>
+    </ul>
+
+    <h3>Physical Interpretation & Applications</h3>
+    <p>
+      Reissner-Nordström black holes are theoretical but provide insight into how charge affects black hole geometry and thermodynamics.
+      They are crucial in advanced gravitational theories and quantum gravity research.
+    </p>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> Although astrophysical black holes likely have negligible net charge, charged black holes are important in string theory and holography!
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <h2>Summary</h2>
+  <div class="section-content" style="display: block;">
+    <p>
+      Static black holes are idealized but foundational solutions in General Relativity.<br />
+      <strong>Schwarzschild black holes</strong> describe neutral, non-rotating black holes with a single event horizon.<br />
+      <strong>Reissner-Nordström black holes</strong> add electric charge, introducing richer horizon structures.<br />
+    </p>
+    <p>
+      Both solutions deepen our understanding of gravity, spacetime, and the extreme conditions found near black holes.
+    </p>
+  </div>
+
+  <footer style="margin-top: 3rem;">
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Toggle expand/collapse sections on header click
+    document.querySelectorAll('h2').forEach(h2 => {
+      h2.addEventListener('click', () => {
+        const content = h2.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    // Toggle example popups
+    function toggleExample(id) {
+      const elem = document.getElementById(id);
+      if (elem.style.display === 'block') {
+        elem.style.display = 'none';
+      } else {
+        elem.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electrodynamics in Tensor Rotation - Relativistic Electrodynamics</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre,
+    code {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e7f3fe;
+      border-left: 5px solid #1e90ff;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #004080;
+    }
+    button {
+      background-color: #003366;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0055a5;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Electrodynamics in Tensor Rotation</h1>
+  <h2>Relativistic Electrodynamics - Theory of Relativity and Cosmology</h2>
+
+  <p>
+    Welcome to this detailed lesson on <strong>Electrodynamics in Tensor Rotation</strong>, a fascinating topic that bridges classical electromagnetism with Einstein’s
+    theory of relativity. We will explore how electric and magnetic fields transform in different inertial frames using tensors — a mathematical framework essential
+    for understanding relativistic electrodynamics.
+  </p>
+
+  <h2>Lesson Overview</h2>
+  <ul>
+    <li>Introduction to Electrodynamics and Relativity</li>
+    <li>Tensors in Electrodynamics</li>
+    <li>Rotation of Electromagnetic Tensors</li>
+    <li>Real-world Examples and Practical Applications</li>
+    <li>Interactive Exercises</li>
+    <li>Fun Facts</li>
+  </ul>
+
+  <h2>1. Introduction to Electrodynamics and Relativity</h2>
+  <p>
+    Electrodynamics studies electric and magnetic fields and their interactions with charged particles. Classical electrodynamics, formulated by Maxwell,
+    treats electric and magnetic fields separately. However, Einstein's <strong>Theory of Special Relativity</strong> revealed that these fields are
+    parts of a single electromagnetic field that depends on the observer's motion.
+  </p>
+
+  <p>
+    The theory of relativity introduced the concept of spacetime — a 4-dimensional continuum combining space and time. To describe electromagnetism relativistically,
+    physicists use <strong>tensors</strong>, mathematical objects that remain consistent under coordinate transformations (like rotations and boosts).
+  </p>
+
+  <h2>2. Tensors in Electrodynamics</h2>
+  <p>
+    The central tensor in relativistic electrodynamics is the <strong>Electromagnetic Field Tensor</strong>, often denoted by \( F^{\mu\nu} \).
+    This antisymmetric rank-2 tensor unifies electric and magnetic fields:
+  </p>
+  <div class="equation">
+    $$ F^{\mu\nu} =
+      \begin{bmatrix}
+        0 & -E_x/c & -E_y/c & -E_z/c \\
+        E_x/c & 0 & -B_z & B_y \\
+        E_y/c & B_z & 0 & -B_x \\
+        E_z/c & -B_y & B_x & 0
+      \end{bmatrix} $$
+  </div>
+  <p>
+    Here, \( \mathbf{E} = (E_x, E_y, E_z) \) is the electric field, \( \mathbf{B} = (B_x, B_y, B_z) \) the magnetic field, and \( c \) is the speed of light.
+  </p>
+
+  <h3>Why Use Tensors?</h3>
+  <p>
+    Tensors like \( F^{\mu\nu} \) help us describe physics in a way that’s consistent for all observers, no matter their relative motion. When you rotate or boost your coordinate
+    system (change inertial frames), tensors transform following specific rules that preserve physical laws.
+  </p>
+
+  <h2>3. Rotation of Electromagnetic Tensors</h2>
+  <p>
+    Let’s understand how the electromagnetic tensor changes when you rotate the coordinate system. Rotation here means changing the spatial axes — for example, turning your frame of
+    reference around the z-axis.
+  </p>
+  <p>
+    The tensor transforms under rotation by a matrix \( R \) as:
+  </p>
+  <div class="equation">
+    $$ F'^{\mu\nu} = R^\mu_{\ \alpha} R^\nu_{\ \beta} F^{\alpha\beta} $$
+  </div>
+  <p>
+    Where \( R^\mu_{\ \alpha} \) are the elements of the rotation matrix.
+  </p>
+
+  <h3>Interactive Example: Rotate Electric Field Around Z-axis</h3>
+  <p>Try rotating the electric field vector around the z-axis and see how its components change!</p>
+
+  <label for="angleInput">Rotation angle (degrees): </label>
+  <input type="number" id="angleInput" value="0" min="0" max="360" step="1" />
+  <button onclick="rotateElectricField()">Rotate</button>
+
+  <div id="rotationResult"></div>
+
+  <script>
+    // Initial electric field vector E = (E_x, E_y, E_z)
+    const E_initial = { x: 1, y: 0, z: 0 };
+
+    // Function to rotate electric field vector around z-axis
+    function rotateElectricField() {
+      const angleDeg = document.getElementById('angleInput').value;
+      const angleRad = (angleDeg * Math.PI) / 180;
+
+      // Rotation matrix around z-axis:
+      // x' = x cosθ - y sinθ
+      // y' = x sinθ + y cosθ
+      // z' = z (unchanged)
+      const xPrime = E_initial.x * Math.cos(angleRad) - E_initial.y * Math.sin(angleRad);
+      const yPrime = E_initial.x * Math.sin(angleRad) + E_initial.y * Math.cos(angleRad);
+      const zPrime = E_initial.z;
+
+      // Display result
+      const resultDiv = document.getElementById('rotationResult');
+      resultDiv.innerHTML = `
+        <p>
+          After rotating the electric field vector by <strong>${angleDeg}&deg;</strong> around the z-axis:
+        </p>
+        <pre>E' = ( ${xPrime.toFixed(3)}, ${yPrime.toFixed(3)}, ${zPrime.toFixed(3)} )</pre>
+      `;
+    }
+  </script>
+
+  <h2>4. Real-world Examples and Practical Applications</h2>
+  <h3>Example 1: Electromagnetic Waves and Relativity</h3>
+  <p>
+    Light waves consist of oscillating electric and magnetic fields perpendicular to each other. Observers moving at different speeds see these fields rotate and transform,
+    but the speed of light remains constant — a key postulate of relativity.
+  </p>
+  <p>
+    This explains phenomena like the Doppler shift for light and helps design technologies like radar and GPS, where relativistic corrections are vital for accuracy.
+  </p>
+
+  <h3>Example 2: Particle Accelerators</h3>
+  <p>
+    Charged particles moving near the speed of light experience electromagnetic forces described by tensors in relativistic terms. Understanding tensor rotations helps physicists
+    control particle beams precisely, essential in colliders like the Large Hadron Collider (LHC).
+  </p>
+
+  <h3>Example 3: Magnetic Fields from Moving Charges</h3>
+  <p>
+    A stationary charge produces only an electric field. However, an observer moving relative to the charge perceives a magnetic field due to the rotation of the electromagnetic tensor.
+    This underlines how electric and magnetic fields are frame-dependent manifestations of the same physical phenomenon.
+  </p>
+
+  <h2>5. Deeper Insights: Lorentz Transformations vs Rotations</h2>
+  <p>
+    While we focused on spatial rotations, the full relativistic transformations include boosts (changes in velocity). Lorentz transformations combine rotations and boosts, transforming the
+    electromagnetic tensor as well.
+  </p>
+  <div class="equation">
+    $$ F'^{\mu\nu} = \Lambda^\mu_{\ \alpha} \Lambda^\nu_{\ \beta} F^{\alpha\beta} $$
+  </div>
+  <p>
+    Here, \( \Lambda^\mu_{\ \alpha} \) is the Lorentz transformation matrix incorporating both rotation and boost. This ensures Maxwell's equations hold true in all inertial frames.
+  </p>
+
+  <h2>6. Fun Fact</h2>
+  <div class="fun-fact">
+    The unification of electric and magnetic fields into one electromagnetic tensor was a major stepping stone in physics — it paved the way for Einstein's relativity, quantum field theory,
+    and even modern technologies like MRI machines!
+  </div>
+
+  <h2>7. Interactive Quiz: Test Your Understanding</h2>
+  <p>What happens to the electric and magnetic fields when you switch to a frame moving at constant velocity relative to a charged particle?</p>
+  <button onclick="showAnswer()">Show Answer</button>
+  <p id="quizAnswer" class="hidden">
+    The electric and magnetic fields mix: a pure electric field in one frame can appear as both electric and magnetic fields in another frame moving relative to the first.
+    This mixing is described mathematically by the Lorentz transformation of the electromagnetic field tensor.
+  </p>
+
+  <script>
+    function showAnswer() {
+      const answer = document.getElementById('quizAnswer');
+      answer.classList.toggle('hidden');
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

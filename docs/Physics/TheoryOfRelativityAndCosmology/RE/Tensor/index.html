@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tensor Calculus - Relativistic Electrodynamics</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre, .equation {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin: 1rem 0;
+    }
+    .equation {
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e0f7fa;
+      border-left: 5px solid #00796b;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    #quiz, #toggleApplications {
+      margin-top: 1.5rem;
+    }
+    #applications {
+      margin-top: 1rem;
+      display: none;
+      border-left: 5px solid #2196f3;
+      background: #e3f2fd;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tensor Calculus in Relativistic Electrodynamics</h1>
+
+  <p>Welcome to this comprehensive lesson on <strong>Tensor Calculus</strong> applied in <strong>Relativistic Electrodynamics</strong>, a crucial part of the <em>Theory of Relativity and Cosmology</em>. This lesson is designed to be beginner-friendly yet in-depth, featuring real-world examples, practical applications, and interactive elements to deepen your understanding.</p>
+
+  <h2>1. Introduction to Tensor Calculus</h2>
+  <p>Tensors generalize scalars and vectors to higher dimensions and provide a framework to describe physical laws independent of coordinate systems. This property makes them fundamental in the theory of relativity where different observers may describe the same phenomena differently.</p>
+
+  <h3>1.1 What is a Tensor?</h3>
+  <p>A tensor of rank \( (m,n) \) can be thought of as a multilinear map with \(m\) covariant and \(n\) contravariant indices. Scalars are rank (0,0) tensors, vectors rank (1,0) or (0,1), and tensors can represent complex physical quantities.</p>
+
+  <div class="equation">
+    $$ T^{\mu_1 \mu_2 \ldots \mu_n}_{\nu_1 \nu_2 \ldots \nu_m} $$
+  </div>
+
+  <p>Here, the upper indices (\( \mu \)) denote contravariant components and lower indices (\( \nu \)) covariant components.</p>
+
+  <h3>1.2 Why Use Tensors in Physics?</h3>
+  <p>Because tensors transform predictably under coordinate changes, physical laws expressed in tensor form hold true in any reference frame — a cornerstone of Einstein’s theory of relativity.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The word "tensor" comes from the Latin <em>tendere</em>, meaning "to stretch". Tensors can be visualized as multi-dimensional arrays that stretch or compress under transformations!
+  </div>
+
+  <h2>2. Basics of Relativistic Electrodynamics</h2>
+  <p>Electrodynamics studies electric and magnetic fields and their interactions. In the relativistic framework, electric and magnetic fields are components of a single object called the <em>electromagnetic field tensor</em>.</p>
+
+  <h3>2.1 Electromagnetic Field Tensor \( F^{\mu \nu} \)</h3>
+  <p>The electromagnetic field tensor encapsulates both electric and magnetic fields into a unified antisymmetric tensor:</p>
+
+  <div class="equation">
+    $$ F^{\mu \nu} = \begin{bmatrix}
+    0 & -E_x/c & -E_y/c & -E_z/c \\
+    E_x/c & 0 & -B_z & B_y \\
+    E_y/c & B_z & 0 & -B_x \\
+    E_z/c & -B_y & B_x & 0
+    \end{bmatrix} $$
+  </div>
+
+  <p>Where \(E_x, E_y, E_z\) are electric field components, \(B_x, B_y, B_z\) are magnetic field components, and \(c\) is the speed of light.</p>
+
+  <h3>2.2 Maxwell's Equations in Tensor Form</h3>
+  <p>In relativistic form, Maxwell's equations become elegant tensor equations:</p>
+
+  <div class="equation">
+    $$ \partial_\mu F^{\mu \nu} = \mu_0 J^\nu $$
+  </div>
+
+  <p>Here, \( \partial_\mu \) denotes the four-gradient operator, \( J^\nu \) the four-current density, and \( \mu_0 \) the vacuum permeability.</p>
+
+  <h2>3. Real-World Examples and Practical Applications</h2>
+
+  <button id="toggleApplications">Show/Hide Practical Applications</button>
+
+  <div id="applications">
+    <h3>3.1 Particle Accelerators</h3>
+    <p>In particle accelerators like the Large Hadron Collider (LHC), charged particles move close to light speed. The electromagnetic fields they interact with are best described using relativistic electrodynamics and tensor calculus to predict trajectories and collisions.</p>
+
+    <h3>3.2 GPS Satellite Systems</h3>
+    <p>GPS satellites experience relativistic effects due to their high speeds and gravitational fields. Relativistic corrections calculated through tensor calculus ensure accurate positioning on Earth.</p>
+
+    <h3>3.3 Astrophysical Jets</h3>
+    <p>Relativistic jets emitted by black holes and neutron stars contain particles moving near light speed with intense magnetic fields. Understanding their behavior involves tensors and relativistic electrodynamics.</p>
+
+    <h3>3.4 Designing Advanced Electromagnetic Devices</h3>
+    <p>Devices such as MRI machines and plasma confinement reactors rely on precise electromagnetic field control — modeled accurately using relativistic tensor frameworks when speeds or fields are extreme.</p>
+  </div>
+
+  <h2>4. Interactive Quiz</h2>
+  <p>Test your understanding with this quick quiz:</p>
+
+  <div id="quiz">
+    <p><strong>Question 1:</strong> What does the electromagnetic field tensor \( F^{\mu \nu} \) unify?</p>
+    <input type="radio" id="q1a" name="q1" value="electric"><label for="q1a">Only electric fields</label><br />
+    <input type="radio" id="q1b" name="q1" value="magnetic"><label for="q1b">Only magnetic fields</label><br />
+    <input type="radio" id="q1c" name="q1" value="both"><label for="q1c">Both electric and magnetic fields</label><br />
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="quizResult" style="font-weight: bold;"></p>
+  </div>
+
+  <h2>5. Deeper Insights: Covariant and Contravariant Components</h2>
+  <p>In tensor calculus, distinguishing between covariant and contravariant components is crucial. They transform differently under coordinate changes:</p>
+
+  <div class="equation">
+    $$ V^\mu \to \text{contravariant vector components} $$
+  </div>
+  <div class="equation">
+    $$ V_\mu \to \text{covariant vector components} $$
+  </div>
+
+  <p>Raising and lowering indices is done using the metric tensor \( g_{\mu \nu} \):</p>
+
+  <div class="equation">
+    $$ V_\mu = g_{\mu \nu} V^\nu $$
+  </div>
+
+  <h2>6. Metric Tensor and Spacetime Geometry</h2>
+  <p>The metric tensor defines the geometry of spacetime. In special relativity, the Minkowski metric is:</p>
+
+  <div class="equation">
+    $$ \eta_{\mu \nu} = \begin{bmatrix}
+    -1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+    \end{bmatrix} $$
+  </div>
+
+  <p>This metric helps compute invariant intervals \( ds^2 \) and raise/lower tensor indices.</p>
+
+  <h2>7. Summary</h2>
+  <p>This lesson covered:</p>
+  <ul>
+    <li>The basics of tensor calculus and their role in physics</li>
+    <li>The electromagnetic field tensor and its components</li>
+    <li>Maxwell’s equations in relativistic tensor form</li>
+    <li>Real-world applications such as particle accelerators and GPS</li>
+    <li>Understanding covariant and contravariant components with the metric tensor</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The electromagnetic field tensor \(F^{\mu \nu}\) was key to showing that electric and magnetic fields are two sides of the same coin — just different perspectives of the same phenomenon in spacetime!
+  </div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Toggle practical applications section
+    document.getElementById('toggleApplications').addEventListener('click', () => {
+      const app = document.getElementById('applications');
+      if (app.style.display === 'none' || app.style.display === '') {
+        app.style.display = 'block';
+      } else {
+        app.style.display = 'none';
+      }
+    });
+
+    // Quiz checking function
+    function checkAnswer() {
+      const radios = document.getElementsByName('q1');
+      let selected = null;
+      for (const r of radios) {
+        if (r.checked) {
+          selected = r.value;
+          break;
+        }
+      }
+      const result = document.getElementById('quizResult');
+      if (!selected) {
+        result.textContent = 'Please select an answer.';
+        result.style.color = 'red';
+        return;
+      }
+      if (selected === 'both') {
+        result.textContent = 'Correct! The tensor unifies both electric and magnetic fields.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect. Try again!';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>

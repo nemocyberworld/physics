@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelson-Morley Experiment and the Null Result</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e6f7ff;
+      border-left: 5px solid #007acc;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h1>Michelson-Morley Experiment and Explanation of the Null Result</h1>
+
+  <h2>Introduction</h2>
+  <p>The Michelson-Morley experiment is one of the most famous and important experiments in the history of physics. It was designed to detect the presence of the "luminiferous aether," a hypothetical medium through which light waves were thought to travel. Surprisingly, the experiment produced a null result, which ultimately led to the downfall of the aether theory and the birth of Einstein's theory of Special Relativity.</p>
+
+  <h2>The Aether Hypothesis</h2>
+  <p>In the 19th century, it was believed that light waves, like sound waves, required a medium to travel through. This supposed medium was called the "aether." Scientists assumed that the Earth moved through this aether as it orbited the Sun.</p>
+
+  <h2>The Experimental Setup</h2>
+  <p>Albert A. Michelson and Edward W. Morley used an interferometer to measure the speed of light in perpendicular directions, expecting a difference due to the motion of the Earth through the aether.</p>
+  <div class="equation">
+    \[
+    \Delta t = \frac{2v^2L}{c^2}
+    \]
+  </div>
+  <p>Where \( v \) is Earth's velocity through the aether, \( L \) is the length of the interferometer arm, and \( c \) is the speed of light.</p>
+
+  <h2>The Null Result</h2>
+  <p>The experiment showed <strong>no measurable difference</strong> in the speed of light in any direction. This unexpected result meant that either the Earth was always stationary in the aether (highly unlikely), or the aether didn’t exist at all.</p>
+
+  <h2>Consequences</h2>
+  <ul>
+    <li>Disproved the aether theory.</li>
+    <li>Suggested that the speed of light is constant in all inertial frames.</li>
+    <li>Laid the groundwork for Einstein’s Special Relativity.</li>
+  </ul>
+
+  <h2>Real-World Applications</h2>
+  <ul>
+    <li><strong>GPS:</strong> Relies on light signals and must consider Special Relativity, which was inspired by this experiment.</li>
+    <li><strong>Modern Optics:</strong> Interferometers based on Michelson’s design are used in LIGO to detect gravitational waves.</li>
+    <li><strong>Timekeeping:</strong> Atomic clocks are synchronized using principles that stem from this null result.</li>
+  </ul>
+
+  <h2>Fun Fact</h2>
+  <p>Michelson was the first American to win a Nobel Prize in a science field (Physics, 1907), largely for his work in precision optical instruments and the Michelson-Morley experiment!</p>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p><strong>Q1:</strong> What was the purpose of the Michelson-Morley experiment?</p>
+    <button onclick="document.getElementById('answer1').innerText='To detect the motion of the Earth through the aether by measuring changes in the speed of light.'">Show Answer</button>
+    <p id="answer1"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q2:</strong> What was the major implication of the null result?</p>
+    <button onclick="document.getElementById('answer2').innerText='That the speed of light is the same in all directions, disproving the existence of aether.'">Show Answer</button>
+    <p id="answer2"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q3:</strong> What modern technology uses a similar setup to the Michelson-Morley experiment?</p>
+    <button onclick="document.getElementById('answer3').innerText='LIGO, which uses Michelson interferometers to detect gravitational waves.'">Show Answer</button>
+    <p id="answer3"></p>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>The Michelson-Morley experiment is a shining example of how a simple null result can revolutionize physics. By showing that the speed of light is constant in all frames, it challenged centuries of assumptions and opened the door to the modern theory of relativity. Its impact continues to shape technology, philosophy, and our understanding of space and time.</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

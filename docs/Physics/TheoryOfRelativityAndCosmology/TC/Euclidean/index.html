@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tensor Calculus: Euclidean vs Non-Euclidean Space</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      background-color: #e6f2ff;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-left: 5px solid #007acc;
+    }
+    .funfact {
+      background-color: #ffffcc;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tensor Calculus: Idea of Euclidean and Non-Euclidean Spaces</h1>
+  
+  <h2>Introduction</h2>
+  <p>
+    In the study of the universe and the laws of physics that govern it, we often rely on the geometry of space itself. The concept of <strong>Euclidean</strong> and <strong>Non-Euclidean</strong> spaces is essential in understanding the behavior of objects under gravity and motion, especially in the context of Einstein’s <strong>Theory of Relativity</strong>. Tensor calculus provides the mathematical language that describes how things behave in these spaces.
+  </p>
+
+  <div class="funfact">
+    <strong>Fun Fact:</strong> Albert Einstein used non-Euclidean geometry to describe the curvature of space-time in General Relativity. This shift was revolutionary!
+  </div>
+
+  <h2>What is a Euclidean Space?</h2>
+  <p>
+    Euclidean space is the familiar geometry most of us learned in school: flat planes, straight lines, right angles, and parallel lines that never meet.
+    It's the geometry described by <strong>Euclid's postulates</strong>, including the parallel postulate.
+  </p>
+  <div class="equation">
+    $$ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} $$
+  </div>
+  <p>This is the standard distance formula in 2D Euclidean space.</p>
+
+  <h2>What is a Non-Euclidean Space?</h2>
+  <p>
+    Non-Euclidean spaces are geometries where Euclid’s fifth postulate (parallel postulate) does not hold. This includes:
+    <ul>
+      <li><strong>Spherical geometry</strong> - where lines are great circles, like on Earth.</li>
+      <li><strong>Hyperbolic geometry</strong> - where space curves outward like a saddle.</li>
+    </ul>
+  </p>
+
+  <div class="funfact">
+    <strong>Fun Fact:</strong> The angles of a triangle in Euclidean space add up to 180°, but on a sphere they add up to more than 180°!
+  </div>
+
+  <h2>Visualizing the Difference</h2>
+  <p>Use the dropdown to select a space and see its behavior:</p>
+  <select id="spaceType" onchange="showGeometry()">
+    <option value="euclidean">Euclidean</option>
+    <option value="spherical">Spherical</option>
+    <option value="hyperbolic">Hyperbolic</option>
+  </select>
+
+  <div id="geometryOutput" style="margin-top: 1rem;"></div>
+
+  <script>
+    function showGeometry() {
+      const val = document.getElementById('spaceType').value;
+      const output = document.getElementById('geometryOutput');
+      if (val === 'euclidean') {
+        output.innerHTML = '<p>In Euclidean space, lines are straight, parallel lines never meet, and geometry behaves as you learned in school.</p>';
+      } else if (val === 'spherical') {
+        output.innerHTML = '<p>In spherical geometry, lines are arcs of great circles, and any two lines eventually meet. Example: Longitude lines on a globe.</p>';
+      } else if (val === 'hyperbolic') {
+        output.innerHTML = '<p>In hyperbolic space, there are infinite lines that pass through a point and never intersect a given line. Space has a saddle shape.</p>';
+      }
+    }
+    showGeometry();
+  </script>
+
+  <h2>Tensor Calculus: A Primer</h2>
+  <p>
+    Tensor calculus is a framework for doing calculus on spaces that may be curved or multidimensional. It generalizes vectors and scalars, allowing us to express physical laws (like Einstein’s equations) in a form that’s valid in any coordinate system.
+  </p>
+  <div class="equation">
+    $$ T^i_j = \sum_k a^i_k b^k_j $$
+  </div>
+  <p>This is a simple representation of how tensors can transform under coordinate changes.</p>
+
+  <h3>Why Tensors Matter</h3>
+  <ul>
+    <li>Tensors describe <strong>stress and strain</strong> in materials (engineering).</li>
+    <li>In <strong>general relativity</strong>, the curvature of space-time is described by the <strong>Riemann curvature tensor</strong>.</li>
+    <li>In <strong>fluid dynamics</strong>, tensors describe viscosity and flow behavior.</li>
+  </ul>
+
+  <h2>Real-World Applications</h2>
+  <ul>
+    <li>GPS Systems (account for relativistic effects)</li>
+    <li>Black Hole Modeling</li>
+    <li>Gravitational Wave Detection</li>
+    <li>Cosmic Microwave Background Analysis</li>
+    <li>Space Travel and Navigation</li>
+  </ul>
+
+  <div class="quiz">
+    <h3>Quick Quiz</h3>
+    <p>Which of the following statements is true?</p>
+    <ul>
+      <li><input type="radio" name="q1"> Tensors only apply to flat geometry.</li>
+      <li><input type="radio" name="q1"> Euclidean geometry is used in general relativity.</li>
+      <li><input type="radio" name="q1" id="correct"> Non-Euclidean geometry is used to describe curved space-time.</li>
+    </ul>
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="quizFeedback"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const correct = document.getElementById("correct");
+      const feedback = document.getElementById("quizFeedback");
+      if (correct.checked) {
+        feedback.innerHTML = "✅ Correct! Non-Euclidean geometry is essential for understanding general relativity.";
+      } else {
+        feedback.innerHTML = "❌ Try again. Think about curved space-time.";
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

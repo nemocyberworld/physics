@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vectors and Tensors: Contraction - Theory of Relativity and Cosmology</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .toggle-btn {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+    .quiz-section {
+      background: #e8f4fc;
+      border-left: 5px solid #007acc;
+      padding: 1rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .quiz-question {
+      font-weight: bold;
+    }
+    .quiz-answer {
+      margin-top: 0.5rem;
+    }
+    .fun-fact {
+      background-color: #fffbe6;
+      border-left: 5px solid #ffcc00;
+      padding: 1rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vectors and Tensors: <em>Contraction</em></h1>
+  <h2>Context: Theory of Relativity and Cosmology</h2>
+
+  <p>
+    In the study of physics, especially in the theory of relativity and cosmology,
+    vectors and tensors provide powerful mathematical tools to describe physical
+    phenomena in spacetime. One of the key operations involving tensors is called
+    <strong>contraction</strong>. This lesson will explain what contraction is,
+    why it's important, and how it is applied in real-world physics problems.
+  </p>
+
+  <h2>What is Contraction?</h2>
+  <p>
+    <strong>Contraction</strong> is an operation in tensor algebra that reduces
+    the order (rank) of a tensor by summing over pairs of one upper (contravariant)
+    and one lower (covariant) index. Simply put, it's like taking a tensor and
+    "collapsing" two of its indices by summing over them, resulting in a tensor
+    of lower rank.
+  </p>
+
+  <button class="toggle-btn" onclick="toggleContent('detailedDef')">Show Detailed Definition + Example</button>
+  <div id="detailedDef" class="hidden">
+    <p>
+      Suppose you have a rank-2 tensor \( T^\mu_{\ \nu} \). Contraction over the indices \(\mu\) and \(\nu\) means computing
+      \[
+      T^\mu_{\ \mu} = \sum_{\mu=0}^3 T^\mu_{\ \mu}
+      \]
+      (assuming 4-dimensional spacetime). The result is a scalar — a tensor of rank zero.
+    </p>
+    <p>
+      This operation is analogous to taking the trace of a matrix in linear algebra.
+    </p>
+  </div>
+
+  <h2>Mathematical Representation</h2>
+  <div class="equation">
+    $$ \text{Contraction:} \quad T^{\mu}_{\ \nu} \to T^{\mu}_{\ \mu} = \sum_{\mu} T^{\mu}_{\ \mu} $$
+  </div>
+
+  <h2>Why is Contraction Important in Relativity?</h2>
+  <p>
+    In the theory of relativity, contraction allows us to extract invariant quantities from tensors,
+    which do not change when changing coordinate systems (i.e., Lorentz transformations).
+    For example, the <strong>metric tensor</strong> \(g_{\mu\nu}\) can be contracted with other tensors to produce scalars,
+    helping describe physical properties such as spacetime intervals or energy densities that are observer-independent.
+  </p>
+
+  <h2>Real-World Example 1: The Stress-Energy Tensor</h2>
+  <p>
+    The <em>stress-energy tensor</em> \( T^{\mu\nu} \) encodes energy density, momentum density,
+    and stresses in spacetime. Contracting it with the metric tensor \( g_{\mu\nu} \) gives its trace:
+  </p>
+  <div class="equation">
+    $$ T = g_{\mu\nu} T^{\mu\nu} $$
+  </div>
+  <p>
+    This trace can help characterize properties of matter and energy in cosmological models.
+  </p>
+
+  <h2>Interactive: Calculate the Trace of a Tensor</h2>
+  <p>Enter the components of a 2x2 tensor \(T^{\mu}_{\ \nu}\) and see its contraction result:</p>
+  <table>
+    <tr><td> \(T^{0}_{\ 0}\): </td><td><input id="t00" type="number" value="1" /></td></tr>
+    <tr><td> \(T^{0}_{\ 1}\): </td><td><input id="t01" type="number" value="2" /></td></tr>
+    <tr><td> \(T^{1}_{\ 0}\): </td><td><input id="t10" type="number" value="3" /></td></tr>
+    <tr><td> \(T^{1}_{\ 1}\): </td><td><input id="t11" type="number" value="4" /></td></tr>
+  </table>
+  <button onclick="calculateContraction()">Calculate Contraction (Trace)</button>
+  <p id="contractionResult"></p>
+
+  <h2>Practical Application: Length Contraction in Special Relativity</h2>
+  <p>
+    While contraction in tensors is a mathematical operation, the term
+    <em>length contraction</em> in relativity refers to the physical phenomenon
+    where an object moving close to the speed of light appears shorter along
+    the direction of motion to a stationary observer.
+  </p>
+  <p>
+    This effect can be described using the Minkowski metric tensor and Lorentz transformations,
+    where contraction operations help analyze how spacetime intervals change between reference frames.
+  </p>
+
+  <h2>Fun Fact</h2>
+  <div class="fun-fact">
+    The word "contraction" in tensors is related to "contracting" indices, but don't confuse it with
+    the everyday language meaning! Here it’s a precise mathematical operation essential for simplifying tensor expressions.
+  </div>
+
+  <h2>Quiz: Test Your Understanding</h2>
+  <div class="quiz-section">
+    <p class="quiz-question">1. What is the result of contracting a rank-2 tensor over one upper and one lower index?</p>
+    <button onclick="showAnswer('a1')">Show Answer</button>
+    <p id="a1" class="quiz-answer hidden">A scalar (rank 0 tensor)</p>
+  </div>
+  <div class="quiz-section">
+    <p class="quiz-question">2. Which tensor is often contracted with the stress-energy tensor to find a scalar quantity?</p>
+    <button onclick="showAnswer('a2')">Show Answer</button>
+    <p id="a2" class="quiz-answer hidden">The metric tensor \( g_{\mu\nu} \)</p>
+  </div>
+
+  <h2>Summary</h2>
+  <p>
+    Contraction is a fundamental tensor operation that reduces tensor rank by summing over paired indices.
+    It helps extract invariant scalar quantities from tensors, crucial in the theory of relativity and cosmology.
+    Understanding contraction paves the way to grasp deeper concepts like the Ricci scalar, Einstein field equations,
+    and much more.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleContent(id) {
+      const el = document.getElementById(id);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+
+    function calculateContraction() {
+      const t00 = parseFloat(document.getElementById('t00').value);
+      const t11 = parseFloat(document.getElementById('t11').value);
+      if (isNaN(t00) || isNaN(t11)) {
+        document.getElementById('contractionResult').innerText = 'Please enter valid numbers.';
+        return;
+      }
+      const contraction = t00 + t11;
+      document.getElementById('contractionResult').innerText =
+        `The contraction (trace) of the tensor is: ${contraction}`;
+    }
+
+    function showAnswer(id) {
+      const ans = document.getElementById(id);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+      } else {
+        ans.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

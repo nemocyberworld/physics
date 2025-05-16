@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulates of Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz, .fun-fact {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .quiz {
+      background: #e0f7fa;
+    }
+    .fun-fact {
+      background: #fff3cd;
+      border-left: 5px solid #ffeeba;
+    }
+    .quiz label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .answer {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Postulates of the Special Theory of Relativity</h1>
+  <h2>Chapter: Special Theory of Relativity</h2>
+
+  <p>The Special Theory of Relativity, proposed by Albert Einstein in 1905, is based on two revolutionary postulates. These principles reshaped our understanding of space, time, and motion, and laid the groundwork for modern physics.</p>
+
+  <h2>Postulate 1: Principle of Relativity</h2>
+  <p><strong>"The laws of physics are the same in all inertial frames of reference."</strong></p>
+  <p>This means whether you're on a smoothly flying airplane or sitting still at home, the basic physical laws (like electromagnetism and mechanics) behave the same. No inertial frame is preferred over another.</p>
+
+  <h3>Example:</h3>
+  <ul>
+    <li>Two scientists, one on a spaceship moving at constant velocity and another on Earth, will observe the same physics experiments to behave identically — as long as there is no acceleration.</li>
+  </ul>
+
+  <h2>Postulate 2: Constancy of the Speed of Light</h2>
+  <p><strong>"The speed of light in a vacuum is the same for all observers, regardless of their motion relative to the light source."</strong></p>
+  <div class="equation">
+    \( c = 3 \times 10^8 \ \text{m/s} \)
+  </div>
+  <p>This defies common sense. Normally, if you run toward a sound source, the sound appears faster. But for light, its speed remains constant whether you're moving toward or away from the source!</p>
+
+  <h3>Real-World Example:</h3>
+  <ul>
+    <li>GPS satellites rely on this postulate. Since they orbit Earth at high speeds, relativistic effects (including time dilation) must be corrected — or GPS would be inaccurate by kilometers.</li>
+  </ul>
+
+  <h2>Consequences of These Postulates</h2>
+  <ul>
+    <li>Time Dilation: Moving clocks run slower.
+      <div class="equation">
+        \( \Delta t = \frac{\Delta t_0}{\sqrt{1 - v^2/c^2}} \)
+      </div>
+    </li>
+    <li>Length Contraction: Moving objects appear shorter in the direction of motion.
+      <div class="equation">
+        \( L = L_0 \sqrt{1 - v^2/c^2} \)
+      </div>
+    </li>
+    <li>Mass-Energy Equivalence:
+      <div class="equation">
+        \( E = mc^2 \)
+      </div>
+    </li>
+  </ul>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p>Which statement best reflects the second postulate of special relativity?</p>
+    <form id="quizForm">
+      <label><input type="radio" name="answer" value="a"> Light travels faster if you're moving toward the source.</label>
+      <label><input type="radio" name="answer" value="b"> The speed of light is constant in all inertial frames.</label>
+      <label><input type="radio" name="answer" value="c"> Light slows down in moving vehicles.</label>
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <div class="answer" id="quizAnswer"></div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const choices = document.getElementsByName('answer');
+      let selected;
+      for (const choice of choices) {
+        if (choice.checked) {
+          selected = choice.value;
+          break;
+        }
+      }
+      const answerDiv = document.getElementById('quizAnswer');
+      if (selected === 'b') {
+        answerDiv.innerHTML = 'Correct! The speed of light is indeed constant for all observers in vacuum.';
+      } else {
+        answerDiv.innerHTML = 'Incorrect. Remember, the speed of light is independent of the observer\'s motion.';
+      }
+    }
+  </script>
+
+  <h2>Applications of the Postulates</h2>
+  <ul>
+    <li><strong>Particle Accelerators:</strong> Particles are accelerated to speeds near that of light. Their increased mass and relativistic behavior follow directly from these postulates.</li>
+    <li><strong>Astrophysics:</strong> The behavior of light and matter in space can’t be understood without relativistic effects.</li>
+    <li><strong>Technology:</strong> Modern electronics and data transfer systems must account for relativistic effects over long distances and high speeds.</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Einstein published his theory of special relativity at age 26, during what’s known as his "miracle year" (1905), when he also published papers on the photoelectric effect and Brownian motion!
+  </div>
+
+  <h2>Summary</h2>
+  <ul>
+    <li><strong>Postulate 1:</strong> The laws of physics are the same in all inertial frames.</li>
+    <li><strong>Postulate 2:</strong> The speed of light is constant for all observers in vacuum.</li>
+    <li>These postulates lead to major consequences such as time dilation, length contraction, and mass-energy equivalence.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

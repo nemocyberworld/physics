@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmological Parameters - Cosmology Lesson</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #d6e9f8;
+      border-left: 5px solid #2a7ae2;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cosmology Lesson: Cosmological Parameters</h1>
+
+  <p>
+    Cosmological parameters are fundamental numbers that describe the properties,
+    evolution, and fate of our universe within the framework of the theory of relativity and cosmology.
+    This lesson will guide you through the most important parameters, their physical meanings,
+    real-world examples, and their practical applications in understanding the cosmos.
+  </p>
+
+  <h2>1. What Are Cosmological Parameters?</h2>
+  <p>
+    Cosmological parameters quantify aspects such as:
+  </p>
+  <ul>
+    <li>The expansion rate of the universe</li>
+    <li>The geometry and curvature of space</li>
+    <li>The composition of the universe (matter, radiation, dark energy)</li>
+    <li>The age and ultimate fate of the cosmos</li>
+  </ul>
+  <p>
+    These parameters appear in the famous Friedmann equations derived from General Relativity,
+    which govern the dynamics of the expanding universe.
+  </p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Cosmological parameters are continuously refined as observational technology improves,
+    especially thanks to satellites like the Planck observatory and telescopes such as Hubble.
+  </div>
+
+  <h2>2. The Key Cosmological Parameters</h2>
+
+  <h3>2.1 The Hubble Constant \(H_0\)</h3>
+  <p>
+    The Hubble constant \( H_0 \) measures the current rate of expansion of the universe:
+  </p>
+  <div class="equation">
+    $$ H_0 = \left(\frac{\dot{a}}{a}\right)_{t=t_0} $$
+  </div>
+  <p>
+    where \( a(t) \) is the scale factor and \( t_0 \) is the present time.
+    It tells us how fast galaxies are moving away from each other per unit distance.
+  </p>
+  <p>
+    <strong>Real-World Example:</strong> If \( H_0 = 70 \, \mathrm{km/s/Mpc} \), then for every megaparsec (~3.26 million light-years),
+    galaxies appear to recede at 70 km/s due to cosmic expansion.
+  </p>
+
+  <h3>2.2 Density Parameters \( \Omega \)</h3>
+  <p>
+    Density parameters represent how different energy components contribute to the total energy density of the universe,
+    compared to a critical density \( \rho_c \).
+  </p>
+  <div class="equation">
+    $$ \Omega_i = \frac{\rho_i}{\rho_c} $$
+  </div>
+  <p>
+    Here, \( \rho_i \) is the density of component \( i \) (like matter, radiation, dark energy),
+    and \( \rho_c = \frac{3 H_0^2}{8 \pi G} \) is the critical density required for a flat universe.
+  </p>
+
+  <button onclick="toggleDensityDetails()">Show/Hide Density Parameters Explanation</button>
+  <div id="density-details" class="hidden">
+    <ul>
+      <li><strong>\( \Omega_m \)</strong>: Matter density (normal + dark matter)</li>
+      <li><strong>\( \Omega_r \)</strong>: Radiation density (light, photons)</li>
+      <li><strong>\( \Omega_\Lambda \)</strong>: Dark energy density (cosmological constant)</li>
+      <li><strong>\( \Omega_k \)</strong>: Curvature density parameter; measures spatial curvature</li>
+    </ul>
+    <p>
+      The sum of all density parameters determines the overall geometry of the universe:
+    </p>
+    <div class="equation">
+      $$ \Omega_m + \Omega_r + \Omega_\Lambda + \Omega_k = 1 $$
+    </div>
+  </div>
+
+  <h3>2.3 The Deceleration Parameter \( q_0 \)</h3>
+  <p>
+    The deceleration parameter tells us whether the expansion of the universe is speeding up or slowing down:
+  </p>
+  <div class="equation">
+    $$ q_0 = -\frac{\ddot{a} a}{\dot{a}^2} $$
+  </div>
+  <p>
+    A positive \( q_0 \) means the expansion is slowing down (decelerating),
+    while a negative \( q_0 \) means acceleration.
+  </p>
+
+  <h2>3. Practical Applications of Cosmological Parameters</h2>
+  <p>
+    Scientists use these parameters to:
+  </p>
+  <ul>
+    <li>Predict the universe's age</li>
+    <li>Understand the fate of the universe — will it expand forever or collapse?</li>
+    <li>Model the Cosmic Microwave Background radiation</li>
+    <li>Calculate distances to faraway galaxies</li>
+  </ul>
+
+  <h3>Example: Calculating the Critical Density</h3>
+  <p>Using the Hubble constant, the critical density is:</p>
+  <div class="equation">
+    $$ \rho_c = \frac{3 H_0^2}{8 \pi G} $$
+  </div>
+  <button onclick="showCriticalDensityCalculation()">Show Calculation</button>
+  <div id="critical-density-calculation" class="hidden">
+    <pre>
+Given: 
+  \( H_0 = 70 \, \mathrm{km/s/Mpc} = 2.27 \times 10^{-18} \, \mathrm{s}^{-1} \),
+  \( G = 6.674 \times 10^{-11} \, \mathrm{m}^3\mathrm{kg}^{-1}\mathrm{s}^{-2} \).
+
+Calculation:
+  \( \rho_c = \frac{3 (2.27 \times 10^{-18})^2}{8 \pi (6.674 \times 10^{-11})} \approx 8.5 \times 10^{-27} \, \mathrm{kg/m}^3 \).
+
+This is an extremely low density — about 5 hydrogen atoms per cubic meter!
+    </pre>
+  </div>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Despite the universe being mostly empty, cosmological parameters help us understand
+    its large-scale structure and behavior, revealing that dark energy makes up about 68% of the universe's total energy.
+  </div>
+
+  <h2>4. Interactive Quiz: Test Your Knowledge</h2>
+  <p>Which parameter measures the proportion of dark energy in the universe?</p>
+  <select id="quiz-select">
+    <option value="">--Select an answer--</option>
+    <option value="Omega_m">\( \Omega_m \) (Matter Density)</option>
+    <option value="Omega_Lambda">\( \Omega_\Lambda \) (Dark Energy Density)</option>
+    <option value="q_0">\( q_0 \) (Deceleration Parameter)</option>
+    <option value="H_0">\( H_0 \) (Hubble Constant)</option>
+  </select>
+  <button onclick="checkQuiz()">Check Answer</button>
+  <p id="quiz-feedback"></p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleDensityDetails() {
+      const el = document.getElementById('density-details');
+      el.classList.toggle('hidden');
+    }
+
+    function showCriticalDensityCalculation() {
+      const el = document.getElementById('critical-density-calculation');
+      el.classList.toggle('hidden');
+    }
+
+    function checkQuiz() {
+      const answer = document.getElementById('quiz-select').value;
+      const feedback = document.getElementById('quiz-feedback');
+      if (!answer) {
+        feedback.textContent = 'Please select an answer.';
+        feedback.style.color = 'red';
+        return;
+      }
+      if (answer === 'Omega_Lambda') {
+        feedback.textContent = 'Correct! \( \\Omega_\\Lambda \) represents dark energy density.';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = 'Incorrect. Try again!';
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invariant Intervals & Four Vectors</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      border: 1px solid #ccd;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Invariant Intervals & Four Vectors</h1>
+
+  <h2>Introduction to Spacetime and Four-Vectors</h2>
+  <p>In Einstein's Theory of Relativity, space and time are interwoven into a four-dimensional continuum called <strong>spacetime</strong>. Events in spacetime are described by <strong>four-vectors</strong>, which combine spatial coordinates with time:</p>
+
+  <div class="equation">
+    \( x^\mu = (ct, x, y, z) \)
+  </div>
+
+  <p>These vectors help describe motion and physics in a relativistic context — especially how different observers perceive events.</p>
+
+  <h2>What is an Invariant Interval?</h2>
+  <p>The <strong>invariant interval</strong> is a fundamental concept in special relativity. It is the "distance" between two events in spacetime and remains the same for all observers regardless of their motion.</p>
+
+  <div class="equation">
+    \( s^2 = - (c \Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 \)
+  </div>
+
+  <p>This quantity is "invariant" under Lorentz transformations, which relate different inertial reference frames.</p>
+
+  <h2>Types of Four-Vectors Based on Invariant Interval</h2>
+
+  <h3>1. Time-like Intervals</h3>
+  <p>If \( s^2 < 0 \), the interval is time-like. This means that the separation between the events is primarily in the time direction, and one could travel between the two events without exceeding the speed of light.</p>
+
+  <p><strong>Example:</strong> Sending a message from Earth to a spaceship cruising nearby. There is a time delay, but it's possible.</p>
+
+  <h3>2. Space-like Intervals</h3>
+  <p>If \( s^2 > 0 \), the interval is space-like. This implies the spatial separation dominates, and the events are too far apart to influence each other — even at the speed of light.</p>
+
+  <p><strong>Example:</strong> Two lightning strikes on opposite sides of the galaxy — no signal could reach one from the other instantly.</p>
+
+  <h3>3. Light-like (or Null) Intervals</h3>
+  <p>If \( s^2 = 0 \), the interval is light-like. Events are connected by a light signal — literally the path a photon takes.</p>
+
+  <p><strong>Example:</strong> A laser beam shot from Earth and detected on Mars at just the right moment.</p>
+
+  <h2>Real World Applications</h2>
+  <ul>
+    <li><strong>GPS Technology:</strong> Time dilation due to speed and gravity must be accounted for using these intervals to ensure accurate positioning.</li>
+    <li><strong>Particle Physics:</strong> Colliders use four-vectors to calculate invariant mass — crucial in identifying particles like the Higgs boson.</li>
+    <li><strong>Astronomy:</strong> Determining if events (like gamma-ray bursts) are causally connected or not across spacetime.</li>
+  </ul>
+
+  <h2>Interactive: Classify the Interval</h2>
+  <div class="interactive">
+    <p>Input values below to determine if the interval is space-like, time-like, or light-like:</p>
+    <label>\(\Delta t\) (in seconds): <input type="number" id="deltaT" step="any"></label><br>
+    <label>\(\Delta x\) (in meters): <input type="number" id="deltaX" step="any"></label><br>
+    <label>\(\Delta y\): <input type="number" id="deltaY" step="any"></label><br>
+    <label>\(\Delta z\): <input type="number" id="deltaZ" step="any"></label><br>
+    <button onclick="classifyInterval()">Classify Interval</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function classifyInterval() {
+      const c = 299792458; // speed of light in m/s
+      const dt = parseFloat(document.getElementById("deltaT").value);
+      const dx = parseFloat(document.getElementById("deltaX").value);
+      const dy = parseFloat(document.getElementById("deltaY").value);
+      const dz = parseFloat(document.getElementById("deltaZ").value);
+
+      const s2 = -(c * dt) ** 2 + dx ** 2 + dy ** 2 + dz ** 2;
+
+      let result = "";
+      if (s2 < 0) result = "Time-like interval";
+      else if (s2 > 0) result = "Space-like interval";
+      else result = "Light-like (null) interval";
+
+      document.getElementById("result").innerText = `Invariant Interval (s^2) = ${s2.toExponential(3)} → ${result}`;
+    }
+  </script>
+
+  <h2>Fun Fact!</h2>
+  <p>When astronauts travel at high speeds (like in the International Space Station), their clocks tick slightly slower than ours on Earth. This is a real-world example of time dilation, explained by the time-like nature of spacetime intervals!</p>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Four-vectors combine time and space into a single framework.</li>
+    <li>Invariant intervals classify events as time-like, space-like, or light-like.</li>
+    <li>This classification determines whether causality or communication between events is possible.</li>
+    <li>Relativity isn't just theoretical — it's embedded in technologies we rely on every day.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

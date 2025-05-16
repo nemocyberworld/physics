@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concept of Space-Time: Euclidean and Minkowski - Invariant Intervals</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1,
+    h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive-section {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px solid #003366;
+      background-color: #e6f0ff;
+      border-radius: 6px;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    input[type='number'] {
+      width: 80px;
+      margin-right: 1rem;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #003366;
+    }
+    footer p {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Concept of Space-Time: Euclidean and Minkowski</h1>
+  <h2>Chapter: Invariant Intervals</h2>
+
+  <p>
+    Welcome to this lesson on <strong>Space-Time</strong>, focusing on the concept of
+    <em>Invariant Intervals</em> — a fundamental idea in the <em>Theory of Relativity</em> and
+    <em>Cosmology</em>. This lesson will guide you through the classical Euclidean view of space,
+    transition to Minkowski space-time, and explain why the interval between events is invariant
+    across different observers.
+  </p>
+
+  <h2>1. Understanding Space and Time in Classical Physics</h2>
+  <p>
+    In classical physics, space and time were considered separate and absolute. Space was
+    described by three dimensions (x, y, z), and time was a separate dimension that ticked
+    uniformly for everyone.
+  </p>
+  <p>
+    Distances in space were measured using the <strong>Euclidean metric</strong>. For two points
+    in 3D space, their distance is given by the familiar formula:
+  </p>
+
+  <div class="equation">
+    $$ s = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$
+  </div>
+
+  <p>
+    This formula describes the <strong>Euclidean interval</strong> between two points — just the
+    straight-line distance.
+  </p>
+
+  <h2>2. The Problem with Absolute Time — Enter Einstein</h2>
+  <p>
+    Einstein's Theory of Special Relativity revolutionized our understanding by showing that
+    time is not absolute — it depends on the observer's motion. Instead of treating space and
+    time separately, they are intertwined in a four-dimensional fabric called
+    <strong>space-time</strong>.
+  </p>
+
+  <p>
+    In this new framework, events are described by four coordinates:
+  </p>
+
+  <div class="equation">
+    $$ (ct, x, y, z) $$
+  </div>
+  <p>
+    where <em>t</em> is time, multiplied by the speed of light <em>c</em> to give time a
+    dimension compatible with space.
+  </p>
+
+  <h2>3. Minkowski Space-Time and the Invariant Interval</h2>
+  <p>
+    Hermann Minkowski, Einstein's former teacher, formulated the idea of space-time geometry.
+    Unlike Euclidean geometry, Minkowski geometry uses a different metric to combine space and
+    time. The distance (called the <em>interval</em>) between two events is:
+  </p>
+
+  <div class="equation">
+    $$ s^2 = -(c\Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 $$
+  </div>
+
+  <p>
+    Here, <em>s²</em> is the square of the interval between two events, and
+    <em>\(\Delta t, \Delta x, \Delta y, \Delta z\)</em> are the differences in time and space
+    coordinates.
+  </p>
+
+  <p>
+    This interval <strong>remains the same (invariant)</strong> for all observers, no matter how
+    fast they are moving relative to each other. This is why it’s called the
+    <em>Invariant Interval</em>.
+  </p>
+
+  <h2>4. Why is the Interval Important?</h2>
+  <ul>
+    <li>
+      It replaces the idea of absolute distance with a quantity that all observers agree on.
+    </li>
+    <li>
+      It helps distinguish whether two events can influence each other causally.
+    </li>
+    <li>
+      It forms the foundation for understanding causality and the speed limit of the universe
+      (the speed of light).
+    </li>
+  </ul>
+
+  <h2>5. Practical Example: Light and Causality</h2>
+  <p>
+    Imagine a flash of light at point A. Another event happens at point B. Can the light from A
+    reach B? This depends on the invariant interval:
+  </p>
+  <ul>
+    <li>
+      If <em>s² &lt; 0</em> (called a <strong>timelike interval</strong>), light or signals
+      can travel from one event to the other.
+    </li>
+    <li>
+      If <em>s² = 0</em> (<strong>lightlike or null interval</strong>), the events are connected
+      by a beam of light traveling exactly at speed c.
+    </li>
+    <li>
+      If <em>s² &gt; 0</em> (<strong>spacelike interval</strong>), no signal traveling at or
+      below the speed of light can connect these events.
+    </li>
+  </ul>
+
+  <h2>6. Interactive: Calculate the Invariant Interval</h2>
+  <p>Try entering values for two events and see what kind of interval they have!</p>
+
+  <div class="interactive-section">
+    <label for="deltaT">Time difference (\(\Delta t\)) in seconds:</label>
+    <input type="number" id="deltaT" value="2" step="0.1" />
+
+    <label for="deltaX">Space difference (\(\Delta x\)) in meters:</label>
+    <input type="number" id="deltaX" value="300000000" step="1000000" />
+
+    <label for="deltaY">Space difference (\(\Delta y\)) in meters:</label>
+    <input type="number" id="deltaY" value="0" step="1" />
+
+    <label for="deltaZ">Space difference (\(\Delta z\)) in meters:</label>
+    <input type="number" id="deltaZ" value="0" step="1" />
+
+    <button onclick="calculateInterval()">Calculate Interval</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <h2>7. Real World Applications</h2>
+  <p>
+    The concept of invariant intervals is critical in:
+  </p>
+  <ul>
+    <li><strong>GPS satellites:</strong> They must account for relativistic effects to give
+      accurate position data.</li>
+    <li><strong>Particle accelerators:</strong> Understanding particle trajectories at
+      relativistic speeds depends on Minkowski space-time.</li>
+    <li><strong>Cosmology:</strong> The geometry of the universe and the propagation of light
+      over billions of years rely on invariant intervals.</li>
+  </ul>
+
+  <h2>8. Fun Fact</h2>
+  <p>
+    <em>Did you know?</em> Minkowski famously said to Einstein, "Henceforth space by itself, and time by itself, are doomed to fade away into mere shadows, and only a kind of union of the two will preserve an independent reality." This statement perfectly captures the spirit of space-time.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function calculateInterval() {
+      const c = 299792458; // speed of light in m/s
+      const deltaT = parseFloat(document.getElementById('deltaT').value);
+      const deltaX = parseFloat(document.getElementById('deltaX').value);
+      const deltaY = parseFloat(document.getElementById('deltaY').value);
+      const deltaZ = parseFloat(document.getElementById('deltaZ').value);
+
+      // Calculate interval s^2 = -(cΔt)^2 + Δx^2 + Δy^2 + Δz^2
+      const intervalSquared =
+        -Math.pow(c * deltaT, 2) + Math.pow(deltaX, 2) + Math.pow(deltaY, 2) + Math.pow(deltaZ, 2);
+
+      let intervalType = '';
+      if (intervalSquared < 0) {
+        intervalType = 'Timelike interval (causally connected events)';
+      } else if (intervalSquared === 0) {
+        intervalType = 'Lightlike (null) interval (events connected by light)';
+      } else {
+        intervalType = 'Spacelike interval (events cannot causally influence each other)';
+      }
+
+      // Format large numbers with commas for readability
+      const formatNumber = (num) =>
+        num.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+      document.getElementById('result').innerHTML = `
+        <p>
+          <strong>Interval squared \(s^2\):</strong> ${formatNumber(intervalSquared)} m\(^2\)<br/>
+          <strong>Interpretation:</strong> ${intervalType}
+        </p>
+      `;
+    }
+  </script>
+</body>
+</html>

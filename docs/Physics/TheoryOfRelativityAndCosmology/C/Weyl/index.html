@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weyl Postulates - Cosmology Lesson</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: "Courier New", monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #005599;
+    }
+    .hidden {
+      display: none;
+    }
+    .fact {
+      background: #e6f0ff;
+      border-left: 5px solid #003366;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Weyl Postulates in Cosmology</h1>
+  <p>
+    Welcome to this in-depth lesson on the <strong>Weyl postulates</strong> — a foundational concept in modern
+    cosmology, tied deeply to Einstein’s Theory of Relativity. We will explore what they are,
+    why they matter, and how they help us understand the Universe.
+  </p>
+
+  <h2>What are the Weyl Postulates?</h2>
+  <p>
+    The Weyl postulates were proposed by the German mathematician and physicist Hermann Weyl.
+    They are a set of assumptions about the large-scale structure of the Universe and the behavior
+    of matter and observers within it.
+  </p>
+  <p>
+    In simple terms, these postulates describe how the Universe expands and how galaxies move,
+    helping scientists model cosmology using relativity.
+  </p>
+
+  <h3>The Four Key Postulates</h3>
+  <ol>
+    <li>
+      <strong>Existence of a Family of Fundamental Observers:</strong> The Universe is filled
+      with a set of observers (think galaxies) who see the Universe as homogeneous and isotropic.
+    </li>
+    <li>
+      <strong>Worldlines of Observers are Geodesics:</strong> These observers move along geodesics,
+      meaning they move only under the influence of gravity, without any external forces.
+    </li>
+    <li>
+      <strong>Time is Measured Along Worldlines:</strong> The observers share a universal cosmic time,
+      defined along their worldlines.
+    </li>
+    <li>
+      <strong>Spatial Hypersurfaces Orthogonal to Worldlines:</strong> At any instant, there is a
+      "slice" of space that is perpendicular to the observers’ paths, defining simultaneous events.
+    </li>
+  </ol>
+
+  <h2>Why are these postulates important?</h2>
+  <p>
+    The Weyl postulates allow cosmologists to simplify the incredibly complex Universe into a model
+    that is easier to study. They justify the use of the Friedmann-Lemaître-Robertson-Walker (FLRW)
+    metric — the cornerstone of modern cosmology describing a smooth expanding Universe.
+  </p>
+
+  <h2>Real World Example: The Expanding Universe</h2>
+  <p>
+    Imagine the Universe as a loaf of raisin bread dough rising in the oven. Each raisin represents a galaxy.
+    As the dough expands, raisins move away from each other — no matter which raisin you stand on,
+    you see others moving away, suggesting the Universe is expanding uniformly.
+  </p>
+
+  <button onclick="toggleExpansionRate()">Show/Hide Hubble's Law Explanation</button>
+  <div id="hubbleLaw" class="hidden">
+    <h3>Hubble's Law — A Practical Application</h3>
+    <p>
+      Hubble’s law states that the velocity at which a galaxy moves away from us is proportional
+      to its distance. Mathematically:
+    </p>
+    <div class="equation">
+      $$ v = H_0 \times d $$
+    </div>
+    <p>
+      Here,
+      <ul>
+        <li><code>v</code> = recessional velocity of the galaxy</li>
+        <li><code>H₀</code> = Hubble constant (rate of expansion)</li>
+        <li><code>d</code> = distance to the galaxy</li>
+      </ul>
+    </p>
+    <p>
+      The Weyl postulates ensure this uniform expansion makes sense because all observers
+      (galaxies) see the same expanding Universe.
+    </p>
+  </div>
+
+  <h2>Mathematical Representation</h2>
+  <p>
+    The FLRW metric, derived assuming Weyl postulates, is written as:
+  </p>
+  <div class="equation">
+    $$ ds^2 = -c^2 dt^2 + a(t)^2 \left[ \frac{dr^2}{1 - kr^2} + r^2 (d\theta^2 + \sin^2 \theta d\phi^2) \right] $$
+  </div>
+  <p>
+    Where:
+    <ul>
+      <li><code>ds</code> = interval between events</li>
+      <li><code>c</code> = speed of light</li>
+      <li><code>t</code> = cosmic time</li>
+      <li><code>a(t)</code> = scale factor describing expansion of the Universe</li>
+      <li><code>k</code> = spatial curvature constant (0 = flat, +1 = closed, -1 = open Universe)</li>
+    </ul>
+  </p>
+
+  <h2>Practical Applications in Cosmology and Physics</h2>
+  <ul>
+    <li>
+      <strong>Modeling the Big Bang:</strong> Weyl postulates underpin models that describe the
+      Universe's origin and expansion from a hot, dense state.
+    </li>
+    <li>
+      <strong>Predicting Cosmic Microwave Background (CMB):</strong> They help explain the uniformity
+      and isotropy of the CMB radiation — the afterglow of the Big Bang.
+    </li>
+    <li>
+      <strong>Dark Energy and Accelerating Expansion:</strong> The framework helps analyze
+      how mysterious dark energy affects the Universe's expansion rate.
+    </li>
+  </ul>
+
+  <div class="fact">
+    <strong>Fun Fact:</strong> Hermann Weyl was also a pioneer in mathematics and gauge theory,
+    which today is essential for understanding fundamental forces in particle physics!
+  </div>
+
+  <h2>Interactive Quiz: Test Your Understanding</h2>
+  <p>Choose the correct answer:</p>
+  <form id="quizForm">
+    <label>
+      1. What does the Weyl postulate about observers' motion imply?
+      <br />
+      <input type="radio" name="q1" value="a" /> Observers are stationary
+      <br />
+      <input type="radio" name="q1" value="b" /> Observers move only under gravity (geodesics)
+      <br />
+      <input type="radio" name="q1" value="c" /> Observers experience random acceleration
+    </label>
+    <br /><br />
+    <label>
+      2. The scale factor <code>a(t)</code> in the FLRW metric represents:
+      <br />
+      <input type="radio" name="q2" value="a" /> The age of the Universe
+      <br />
+      <input type="radio" name="q2" value="b" /> The expansion of the Universe over time
+      <br />
+      <input type="radio" name="q2" value="c" /> The density of matter
+    </label>
+    <br /><br />
+    <button type="button" onclick="checkAnswers()">Submit Answers</button>
+  </form>
+  <div id="quizResult"></div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    function toggleExpansionRate() {
+      const elem = document.getElementById("hubbleLaw");
+      if (elem.classList.contains("hidden")) {
+        elem.classList.remove("hidden");
+      } else {
+        elem.classList.add("hidden");
+      }
+    }
+
+    function checkAnswers() {
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      let score = 0;
+      let total = 2;
+
+      if (!q1 || !q2) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (q1.value === "b") score++;
+      if (q2.value === "b") score++;
+
+      const resultDiv = document.getElementById("quizResult");
+      resultDiv.innerHTML = `<h3>Your Score: ${score} / ${total}</h3>`;
+
+      if (score === total) {
+        resultDiv.innerHTML +=
+          "<p>Excellent! You have a good grasp of the Weyl postulates.</p>";
+      } else if (score === 1) {
+        resultDiv.innerHTML +=
+          "<p>Good try! Review the parts you missed and try again.</p>";
+      } else {
+        resultDiv.innerHTML +=
+          "<p>Don't worry, keep studying and you’ll get it!</p>";
+      }
+    }
+  </script>
+</body>
+</html>

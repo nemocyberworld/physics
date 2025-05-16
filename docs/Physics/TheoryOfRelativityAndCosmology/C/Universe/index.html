@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmology: Static, Expanding, Open & Closed Universe</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    .equation {
+      font-family: "Courier New", monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .example,
+    .fun-fact {
+      background: #e6f0ff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 5px solid #003366;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cosmology: Static Universe, Expanding Universe, Open & Closed Universe</h1>
+
+  <p>
+    Welcome to this interactive lesson on <strong>Cosmology</strong> — the study
+    of the universe’s origin, structure, evolution, and eventual fate. We'll
+    dive into the fascinating concepts of the <em>Static Universe</em>,
+    <em>Expanding Universe</em>, and the models of an <em>Open</em> and
+    <em>Closed Universe</em> — all through the lens of the
+    <strong>Theory of Relativity and Cosmology</strong>.
+  </p>
+
+  <h2>1. Static Universe</h2>
+  <p>
+    In the early 20th century, before Edwin Hubble's discoveries, many scientists
+    believed the universe was <strong>static</strong> — meaning unchanging in size,
+    neither expanding nor contracting.
+  </p>
+
+  <p>
+    This idea was supported by Albert Einstein's original equations of General
+    Relativity, but only if he introduced a special term called the
+    <strong>Cosmological Constant (Λ)</strong> to balance gravity and keep the
+    universe steady.
+  </p>
+
+  <div class="equation">
+    $$ G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8 \pi G}{c^4} T_{\mu\nu} $$
+  </div>
+  <p>
+    Here, \( \Lambda \) is the cosmological constant, added by Einstein to allow
+    a static solution.
+  </p>
+
+  <button onclick="toggleText('staticExample')">Show / Hide Real World Example</button>
+  <div id="staticExample" class="example hidden">
+    <strong>Example:</strong> Think of the Static Universe like a perfectly balanced
+    mobile hanging from the ceiling — all parts balanced perfectly so nothing
+    moves. If one part shifts, the whole mobile starts swinging.
+  </div>
+
+  <h3>Why was the Static Universe idea abandoned?</h3>
+  <p>
+    Edwin Hubble’s observation in 1929 showed galaxies moving away from us, indicating
+    the universe was expanding — not static. This revolutionized cosmology.
+  </p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Einstein reportedly called the cosmological constant
+    his "biggest blunder" after discovering the universe expands!
+  </div>
+
+  <h2>2. Expanding Universe</h2>
+  <p>
+    Hubble’s discovery showed that galaxies are moving away from each other, meaning
+    space itself is expanding. This means the universe was once much smaller and
+    denser — leading to the famous <strong>Big Bang Theory</strong>.
+  </p>
+
+  <p>
+    The rate of expansion is given by <strong>Hubble’s Law</strong>:
+  </p>
+  <div class="equation">
+    $$ v = H_0 d $$
+  </div>
+  <p>
+    Where:
+    <ul>
+      <li><strong>v</strong> = velocity of a galaxy moving away</li>
+      <li><strong>H₀</strong> = Hubble constant (rate of expansion)</li>
+      <li><strong>d</strong> = distance to the galaxy</li>
+    </ul>
+  </p>
+
+  <button onclick="toggleText('expandingExample')">Show / Hide Real World Example</button>
+  <div id="expandingExample" class="example hidden">
+    <strong>Example:</strong> Imagine dots on a balloon’s surface. As you blow up the balloon,
+    all dots move away from each other — just like galaxies moving apart in our universe.
+  </div>
+
+  <h3>Practical applications of understanding the expanding universe:</h3>
+  <ul>
+    <li>Determining the age of the universe (~13.8 billion years).</li>
+    <li>Predicting the fate of the universe based on expansion speed.</li>
+    <li>Understanding cosmic microwave background radiation.</li>
+  </ul>
+
+  <h2>3. Open and Closed Universe</h2>
+  <p>
+    The ultimate fate of the universe depends on its shape and density:
+  </p>
+  <ul>
+    <li>
+      <strong>Closed Universe:</strong> Curved like a sphere. Gravity will eventually
+      stop expansion, causing a “Big Crunch.”
+    </li>
+    <li>
+      <strong>Open Universe:</strong> Curved like a saddle (hyperbolic). The universe
+      will expand forever, getting colder and emptier.
+    </li>
+    <li>
+      <strong>Flat Universe:</strong> Geometry is flat; expansion slows but never stops.
+    </li>
+  </ul>
+
+  <div class="equation">
+    $$ \Omega = \frac{\rho}{\rho_c} $$
+  </div>
+  <p>
+    Where:
+    <ul>
+      <li>\( \Omega \) is the density parameter.</li>
+      <li>\( \rho \) is the actual density of the universe.</li>
+      <li>\( \rho_c \) is the critical density needed for a flat universe.</li>
+    </ul>
+  </p>
+
+  <button onclick="toggleText('universeShapesExample')">Show / Hide Universe Shapes Example</button>
+  <div id="universeShapesExample" class="example hidden">
+    <strong>Example:</strong> Picture the Earth as a closed universe — if you travel far enough
+    in one direction, you come back to where you started. An open universe is like
+    an infinite saddle-shaped surface where paths diverge forever.
+  </div>
+
+  <h3>Why does shape matter?</h3>
+  <p>
+    The universe's shape influences:
+  </p>
+  <ul>
+    <li>How light travels across vast distances.</li>
+    <li>The overall fate of cosmic expansion.</li>
+    <li>Structure formation like galaxies and clusters.</li>
+  </ul>
+
+  <h2>Interactive Quiz</h2>
+  <p>Test your knowledge with this quick quiz!</p>
+  <div id="quiz">
+    <p><strong>Question 1:</strong> What observation disproved the static universe?</p>
+    <button onclick="answerQuiz('q1', 'a')">a) Galaxies moving away from us</button>
+    <button onclick="answerQuiz('q1', 'b')">b) Earth’s rotation</button>
+    <button onclick="answerQuiz('q1', 'c')">c) Light bending around stars</button>
+    <p id="q1-feedback" style="font-weight:bold; margin-top:0.5rem;"></p>
+
+    <p><strong>Question 2:</strong> What does the Hubble constant measure?</p>
+    <button onclick="answerQuiz('q2', 'a')">a) Age of the Earth</button>
+    <button onclick="answerQuiz('q2', 'b')">b) Rate of expansion of the universe</button>
+    <button onclick="answerQuiz('q2', 'c')">c) Speed of light</button>
+    <p id="q2-feedback" style="font-weight:bold; margin-top:0.5rem;"></p>
+  </div>
+
+  <script>
+    function toggleText(id) {
+      const elem = document.getElementById(id);
+      if (elem.classList.contains("hidden")) {
+        elem.classList.remove("hidden");
+      } else {
+        elem.classList.add("hidden");
+      }
+    }
+
+    const answered = {};
+
+    function answerQuiz(questionId, answer) {
+      if (answered[questionId]) {
+        return; // prevent multiple answers for the same question
+      }
+      answered[questionId] = true;
+
+      let correctAnswer = {
+        q1: "a",
+        q2: "b",
+      };
+
+      const feedbackElem = document.getElementById(questionId + "-feedback");
+
+      if (answer === correctAnswer[questionId]) {
+        feedbackElem.textContent = "Correct! 🎉";
+        feedbackElem.style.color = "green";
+      } else {
+        feedbackElem.textContent = "Oops, try again next time! ❌";
+        feedbackElem.style.color = "red";
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

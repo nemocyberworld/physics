@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotating Black Holes - Kerr Black Holes</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+      cursor: pointer;
+      user-select: none;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 0.3rem;
+    }
+    .section-content {
+      display: none;
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid #003366;
+      background-color: #f9faff;
+      border-radius: 4px;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e7f3ff;
+      border-left: 5px solid #1a73e8;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+    .example-btn {
+      background-color: #1a73e8;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .example-popup {
+      display: none;
+      background: #fff;
+      border: 2px solid #1a73e8;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(26, 115, 232, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cosmology: Rotating Black Holes (Kerr Black Holes)</h1>
+  <p>
+    This lesson explores the fascinating world of <strong>rotating black holes</strong>, also known as <strong>Kerr black holes</strong>. 
+    Unlike the simpler Schwarzschild black holes, Kerr black holes spin, giving rise to rich and complex physics with many real-world implications.
+  </p>
+  <p>
+    Click the section headings to expand detailed explanations, examples, equations, and fun facts.
+  </p>
+
+  <!-- What is a Rotating Black Hole? -->
+  <h2 id="what-is-kerr">What is a Rotating Black Hole?</h2>
+  <div class="section-content">
+    <p>
+      Kerr black holes were discovered by Roy Kerr in 1963 as a solution to Einstein's field equations that describes a rotating, uncharged black hole.
+      Rotation means the black hole has <em>angular momentum</em>, profoundly affecting spacetime around it.
+    </p>
+    <p>
+      Unlike Schwarzschild black holes, Kerr black holes have:
+    </p>
+    <ul>
+      <li>An <strong>ergosphere</strong> — a region outside the event horizon where spacetime is dragged around the black hole.</li>
+      <li>A <strong>ring-shaped singularity</strong> instead of a point.</li>
+      <li>Two horizons: an <em>outer event horizon</em> and an <em>inner Cauchy horizon</em>.</li>
+    </ul>
+    <p>
+      The rotation causes effects like <strong>frame dragging</strong>, which means that anything close to the black hole is forced to rotate along with it.
+    </p>
+  </div>
+
+  <!-- The Kerr Metric -->
+  <h2 id="kerr-metric">The Kerr Metric</h2>
+  <div class="section-content">
+    <p>
+      The Kerr solution to Einstein's equations is expressed via a complicated metric, describing how distances and time behave near the rotating black hole.
+      A simplified form of the Kerr metric includes the parameters <em>M</em> (mass) and <em>a</em> (the spin parameter), where:
+    </p>
+
+    <div class="equation">
+      $$ a = \frac{J}{Mc} $$
+      <br />
+      <small><em>J</em> is the angular momentum, <em>M</em> the mass, and <em>c</em> the speed of light.</small>
+    </div>
+
+    <p>
+      The radius of the outer event horizon is:
+    </p>
+    <div class="equation">
+      $$ r_+ = \frac{GM}{c^2} + \sqrt{\left(\frac{GM}{c^2}\right)^2 - a^2} $$
+    </div>
+
+    <p>
+      Notice that if the spin \(a\) is zero, this reduces to the Schwarzschild radius.
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('example-spin')">Show Example: Calculating Kerr Horizon Radius</button>
+    <div id="example-spin" class="example-popup">
+      <p>
+        Suppose a black hole has mass \(M = 10 M_\odot\) (10 times the Sun's mass), and angular momentum \(J = 0.8 \, \frac{GM^2}{c}\).
+      </p>
+      <p>
+        Calculate \(a\):
+      </p>
+      <div class="equation">
+        $$ a = \frac{J}{M c} = 0.8 \frac{GM}{c^2} $$
+      </div>
+      <p>
+        Then the outer horizon radius is:
+      </p>
+      <div class="equation">
+        $$ r_+ = \frac{GM}{c^2} + \sqrt{\left(\frac{GM}{c^2}\right)^2 - (0.8 \frac{GM}{c^2})^2} = \frac{GM}{c^2} (1 + \sqrt{1 - 0.64}) $$
+      </div>
+      <p>
+        Which evaluates to about \(1.6 \times \frac{GM}{c^2}\).
+      </p>
+    </div>
+  </div>
+
+  <!-- Ergosphere and Frame Dragging -->
+  <h2 id="ergosphere">Ergosphere and Frame Dragging</h2>
+  <div class="section-content">
+    <p>
+      One of the most intriguing features of Kerr black holes is the <strong>ergosphere</strong>, a region outside the event horizon where spacetime itself is dragged around by the black hole’s rotation.
+    </p>
+    <p>
+      Inside the ergosphere, it’s impossible to stand still relative to distant stars — everything is forced to move in the direction of rotation.
+    </p>
+
+    <p>
+      The boundary of the ergosphere (the <em>static limit</em>) lies outside the event horizon and has radius:
+    </p>
+
+    <div class="equation">
+      $$ r_{erg}(\theta) = \frac{GM}{c^2} + \sqrt{\left(\frac{GM}{c^2}\right)^2 - a^2 \cos^2 \theta} $$
+    </div>
+
+    <p>
+      Here, \(\theta\) is the polar angle — the ergosphere’s shape is oblate, bulging at the equator.
+    </p>
+
+    <p>
+      This region allows the famous <strong>Penrose process</strong>, where particles can gain energy by extracting rotational energy from the black hole.
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('example-penrose')">Show Example: The Penrose Process</button>
+    <div id="example-penrose" class="example-popup">
+      <p>
+        Imagine a particle enters the ergosphere and splits into two: one falls into the black hole, the other escapes with more energy than the original particle, effectively extracting rotational energy.
+      </p>
+      <p>
+        This theoretical process shows that black holes can spin down by losing angular momentum.
+      </p>
+    </div>
+  </div>
+
+  <!-- Real World Examples and Applications -->
+  <h2 id="real-world">Real-World Examples and Applications</h2>
+  <div class="section-content">
+    <p>
+      Many astrophysical black holes are believed to be Kerr black holes, as stars naturally have angular momentum before collapsing.
+    </p>
+    <ul>
+      <li><strong>Active Galactic Nuclei (AGN):</strong> Supermassive Kerr black holes power quasars, emitting vast jets and radiation.</li>
+      <li><strong>Accretion Disks:</strong> The frame dragging affects the inner edge of disks, influencing X-ray emissions from binary systems.</li>
+      <li><strong>Gravitational Waves:</strong> Merging Kerr black holes emit gravitational waves detected by LIGO/Virgo.</li>
+    </ul>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> The spin of black holes can be measured by observing the X-ray spectra of matter swirling near the event horizon!
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <h2 id="summary">Summary</h2>
+  <div class="section-content" style="display: block;">
+    <p>
+      Rotating black holes introduce rich, fascinating physics beyond static solutions. The Kerr solution describes how angular momentum changes spacetime structure, creating ergospheres, frame dragging, and multiple horizons.
+    </p>
+    <p>
+      These properties are essential for understanding black hole energy extraction, astrophysical jet formation, and the signals we observe from black hole mergers.
+    </p>
+  </div>
+
+  <footer style="margin-top: 3rem;">
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Toggle expand/collapse sections on header click
+    document.querySelectorAll('h2').forEach(h2 => {
+      h2.addEventListener('click', () => {
+        const content = h2.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    // Toggle example popups
+    function toggleExample(id) {
+      const elem = document.getElementById(id);
+      if (elem.style.display === 'block') {
+        elem.style.display = 'none';
+      } else {
+        elem.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

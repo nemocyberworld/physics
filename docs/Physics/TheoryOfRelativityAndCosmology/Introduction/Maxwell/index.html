@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Invariance of Maxwell's Equations</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e6f7ff;
+      border-left: 5px solid #007acc;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h1>Non-Invariance of Maxwell's Equations</h1>
+
+  <h2>Introduction</h2>
+  <p>Maxwell’s equations describe the fundamental behavior of electric and magnetic fields. However, they posed a major challenge to classical physics because they are <strong>not invariant</strong> under <em>Galilean transformations</em>. This inconsistency was one of the key motivators for the development of Einstein's theory of relativity.</p>
+
+  <h2>Maxwell's Equations</h2>
+  <p>The four Maxwell's equations in vacuum are:</p>
+  <div class="equation">
+    \[
+    \begin{aligned}
+    &\text{1. } \nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0} \\
+    &\text{2. } \nabla \cdot \vec{B} = 0 \\
+    &\text{3. } \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t} \\
+    &\text{4. } \nabla \times \vec{B} = \mu_0\vec{J} + \mu_0\varepsilon_0 \frac{\partial \vec{E}}{\partial t}
+    \end{aligned}
+    \]
+  </div>
+
+  <h2>Why They Don't Fit Classical Mechanics</h2>
+  <p>Maxwell’s equations predict that electromagnetic waves (including light) travel at a fixed speed \( c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} \), regardless of the motion of the source or the observer. This is in direct contradiction to Galilean relativity, where velocities add or subtract based on relative motion.</p>
+
+  <h2>Example Problem</h2>
+  <p>If light is emitted from a moving train, classical physics suggests an observer on the platform should see the light moving at \( c + v \) or \( c - v \), depending on direction. But experiments show it still moves at \( c \). This led to the rejection of Galilean transformations in favor of <strong>Lorentz transformations</strong>.</p>
+
+  <h2>Real-World Applications</h2>
+  <ul>
+    <li><strong>GPS Satellites:</strong> They correct for both special and general relativistic effects. Without considering the non-invariance, GPS would be off by kilometers daily!</li>
+    <li><strong>Particle Accelerators:</strong> Accelerating electrons experience electromagnetic forces that behave according to relativistic rules, not Galilean ones.</li>
+    <li><strong>Telecommunications:</strong> Signals rely on light speed consistency for synchronization across vast distances.</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>In the famous <em>Michelson-Morley experiment</em>, scientists tried to detect the "aether wind" assuming light needed a medium to travel — but failed. This was one of the biggest experimental clues that Maxwell’s equations defied classical expectations.</p>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p><strong>Q1:</strong> What constant value does light travel at in Maxwell's equations?</p>
+    <button onclick="document.getElementById('answer1').innerText='Light travels at c = 299,792,458 m/s in vacuum.'">Show Answer</button>
+    <p id="answer1"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q2:</strong> Which transformation preserves the form of Maxwell’s equations?</p>
+    <button onclick="document.getElementById('answer2').innerText='Lorentz transformations preserve the form of Maxwell’s equations.'">Show Answer</button>
+    <p id="answer2"></p>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>The non-invariance of Maxwell’s equations under Galilean transformations exposed the limits of Newtonian physics and led to one of the most revolutionary changes in science — the theory of Special Relativity. Today, Maxwell's equations remain consistent under Lorentz transformations, solidifying the unity between electricity, magnetism, and the fabric of space and time.</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tensor Calculus: Parallel Transport and Covariant Derivatives</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz, .funfact {
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    .quiz {
+      background-color: #e6f2ff;
+      border-left: 5px solid #007acc;
+    }
+    .funfact {
+      background-color: #ffffcc;
+      border-left: 5px solid #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tensor Calculus: Meaning of Parallel Transport and Covariant Derivatives</h1>
+
+  <h2>Introduction</h2>
+  <p>
+    In curved spaces, like the fabric of space-time described by Einstein’s theory of relativity, the usual way we differentiate vectors and move them around doesn't work. We need tools that take into account the curvature of space. Two such tools are <strong>parallel transport</strong> and <strong>covariant derivatives</strong>.
+  </p>
+
+  <div class="funfact">
+    <strong>Fun Fact:</strong> On a sphere, if you move a vector around a triangle on the surface, it comes back rotated — even though it never "spun" on its own!
+  </div>
+
+  <h2>What is Parallel Transport?</h2>
+  <p>
+    Imagine walking around the Earth with an arrow pointing forward. If you go along the equator, then up a line of longitude, and finally return along another latitude, the arrow ends up pointing in a different direction — even though it was always pointing “forward.” This is called <strong>parallel transport</strong>.
+  </p>
+
+  <div class="equation">
+    $$ \text{Parallel transport preserves the vector’s length and direction locally, but not globally in curved space.} $$
+  </div>
+
+  <h3>Interactive Demo</h3>
+  <p>Select a shape and see how a vector changes during transport:</p>
+  <select id="transportShape" onchange="showTransportExplanation()">
+    <option value="flat">Flat Plane</option>
+    <option value="sphere">Sphere</option>
+    <option value="saddle">Hyperbolic Surface</option>
+  </select>
+  <div id="transportResult" style="margin-top: 1rem;"></div>
+
+  <script>
+    function showTransportExplanation() {
+      const val = document.getElementById("transportShape").value;
+      const result = document.getElementById("transportResult");
+      if (val === "flat") {
+        result.innerHTML = "<p>On a flat plane, parallel transport returns the vector unchanged after any closed loop.</p>";
+      } else if (val === "sphere") {
+        result.innerHTML = "<p>On a sphere, parallel transport causes the vector to rotate depending on the area enclosed by the path.</p>";
+      } else if (val === "saddle") {
+        result.innerHTML = "<p>On a hyperbolic surface, parallel transport behaves differently due to negative curvature — the vector diverges.</p>";
+      }
+    }
+    showTransportExplanation();
+  </script>
+
+  <h2>Covariant Derivative</h2>
+  <p>
+    A <strong>covariant derivative</strong> allows us to differentiate vectors and tensors in curved space by accounting for the change in the coordinate system itself. It corrects for the curvature and ensures the result is a proper tensor.
+  </p>
+  <div class="equation">
+    $$ \nabla_j V^i = \partial_j V^i + \Gamma^i_{jk} V^k $$
+  </div>
+  <p>
+    Here:
+    <ul>
+      <li>\( \nabla_j V^i \) is the covariant derivative of vector \( V^i \)</li>
+      <li>\( \partial_j V^i \) is the partial derivative</li>
+      <li>\( \Gamma^i_{jk} \) are Christoffel symbols, which account for curvature</li>
+    </ul>
+  </p>
+
+  <h3>Real World Applications</h3>
+  <ul>
+    <li><strong>General Relativity:</strong> Describes how mass curves spacetime using covariant derivatives.</li>
+    <li><strong>Orbital mechanics:</strong> Predicts how planets move in curved space.</li>
+    <li><strong>Engineering:</strong> Used in stress analysis on curved surfaces like airplane wings or domes.</li>
+    <li><strong>Computer graphics:</strong> Simulating cloth or terrain deformation.</li>
+  </ul>
+
+  <div class="quiz">
+    <h3>Quick Quiz</h3>
+    <p>Which of the following is true about covariant derivatives?</p>
+    <ul>
+      <li><input type="radio" name="q1"> They are only used in flat space.</li>
+      <li><input type="radio" name="q1"> They do not use Christoffel symbols.</li>
+      <li><input type="radio" name="q1" id="correct"> They adjust derivatives for curvature of space.</li>
+    </ul>
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="quizFeedback"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const correct = document.getElementById("correct");
+      const feedback = document.getElementById("quizFeedback");
+      if (correct.checked) {
+        feedback.innerHTML = "✅ Correct! Covariant derivatives account for curvature using Christoffel symbols.";
+      } else {
+        feedback.innerHTML = "❌ Try again. Covariant derivatives are used to navigate curved space.";
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

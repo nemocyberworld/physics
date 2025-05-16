@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Theory of Relativity - Length Contraction, Time Dilation & Velocity Addition</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #fffbe6;
+      border-left: 5px solid orange;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 5px solid #336699;
+    }
+  </style>
+</head>
+<body>
+  <h1>Special Theory of Relativity</h1>
+  <h2>Chapter: Length Contraction, Time Dilation & Velocity Addition</h2>
+
+  <h3>Overview</h3>
+  <p>The Special Theory of Relativity, developed by Albert Einstein in 1905, revolutionized our understanding of space and time. It introduced groundbreaking ideas such as the constancy of the speed of light, and that the laws of physics are the same in all inertial frames. In this lesson, we will explore:</p>
+  <ul>
+    <li>Length Contraction</li>
+    <li>Time Dilation</li>
+    <li>Velocity Addition Theorem</li>
+  </ul>
+
+  <div class="fun-fact">
+    Fun Fact: GPS satellites use Einstein's relativity equations to stay accurate. Without them, GPS readings would drift by kilometers every day!
+  </div>
+
+  <h2>1. Length Contraction</h2>
+  <p>When an object moves close to the speed of light, it appears contracted in the direction of motion from the viewpoint of a stationary observer. The formula for length contraction is:</p>
+  <div class="equation">
+    $$ L = L_0 \sqrt{1 - \frac{v^2}{c^2}} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>L</strong> is the observed length</li>
+    <li><strong>L<sub>0</sub></strong> is the proper length (rest frame)</li>
+    <li><strong>v</strong> is the object's velocity</li>
+    <li><strong>c</strong> is the speed of light</li>
+  </ul>
+
+  <div class="interactive">
+    <h4>Try It Yourself:</h4>
+    <label>Proper Length (L₀ in meters): <input type="number" id="properLength" value="10"></label><br>
+    <label>Velocity (v in m/s): <input type="number" id="velocity" value="200000000"></label><br>
+    <button onclick="calculateContraction()">Calculate Contracted Length</button>
+    <p id="contractionResult"></p>
+  </div>
+
+  <h2>2. Time Dilation</h2>
+  <p>Moving clocks tick slower from the perspective of a stationary observer. The formula for time dilation is:</p>
+  <div class="equation">
+    $$ t = \frac{t_0}{\sqrt{1 - \frac{v^2}{c^2}}} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>t</strong> is the dilated time</li>
+    <li><strong>t<sub>0</sub></strong> is the proper time</li>
+    <li><strong>v</strong> is the velocity</li>
+    <li><strong>c</strong> is the speed of light</li>
+  </ul>
+
+  <div class="interactive">
+    <h4>Try It Yourself:</h4>
+    <label>Proper Time (t₀ in seconds): <input type="number" id="properTime" value="1"></label><br>
+    <label>Velocity (v in m/s): <input type="number" id="velocityTime" value="200000000"></label><br>
+    <button onclick="calculateTimeDilation()">Calculate Dilated Time</button>
+    <p id="dilationResult"></p>
+  </div>
+
+  <h2>3. Velocity Addition Theorem</h2>
+  <p>When combining velocities close to the speed of light, we cannot use classical addition. Instead, we use:</p>
+  <div class="equation">
+    $$ u' = \frac{u + v}{1 + \frac{uv}{c^2}} $$
+  </div>
+  <p>This ensures no object exceeds the speed of light.</p>
+
+  <div class="interactive">
+    <h4>Try It Yourself:</h4>
+    <label>u (velocity of object in one frame, m/s): <input type="number" id="u" value="100000000"></label><br>
+    <label>v (velocity of frame, m/s): <input type="number" id="v" value="150000000"></label><br>
+    <button onclick="calculateVelocityAddition()">Calculate Relativistic Velocity</button>
+    <p id="velocityResult"></p>
+  </div>
+
+  <h3>Real-World Applications</h3>
+  <ul>
+    <li><strong>GPS Technology</strong>: Must account for time dilation due to both special and general relativity.</li>
+    <li><strong>Particle Accelerators</strong>: Electrons and protons exhibit relativistic mass changes and time dilation.</li>
+    <li><strong>Astrophysics</strong>: Predicting star behavior and light from fast-moving objects (quasars, pulsars).</li>
+  </ul>
+
+  <h3>More Fun Facts</h3>
+  <ul>
+    <li>At 0.99c, time passes roughly 7 times slower than at rest!</li>
+    <li>Muons created in the upper atmosphere reach Earth because of time dilation – without it, they’d decay too quickly.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    const c = 299792458;
+
+    function calculateContraction() {
+      const L0 = parseFloat(document.getElementById("properLength").value);
+      const v = parseFloat(document.getElementById("velocity").value);
+      if (v >= c) {
+        document.getElementById("contractionResult").textContent = "Velocity must be less than the speed of light.";
+        return;
+      }
+      const L = L0 * Math.sqrt(1 - (v*v)/(c*c));
+      document.getElementById("contractionResult").textContent = `Contracted Length: ${L.toFixed(4)} meters`;
+    }
+
+    function calculateTimeDilation() {
+      const t0 = parseFloat(document.getElementById("properTime").value);
+      const v = parseFloat(document.getElementById("velocityTime").value);
+      if (v >= c) {
+        document.getElementById("dilationResult").textContent = "Velocity must be less than the speed of light.";
+        return;
+      }
+      const t = t0 / Math.sqrt(1 - (v*v)/(c*c));
+      document.getElementById("dilationResult").textContent = `Dilated Time: ${t.toFixed(4)} seconds`;
+    }
+
+    function calculateVelocityAddition() {
+      const u = parseFloat(document.getElementById("u").value);
+      const v = parseFloat(document.getElementById("v").value);
+      if (u >= c || v >= c) {
+        document.getElementById("velocityResult").textContent = "Velocities must be less than the speed of light.";
+        return;
+      }
+      const up = (u + v) / (1 + (u*v)/(c*c));
+      document.getElementById("velocityResult").textContent = `Resultant Velocity: ${up.toFixed(4)} m/s`;
+    }
+  </script>
+</body>
+</html>

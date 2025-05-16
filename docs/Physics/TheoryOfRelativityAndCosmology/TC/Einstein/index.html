@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einstein Tensor - Tensor Calculus</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #339;
+    }
+    .fun-fact {
+      background: #fff8dc;
+      padding: 0.8rem;
+      border-left: 5px solid orange;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Einstein Tensor - The Geometry of Gravity</h1>
+
+  <h2>Introduction</h2>
+  <p>The <strong>Einstein tensor</strong> is a fundamental mathematical object in the theory of general relativity. It encodes how matter and energy affect the curvature of spacetime and appears in the Einstein field equations.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The Einstein tensor is named after Albert Einstein but is built from the Ricci tensor and the scalar curvature — giving it a geometrically rich structure!
+  </div>
+
+  <h2>Definition</h2>
+  <p>The Einstein tensor \( G_{\mu\nu} \) is defined as:</p>
+  <div class="equation">
+    $$ G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( R_{\mu\nu} \) is the Ricci tensor</li>
+    <li>\( R \) is the Ricci scalar (trace of the Ricci tensor)</li>
+    <li>\( g_{\mu\nu} \) is the metric tensor</li>
+  </ul>
+
+  <h2>Physical Meaning</h2>
+  <p>The Einstein tensor describes the curvature of spacetime resulting from mass and energy. In Einstein's field equations, it equates to the energy-momentum tensor scaled by constants:</p>
+  <div class="equation">
+    $$ G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} $$
+  </div>
+
+  <h2>Interactive Calculation</h2>
+  <div class="interactive">
+    <h3>Estimate Energy-Momentum from Curvature</h3>
+    <label for="ricci">Ricci Component R<sub>00</sub> (1/m²):</label>
+    <input type="number" id="ricci" value="1e-10"><br>
+    <label for="scalar">Ricci Scalar R (1/m²):</label>
+    <input type="number" id="scalar" value="1e-9"><br>
+    <label for="metric">g<sub>00</sub> Component:</label>
+    <input type="number" id="metric" value="-1"><br>
+    <button onclick="calculateEinstein()">Calculate G<sub>00</sub></button>
+    <div id="einsteinResult"></div>
+  </div>
+
+  <script>
+    function calculateEinstein() {
+      const R00 = parseFloat(document.getElementById('ricci').value);
+      const R = parseFloat(document.getElementById('scalar').value);
+      const g00 = parseFloat(document.getElementById('metric').value);
+      const G00 = R00 - 0.5 * R * g00;
+      document.getElementById('einsteinResult').innerHTML = `<p>\( G_{00} = ${G00.toExponential(3)} \)</p>`;
+      MathJax.typeset();
+    }
+  </script>
+
+  <h2>Examples and Applications</h2>
+  <ul>
+    <li><strong>Black Hole Metrics:</strong> The Einstein tensor shows how mass curves spacetime inside and around a black hole.</li>
+    <li><strong>Cosmology:</strong> Helps formulate the dynamics of expanding universes through Friedmann equations.</li>
+    <li><strong>Vacuum Solutions:</strong> In vacuum, \( T_{\mu\nu} = 0 \), so \( G_{\mu\nu} = 0 \).</li>
+  </ul>
+
+  <h2>Einstein Field Equations</h2>
+  <p>The field equations tie together matter-energy content and spacetime curvature:</p>
+  <div class="equation">
+    $$ G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} $$
+  </div>
+  <p>\( \Lambda \) is the cosmological constant, important in modeling dark energy.</p>
+
+  <h2>Fun Fact</h2>
+  <div class="fun-fact">
+    Even though Einstein introduced the cosmological constant to maintain a static universe, it turned out later to help explain the accelerating expansion of the universe!
+  </div>
+
+  <h2>Practice Questions</h2>
+  <ol>
+    <li>Derive the Einstein tensor from the Ricci tensor and scalar curvature.</li>
+    <li>Explain what it means when \( G_{\mu\nu} = 0 \).</li>
+    <li>Explore how the Einstein tensor behaves under a simple Schwarzschild metric.</li>
+  </ol>
+
+  <h2>Conclusion</h2>
+  <p>The Einstein tensor bridges geometry and physics. Its elegance lies in its simplicity and the depth of insight it provides about the universe. It’s at the heart of modern cosmology and gravitational theory.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

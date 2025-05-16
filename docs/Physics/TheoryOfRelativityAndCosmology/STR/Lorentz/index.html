@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorentz Transformation Along One Axis</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz, .fun-fact {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .quiz {
+      background: #e0f7fa;
+    }
+    .fun-fact {
+      background: #fff3cd;
+      border-left: 5px solid #ffeeba;
+    }
+    .quiz label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .answer {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lorentz Transformation Along One Axis</h1>
+  <h2>Chapter: Special Theory of Relativity</h2>
+
+  <p>The Lorentz transformations are mathematical formulas that relate the space and time coordinates of two observers moving at a constant velocity relative to each other. They are essential to the Special Theory of Relativity and replace the Galilean transformations of classical physics.</p>
+
+  <h2>Scenario</h2>
+  <p>Imagine two observers: one standing on a platform (observer A), and another moving on a train at constant velocity \( v \) along the x-axis (observer B). If an event occurs in one frame, how do we calculate when and where it happens in the other frame?</p>
+
+  <h2>Lorentz Transformations</h2>
+  <div class="equation">
+    \( x' = \gamma (x - vt) \)<br>
+    \( t' = \gamma \left(t - \frac{vx}{c^2} \right) \)<br>
+    where \( \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} \)
+  </div>
+
+  <p>These equations show how space and time coordinates change between two inertial frames moving at velocity \( v \) relative to each other along the x-axis.</p>
+
+  <h2>Key Insights</h2>
+  <ul>
+    <li>Time and space are interconnected.</li>
+    <li>At speeds close to the speed of light, time dilates and lengths contract.</li>
+    <li>Simultaneity is no longer absolute.</li>
+  </ul>
+
+  <h2>Real-World Applications</h2>
+  <h3>1. Particle Physics</h3>
+  <p>In particle accelerators, particles move near light speed. Lorentz transformations predict how time and space behave for these particles, affecting their observed decay rates.</p>
+
+  <h3>2. Muon Decay</h3>
+  <p>Muons created in the upper atmosphere reach Earth despite having a very short half-life. Lorentz time dilation explains this: from Earth's frame, time passes more slowly for the muons.</p>
+
+  <h3>3. Time Synchronization in Satellites</h3>
+  <p>Satellites such as those in GPS systems experience different time due to both special and general relativity. Lorentz transformations are essential for accurate positioning.</p>
+
+  <h2>Interactive Example</h2>
+  <div class="quiz">
+    <p>Suppose a spaceship moves at \( v = 0.8c \). If an event occurs at \( x = 300 \) m and \( t = 1 \) μs in the Earth frame, what are the coordinates in the spaceship's frame?</p>
+    <form id="calcForm">
+      <label>Velocity (v/c): <input type="number" id="v" value="0.8" step="0.01"></label>
+      <label>x (meters): <input type="number" id="x" value="300"></label>
+      <label>t (microseconds): <input type="number" id="t" value="1"></label>
+      <button type="button" onclick="calculateLorentz()">Calculate</button>
+    </form>
+    <div class="answer" id="calcResult"></div>
+  </div>
+
+  <script>
+    function calculateLorentz() {
+      const v = parseFloat(document.getElementById('v').value) * 3e8;
+      const x = parseFloat(document.getElementById('x').value);
+      const t = parseFloat(document.getElementById('t').value) * 1e-6;
+      const c = 3e8;
+      const gamma = 1 / Math.sqrt(1 - (v * v) / (c * c));
+
+      const xPrime = gamma * (x - v * t);
+      const tPrime = gamma * (t - (v * x) / (c * c));
+
+      const result = `x' = ${xPrime.toFixed(2)} m, t' = ${(tPrime * 1e6).toFixed(2)} μs`;
+      document.getElementById('calcResult').innerText = result;
+    }
+  </script>
+
+  <h2>Fun Fact!</h2>
+  <div class="fun-fact">
+    <strong>Did you know?</strong> The Lorentz transformations were first developed by Dutch physicist Hendrik Lorentz before Einstein’s theory, but Einstein gave them a physical interpretation that changed how we understand space and time!
+  </div>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Lorentz transformations show how coordinates change between observers in uniform motion.</li>
+    <li>They preserve the speed of light in all frames.</li>
+    <li>They are foundational in understanding relativistic phenomena like time dilation and length contraction.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

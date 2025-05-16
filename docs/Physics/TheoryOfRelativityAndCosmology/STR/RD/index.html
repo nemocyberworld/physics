@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relativistic Dynamics - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      background: #eef;
+      padding: 1rem;
+      border: 1px solid #99c;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relativistic Dynamics - Special Theory of Relativity</h1>
+
+  <h2>Introduction</h2>
+  <p>
+    Relativistic dynamics is a field in physics that describes how objects behave when they move at speeds close to the speed of light. It modifies classical mechanics to be consistent with the <strong>Special Theory of Relativity</strong>, proposed by Albert Einstein in 1905.
+  </p>
+  <div class="equation">
+    $$ E = mc^2 $$
+  </div>
+  <p>This iconic equation means that mass and energy are interchangeable—mass can be converted into energy and vice versa.</p>
+
+  <h2>Core Concepts</h2>
+
+  <h3>1. Inertial Frames of Reference</h3>
+  <p>All physical laws are the same in every inertial frame (a frame not accelerating). No preferred frame exists—motion is relative.</p>
+
+  <h3>2. The Speed of Light</h3>
+  <p>The speed of light in a vacuum is constant for all observers, regardless of their relative motion.</p>
+
+  <h3>3. Time Dilation</h3>
+  <p>Moving clocks run slower. For example, astronauts in fast-moving spaceships age slower than people on Earth.</p>
+  <div class="equation">
+    $$ \Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{v^2}{c^2}}} $$
+  </div>
+
+  <h3>4. Length Contraction</h3>
+  <p>Objects contract along the direction of motion:</p>
+  <div class="equation">
+    $$ L = L_0 \sqrt{1 - \frac{v^2}{c^2}} $$
+  </div>
+
+  <h3>5. Relativistic Momentum</h3>
+  <p>At high speeds, momentum is given by:</p>
+  <div class="equation">
+    $$ p = \frac{mv}{\sqrt{1 - \frac{v^2}{c^2}}} $$
+  </div>
+
+  <h2>Real-World Applications</h2>
+  <ul>
+    <li>GPS satellites use relativistic corrections to provide accurate positioning.</li>
+    <li>Particle accelerators (like CERN) rely on relativistic mechanics.</li>
+    <li>Nuclear reactions in stars (including our Sun) use mass-energy equivalence.</li>
+  </ul>
+
+  <h2>Interactive Example: Time Dilation Calculator</h2>
+  <div class="interactive">
+    <label>Enter velocity (as a fraction of c, e.g., 0.9):</label><br>
+    <input type="number" id="velocity" step="0.01" min="0" max="0.9999">
+    <button onclick="calculateTimeDilation()">Calculate</button>
+    <p id="timeDilationResult"></p>
+  </div>
+
+  <script>
+    function calculateTimeDilation() {
+      const v = parseFloat(document.getElementById('velocity').value);
+      if (v >= 1 || v <= 0) {
+        document.getElementById('timeDilationResult').innerText = 'Velocity must be between 0 and 1.';
+        return;
+      }
+      const gamma = 1 / Math.sqrt(1 - v * v);
+      document.getElementById('timeDilationResult').innerText = `Time passes ${gamma.toFixed(2)} times slower.`;
+    }
+  </script>
+
+  <h2>Fun Fact!</h2>
+  <p>If you flew a spaceship at 99.999% the speed of light for what seemed like 5 years to you, over 700 years could pass on Earth!</p>
+
+  <h2>Common Misconceptions</h2>
+  <ul>
+    <li><strong>"Nothing can move faster than light"</strong> — True for mass-bearing objects, but space itself can expand faster than light during cosmic inflation.</li>
+    <li><strong>"Relativity is only theoretical"</strong> — False! It's verified by experiments and used daily in technology like GPS.</li>
+  </ul>
+
+  <h2>Practice Problem</h2>
+  <p>A spaceship travels at 0.8c for 10 years (ship time). How much time passes on Earth?</p>
+  <button onclick="showAnswer()">Show Answer</button>
+  <p id="answer" style="display:none;"></p>
+
+  <script>
+    function showAnswer() {
+      const t0 = 10;
+      const v = 0.8;
+      const t = t0 / Math.sqrt(1 - v * v);
+      document.getElementById('answer').style.display = 'block';
+      document.getElementById('answer').innerText = `Approximately ${t.toFixed(2)} years passed on Earth.`;
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

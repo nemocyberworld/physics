@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmology: White Dwarfs, Neutron Stars & Black Holes</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+      cursor: pointer;
+      user-select: none;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 0.3rem;
+    }
+    h3 {
+      margin-top: 1rem;
+    }
+    .section-content {
+      display: none;
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid #003366;
+      background-color: #f9faff;
+      border-radius: 4px;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e7f3ff;
+      border-left: 5px solid #1a73e8;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+    .example-btn {
+      background-color: #1a73e8;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .example-popup {
+      display: none;
+      background: #fff;
+      border: 2px solid #1a73e8;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(26, 115, 232, 0.3);
+    }
+    .quiz-section {
+      margin-top: 2rem;
+      background: #eef6ff;
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 5px solid #003366;
+    }
+    .quiz-question {
+      margin-bottom: 1rem;
+    }
+    .quiz-options label {
+      display: block;
+      margin: 0.3rem 0;
+      cursor: pointer;
+    }
+    .quiz-result {
+      font-weight: bold;
+      margin-top: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cosmology: White Dwarfs, Neutron Stars & Black Holes</h1>
+
+  <p>
+    Welcome to this interactive lesson on some of the most fascinating and extreme objects in our universe — 
+    <strong>White Dwarfs</strong>, <strong>Neutron Stars</strong>, and <strong>Black Holes</strong>. 
+    These objects are key players in the field of Cosmology, deeply connected to Einstein's Theory of Relativity 
+    and help us understand the life cycle of stars, gravity, and spacetime itself.
+  </p>
+
+  <p>
+    Click on each section header to expand detailed explanations, explore real-world examples, fun facts, and practical applications. 
+    Let's dive into the cosmic mysteries!
+  </p>
+
+  <!-- Section 1: White Dwarfs -->
+  <h2 id="white-dwarfs">White Dwarfs</h2>
+  <div class="section-content">
+    <p>
+      A <strong>White Dwarf</strong> is the remnant core of a medium-sized star (like our Sun) after it has exhausted its nuclear fuel and shed its outer layers. 
+      These stars no longer produce energy through fusion but remain incredibly dense and hot. 
+      White dwarfs are about the size of Earth but pack a mass comparable to the Sun, making them some of the densest objects in the universe.
+    </p>
+
+    <p>
+      This density means that a sugar-cube sized amount of white dwarf matter would weigh tons on Earth!
+      Their stability comes from the <em>electron degeneracy pressure</em>, a quantum mechanical effect that prevents the star from collapsing further.
+    </p>
+
+    <p>
+      <strong>Real-world example:</strong> Sirius B, a white dwarf companion of the bright star Sirius A, is one of the closest and best-studied white dwarfs.
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('wd-example')">Show Example: Sirius B</button>
+    <div id="wd-example" class="example-popup">
+      <p><strong>Sirius B</strong> is about the size of Earth but has a mass around 1 solar mass (~2×10³⁰ kg). Its surface gravity is roughly 350,000 times Earth's gravity!</p>
+      <p>This extreme gravity affects the light emitted from its surface, causing a redshift — a direct confirmation of Einstein's theory of gravity affecting light.</p>
+    </div>
+
+    <h3>Applications & Importance</h3>
+    <p>
+      White dwarfs help us understand stellar evolution and are critical in measuring cosmic distances (using Type Ia supernovae which result from white dwarf explosions). 
+      These supernovae serve as “standard candles” to measure the expansion of the universe.
+    </p>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> If Earth were compressed into a white dwarf's density, it would shrink to about the size of a sugar cube!
+    </div>
+  </div>
+
+  <!-- Section 2: Neutron Stars -->
+  <h2 id="neutron-stars">Neutron Stars</h2>
+  <div class="section-content">
+    <p>
+      When stars more massive than the Sun (about 8 to 20 times) end their lives, they explode in a supernova and collapse into incredibly dense objects called <strong>Neutron Stars</strong>. 
+      Neutron stars are typically only 20 kilometers in diameter but have masses up to twice that of the Sun.
+    </p>
+
+    <p>
+      These stars are so dense that a teaspoon of neutron star material would weigh about a billion tons on Earth!
+      The collapse forces protons and electrons to combine into neutrons — hence the name.
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('ns-example')">Show Example: The Crab Pulsar</button>
+    <div id="ns-example" class="example-popup">
+      <p><strong>The Crab Pulsar</strong> is a neutron star that spins about 30 times per second, emitting pulses of radiation detectable on Earth.</p>
+      <p>Its precise pulses allow scientists to study extreme physics like strong magnetic fields and relativistic effects.</p>
+    </div>
+
+    <h3>Applications & Importance</h3>
+    <p>
+      Neutron stars serve as natural laboratories for nuclear physics and relativity under extreme conditions. 
+      They help us understand matter at densities far beyond Earthly materials and contribute to gravitational wave research (e.g., neutron star mergers detected by LIGO).
+    </p>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> Neutron stars can spin hundreds of times per second — these are called millisecond pulsars!
+    </div>
+  </div>
+
+  <!-- Section 3: Black Holes -->
+  <h2 id="black-holes">Black Holes</h2>
+  <div class="section-content">
+    <p>
+      If a star is massive enough (above about 20 solar masses), its core collapses into a <strong>Black Hole</strong> after a supernova. 
+      Black holes have gravity so strong that not even light can escape their event horizon — making them invisible to direct observation.
+    </p>
+
+    <p>
+      Black holes warp spacetime as predicted by Einstein's General Theory of Relativity, creating regions where time slows and space is dramatically curved.
+      Their masses can range from a few times that of the Sun (stellar black holes) to billions of times (supermassive black holes at galaxy centers).
+    </p>
+
+    <button class="example-btn" onclick="toggleExample('bh-example')">Show Example: Sagittarius A*</button>
+    <div id="bh-example" class="example-popup">
+      <p><strong>Sagittarius A*</strong> is the supermassive black hole at the center of our Milky Way galaxy, with a mass around 4 million times that of the Sun.</p>
+      <p>Its influence governs the orbits of stars near the galactic center and helps us study gravity in its strongest form.</p>
+    </div>
+
+    <h3>Applications & Importance</h3>
+    <p>
+      Black holes are key to understanding galaxy formation, high-energy astrophysics (jets, quasars), and the ultimate nature of gravity. 
+      Recent observations like the Event Horizon Telescope's image of a black hole shadow are milestones in experimental cosmology.
+    </p>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> Time near a black hole’s event horizon passes slower relative to us — this is called gravitational time dilation!
+    </div>
+
+    <div class="equation">
+      $$ R_s = \frac{2GM}{c^2} $$
+      <br/>
+      <small><em>Schwarzschild radius (event horizon radius) formula</em></small>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <h2>Summary</h2>
+  <div class="section-content" style="display:block;">
+    <p>
+      - <strong>White Dwarfs</strong>: Dense cores of dead stars supported by electron degeneracy pressure.<br/>
+      - <strong>Neutron Stars</strong>: Ultra-dense stellar remnants made mostly of neutrons, with strong magnetic fields and fast spins.<br/>
+      - <strong>Black Holes</strong>: Objects whose gravity prevents anything, even light, from escaping, warping spacetime profoundly.
+    </p>
+    <p>
+      These exotic objects allow scientists to test fundamental physics under extreme conditions, advancing our understanding of the universe.
+    </p>
+  </div>
+
+  <!-- Interactive Quiz -->
+  <div class="quiz-section">
+    <h2>Quick Quiz: Test Your Understanding</h2>
+    <div class="quiz-question">
+      <p>1. What supports a white dwarf against gravitational collapse?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="a" /> Nuclear fusion</label>
+        <label><input type="radio" name="q1" value="b" /> Electron degeneracy pressure</label>
+        <label><input type="radio" name="q1" value="c" /> Neutron degeneracy pressure</label>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <p>2. Which object can have an event horizon?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="a" /> White dwarf</label>
+        <label><input type="radio" name="q2" value="b" /> Neutron star</label>
+        <label><input type="radio" name="q2" value="c" /> Black hole</label>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <p>3. What phenomenon explains the pulses from a neutron star?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="a" /> Nuclear explosions</label>
+        <label><input type="radio" name="q3" value="b" /> Rapid rotation and magnetic field alignment</label>
+        <label><input type="radio" name="q3" value="c" /> Light refraction</label>
+      </div>
+    </div>
+
+    <button onclick="checkQuiz()" class="example-btn">Submit Answers</button>
+    <div id="quiz-result" class="quiz-result"></div>
+  </div>
+
+  <footer style="margin-top: 3rem;">
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Toggle expand/collapse sections on header click
+    document.querySelectorAll('h2').forEach(h2 => {
+      h2.addEventListener('click', () => {
+        const content = h2.nextElementSibling;
+        if(content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    // Toggle example popups
+    function toggleExample(id) {
+      const elem = document.getElementById(id);
+      if(elem.style.display === 'block') {
+        elem.style.display = 'none';
+      } else {
+        elem.style.display = 'block';
+      }
+    }
+
+    // Quiz logic
+    function checkQuiz() {
+      const answers = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'b',
+      };
+      let score = 0;
+      for(const q in answers) {
+        const options = document.getElementsByName(q);
+        for(let option of options) {
+          if(option.checked) {
+            if(option.value === answers[q]) score++;
+            break;
+          }
+        }
+      }
+      const result = document.getElementById('quiz-result');
+      result.textContent = `You scored ${score} out of 3. ` +
+        (score === 3 ? "Excellent! You're a cosmology star! ⭐" : "Keep exploring the cosmos!");
+    }
+  </script>
+
+</body>
+</html>

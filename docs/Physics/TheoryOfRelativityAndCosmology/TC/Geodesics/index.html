@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tensor Calculus: Geodesics and Autoparallel Curves</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz, .funfact {
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    .quiz {
+      background-color: #e6f2ff;
+      border-left: 5px solid #007acc;
+    }
+    .funfact {
+      background-color: #ffffcc;
+      border-left: 5px solid #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tensor Calculus: Geodesics and Autoparallel Curves</h1>
+
+  <h2>Introduction</h2>
+  <p>
+    In flat space, the shortest distance between two points is a straight line. But what about on a sphere or in curved space-time? The equivalent of a "straight line" is called a <strong>geodesic</strong>. These curves follow the shape of the space and are central to general relativity. Closely related are <strong>autoparallel curves</strong>, paths that preserve direction under parallel transport.
+  </p>
+
+  <div class="funfact">
+    <strong>Fun Fact:</strong> The path followed by light near a massive object, like a black hole, is a geodesic bent by space-time curvature!
+  </div>
+
+  <h2>What is a Geodesic?</h2>
+  <p>
+    A geodesic is the curve that represents the path of least action (or extremal path) in curved space. In general relativity, free-falling objects move along geodesics in space-time.
+  </p>
+  <div class="equation">
+    $$ \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu \lambda} \frac{d x^\nu}{d\tau} \frac{d x^\lambda}{d\tau} = 0 $$
+  </div>
+  <p>
+    This is called the <strong>geodesic equation</strong>, where:
+    <ul>
+      <li>\( x^\mu \) is the coordinate of the particle</li>
+      <li>\( \tau \) is the proper time</li>
+      <li>\( \Gamma^\mu_{\nu \lambda} \) are the Christoffel symbols representing curvature</li>
+    </ul>
+  </p>
+
+  <h2>Interactive Visual: Choose a Surface</h2>
+  <p>Choose a type of space and learn how geodesics behave:</p>
+  <select id="geoType" onchange="showGeoDescription()">
+    <option value="plane">Flat Plane</option>
+    <option value="sphere">Sphere</option>
+    <option value="saddle">Hyperbolic Surface</option>
+  </select>
+  <div id="geoDescription" style="margin-top: 1rem;"></div>
+
+  <script>
+    function showGeoDescription() {
+      const type = document.getElementById("geoType").value;
+      const desc = document.getElementById("geoDescription");
+      if (type === "plane") {
+        desc.innerHTML = "<p>Geodesics on a flat plane are straight lines — simple and familiar.</p>";
+      } else if (type === "sphere") {
+        desc.innerHTML = "<p>Geodesics on a sphere are great circles, like the equator or meridians on Earth.</p>";
+      } else {
+        desc.innerHTML = "<p>On a hyperbolic surface, geodesics curve outward, often diverging from each other.</p>";
+      }
+    }
+    showGeoDescription();
+  </script>
+
+  <h2>Autoparallel Curves</h2>
+  <p>
+    An autoparallel curve is one in which the tangent vector is parallel transported along itself. For geodesics defined by an affine parameter (like proper time), they are equivalent.
+  </p>
+  <div class="equation">
+    $$ \nabla_{\vec{v}} \vec{v} = 0 $$
+  </div>
+  <p>
+    In this form, it means that the vector \( \vec{v} \) (the velocity) doesn’t "twist" as it moves — it stays tangent to the curve.
+  </p>
+
+  <h3>Real World Examples</h3>
+  <ul>
+    <li><strong>Airline routes:</strong> Aircraft fly along geodesics on the Earth’s surface (great circles).</li>
+    <li><strong>GPS systems:</strong> Calculate time and position corrections using space-time geodesics.</li>
+    <li><strong>General Relativity:</strong> Planets and light follow geodesics in curved space-time.</li>
+    <li><strong>Computer vision:</strong> Geodesics are used in image segmentation and 3D object recognition.</li>
+  </ul>
+
+  <div class="quiz">
+    <h3>Quiz Time!</h3>
+    <p>What is the geodesic on a sphere?</p>
+    <ul>
+      <li><input type="radio" name="q1"> A straight line</li>
+      <li><input type="radio" name="q1"> A spiral</li>
+      <li><input type="radio" name="q1" id="correct"> A great circle</li>
+    </ul>
+    <button onclick="checkGeoAnswer()">Check Answer</button>
+    <p id="geoFeedback"></p>
+  </div>
+
+  <script>
+    function checkGeoAnswer() {
+      const correct = document.getElementById("correct");
+      const feedback = document.getElementById("geoFeedback");
+      if (correct.checked) {
+        feedback.innerHTML = "✅ Correct! Geodesics on spheres are great circles.";
+      } else {
+        feedback.innerHTML = "❌ Not quite. Try again!";
+      }
+    }
+  </script>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

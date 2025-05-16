@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variation of Mass with Velocity - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      margin: 1rem 0;
+      background: #eef;
+      padding: 1rem;
+      border: 1px solid #99c;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Variation of Mass with Velocity</h1>
+
+  <h2>Introduction</h2>
+  <p>
+    One of the key insights of Einstein’s Special Theory of Relativity is that the mass of an object is not constant when it moves at speeds close to the speed of light. Instead, it increases with velocity. This chapter explores how mass varies with speed, why it matters, and what it means for our understanding of the universe.
+  </p>
+
+  <h2>Relativistic Mass</h2>
+  <p>As an object's speed approaches the speed of light, its mass increases according to the equation:</p>
+  <div class="equation">
+    $$ m = \frac{m_0}{\sqrt{1 - \frac{v^2}{c^2}}} $$
+  </div>
+  <p>
+    Here, <strong>\( m \)</strong> is the relativistic mass, <strong>\( m_0 \)</strong> is the rest mass (mass when the object is stationary), <strong>\( v \)</strong> is the velocity of the object, and <strong>\( c \)</strong> is the speed of light in a vacuum.
+  </p>
+
+  <h2>Why Does Mass Increase?</h2>
+  <p>
+    As velocity increases, it becomes harder and harder to accelerate an object. This resistance is interpreted as an increase in mass. Eventually, it would take infinite energy to reach the speed of light, which is why objects with mass cannot attain light speed.
+  </p>
+
+  <h2>Interactive Example: Mass vs. Velocity</h2>
+  <div class="interactive">
+    <label>Enter rest mass (in kg):</label><br>
+    <input type="number" id="restMass" value="1" step="0.1"><br><br>
+    <label>Enter velocity (fraction of c, e.g. 0.9):</label><br>
+    <input type="number" id="velocity" value="0.5" step="0.01" min="0" max="0.9999">
+    <br><br>
+    <button onclick="calculateRelativisticMass()">Calculate Relativistic Mass</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateRelativisticMass() {
+      const m0 = parseFloat(document.getElementById('restMass').value);
+      const v = parseFloat(document.getElementById('velocity').value);
+      if (v >= 1 || v <= 0) {
+        document.getElementById('result').innerText = 'Velocity must be between 0 and 1.';
+        return;
+      }
+      const gamma = 1 / Math.sqrt(1 - v * v);
+      const relativisticMass = m0 * gamma;
+      document.getElementById('result').innerText = `Relativistic mass = ${relativisticMass.toFixed(4)} kg`;
+    }
+  </script>
+
+  <h2>Real-World Examples and Applications</h2>
+  <ul>
+    <li><strong>Particle Accelerators:</strong> Electrons and protons gain mass as they are accelerated near light speed. Scientists must account for this in energy calculations.</li>
+    <li><strong>Nuclear Reactions:</strong> The slight decrease in mass during fusion or fission converts into vast amounts of energy.</li>
+    <li><strong>Cosmic Rays:</strong> High-speed particles from space exhibit mass variations detectable in Earth’s atmosphere.</li>
+  </ul>
+
+  <h2>Fun Fact</h2>
+  <p>
+    If you could run at 99.9% of the speed of light (good luck!), your mass would be more than 22 times your normal mass. That’s one heavy sprint!
+  </p>
+
+  <h2>Common Misconceptions</h2>
+  <ul>
+    <li><strong>Mass changes permanently</strong> — No, mass increases only from the viewpoint of an external observer. In your own frame, it remains the same.</li>
+    <li><strong>Mass increase means you're stronger</strong> — Not really. The added mass comes with added resistance to acceleration, not extra strength.</li>
+  </ul>
+
+  <h2>Practice Problem</h2>
+  <p>An object has a rest mass of 2 kg and travels at 0.6c. What is its relativistic mass?</p>
+  <button onclick="showMassAnswer()">Show Answer</button>
+  <p id="massAnswer" style="display:none;"></p>
+
+  <script>
+    function showMassAnswer() {
+      const m0 = 2;
+      const v = 0.6;
+      const m = m0 / Math.sqrt(1 - v * v);
+      document.getElementById('massAnswer').style.display = 'block';
+      document.getElementById('massAnswer').innerText = `Relativistic mass = ${m.toFixed(4)} kg.`;
+    }
+  </script>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Mass increases with speed due to the relativistic factor \( \gamma \).</li>
+    <li>Infinite energy would be required to reach the speed of light.</li>
+    <li>This effect is critical in high-energy physics and cosmology.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

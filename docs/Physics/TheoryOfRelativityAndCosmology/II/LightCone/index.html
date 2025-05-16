@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light Cone and Invariant Intervals</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      border: 1px solid #ccd;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Understanding Light Cones in Relativity</h1>
+
+  <h2>1. What is a Light Cone?</h2>
+  <p>A light cone is a graphical representation of all possible light paths through spacetime from a given event. It helps visualize the concepts of causality, simultaneity, and the limits imposed by the speed of light.</p>
+
+  <div class="equation">
+    $$ s^2 = - (c \Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 $$
+  </div>
+
+  <p>The light cone divides spacetime into three regions:</p>
+  <ul>
+    <li><strong>Future light cone:</strong> All possible events that can be influenced by the current event (within the speed of light).</li>
+    <li><strong>Past light cone:</strong> All events that can influence the current event.</li>
+    <li><strong>Elsewhere (space-like):</strong> Events that are too far away in space to be influenced or to influence the current event.</li>
+  </ul>
+
+  <h2>2. Light Cone Visualization (Interactive)</h2>
+  <div class="interactive">
+    <p>Enter a time and spatial coordinate to classify the interval and see if it lies inside or outside the light cone.</p>
+    <label>\(\Delta t\) (in seconds): <input type="number" id="t" step="any"></label><br>
+    <label>\(\Delta x\) (in meters): <input type="number" id="x" step="any"></label><br>
+    <label>\(\Delta y\): <input type="number" id="y" step="any"></label><br>
+    <label>\(\Delta z\): <input type="number" id="z" step="any"></label><br>
+    <button onclick="analyzeCone()">Analyze Light Cone</button>
+    <p id="coneResult"></p>
+  </div>
+
+  <script>
+    function analyzeCone() {
+      const c = 299792458;
+      const dt = parseFloat(document.getElementById("t").value);
+      const dx = parseFloat(document.getElementById("x").value);
+      const dy = parseFloat(document.getElementById("y").value);
+      const dz = parseFloat(document.getElementById("z").value);
+
+      const s2 = -(c * dt) ** 2 + dx ** 2 + dy ** 2 + dz ** 2;
+
+      let region;
+      if (s2 < 0) region = "Inside the light cone (time-like interval). Causal connection possible.";
+      else if (s2 === 0) region = "On the light cone (light-like or null interval).";
+      else region = "Outside the light cone (space-like interval). No causal connection.";
+
+      document.getElementById("coneResult").innerText = `Invariant Interval = ${s2.toExponential(3)} → ${region}`;
+    }
+  </script>
+
+  <h2>3. Real-World Examples</h2>
+  <ul>
+    <li><strong>GPS Synchronization:</strong> Light cones help model how signals from satellites reach Earth, taking relativistic effects into account.</li>
+    <li><strong>Black Holes:</strong> Inside the event horizon, light cones tilt inward — even light cannot escape.</li>
+    <li><strong>Cosmic Events:</strong> When astronomers observe supernovae, they're seeing events on their past light cone.</li>
+  </ul>
+
+  <h2>4. Practical Applications</h2>
+  <ul>
+    <li><strong>Communication Delays in Space:</strong> Mission planners use light cone models to time signals to and from spacecrafts.</li>
+    <li><strong>Simulating Universes in Physics Engines:</strong> Light cones limit how information spreads in simulations.</li>
+    <li><strong>Time Travel Studies:</strong> Exotic concepts like wormholes are analyzed using light cone distortions.</li>
+  </ul>
+
+  <h2>5. Fun Fact!</h2>
+  <p>The light cone is not just theoretical. Physicists use it to rule out impossible sci-fi plots. For example, in many movies, characters receive warnings from the future — if that event lies outside their light cone, it's scientifically impossible!</p>
+
+  <h2>6. Summary</h2>
+  <ul>
+    <li>Light cones represent the structure of causality in spacetime.</li>
+    <li>They categorize intervals into time-like, light-like, and space-like.</li>
+    <li>These ideas guide real-world applications in navigation, astrophysics, and beyond.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

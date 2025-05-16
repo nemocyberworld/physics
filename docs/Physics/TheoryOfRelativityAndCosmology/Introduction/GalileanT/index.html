@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galilean Transformation & Newton's Laws</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e6f7ff;
+      border-left: 5px solid #007acc;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h1>Galilean Transformation and Invariance of Newton's Laws of Motion</h1>
+
+  <h2>Introduction</h2>
+  <p>The <strong>Galilean transformation</strong> is one of the foundational concepts in classical mechanics and is used to transform coordinates from one inertial frame to another. This concept is particularly important in understanding how physical laws behave under motion.</p>
+
+  <h2>What is an Inertial Frame?</h2>
+  <p>An <strong>inertial frame of reference</strong> is one in which an object remains at rest or moves at constant velocity unless acted upon by a force. These are non-accelerating frames where Newton's laws of motion are valid.</p>
+
+  <h2>Galilean Transformation Equations</h2>
+  <p>Consider two reference frames:</p>
+  <ul>
+    <li>Frame S (stationary)</li>
+    <li>Frame S' (moving with constant velocity \(v\) in the x-direction relative to S)</li>
+  </ul>
+  <p>The Galilean transformations are given by:</p>
+  
+  <div class="equation">
+    \[
+    \begin{aligned}
+    x' &= x - vt \\\\
+    y' &= y \\\\
+    z' &= z \\\\
+    t' &= t
+    \end{aligned}
+    \]
+  </div>
+  
+  <p>These equations imply that time is absolute and independent of the motion of the observer.</p>
+
+  <h2>Invariance of Newton's Laws</h2>
+  <p>Newton's laws of motion are said to be <strong>invariant</strong> under Galilean transformations, which means they have the same form in all inertial frames.</p>
+  <p>For example, Newton’s second law:</p>
+  <div class="equation">
+    $$
+    F = ma
+    $$
+  </div>
+  <p>This law remains valid in all inertial frames connected by Galilean transformations.</p>
+
+  <h2>Real-World Examples</h2>
+  <ul>
+    <li>Walking inside a moving train — your motion is a combination of your speed and the train's speed.</li>
+    <li>A plane flying with tailwind or headwind — velocities add or subtract.</li>
+    <li>Dropping a ball inside a smoothly moving bus — it lands at your feet just like when standing still.</li>
+  </ul>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Navigation Systems</strong>: Aircraft and ships use transformations between moving coordinate systems.</li>
+    <li><strong>Game Development</strong>: Physics engines use Galilean transformations for relative motion simulation.</li>
+    <li><strong>Engineering Mechanics</strong>: Analyzing machines in motion relative to a platform (like on a conveyor belt).</li>
+  </ul>
+
+  <h2>Fun Fact!</h2>
+  <p>Galileo's ideas about relativity laid the groundwork for Einstein's theory of Special Relativity — but Einstein had to modify the transformation rules because the speed of light is constant in all inertial frames!</p>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p><strong>Q1:</strong> If you are running on a train moving at 10 m/s and you run at 2 m/s in the same direction, what is your speed relative to the ground?</p>
+    <button onclick="document.getElementById('answer1').innerText='Your speed is 12 m/s relative to the ground.'">Show Answer</button>
+    <p id="answer1"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q2:</strong> Why does a ball dropped inside a moving bus fall straight down (from the perspective of someone on the bus)?</p>
+    <button onclick="document.getElementById('answer2').innerText='Because the bus and the ball share the same horizontal velocity.'">Show Answer</button>
+    <p id="answer2"></p>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>The Galilean transformation is a key concept that helps us understand relative motion in classical mechanics. It highlights the consistency of Newton’s laws across all inertial frames and underpins many practical and theoretical aspects of physics and engineering.</p>
+
+  <footer>
+    <p><a href="../index.html">← Back to Home</a></p>
+  </footer>
+</body>
+</html>

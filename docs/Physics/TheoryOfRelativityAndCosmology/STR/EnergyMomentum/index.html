@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy-Momentum Relationship - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: #eef;
+      border-left: 4px solid #3366cc;
+    }
+    button {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Energy-Momentum Relationship</h1>
+  <h2>Chapter: Special Theory of Relativity</h2>
+
+  <p>The energy-momentum relationship is a foundational result from Einstein's Special Theory of Relativity. It links the total energy of a particle to its momentum and rest mass.</p>
+
+  <div class="equation">
+    $$ E^2 = (pc)^2 + (m_0c^2)^2 $$
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li><strong>E</strong> is the total energy</li>
+    <li><strong>p</strong> is the relativistic momentum</li>
+    <li><strong>m<sub>0</sub></strong> is the rest mass</li>
+    <li><strong>c</strong> is the speed of light</li>
+  </ul>
+
+  <h2>Why This Equation Matters</h2>
+  <p>This equation generalizes the famous \( E = mc^2 \) for moving objects. It shows how energy and momentum are deeply intertwined, especially at high speeds.</p>
+
+  <h3>Real World Examples</h3>
+  <ul>
+    <li><strong>Particle Accelerators:</strong> High-speed particles like electrons and protons follow this relationship. It's used to design accelerators like the LHC.</li>
+    <li><strong>Cosmic Rays:</strong> Extremely energetic particles from space obey this equation.</li>
+    <li><strong>Photon Energy:</strong> For photons (massless particles), \( E = pc \).</li>
+  </ul>
+
+  <h3>Derivation Insight</h3>
+  <p>From Newtonian mechanics, we know \( E = \frac{1}{2}mv^2 \). But in relativity, we use:</p>
+  <div class="equation">
+    $$ E = \gamma m_0 c^2, \quad p = \gamma m_0 v $$
+  </div>
+  <p>Combining and eliminating \( \gamma \), we arrive at the energy-momentum relationship.</p>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p>Q: What is the energy of a photon with momentum \( 3.3 \times 10^{-27} \) kg·m/s?</p>
+    <button onclick="document.getElementById('answer1').style.display='block'">Show Answer</button>
+    <p id="answer1" style="display:none;">
+      Using \( E = pc \),<br>
+      \( E = 3.3 \times 10^{-27} \times 3 \times 10^8 = 9.9 \times 10^{-19} \) J
+    </p>
+  </div>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>Nuclear Power:</strong> Conversion between mass and energy relies on \( E = mc^2 \).</li>
+    <li><strong>GPS Systems:</strong> Account for relativistic corrections in satellite clocks.</li>
+    <li><strong>Medical Imaging:</strong> PET scans detect annihilation photons calculated using energy-momentum relationships.</li>
+  </ul>
+
+  <h3>Fun Fact</h3>
+  <p>Did you know? When you eat food, a tiny amount of its mass is converted into energy to power your cells—Einstein’s equation at work!</p>
+
+  <h2>More Interactive Problems</h2>
+  <div class="quiz">
+    <p>Q: If a particle has rest mass \( m_0 = 1 \) kg and moves at 0.8c, what is its total energy?</p>
+    <button onclick="document.getElementById('answer2').style.display='block'">Show Answer</button>
+    <p id="answer2" style="display:none;">
+      \( \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} = \frac{1}{\sqrt{1 - 0.64}} = 1.666 \)<br>
+      \( E = \gamma m_0 c^2 = 1.666 \times 1 \times (3 \times 10^8)^2 = 1.5 \times 10^{17} \) J
+    </p>
+  </div>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

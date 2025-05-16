@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizeau’s Experiment - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background-color: #e6f7ff;
+      border-left: 5px solid #0099cc;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fizeau’s Experiment: A Step Toward the Special Theory of Relativity</h1>
+
+  <h2>Introduction</h2>
+  <p>Fizeau’s experiment, conducted in 1851 by Hippolyte Fizeau, was a crucial step in understanding how the speed of light behaves in moving media. It was one of the early experiments that eventually led to Einstein’s Special Theory of Relativity in 1905. This lesson explains the theory, setup, math, implications, and real-world applications.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Fizeau was trying to test whether light behaves like a wave moving through an ether – a mysterious, invisible medium thought to fill all of space!
+  </div>
+
+  <h2>What Was Fizeau Trying to Discover?</h2>
+  <p>At the time, scientists believed that light needed a medium (the “luminiferous ether”) to propagate. Fizeau tested whether the motion of water (a transparent medium) affected the speed of light traveling through it. This could support or refute the ether theory.</p>
+
+  <h2>The Experimental Setup</h2>
+  <p>Fizeau split a beam of light and sent it through two glass tubes filled with flowing water in opposite directions. He then measured the interference pattern to see how the speed of light changed due to the water flow.</p>
+
+  <h3>Key Concept:</h3>
+  <div class="equation">
+    $$ v_{light} = \frac{c}{n} + v(1 - \frac{1}{n^2})
+    $$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li><strong>c</strong> = speed of light in vacuum</li>
+    <li><strong>n</strong> = refractive index of the medium (for water, ~1.33)</li>
+    <li><strong>v</strong> = speed of the water</li>
+  </ul>
+
+  <h2>Interactive Quiz</h2>
+  <p>What happens when water flows faster in the tube?</p>
+  <button onclick="document.getElementById('answer1').style.display='block'">Show Answer</button>
+  <div class="answer" id="answer1">The light traveling in the direction of the water appears to speed up slightly, due to partial dragging of light.</div>
+
+  <h2>Importance to Relativity</h2>
+  <p>Fizeau’s results contradicted the idea that ether was stationary. This hinted at the fact that light’s speed is affected by relative motion. Einstein later used similar reasoning to propose that the speed of light is constant in all frames of reference – a cornerstone of special relativity.</p>
+
+  <h2>Real-World Example: Fiber Optics</h2>
+  <p>Modern fiber-optic communication uses light in glass or plastic fibers. Understanding how light interacts with moving materials is critical for designing reliable systems, especially for long-distance communications like undersea cables.</p>
+
+  <h2>Applications</h2>
+  <ul>
+    <li><strong>GPS Systems:</strong> Adjust signals for relativistic time dilation, which was inspired by the same principles Fizeau’s experiment explored.</li>
+    <li><strong>High-speed communications:</strong> Understanding optical signal speed is vital for syncing devices.</li>
+    <li><strong>Astronomy:</strong> Light from distant galaxies is analyzed using the same Doppler-based techniques validated in Fizeau’s findings.</li>
+  </ul>
+
+  <h2>More Equations from Special Relativity</h2>
+  <h3>Time Dilation:</h3>
+  <div class="equation">
+   $$ t = \frac{t_0}{\sqrt{1 - \frac{v^2}{c^2}}} $$
+  </div>
+
+  <h3>Length Contraction:</h3>
+  <div class="equation">
+   $$ L = L_0 \sqrt{1 - \frac{v^2}{c^2}} $$
+  </div>
+
+  <h3>Relativistic Velocity Addition:</h3>
+  <div class="equation">
+   $$ u' = \frac{u + v}{1 + \frac{uv}{c^2}} $$
+  </div>
+
+  <h2>Fun Fact</h2>
+  <div class="fun-fact">
+    <strong>Did You Know?</strong> Fizeau’s results were more accurate than many experiments that followed until Einstein made everything fall into place with his two postulates of special relativity.
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>Fizeau’s experiment helped break the classical view of motion and light. It planted the seeds of doubt about the ether and led scientists to question the foundations of physics, ultimately resulting in the revolutionary Special Theory of Relativity.</p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // More interactive features can be added here in future
+  </script>
+</body>
+</html>

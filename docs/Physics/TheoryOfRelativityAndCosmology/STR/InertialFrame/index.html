@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept of Inertial Frame - Special Theory of Relativity</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .quiz {
+      margin-top: 2rem;
+      background: #eef;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .quiz label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .answer {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .fun-fact {
+      background: #fff3cd;
+      border-left: 5px solid #ffeeba;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Concept of Inertial Frame</h1>
+  <h2>Chapter: Special Theory of Relativity</h2>
+
+  <p>Welcome to an in-depth lesson on one of the foundational concepts in physics — the <strong>Inertial Frame of Reference</strong>. This concept plays a crucial role in both classical mechanics and the Special Theory of Relativity.</p>
+
+  <h2>What is an Inertial Frame?</h2>
+  <p>An <strong>inertial frame of reference</strong> is a frame of reference in which an object remains at rest or in uniform motion unless acted upon by a force. In simpler terms, it's a non-accelerating frame where Newton's first law (the law of inertia) holds true.</p>
+
+  <div class="equation">
+    Newton's First Law: \( F = 0 \Rightarrow a = 0 \)
+  </div>
+
+  <h2>Real-World Examples</h2>
+  <ul>
+    <li>A train moving at constant velocity — a good approximation of an inertial frame.</li>
+    <li>The surface of the Earth (approximately inertial for many practical purposes).</li>
+    <li>A spacecraft drifting in space far from gravitational forces — a near-perfect inertial frame.</li>
+  </ul>
+
+  <h2>Non-Inertial Frames</h2>
+  <p>Frames that accelerate are called <strong>non-inertial frames</strong>. In these frames, fictitious forces (like centrifugal force or Coriolis force) appear to act on objects.</p>
+  <ul>
+    <li>A rotating merry-go-round</li>
+    <li>A car taking a sharp turn</li>
+    <li>An elevator accelerating upward or downward</li>
+  </ul>
+
+  <h2>Why Inertial Frames Matter in Special Relativity</h2>
+  <p>Einstein's Special Theory of Relativity is based on two postulates:</p>
+  <ol>
+    <li>The laws of physics are the same in all inertial frames.</li>
+    <li>The speed of light in vacuum is the same for all observers, regardless of their inertial frame.</li>
+  </ol>
+
+  <div class="equation">
+    \( c = 3 \times 10^8 \ \text{m/s} \)
+  </div>
+
+  <h2>Interactive Quiz</h2>
+  <div class="quiz">
+    <p>Which of the following is an inertial frame?</p>
+    <form id="quizForm">
+      <label><input type="radio" name="answer" value="a"> A car turning a corner</label>
+      <label><input type="radio" name="answer" value="b"> A spacecraft floating in deep space</label>
+      <label><input type="radio" name="answer" value="c"> A person in a lift accelerating downward</label>
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <div class="answer" id="quizAnswer"></div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const choices = document.getElementsByName('answer');
+      let selected;
+      for (const choice of choices) {
+        if (choice.checked) {
+          selected = choice.value;
+          break;
+        }
+      }
+      const answerDiv = document.getElementById('quizAnswer');
+      if (selected === 'b') {
+        answerDiv.innerHTML = 'Correct! A spacecraft in deep space is a nearly perfect inertial frame.';
+      } else {
+        answerDiv.innerHTML = 'Not quite. Remember, inertial frames are not accelerating.';
+      }
+    }
+  </script>
+
+  <h2>Practical Applications</h2>
+  <ul>
+    <li><strong>GPS Satellites:</strong> Require relativistic corrections because they orbit in nearly inertial frames.</li>
+    <li><strong>Space Missions:</strong> Calculations of orbits use inertial frames for accuracy.</li>
+    <li><strong>Seismology:</strong> Inertial sensors detect ground motion independent of frame acceleration.</li>
+  </ul>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Did you know that before Einstein, it was thought that light needed a medium (called "aether") to travel? His theory removed that assumption, revolutionizing physics!
+  </div>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Inertial frames are crucial for understanding motion without fictitious forces.</li>
+    <li>They provide the foundation for Special Relativity.</li>
+    <li>Many real-world systems are modeled using inertial frames.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

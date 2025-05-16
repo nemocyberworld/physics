@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmological Principles - Theory of Relativity and Cosmology</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #003366;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 0.3rem;
+    }
+    .section-content {
+      display: none;
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid #003366;
+      background-color: #f9faff;
+      border-radius: 4px;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e7f3ff;
+      border-left: 5px solid #1a73e8;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-style: italic;
+    }
+    .example-btn {
+      background-color: #1a73e8;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .example-popup {
+      display: none;
+      background: #fff;
+      border: 2px solid #1a73e8;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(26, 115, 232, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cosmology: Cosmological Principles</h1>
+  <p>
+    In this lesson, we will dive deep into the fundamental principles that govern our understanding of the universe at large scales, known as the <strong>Cosmological Principles</strong>.
+    These principles are the backbone of modern cosmology and help us build models of the universe using Einstein's Theory of Relativity.
+  </p>
+  <p>Click the section headings below to expand detailed explanations, real-world examples, and fun facts.</p>
+
+  <!-- The Cosmological Principle -->
+  <h2 id="cosmo-principle">1. The Cosmological Principle</h2>
+  <div class="section-content">
+    <p>
+      The <strong>Cosmological Principle</strong> states that on large scales, the universe is:
+    </p>
+    <ul>
+      <li><strong>Homogeneous:</strong> It looks the same at every point in space.</li>
+      <li><strong>Isotropic:</strong> It looks the same in every direction.</li>
+    </ul>
+    <p>
+      This principle assumes there is no special place or direction in the universe, allowing us to simplify complex cosmological models.
+    </p>
+    <p>
+      <strong>Example:</strong> Imagine standing in a giant forest where all trees are evenly spread and look identical in every direction. No matter where you stand or look, the scene looks uniform.
+    </p>
+  </div>
+
+  <!-- Homogeneity in Detail -->
+  <h2 id="homogeneity">2. Homogeneity in Detail</h2>
+  <div class="section-content">
+    <p>
+      Homogeneity means that matter, energy, and galaxies are evenly distributed on large scales (hundreds of millions of light-years).
+    </p>
+    <p>
+      While locally the universe is very clumpy (stars, planets, galaxies), averaging over large distances smooths out irregularities.
+    </p>
+    <p>
+      <strong>Real-world example:</strong> The Cosmic Microwave Background (CMB) radiation measured by satellites like COBE and Planck is uniform to about one part in 100,000, confirming homogeneity.
+    </p>
+    <button class="example-btn" onclick="toggleExample('cmb-example')">Show Example: Cosmic Microwave Background Uniformity</button>
+    <div id="cmb-example" class="example-popup">
+      <p>
+        The temperature of the CMB is roughly 2.725 K everywhere in the sky, with tiny fluctuations. This uniformity supports the homogeneity assumption on large scales.
+      </p>
+    </div>
+  </div>
+
+  <!-- Isotropy in Detail -->
+  <h2 id="isotropy">3. Isotropy in Detail</h2>
+  <div class="section-content">
+    <p>
+      Isotropy means the universe looks the same in all directions to any observer. This was confirmed by measurements of galaxy distributions and the CMB.
+    </p>
+    <p>
+      For example, the brightness and temperature of the CMB does not depend on the direction we observe.
+    </p>
+    <p>
+      <strong>Fun Fact:</strong> Isotropy helps astronomers assume that physics laws we observe locally apply throughout the universe.
+    </p>
+  </div>
+
+  <!-- Implications for Cosmology -->
+  <h2 id="implications">4. Implications of the Cosmological Principle</h2>
+  <div class="section-content">
+    <p>
+      Using the Cosmological Principle, cosmologists model the universe as expanding uniformly — leading to the famous <strong>Friedmann-Lemaître-Robertson-Walker (FLRW) metric</strong>.
+    </p>
+    <div class="equation">
+      $$ ds^2 = -c^2 dt^2 + a(t)^2 \left( \frac{dr^2}{1 - kr^2} + r^2 d\Omega^2 \right) $$
+    </div>
+    <p>
+      Here, \(a(t)\) is the scale factor describing expansion, and \(k\) represents spatial curvature (positive, zero, or negative).
+    </p>
+    <p>
+      This metric is a cornerstone for modern cosmology, describing how distances between galaxies change over time.
+    </p>
+  </div>
+
+  <!-- Real-World Applications -->
+  <h2 id="applications">5. Real-World Applications</h2>
+  <div class="section-content">
+    <p>
+      The Cosmological Principle guides observations and interpretations like:
+    </p>
+    <ul>
+      <li>Understanding the <strong>Big Bang</strong> as a uniform expansion from a hot dense state.</li>
+      <li>Interpreting redshifts of distant galaxies as evidence of universal expansion.</li>
+      <li>Modeling the growth of cosmic structure (galaxies and clusters).</li>
+      <li>Designing satellite missions like WMAP and Planck to map the CMB.</li>
+    </ul>
+  </div>
+
+  <!-- Fun Fact -->
+  <h2 id="fun-fact">6. Fun Fact</h2>
+  <div class="section-content">
+    <p class="fun-fact">
+      Despite the universe being homogeneous and isotropic on large scales, locally it is extremely varied — from planets and stars to black holes and galaxies — making cosmology both simple and incredibly complex!
+    </p>
+  </div>
+
+  <!-- Summary -->
+  <h2 id="summary">7. Summary</h2>
+  <div class="section-content" style="display: block;">
+    <p>
+      The <strong>Cosmological Principle</strong> underpins our modern understanding of the universe's large-scale structure, allowing us to simplify models by assuming uniformity and isotropy.
+    </p>
+    <p>
+      This leads directly to the use of FLRW metric in general relativity, enabling predictions about the universe's past, present, and future evolution.
+    </p>
+  </div>
+
+  <footer style="margin-top: 3rem;">
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Toggle expand/collapse sections on header click
+    document.querySelectorAll('h2').forEach(h2 => {
+      h2.addEventListener('click', () => {
+        const content = h2.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    // Toggle example popups
+    function toggleExample(id) {
+      const elem = document.getElementById(id);
+      if (elem.style.display === 'block') {
+        elem.style.display = 'none';
+      } else {
+        elem.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

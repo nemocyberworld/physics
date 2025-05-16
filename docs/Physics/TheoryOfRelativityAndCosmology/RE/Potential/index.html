@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relativistic Potential - Relativistic Electrodynamics</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #003366;
+    }
+    pre,
+    code {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .fun-fact {
+      background: #e7f3fe;
+      border-left: 5px solid #1e90ff;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #004080;
+    }
+    button {
+      background-color: #003366;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0055a5;
+    }
+    #interactiveResult {
+      background: #f0f8ff;
+      border-left: 4px solid #1e90ff;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-family: monospace;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relativistic Potential</h1>
+  <h2>Chapter: Relativistic Electrodynamics</h2>
+  <h3>Based on: Theory of Relativity and Cosmology</h3>
+
+  <p>
+    Welcome! This lesson will guide you through the concept of <strong>Relativistic Potential</strong>, a cornerstone idea in relativistic electrodynamics that generalizes the classical potentials
+    (electric scalar potential and magnetic vector potential) into a four-vector form compatible with Einstein’s theory of relativity.
+  </p>
+
+  <h2>1. What is Relativistic Potential?</h2>
+  <p>
+    In classical electromagnetism, electric and magnetic fields can be derived from potentials:
+  </p>
+  <ul>
+    <li>Scalar potential \( \phi \) — related to the electric field</li>
+    <li>Vector potential \( \mathbf{A} \) — related to the magnetic field</li>
+  </ul>
+  <p>
+    However, these potentials are frame-dependent and do not transform nicely under relativistic transformations. To fix this, physicists combine them into a single object:
+  </p>
+  <div class="equation">
+    $$ A^\mu = \left( \frac{\phi}{c}, \mathbf{A} \right) = \left( \frac{\phi}{c}, A_x, A_y, A_z \right) $$
+  </div>
+  <p>
+    This four-vector \( A^\mu \) is called the <em>four-potential</em> or relativistic potential. It transforms simply under Lorentz transformations and forms the basis for relativistic electrodynamics.
+  </p>
+
+  <h2>2. Why Four-Potential?</h2>
+  <p>
+    Just like space and time unify into spacetime, electric and magnetic potentials unify into four-potential to maintain consistency across different inertial frames moving at relativistic speeds.
+    This unification ensures Maxwell’s equations retain the same form in all frames.
+  </p>
+
+  <h2>3. Mathematical Definition</h2>
+  <p>The four-potential:</p>
+  <div class="equation">
+    $$ A^\mu = \left( \frac{\phi}{c}, A_x, A_y, A_z \right) $$
+  </div>
+  <p>
+    relates to the electromagnetic field tensor \( F^{\mu\nu} \) by:
+  </p>
+  <div class="equation">
+    $$ F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu $$
+  </div>
+  <p>where \( \partial^\mu \) is the four-gradient operator.</p>
+
+  <h2>4. Interactive: Calculate Four-Potential Components</h2>
+  <p>Try inputting scalar and vector potentials to see the corresponding four-potential components.</p>
+
+  <label for="scalarPotential">Scalar Potential \( \phi \) (Volts): </label>
+  <input type="number" id="scalarPotential" value="100" step="any" />
+  <br />
+  <label for="vectorAx">Vector Potential \( A_x \) (T·m): </label>
+  <input type="number" id="vectorAx" value="0.1" step="any" />
+  <br />
+  <label for="vectorAy">Vector Potential \( A_y \) (T·m): </label>
+  <input type="number" id="vectorAy" value="0" step="any" />
+  <br />
+  <label for="vectorAz">Vector Potential \( A_z \) (T·m): </label>
+  <input type="number" id="vectorAz" value="0" step="any" />
+  <br />
+  <button onclick="calculateFourPotential()">Calculate Four-Potential</button>
+
+  <div id="interactiveResult"></div>
+
+  <script>
+    function calculateFourPotential() {
+      const phi = parseFloat(document.getElementById('scalarPotential').value);
+      const Ax = parseFloat(document.getElementById('vectorAx').value);
+      const Ay = parseFloat(document.getElementById('vectorAy').value);
+      const Az = parseFloat(document.getElementById('vectorAz').value);
+
+      const c = 299792458; // Speed of light in m/s
+      const A0 = phi / c;
+
+      const resultDiv = document.getElementById('interactiveResult');
+      resultDiv.innerHTML = `
+        <p><strong>Four-potential components \( A^\mu \):</strong></p>
+        <pre>
+A⁰ = φ / c = ${phi} / ${c.toExponential(3)} = ${A0.toExponential(6)} 1/(Volt·s/m)
+Aˣ = ${Ax}
+Aʸ = ${Ay}
+Aᶻ = ${Az}
+        </pre>
+        <p>
+          This four-vector can now be used in relativistic calculations and transforms according to the Lorentz transformation.
+        </p>
+      `;
+    }
+  </script>
+
+  <h2>5. Real-World Applications of Relativistic Potential</h2>
+
+  <h3>5.1 Particle Accelerators</h3>
+  <p>
+    Particle accelerators use electromagnetic fields to accelerate charged particles close to the speed of light.
+    The four-potential helps predict how fields behave and transform in the laboratory frame and the particle’s rest frame,
+    essential for accurate beam control.
+  </p>
+
+  <h3>5.2 Electromagnetic Radiation from Moving Charges</h3>
+  <p>
+    When charges move at relativistic speeds, the potentials and fields they produce transform non-trivially.
+    The relativistic potential framework helps physicists understand phenomena like synchrotron radiation
+    emitted by particles spiraling in magnetic fields — important for astrophysics and medical imaging.
+  </p>
+
+  <h3>5.3 GPS and Satellite Communications</h3>
+  <p>
+    GPS satellites move rapidly relative to observers on Earth. Relativistic corrections to electromagnetic potentials
+    are necessary to keep signal timing accurate, ensuring GPS receivers compute precise locations.
+  </p>
+
+  <h2>6. Fun Fact</h2>
+  <div class="fun-fact">
+    The concept of four-potential was developed to ensure that Maxwell’s equations were compatible with Einstein’s special relativity.
+    This mathematical elegance has been critical in developing technologies such as particle physics experiments and modern telecommunications.
+  </div>
+
+  <h2>7. Deep Dive: Lorentz Transformation of Four-Potential</h2>
+  <p>
+    Under a Lorentz transformation \( \Lambda^\mu_{\ \nu} \), the four-potential transforms like:
+  </p>
+  <div class="equation">
+    $$ A'^\mu = \Lambda^\mu_{\ \nu} A^\nu $$
+  </div>
+  <p>
+    For a boost in the x-direction with velocity \( v \), the transformation matrix elements are:
+  </p>
+  <div class="equation">
+    $$ \Lambda^\mu_{\ \nu} =
+    \begin{bmatrix}
+      \gamma & -\beta \gamma & 0 & 0 \\
+      -\beta \gamma & \gamma & 0 & 0 \\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 1
+    \end{bmatrix}
+    $$
+  </div>
+  <p>
+    where \( \beta = v/c \), and \( \gamma = \frac{1}{\sqrt{1-\beta^2}} \).
+  </p>
+
+  <h3>Interactive: Apply Lorentz Boost to Four-Potential</h3>
+  <p>Enter velocity (as fraction of c) and see how four-potential components transform.</p>
+
+  <label for="velocityBeta">Velocity \( \beta = v/c \) (0 to 0.99): </label>
+  <input type="number" id="velocityBeta" value="0.5" min="0" max="0.99" step="0.01" />
+  <button onclick="applyLorentzBoost()">Apply Lorentz Boost</button>
+
+  <div id="boostResult"></div>
+
+  <script>
+    function applyLorentzBoost() {
+      const beta = parseFloat(document.getElementById('velocityBeta').value);
+      if (beta < 0 || beta >= 1) {
+        alert('Please enter a beta between 0 and 0.99');
+        return;
+      }
+
+      const gamma = 1 / Math.sqrt(1 - beta * beta);
+
+      // Use previously entered potentials or default
+      const phi = parseFloat(document.getElementById('scalarPotential').value) || 100;
+      const Ax = parseFloat(document.getElementById('vectorAx').value) || 0.1;
+      const Ay = parseFloat(document.getElementById('vectorAy').value) || 0;
+      const Az = parseFloat(document.getElementById('vectorAz').value) || 0;
+
+      const c = 299792458;
+      const A0 = phi / c;
+
+      // Lorentz boost in x-direction:
+      // A'⁰ = γ (A⁰ - β Aˣ)
+      // A'ˣ = γ (Aˣ - β A⁰)
+      // A'ʸ = Aʸ
+      // A'ᶻ = Aᶻ
+
+      const A0_prime = gamma * (A0 - beta * Ax);
+      const Ax_prime = gamma * (Ax - beta * A0);
+      const Ay_prime = Ay;
+      const Az_prime = Az;
+
+      const boostResult = document.getElementById('boostResult');
+      boostResult.innerHTML = `
+        <p><strong>After Lorentz boost with β = ${beta.toFixed(2)} (v = ${(beta * c).toExponential(2)} m/s):</strong></p>
+        <pre>
+A'⁰ = ${A0_prime.toExponential(6)}
+A'ˣ = ${Ax_prime.toExponential(6)}
+A'ʸ = ${Ay_prime.toExponential(6)}
+A'ᶻ = ${Az_prime.toExponential(6)}
+        </pre>
+        <p>Note how the scalar and vector potentials mix in relativistic frames.</p>
+      `;
+    }
+  </script>
+
+  <h2>8. Summary</h2>
+  <p>
+    - The relativistic potential or four-potential \( A^\mu \) unifies electric and magnetic potentials into a single four-vector.<br />
+    - It transforms simply under Lorentz transformations, preserving the laws of electromagnetism in all inertial frames.<br />
+    - This concept is essential in particle physics, astrophysics, satellite technology, and many modern electromagnetic applications.<br />
+    - Interactive exercises above help visualize how potentials change with velocity and frame transformations.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

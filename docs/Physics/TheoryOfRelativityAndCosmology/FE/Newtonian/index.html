@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inconsistencies of Newtonian Gravitation with STR</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #339;
+    }
+    .fun-fact {
+      background: #fff8dc;
+      padding: 0.8rem;
+      border-left: 5px solid orange;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Inconsistencies of Newtonian Gravitation with Special Theory of Relativity (STR)</h1>
+
+  <h2>Introduction</h2>
+  <p>Newton's law of gravitation was a triumph of classical physics. However, it conflicts with the principles of the Special Theory of Relativity (STR). Let's explore these inconsistencies and understand why Einstein had to reformulate gravity in terms of spacetime geometry.</p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> Newton's gravity assumes instant communication between masses — something Einstein found impossible under STR, which caps the speed of information at the speed of light!
+  </div>
+
+  <h2>Newton’s Law of Gravitation</h2>
+  <p>The gravitational force between two masses is given by:</p>
+  <div class="equation">
+    $$ F = G \frac{m_1 m_2}{r^2} $$
+  </div>
+  <p>This implies an <strong>instantaneous</strong> action at a distance. If one mass suddenly moves, the other should feel the change immediately. This violates causality in STR.</p>
+
+  <h2>Special Theory of Relativity (STR) Principles</h2>
+  <ul>
+    <li>The speed of light \( c \) is the ultimate speed limit.</li>
+    <li>Physical laws must be the same in all inertial frames.</li>
+    <li>No instantaneous effects are allowed — everything propagates with a finite speed.</li>
+  </ul>
+
+  <h2>Key Inconsistencies</h2>
+  <ol>
+    <li><strong>Instant Action:</strong> Newtonian gravity implies that gravitational influence travels instantly — STR demands locality and finite propagation speed.</li>
+    <li><strong>No Mass-Energy Equivalence:</strong> Newtonian gravity only considers mass, ignoring energy contributions like pressure and radiation (which STR includes).</li>
+    <li><strong>Frame Dependence:</strong> Newtonian laws are not invariant under Lorentz transformations.</li>
+  </ol>
+
+  <h2>Interactive Comparison</h2>
+  <div class="interactive">
+    <h3>Signal Delay Simulation</h3>
+    <label for="distance">Distance between objects (light-years):</label>
+    <input type="number" id="distance" value="1">
+    <button onclick="calculateDelay()">Calculate Light-Delay</button>
+    <div id="delayResult"></div>
+  </div>
+  <script>
+    function calculateDelay() {
+      const d = parseFloat(document.getElementById('distance').value);
+      const c = 299792458; // m/s
+      const seconds = d * 365.25 * 24 * 3600;
+      document.getElementById('delayResult').innerHTML = `<p>Signal delay: ${seconds.toLocaleString()} seconds (~${(seconds/3600).toFixed(2)} hours)</p>`;
+    }
+  </script>
+
+  <h2>Real-World Examples</h2>
+  <ul>
+    <li><strong>GPS Systems:</strong> Rely on relativistic corrections — Newtonian predictions alone would lead to massive positioning errors!</li>
+    <li><strong>Binary Pulsars:</strong> Observations match general relativity predictions, not Newton’s gravity.</li>
+    <li><strong>Black Holes:</strong> Newtonian physics cannot explain the event horizon or escape velocity beyond light speed.</li>
+  </ul>
+
+  <h2>Einstein’s Resolution</h2>
+  <p>To resolve these contradictions, Einstein proposed the <strong>general theory of relativity</strong> — where gravity is not a force but a curvature in spacetime caused by mass-energy.</p>
+  <p>This leads to the Einstein field equations:</p>
+  <div class="equation">
+    $$ G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} $$
+  </div>
+
+  <h2>Fun Fact</h2>
+  <div class="fun-fact">
+    Einstein once said, "Time and space and gravitation have no separate existence from matter." This unification birthed the modern understanding of the universe.
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>Newtonian gravitation, while successful for centuries, breaks down under the rigorous demands of STR. It’s the geometrical reformulation by Einstein that gives us a consistent, relativistically sound description of gravity.</p>
+
+  <h2>Reflection Questions</h2>
+  <ul>
+    <li>Why is instantaneous action-at-a-distance incompatible with STR?</li>
+    <li>How does the Einstein tensor improve upon Newtonian gravity?</li>
+    <li>What observable phenomena demand relativistic corrections to Newton’s law?</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>

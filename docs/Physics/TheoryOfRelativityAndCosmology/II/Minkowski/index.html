@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invariant Intervals in 1+1 and 3+1 Dimensions - Minkowski Space-Time</title>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive-section {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px solid #003366;
+      background-color: #e6f0ff;
+      border-radius: 6px;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    input[type="number"] {
+      width: 80px;
+      margin-right: 1rem;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #003366;
+    }
+    footer p {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Invariant Intervals in 1+1 and 3+1 Dimensions (Minkowski Space-Time)</h1>
+
+  <p>
+    In this lesson, we will explore the concept of <strong>invariant intervals</strong> in
+    <em>special relativity</em>, focusing on both <strong>1+1</strong> and
+    <strong>3+1</strong> dimensional Minkowski space-time. Understanding invariant intervals is
+    key to grasping how space and time unify in the theory of relativity and how events relate
+    causally.
+  </p>
+
+  <h2>1. Minkowski Space-Time: A Quick Recap</h2>
+  <p>
+    Minkowski space-time combines space and time into a four-dimensional continuum, where an
+    event is described by coordinates:
+  </p>
+  <div class="equation">
+    $$ (ct, x, y, z) $$
+  </div>
+  <p>
+    Here, \(c\) is the speed of light, used to convert time into meters so it can be combined
+    meaningfully with space coordinates.
+  </p>
+
+  <h2>2. The Invariant Interval: Definition</h2>
+  <p>
+    The <strong>invariant interval</strong> \(s^2\) between two events in Minkowski space-time is:
+  </p>
+
+  <h3>In 3+1 Dimensions:</h3>
+  <div class="equation">
+    $$ s^2 = -(c \Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 $$
+  </div>
+
+  <h3>In 1+1 Dimensions (just one space and one time dimension):</h3>
+  <div class="equation">
+    $$ s^2 = -(c \Delta t)^2 + (\Delta x)^2 $$
+  </div>
+
+  <p>
+    This quantity is called <em>invariant</em> because it is the same for all inertial observers,
+    no matter how fast they move relative to each other.
+  </p>
+
+  <h2>3. Why 1+1 Dimensions?</h2>
+  <p>
+    Sometimes we simplify problems to just one spatial dimension plus time (1+1D) to
+    understand core concepts without the complexity of extra dimensions. It’s a great way to
+    visualize and calculate invariant intervals.
+  </p>
+
+  <h2>4. Classification of Intervals</h2>
+  <p>
+    Based on the value of \(s^2\), intervals fall into three categories:
+  </p>
+  <ul>
+    <li><strong>Timelike (\(s^2 < 0\)):</strong> Events can influence each other; a signal traveling slower than light can connect them.</li>
+    <li><strong>Lightlike or Null (\(s^2 = 0\)):</strong> Events connected exactly by light.</li>
+    <li><strong>Spacelike (\(s^2 > 0\)):</strong> Events cannot causally affect each other.</li>
+  </ul>
+
+  <h2>5. Interactive Calculator: 1+1D Interval</h2>
+  <p>Enter values for time and space difference between two events in 1+1 dimensions:</p>
+  <div class="interactive-section">
+    <label for="t1">Time difference (\(\Delta t\)) in seconds:</label>
+    <input type="number" id="t1" value="1" step="0.1" />
+    <label for="x1">Space difference (\(\Delta x\)) in meters:</label>
+    <input type="number" id="x1" value="100000000" step="1000000" />
+    <button onclick="calculateInterval1D()">Calculate 1+1D Interval</button>
+    <div class="result" id="result1D"></div>
+  </div>
+
+  <h2>6. Interactive Calculator: 3+1D Interval</h2>
+  <p>Enter values for time and space differences between two events in full 3+1 dimensions:</p>
+  <div class="interactive-section">
+    <label for="t3">Time difference (\(\Delta t\)) in seconds:</label>
+    <input type="number" id="t3" value="2" step="0.1" />
+    <label for="x3">Space difference (\(\Delta x\)) in meters:</label>
+    <input type="number" id="x3" value="200000000" step="1000000" />
+    <label for="y3">Space difference (\(\Delta y\)) in meters:</label>
+    <input type="number" id="y3" value="0" step="1" />
+    <label for="z3">Space difference (\(\Delta z\)) in meters:</label>
+    <input type="number" id="z3" value="0" step="1" />
+    <button onclick="calculateInterval3D()">Calculate 3+1D Interval</button>
+    <div class="result" id="result3D"></div>
+  </div>
+
+  <h2>7. Real-World Examples & Applications</h2>
+
+  <h3>GPS Satellites and Relativity</h3>
+  <p>
+    GPS satellites orbit Earth at high speeds and are far from Earth's surface, experiencing
+    different gravitational fields. Both Special and General Relativity affect the
+    satellites' clocks, and the invariant interval concept helps ensure their timing remains
+    accurate, so your GPS can pinpoint your location within meters.
+  </p>
+
+  <h3>Particle Accelerators</h3>
+  <p>
+    High-energy particles accelerated close to the speed of light exhibit relativistic effects.
+    Calculating their worldlines and causal relations depends on invariant intervals in
+    Minkowski space-time, enabling precise control and understanding of their behavior.
+  </p>
+
+  <h3>Cosmology and Light Travel</h3>
+  <p>
+    Light traveling billions of light-years in the universe follows null intervals. Studying
+    intervals helps cosmologists understand causality across the universe and the nature of
+    cosmic horizons.
+  </p>
+
+  <h2>8. Fun Fact</h2>
+  <p>
+    <em>Did you know?</em> Minkowski originally developed his space-time formalism to provide
+    Einstein’s relativity with a geometrical foundation — transforming physics into a
+    beautiful, four-dimensional geometry problem.
+  </p>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+
+  <script>
+    const c = 299792458; // speed of light in m/s
+
+    function calculateInterval1D() {
+      const deltaT = parseFloat(document.getElementById("t1").value);
+      const deltaX = parseFloat(document.getElementById("x1").value);
+
+      const s2 = -Math.pow(c * deltaT, 2) + Math.pow(deltaX, 2);
+
+      let type;
+      if (s2 < 0) {
+        type = "Timelike interval (causally connected events)";
+      } else if (s2 === 0) {
+        type = "Lightlike (null) interval (events connected by light)";
+      } else {
+        type = "Spacelike interval (events cannot causally influence each other)";
+      }
+
+      document.getElementById(
+        "result1D"
+      ).innerHTML = `<p><strong>Interval squared \(s^2\):</strong> ${s2.toExponential(
+        3
+      )} m²<br/><strong>Interpretation:</strong> ${type}</p>`;
+    }
+
+    function calculateInterval3D() {
+      const deltaT = parseFloat(document.getElementById("t3").value);
+      const deltaX = parseFloat(document.getElementById("x3").value);
+      const deltaY = parseFloat(document.getElementById("y3").value);
+      const deltaZ = parseFloat(document.getElementById("z3").value);
+
+      const s2 =
+        -Math.pow(c * deltaT, 2) +
+        Math.pow(deltaX, 2) +
+        Math.pow(deltaY, 2) +
+        Math.pow(deltaZ, 2);
+
+      let type;
+      if (s2 < 0) {
+        type = "Timelike interval (causally connected events)";
+      } else if (s2 === 0) {
+        type = "Lightlike (null) interval (events connected by light)";
+      } else {
+        type = "Spacelike interval (events cannot causally influence each other)";
+      }
+
+      document.getElementById(
+        "result3D"
+      ).innerHTML = `<p><strong>Interval squared \(s^2\):</strong> ${s2.toExponential(
+        3
+      )} m²<br/><strong>Interpretation:</strong> ${type}</p>`;
+    }
+  </script>
+</body>
+</html>

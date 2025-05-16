@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Transformations in Relativistic Electrodynamics</title>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fcfcfc;
+      color: #333;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-left: 5px solid #003366;
+      overflow-x: auto;
+    }
+    .equation {
+      font-family: 'Courier New', monospace;
+      background: #f9f9f9;
+      display: block;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-left: 3px solid #999;
+    }
+    .interactive {
+      background-color: #eef;
+      padding: 1rem;
+      margin-top: 1rem;
+      border: 1px solid #ccd;
+      border-radius: 8px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Field Transformations in Relativistic Electrodynamics</h1>
+
+  <p>
+    In the framework of Special Relativity, electric and magnetic fields are not separate, isolated phenomena. They are interconnected and
+    transform into each other when viewed from different inertial reference frames. This realization was one of the crowning achievements of Einstein's theory,
+    unifying electricity and magnetism into a single elegant structure.
+  </p>
+
+  <h2>1. Background: Electric and Magnetic Fields</h2>
+  <p>
+    A stationary charge produces an electric field. When the charge moves, it also creates a magnetic field. But how these fields appear depends
+    on the observer's state of motion. That’s where field transformations come into play.
+  </p>
+
+  <h2>2. Lorentz Transformation of Fields</h2>
+  <p>
+    When you switch to a moving frame (along the x-axis at velocity \( v \)), the electric and magnetic fields transform as:
+  </p>
+
+  <div class="equation">
+    $$ E'_x = E_x $$
+    $$ E'_y = \gamma (E_y - v B_z) $$
+    $$ E'_z = \gamma (E_z + v B_y) $$
+  </div>
+  <div class="equation">
+    $$ B'_x = B_x $$
+    $$ B'_y = \gamma \left(B_y + \frac{v}{c^2} E_z\right) $$
+    $$ B'_z = \gamma \left(B_z - \frac{v}{c^2} E_y\right) $$
+  </div>
+  <p>
+    where \( \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} \) is the Lorentz factor.
+  </p>
+
+  <h2>3. Interactive: Field Transformer</h2>
+  <p>Try changing the velocity and initial fields to see how they transform:</p>
+  <div class="interactive">
+    <label>Velocity (fraction of c): <input type="number" id="v" value="0.5" step="0.01" min="0" max="0.99"></label><br>
+    <label>E_y: <input type="number" id="Ey" value="10"></label>
+    <label>B_z: <input type="number" id="Bz" value="5"></label><br>
+    <button onclick="transformFields()">Transform Fields</button>
+    <p id="transformationOutput"></p>
+  </div>
+
+  <script>
+    function transformFields() {
+      const c = 1;
+      let v = parseFloat(document.getElementById("v").value);
+      let Ey = parseFloat(document.getElementById("Ey").value);
+      let Bz = parseFloat(document.getElementById("Bz").value);
+      const gamma = 1 / Math.sqrt(1 - v * v);
+      const EyPrime = gamma * (Ey - v * Bz);
+      const BzPrime = gamma * (Bz - v * Ey / (c * c));
+      document.getElementById("transformationOutput").innerText =
+        `Transformed E'_y: ${EyPrime.toFixed(2)}, B'_z: ${BzPrime.toFixed(2)}`;
+    }
+  </script>
+
+  <h2>4. Real World Example: Magnetic Fields in Moving Trains</h2>
+  <p>
+    Suppose you're sitting on a train moving at a significant fraction of the speed of light. A magnetic field seen by a person on the platform
+    may appear as a combination of electric and magnetic fields to you, due to Lorentz transformations.
+  </p>
+
+  <h2>5. Application: Particle Accelerators</h2>
+  <p>
+    Field transformations are essential in particle accelerators like CERN’s Large Hadron Collider. Engineers calculate how fields appear to
+    particles traveling close to the speed of light, ensuring proper steering and focusing using both electric and magnetic fields.
+  </p>
+
+  <h2>6. Fun Fact</h2>
+  <p>
+    The unification of electric and magnetic fields is a cornerstone of modern physics. This concept paved the way for the creation of the
+    Standard Model and the idea of field theories that now include the strong and weak nuclear forces as well!
+  </p>
+
+  <h2>7. Tensor Formulation</h2>
+  <p>
+    The fields can also be represented as a tensor, making their transformation even more elegant:
+  </p>
+  <div class="equation">
+    $$ F^{\mu\nu} = \begin{pmatrix} 0 & -E_x & -E_y & -E_z \\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{pmatrix} $$
+  </div>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Electric and magnetic fields are interdependent and transform between frames.</li>
+    <li>Relativity links their behavior via Lorentz transformations.</li>
+    <li>This has profound implications in high-energy physics, astrophysics, and engineering.</li>
+  </ul>
+
+  <footer>
+    <p><a href="../index.html">&#8592; Back to Home</a></p>
+  </footer>
+</body>
+</html>
